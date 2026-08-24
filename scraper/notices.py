@@ -10,6 +10,7 @@ Columns: Sr.No. | Date (DD-MM-YYYY) | Send SMS (title+body, no separator) | Atta
 
 import logging
 from dataclasses import dataclass
+from datetime import datetime
 from typing import Optional
 
 from bs4 import BeautifulSoup
@@ -29,8 +30,14 @@ class Notice:
     text: str
     attachment_url: Optional[str]
 
+    @property
+    def posted_date_parsed(self) -> datetime:
+        return datetime.strptime(self.posted_date, "%d-%m-%Y")
 
-def fetch_notices(session: ERPSession, limit: int = 50) -> list:
+
+def fetch_all_notices(session: ERPSession) -> list:
+    """Fetch the full notice history — the whole table renders in one response,
+    newest first, no GridView paging involved."""
     resp = session.get(NOTICES_PATH)
     soup = BeautifulSoup(resp.text, "lxml")
     table = soup.find("table", id=NOTICES_TABLE_ID)
@@ -41,7 +48,7 @@ def fetch_notices(session: ERPSession, limit: int = 50) -> list:
 
     rows = table.find_all("tr")[1:]  # skip header row
     notices = []
-    for row in rows[:limit]:
+    for row in rows:
         cells = row.find_all("td")
         if len(cells) < 4:
             continue
@@ -53,8 +60,16 @@ def fetch_notices(session: ERPSession, limit: int = 50) -> list:
         attachment_url = href if href and href.rstrip("/") != "http:" else None
         notices.append(Notice(sr=sr, posted_date=posted_date, text=text, attachment_url=attachment_url))
 
-    logger.info("Fetched %d notices (of %d rows available)", len(notices), len(rows))
+    logger.info("Fetched %d notices from SchoolNotice.aspx", len(notices))
     return notices
+
+
+def fetch_notices(session: ERPSession, limit: int = 50) -> list:
+    return fetch_all_notices(session)[:limit]
+
+
+def fetch_notices_for_year(session: ERPSession, year: int) -> list:
+    return [n for n in fetch_all_notices(session) if n.posted_date_parsed.year == year]
 
 
 if __name__ == "__main__":
