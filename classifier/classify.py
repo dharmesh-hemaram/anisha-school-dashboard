@@ -1,6 +1,7 @@
 """
-Notice classifier: keyword/pattern rules first (fast, free, auditable),
-Claude API fallback for anything that doesn't confidently match.
+Notice classifier: keyword/pattern rules only. Anything that doesn't
+confidently match a rule lands in General/Other -- no AI fallback, no
+external dependency or cost for classification.
 
 Categories derived from a full year (517 notices, 2026) on the SNBP Wagholi
 ERP. The original 6-category guess (from a 50-notice sample) only covered
@@ -18,13 +19,9 @@ ERP. The original 6-category guess (from a 50-notice sample) only covered
     Facebook-photo recaps of things already done.
 """
 
-import logging
-import os
 import re
 from dataclasses import dataclass
 from typing import Optional
-
-logger = logging.getLogger(__name__)
 
 CATEGORIES = [
     "Daily Class Update",
@@ -80,7 +77,7 @@ _SCHOOL_EVENT_RE = re.compile(
 @dataclass
 class Classification:
     category: str
-    method: str  # "pattern" or "ai"
+    method: str  # "pattern" or "default"
     confidence: float
     subject: Optional[str] = None
     chapter: Optional[str] = None
@@ -142,35 +139,11 @@ def classify_pattern(text: str) -> Optional[Classification]:
     return None
 
 
-def classify_ai(text: str) -> Classification:
-    import anthropic
-
-    client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
-    prompt = (
-        "Classify this school notice into exactly one of these categories:\n"
-        + "\n".join(f"- {c}" for c in CATEGORIES)
-        + "\n\nRespond with only the category name, nothing else.\n\nNotice:\n"
-        + text[:2000]
-    )
-    response = client.messages.create(
-        model="claude-opus-5",
-        max_tokens=20,
-        output_config={"effort": "low"},
-        messages=[{"role": "user", "content": prompt}],
-    )
-    category = next((b.text.strip() for b in response.content if b.type == "text"), "")
-    if category not in CATEGORIES:
-        logger.warning("AI returned unrecognized category %r, defaulting to General/Other", category)
-        category = "General/Other"
-    return Classification(category, "ai", 0.6, subject=_extract_subject(text), chapter=_extract_chapter(text))
-
-
 def classify(text: str) -> Classification:
     result = classify_pattern(text)
     if result is not None:
         return result
-    try:
-        return classify_ai(text)
-    except Exception:
-        logger.exception("AI classification failed, defaulting to General/Other")
-        return Classification("General/Other", "pattern", 0.3)
+    return Classification(
+        "General/Other", "default", 0.5,
+        subject=_extract_subject(text), chapter=_extract_chapter(text),
+    )
