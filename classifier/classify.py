@@ -26,6 +26,27 @@ CATEGORIES = [
 _SUBJECT_RE = re.compile(r"subject\s*[:\-]\s*([^\n]+)", re.I)
 _CHAPTER_RE = re.compile(r"(?:chapter|topic|lesson(?:\s*no\.?)?)\s*[:\-]?\s*([^\n]+)", re.I)
 
+# Maps loose/abbreviated spellings seen in real notices to one canonical
+# label per subject, so the dashboard's subject picker doesn't fragment
+# into near-duplicates (e.g. "SST" / "S.S.T" / "Social studies").
+_SUBJECT_ALIASES = {
+    "sst": "Social Studies",
+    "s.s.t": "Social Studies",
+    "computer science": "Computer Science",
+    "comp science": "Computer Science",
+    "eng": "English",
+    "hindi grammar": "Hindi",
+    "gk": "GK",
+    "seek/gk": "GK",
+}
+
+
+def _normalize_subject(raw: str) -> str:
+    key = raw.strip(" .").lower()
+    if key in _SUBJECT_ALIASES:
+        return _SUBJECT_ALIASES[key]
+    return raw.strip(" .").title()
+
 
 @dataclass
 class Classification:
@@ -38,7 +59,7 @@ class Classification:
 
 def _extract_subject(text: str) -> Optional[str]:
     m = _SUBJECT_RE.search(text)
-    return m.group(1).strip(" .")[:80] if m else None
+    return _normalize_subject(m.group(1)[:80]) if m else None
 
 
 def _extract_chapter(text: str) -> Optional[str]:
