@@ -1,0 +1,472 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>III F Notice Board</title>
+<meta name="theme-color" content="#232B3D">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="III F Notices">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<style>
+  :root {
+    --bg: #F1F0E4;
+    --surface: #FBFAF3;
+    --surface-2: #E9E7D9;
+    --border: #DBD8C5;
+    --text: #232B3D;
+    --text-muted: #5E6675;
+    --text-faint: #8A8F7E;
+    --brand: #2B3654;
+    --brand-soft: #E4E3D3;
+    --warn: #B8710F;
+    --warn-ink: #7A4B0A;
+    --warn-bg: #FBEACB;
+    --warn-border: #E7C381;
+    --done-bg: #E1E9DA;
+    --done-border: #C1D2B7;
+    --past-bg: #E9E7DA;
+    --shadow: 0 1px 2px rgba(35,43,61,0.06), 0 4px 14px -6px rgba(35,43,61,0.16);
+    --radius: 12px;
+
+    --dot-dcu: #6C7A92;
+    --dot-notes: #2B3654;
+    --dot-exam: #B8710F;
+    --dot-event: #93586B;
+    --dot-holiday: #3E7A80;
+    --dot-celeb: #A0762F;
+    --dot-general: #8A8F7E;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #171B24;
+      --surface: #1E232E;
+      --surface-2: #262C39;
+      --border: #333A49;
+      --text: #E9E7DC;
+      --text-muted: #A3AAB8;
+      --text-faint: #767E72;
+      --brand: #A8B8E8;
+      --brand-soft: #29304A;
+      --warn: #E3A54B;
+      --warn-ink: #F0C077;
+      --warn-bg: #3A2E17;
+      --warn-border: #5C471F;
+      --done-bg: #212F22;
+      --done-border: #34492F;
+      --past-bg: #20242E;
+      --shadow: 0 1px 2px rgba(0,0,0,0.35), 0 6px 18px -8px rgba(0,0,0,0.5);
+      --dot-dcu: #8B98AE;
+      --dot-notes: #A8B8E8;
+      --dot-exam: #E3A54B;
+      --dot-event: #C48CA0;
+      --dot-holiday: #6BB3B8;
+      --dot-celeb: #D2A85E;
+      --dot-general: #767E72;
+    }
+  }
+
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font: 15px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    * { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+  }
+
+  .wrap { max-width: 640px; margin: 0 auto; padding: 0 14px 32px; }
+
+  /* ---- Masthead ---- */
+  .masthead {
+    padding: calc(10px + env(safe-area-inset-top)) 0 12px;
+    border-bottom: 2px solid var(--brand);
+    margin-bottom: 4px;
+  }
+  .masthead .eyebrow {
+    font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--brand); font-weight: 700;
+  }
+  .masthead h1 { font-size: 21px; font-weight: 700; margin: 3px 0 2px; letter-spacing: -0.01em; }
+  .masthead .school { font-size: 12px; color: var(--text-muted); }
+  .subscribe-btn {
+    display: inline-flex; align-items: center; gap: 5px; margin-top: 8px;
+    font-size: 12.5px; font-weight: 600; color: var(--brand);
+    background: var(--brand-soft); border: 1px solid var(--border);
+    border-radius: 999px; padding: 7px 12px; text-decoration: none;
+  }
+  .subscribe-btn svg { width: 12px; height: 12px; flex-shrink: 0; }
+
+  /* ---- Tab bar ---- */
+  .tabbar {
+    position: sticky; top: 0; z-index: 5;
+    display: flex; gap: 4px; background: var(--bg);
+    padding: 10px 0; margin-bottom: 4px;
+    border-bottom: 1px solid var(--border);
+  }
+  .tab-btn {
+    flex: 1; font-size: 13.5px; font-weight: 600; color: var(--text-muted);
+    background: var(--surface-2); border: 1px solid var(--border); border-radius: 999px;
+    padding: 9px 4px; text-align: center;
+  }
+  .tab-btn.active { background: var(--brand); color: var(--bg); border-color: var(--brand); }
+  .tab-panel { display: none; padding-top: 10px; }
+  .tab-panel.active { display: block; }
+
+  .section-note { font-size: 12px; color: var(--text-faint); margin: 2px 0 12px; }
+  .empty-state { font-size: 13px; color: var(--text-faint); font-style: italic; padding: 14px 2px; }
+
+  /* ---- Upcoming cards ---- */
+  .action-list { display: flex; flex-direction: column; gap: 8px; }
+  .action-card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+    box-shadow: var(--shadow); padding: 11px 13px; border-left: 4px solid var(--text-faint);
+  }
+  .action-card.state-today { border-left-color: var(--warn); background: var(--warn-bg); }
+  .action-card.state-soon { border-left-color: var(--warn); }
+  .action-card.state-past { border-left-color: var(--text-faint); background: var(--past-bg); opacity: 0.75; }
+  .action-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; }
+  .action-kind { font-size: 10px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--text-faint); font-weight: 700; }
+  .action-title { font-weight: 700; font-size: 15px; margin: 2px 0 3px; }
+  .action-meta { font-size: 12.5px; color: var(--text-muted); }
+  .action-badge {
+    flex-shrink: 0; font-size: 10.5px; font-weight: 700; padding: 3px 8px;
+    border-radius: 999px; white-space: nowrap;
+  }
+  .badge-today { background: var(--warn); color: #1E1608; }
+  .badge-soon { background: var(--warn-bg); color: var(--warn-ink); border: 1px solid var(--warn-border); }
+  .badge-past { background: transparent; color: var(--text-faint); border: 1px solid var(--border); }
+  .action-date { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
+  .action-attach {
+    display: inline-block; margin-top: 8px; font-size: 12.5px; color: var(--brand);
+    font-weight: 700; text-decoration: none; padding: 4px 0;
+  }
+
+  /* ---- Filter chips ---- */
+  .chip-row { display: flex; gap: 6px; overflow-x: auto; padding-bottom: 10px; margin-bottom: 8px; -webkit-overflow-scrolling: touch; }
+  .chip-row::-webkit-scrollbar { display: none; }
+  .chip {
+    flex-shrink: 0; font-size: 12.5px; font-weight: 600; color: var(--text-muted);
+    background: var(--surface-2); border: 1px solid var(--border); border-radius: 999px;
+    padding: 7px 12px; white-space: nowrap;
+  }
+  .chip.active { background: var(--brand); color: var(--bg); border-color: var(--brand); }
+
+  /* ---- Feed ---- */
+  .feed-day-head { font-size: 12px; font-weight: 700; color: var(--brand); margin: 14px 0 6px; }
+  .feed-item {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+    padding: 10px 12px; margin-bottom: 7px;
+  }
+  .feed-item-row { display: flex; align-items: center; gap: 8px; }
+  .feed-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+  .feed-title { font-weight: 700; font-size: 13.5px; }
+  .feed-preview {
+    color: var(--text-muted); font-size: 12.5px; overflow: hidden; text-overflow: ellipsis;
+    white-space: nowrap; flex: 1; min-width: 0;
+  }
+  .feed-chevron { color: var(--text-faint); font-size: 11px; flex-shrink: 0; transition: transform .15s; }
+  .feed-item.open .feed-chevron { transform: rotate(90deg); }
+  .feed-full {
+    display: none; margin-top: 8px; padding-top: 8px; border-top: 1px dashed var(--border);
+    font-size: 13.5px; white-space: pre-line;
+  }
+  .feed-item.open .feed-full { display: block; }
+  .feed-item.open .feed-preview { display: none; }
+  .feed-attach { display: inline-block; margin-top: 9px; font-size: 12.5px; color: var(--brand); font-weight: 700; text-decoration: none; }
+
+  .period-list { display: flex; flex-direction: column; gap: 9px; }
+  .period-row { display: flex; gap: 9px; align-items: flex-start; }
+  .period-num {
+    flex-shrink: 0; font-size: 10.5px; font-weight: 700; color: var(--text-faint);
+    background: var(--surface-2); border-radius: 6px; padding: 2px 6px; margin-top: 1px;
+  }
+  .period-body { font-size: 13.5px; line-height: 1.45; }
+  .period-subject { font-weight: 700; color: var(--brand); }
+  .period-hw { margin-top: 3px; font-size: 12.5px; color: var(--warn-ink); }
+  .period-hw-tag {
+    font-size: 9.5px; font-weight: 700; letter-spacing: 0.03em; background: var(--warn-bg);
+    border: 1px solid var(--warn-border); border-radius: 4px; padding: 1px 5px; margin-right: 5px;
+  }
+
+  /* ---- Notes library ---- */
+  .subject-grid { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 14px; }
+  .subject-chip {
+    font-size: 13px; font-weight: 600; color: var(--text); background: var(--surface);
+    border: 1px solid var(--border); border-radius: 10px; padding: 9px 13px;
+  }
+  .subject-chip.active { background: var(--brand); color: var(--bg); border-color: var(--brand); }
+  .chapter-card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+    padding: 10px 12px; margin-bottom: 8px;
+  }
+  .chapter-title { font-weight: 700; font-size: 13.5px; margin-bottom: 2px; }
+  .chapter-date { font-size: 11.5px; color: var(--text-faint); }
+  .chapter-attach { display: inline-block; margin-top: 7px; font-size: 12.5px; color: var(--brand); font-weight: 700; text-decoration: none; }
+
+  a { color: var(--brand); }
+  select, input {
+    font-size: 16px; /* prevents iOS auto-zoom on focus */
+    font-family: inherit;
+  }
+
+  footer.note {
+    margin-top: 26px; padding-top: 12px; border-top: 1px solid var(--border);
+    font-size: 10.5px; color: var(--text-faint);
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="masthead">
+    <div class="eyebrow">Class III F · SNBP International School</div>
+    <h1>Notice Board</h1>
+    <div class="school">Wagholi, Pune — parent notice tracker</div>
+    <a class="subscribe-btn" href="https://calendar.google.com/calendar/u/0?cid=YzAzN2Y0ZDc0ODkyZjU1N2VkNzQwYjFkMjQxMGU2YmIxZWZjYWIyMjRkZGQ5NWFkNDVkMWU0ODZiYzhhODVlNUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      Subscribe on Calendar
+    </a>
+  </div>
+
+  <div class="tabbar">
+    <button class="tab-btn active" data-tab="upcoming">Upcoming</button>
+    <button class="tab-btn" data-tab="feed">Feed</button>
+    <button class="tab-btn" data-tab="notes">Notes</button>
+  </div>
+
+  <div class="tab-panel active" id="panel-upcoming">
+    <div class="section-note">Exams, school events &amp; holidays, soonest first</div>
+    <div class="action-list" id="actionList"></div>
+  </div>
+
+  <div class="tab-panel" id="panel-feed">
+    <div class="chip-row" id="categoryChips"></div>
+    <div class="chip-row" id="subjectChips"></div>
+    <div id="feedList"></div>
+  </div>
+
+  <div class="tab-panel" id="panel-notes">
+    <div class="section-note">Select a subject to see all notes, chapter-wise</div>
+    <div class="subject-grid" id="subjectGrid"></div>
+    <div id="chapterList"></div>
+  </div>
+
+  <footer class="note" id="footerNote">Loading…</footer>
+</div>
+
+<script>
+const CATEGORY_META = {
+  "Exam/Test":          { dot: "var(--dot-exam)",    label: "Exam/Test" },
+  "School Event":       { dot: "var(--dot-event)",   label: "School Event" },
+  "Holiday":            { dot: "var(--dot-holiday)", label: "Holiday" },
+  "Subject Notes":      { dot: "var(--dot-notes)",   label: "Subject Notes" },
+  "Daily Class Update": { dot: "var(--dot-dcu)",     label: "Daily Update" },
+  "Event/Celebration":  { dot: "var(--dot-celeb)",   label: "Celebration" },
+  "General/Other":      { dot: "var(--dot-general)", label: "General" },
+};
+const UPCOMING_CATEGORIES = ["Exam/Test", "School Event", "Holiday"];
+
+function parseDMY(d) {
+  const [dd, mm, yyyy] = d.split("-").map(Number);
+  return new Date(yyyy, mm - 1, dd);
+}
+function parseISO(iso) {
+  const [y, m, d] = iso.split("-").map(Number);
+  return new Date(y, m - 1, d);
+}
+function fmtDate(d) {
+  return d.toLocaleDateString("en-IN", { weekday: "short", day: "numeric", month: "short" });
+}
+function daysUntil(d) {
+  const today = new Date(); today.setHours(0,0,0,0);
+  const target = new Date(d); target.setHours(0,0,0,0);
+  return Math.round((target - today) / 86400000);
+}
+const GREETING_RE = /^dear (parents?|parent)s?,?$/i;
+function firstLine(text) {
+  const lines = text.split("\n").map(s => s.trim()).filter(Boolean);
+  return lines.find(l => !GREETING_RE.test(l)) || lines[0] || text;
+}
+function noticeTitle(r) {
+  if (r.subject && r.chapter) return `${r.subject} — ${r.chapter}`;
+  if (r.subject) return r.subject;
+  if (r.category === "Daily Class Update") return "Daily Class Update";
+  return firstLine(r.text);
+}
+function escapeHtml(s) {
+  return s.replace(/[&<>"']/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[c]));
+}
+
+let ALL = [];
+
+function renderUpcoming() {
+  const list = document.getElementById("actionList");
+  const items = ALL
+    .filter(r => UPCOMING_CATEGORIES.includes(r.category))
+    .map(r => ({ ...r, _date: parseISO(r.event_date_iso), _days: daysUntil(parseISO(r.event_date_iso)) }))
+    .filter(r => r._days >= -5)
+    .sort((a, b) => a._days - b._days);
+
+  if (items.length === 0) {
+    list.innerHTML = '<div class="empty-state">Nothing upcoming right now.</div>';
+    return;
+  }
+
+  list.innerHTML = items.map(r => {
+    const state = r._days < 0 ? "past" : r._days === 0 ? "today" : r._days <= 3 ? "soon" : "";
+    const badge = r._days < 0
+      ? `<span class="action-badge badge-past">${Math.abs(r._days)}d ago</span>`
+      : r._days === 0
+        ? `<span class="action-badge badge-today">Today</span>`
+        : `<span class="action-badge badge-soon">In ${r._days}d</span>`;
+    const attach = r.attachment_url
+      ? `<a class="action-attach" href="${r.attachment_url}" target="_blank" rel="noopener">View attachment →</a>`
+      : "";
+    const postedNote = r.event_date_iso !== r.posted_date_iso
+      ? ` <span style="color:var(--text-faint)">· notified ${fmtDate(parseDMY(r.posted_date))}</span>`
+      : "";
+    return `
+      <div class="action-card state-${state}">
+        <div class="action-top">
+          <div>
+            <div class="action-kind">${CATEGORY_META[r.category].label}</div>
+            <div class="action-title">${escapeHtml(noticeTitle(r))}</div>
+          </div>
+          ${badge}
+        </div>
+        <div class="action-date">${fmtDate(r._date)}${postedNote}</div>
+        ${attach}
+      </div>`;
+  }).join("");
+}
+
+function noticeSubjects(r) {
+  const subjects = new Set();
+  if (r.subject) subjects.add(r.subject);
+  (r.periods || []).forEach(p => { if (p.subject) subjects.add(p.subject); });
+  return subjects;
+}
+
+function renderPeriods(periods) {
+  return `<div class="period-list">` + periods.map(p => `
+    <div class="period-row">
+      <span class="period-num">P${p.period}</span>
+      <div class="period-body">
+        ${p.subject ? `<span class="period-subject">${escapeHtml(p.subject)}</span> ` : ""}${p.note ? escapeHtml(p.note) : ""}
+        ${p.hw ? `<div class="period-hw"><span class="period-hw-tag">HW</span>${escapeHtml(p.hw)}</div>` : ""}
+      </div>
+    </div>`).join("") + `</div>`;
+}
+
+function renderFeed(activeCategory, activeSubject) {
+  activeCategory = activeCategory || "All";
+  activeSubject = activeSubject || "All";
+
+  const catChips = document.getElementById("categoryChips");
+  const cats = ["All", ...Object.keys(CATEGORY_META)];
+  catChips.innerHTML = cats.map(c =>
+    `<button class="chip${c === activeCategory ? " active" : ""}" data-cat="${c}">${c === "All" ? "All" : CATEGORY_META[c].label}</button>`
+  ).join("");
+  catChips.querySelectorAll(".chip").forEach(btn => btn.onclick = () => renderFeed(btn.dataset.cat, activeSubject));
+
+  const allSubjects = new Set();
+  ALL.forEach(r => noticeSubjects(r).forEach(s => allSubjects.add(s)));
+  const subjChips = document.getElementById("subjectChips");
+  const subjects = ["All", ...[...allSubjects].sort()];
+  subjChips.innerHTML = subjects.map(s =>
+    `<button class="chip${s === activeSubject ? " active" : ""}" data-subj="${escapeHtml(s)}">${escapeHtml(s)}</button>`
+  ).join("");
+  subjChips.querySelectorAll(".chip").forEach(btn => btn.onclick = () => renderFeed(activeCategory, btn.dataset.subj));
+
+  let filtered = activeCategory === "All" ? ALL : ALL.filter(r => r.category === activeCategory);
+  if (activeSubject !== "All") filtered = filtered.filter(r => noticeSubjects(r).has(activeSubject));
+
+  const list = document.getElementById("feedList");
+  if (filtered.length === 0) {
+    list.innerHTML = '<div class="empty-state">No notices match this filter.</div>';
+    return;
+  }
+
+  let html = "";
+  let lastDate = null;
+  filtered.forEach((r, i) => {
+    if (r.posted_date !== lastDate) {
+      html += `<div class="feed-day-head">${fmtDate(parseDMY(r.posted_date))}</div>`;
+      lastDate = r.posted_date;
+    }
+    const meta = CATEGORY_META[r.category];
+    const preview = noticeTitle(r);
+    const attach = r.attachment_url
+      ? `<a class="feed-attach" href="${r.attachment_url}" target="_blank" rel="noopener">View attachment →</a>`
+      : "";
+    const body = (r.periods && r.periods.length)
+      ? renderPeriods(r.periods)
+      : escapeHtml(r.text);
+    html += `
+      <div class="feed-item" id="feed-${i}">
+        <div class="feed-item-row" onclick="document.getElementById('feed-${i}').classList.toggle('open')">
+          <span class="feed-dot" style="background:${meta.dot}"></span>
+          <span class="feed-preview">${escapeHtml(preview)}</span>
+          <span class="feed-chevron">▸</span>
+        </div>
+        <div class="feed-full">${body}${attach}</div>
+      </div>`;
+  });
+  list.innerHTML = html;
+}
+
+function renderNotes(activeSubject) {
+  const subjects = [...new Set(ALL.filter(r => r.category === "Subject Notes" && r.subject).map(r => r.subject))].sort();
+  const grid = document.getElementById("subjectGrid");
+  grid.innerHTML = subjects.map(s =>
+    `<button class="subject-chip${s === activeSubject ? " active" : ""}" data-subj="${escapeHtml(s)}">${escapeHtml(s)}</button>`
+  ).join("");
+  grid.querySelectorAll(".subject-chip").forEach(btn => btn.onclick = () => renderNotes(btn.dataset.subj));
+
+  const list = document.getElementById("chapterList");
+  if (!activeSubject) {
+    list.innerHTML = '<div class="empty-state">Pick a subject above to browse its notes.</div>';
+    return;
+  }
+  const items = ALL
+    .filter(r => r.category === "Subject Notes" && r.subject === activeSubject)
+    .sort((a, b) => parseDMY(b.posted_date) - parseDMY(a.posted_date));
+
+  list.innerHTML = items.map(r => `
+    <div class="chapter-card">
+      <div class="chapter-title">${escapeHtml(r.chapter || firstLine(r.text))}</div>
+      <div class="chapter-date">Posted ${fmtDate(parseDMY(r.posted_date))}</div>
+      ${r.attachment_url ? `<a class="chapter-attach" href="${r.attachment_url}" target="_blank" rel="noopener">Open notes →</a>` : ""}
+    </div>
+  `).join("");
+}
+
+document.querySelectorAll(".tab-btn").forEach(btn => {
+  btn.onclick = () => {
+    document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
+    document.querySelectorAll(".tab-panel").forEach(p => p.classList.remove("active"));
+    btn.classList.add("active");
+    document.getElementById("panel-" + btn.dataset.tab).classList.add("active");
+  };
+});
+
+fetch("notices.json?_=" + Date.now())
+  .then(r => r.json())
+  .then(data => {
+    ALL = data.sort((a, b) => parseDMY(b.posted_date) - parseDMY(a.posted_date));
+    renderUpcoming();
+    renderFeed("All");
+    renderNotes(null);
+    document.getElementById("footerNote").textContent =
+      `${ALL.length} notices · updated ${new Date().toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" })}`;
+  })
+  .catch(err => {
+    document.getElementById("footerNote").textContent = "Failed to load notices.json — " + err.message;
+  });
+</script>
+</body>
+</html>

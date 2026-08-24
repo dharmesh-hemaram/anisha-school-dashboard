@@ -10,6 +10,8 @@ import json
 from datetime import datetime
 from pathlib import Path
 
+from classifier.periods import parse_periods
+
 
 def notice_id(posted_date: str, text: str) -> str:
     return hashlib.sha256(f"{posted_date}|{text}".encode("utf-8")).hexdigest()[:16]
@@ -20,14 +22,21 @@ def _to_iso_date(posted_date: str) -> str:
 
 
 def build_record(notice, classification) -> dict:
+    periods = parse_periods(notice.text) if classification.category == "Daily Class Update" else []
+    posted_date_iso = _to_iso_date(notice.posted_date)
     return {
         "id": notice_id(notice.posted_date, notice.text),
         "posted_date": notice.posted_date,
-        "posted_date_iso": _to_iso_date(notice.posted_date),
+        "posted_date_iso": posted_date_iso,
+        # The date the notice is *about* (a test/event/holiday date), which is
+        # often different from posted_date_iso -- falls back to posted_date_iso
+        # when the body text has no extractable date.
+        "event_date_iso": classification.event_date_iso or posted_date_iso,
         "text": notice.text,
         "attachment_url": notice.attachment_url,
         "category": classification.category,
         "method": classification.method,
+        "periods": periods,
         "confidence": classification.confidence,
         "subject": classification.subject,
         "chapter": classification.chapter,
