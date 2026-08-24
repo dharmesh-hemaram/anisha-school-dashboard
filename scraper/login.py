@@ -66,7 +66,7 @@ class ERPSession:
         if self._is_login_page(resp.text):
             raise ERPLoginError("Login rejected by ERP — check ERP_USERNAME/ERP_PASSWORD")
 
-        logger.info("ERP login succeeded for user %s", self.username)
+        logger.info("ERP login succeeded")
 
     @staticmethod
     def _is_login_page(html: str) -> bool:
