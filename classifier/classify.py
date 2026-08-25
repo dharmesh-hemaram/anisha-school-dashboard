@@ -131,6 +131,7 @@ class Classification:
     subject: Optional[str] = None
     chapter: Optional[str] = None
     event_date_iso: Optional[str] = None
+    material_type: Optional[str] = None  # "Notes" | "Worksheet" | "Answer Key" -- Subject Notes only
 
 
 def _normalize_subject(raw: str) -> str:
@@ -163,6 +164,14 @@ def _extract_chapter(text: str) -> Optional[str]:
     return m.group(1).strip(" .")[:120] if m else None
 
 
+def _extract_material_type(t_lower: str) -> str:
+    if re.search(r"answer\s*key", t_lower):
+        return "Answer Key"
+    if re.search(r"\bworksheet\b|\brevision\b|culmination", t_lower):
+        return "Worksheet"
+    return "Notes"
+
+
 def classify_pattern(text: str) -> Optional[Classification]:
     t = text.lower()
 
@@ -173,6 +182,7 @@ def classify_pattern(text: str) -> Optional[Classification]:
         return Classification(
             "Subject Notes", "pattern", 0.85,
             subject=_extract_subject(text), chapter=_extract_chapter(text),
+            material_type=_extract_material_type(t),
         )
 
     if re.search(

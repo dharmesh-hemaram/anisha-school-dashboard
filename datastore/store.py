@@ -40,6 +40,7 @@ def build_record(notice, classification) -> dict:
         "confidence": classification.confidence,
         "subject": classification.subject,
         "chapter": classification.chapter,
+        "material_type": classification.material_type,
         "calendar_event_id": None,
     }
 

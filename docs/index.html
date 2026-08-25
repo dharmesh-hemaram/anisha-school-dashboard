@@ -200,6 +200,16 @@
     border: 1px solid var(--border); border-radius: 10px; padding: 9px 13px;
   }
   .subject-chip.active { background: var(--brand); color: var(--bg); border-color: var(--brand); }
+  .material-head {
+    display: flex; align-items: center; gap: 7px; font-size: 11.5px; font-weight: 700;
+    letter-spacing: 0.03em; text-transform: uppercase; color: var(--text-faint);
+    margin: 16px 0 8px;
+  }
+  .material-head:first-child { margin-top: 0; }
+  .material-count {
+    font-size: 10px; font-weight: 700; color: var(--text-muted); background: var(--surface-2);
+    border-radius: 999px; padding: 1px 7px;
+  }
   .chapter-card {
     background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
     padding: 10px 12px; margin-bottom: 8px;
@@ -432,17 +442,26 @@ function renderNotes(activeSubject) {
     list.innerHTML = '<div class="empty-state">Pick a subject above to browse its notes.</div>';
     return;
   }
-  const items = ALL
-    .filter(r => r.category === "Subject Notes" && r.subject === activeSubject)
-    .sort((a, b) => parseDMY(b.posted_date) - parseDMY(a.posted_date));
+  const items = ALL.filter(r => r.category === "Subject Notes" && r.subject === activeSubject);
 
-  list.innerHTML = items.map(r => `
-    <div class="chapter-card">
-      <div class="chapter-title">${escapeHtml(r.chapter || firstLine(r.text))}</div>
-      <div class="chapter-date">Posted ${fmtDate(parseDMY(r.posted_date))}</div>
-      ${r.attachment_url ? `<a class="chapter-attach" href="${r.attachment_url}" target="_blank" rel="noopener">Open notes →</a>` : ""}
-    </div>
-  `).join("");
+  const MATERIAL_ORDER = ["Notes", "Worksheet", "Answer Key"];
+  const MATERIAL_LABEL = { "Notes": "Chapter Notes", "Worksheet": "Worksheets & Revision", "Answer Key": "Answer Keys" };
+  let html = "";
+  MATERIAL_ORDER.forEach(mtype => {
+    const group = items
+      .filter(r => (r.material_type || "Notes") === mtype)
+      .sort((a, b) => parseDMY(b.posted_date) - parseDMY(a.posted_date));
+    if (group.length === 0) return;
+    html += `<div class="material-head">${MATERIAL_LABEL[mtype]} <span class="material-count">${group.length}</span></div>`;
+    html += group.map(r => `
+      <div class="chapter-card">
+        <div class="chapter-title">${escapeHtml(r.chapter || firstLine(r.text))}</div>
+        <div class="chapter-date">Posted ${fmtDate(parseDMY(r.posted_date))}</div>
+        ${r.attachment_url ? `<a class="chapter-attach" href="${r.attachment_url}" target="_blank" rel="noopener">Open →</a>` : ""}
+      </div>
+    `).join("");
+  });
+  list.innerHTML = html;
 }
 
 document.querySelectorAll(".tab-btn").forEach(btn => {
