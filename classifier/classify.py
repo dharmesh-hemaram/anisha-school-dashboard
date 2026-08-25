@@ -36,6 +36,9 @@ CATEGORIES = [
 
 _SUBJECT_LABEL_RE = re.compile(r"subject\s*[:\-]\s*([^\n]+)", re.I)
 _CHAPTER_RE = re.compile(r"(?:chapter|topic|lesson(?:\s*no\.?)?)\s*[:\-]?\s*([^\n]+)", re.I)
+# Chapter number + name, e.g. "chapter 4: Let's learn to code with blockly"
+# or "Chapter:2 Meet Handware and Software" -- name is on the same line.
+_CHAPTER_NUM_NAME_RE = re.compile(r"(?:chapter|topic|lesson)\s*(?:no\.?)?\s*[:\-]?\s*(\d+)\s*[:.\-]?\s*([^\n]*)", re.I)
 
 # Maps loose/abbreviated spellings seen in real notices to one canonical
 # label per subject, so the dashboard's subject picker doesn't fragment
@@ -148,6 +151,7 @@ class Classification:
     confidence: float
     subject: Optional[str] = None
     chapter: Optional[str] = None
+    chapter_number: Optional[int] = None
     event_date_iso: Optional[str] = None
     material_type: Optional[str] = None  # "Notes" | "Worksheet" | "Answer Key" -- Subject Notes only
     worksheet_number: Optional[int] = None  # for pairing a worksheet with its answer key
@@ -179,8 +183,24 @@ def _extract_subject(text: str) -> Optional[str]:
 
 
 def _extract_chapter(text: str) -> Optional[str]:
+    m = _CHAPTER_NUM_NAME_RE.search(text)
+    if m:
+        name = m.group(2).strip(" .:-")
+        if not name:
+            # Some notices put the name on the line after "chapter no:N"
+            # instead of the same line, e.g. "Topic: chapter no:1\nMouse
+            # and keyboard".
+            rest = text[m.end():].lstrip("\n")
+            name = rest.split("\n", 1)[0].strip()
+        if name:
+            return name[:120]
     m = _CHAPTER_RE.search(text)
     return m.group(1).strip(" .")[:120] if m else None
+
+
+def _extract_chapter_number(text: str) -> Optional[int]:
+    m = _CHAPTER_NUM_NAME_RE.search(text)
+    return int(m.group(1)) if m else None
 
 
 _FUTURE_ANSWER_KEY_RE = re.compile(r"answer\s*key\s+will\s+be", re.I)
@@ -191,12 +211,21 @@ def _extract_material_type(t_lower: str) -> str:
     # "the answer key will be shared after 3 days" is a worksheet notice
     # forward-referencing an answer key that isn't attached yet -- not an
     # actual answer key delivery. Check that before the generic keyword.
+    has_worksheet_word = re.search(r"\bworksheet\b", t_lower) is not None
     if _FUTURE_ANSWER_KEY_RE.search(t_lower):
-        return "Worksheet"
+        return "Worksheet" if has_worksheet_word else "Revision"
     if re.search(r"answer\s*key", t_lower):
         return "Answer Key"
-    if re.search(r"\bworksheet\b|\brevision\b|culmination", t_lower):
+    # "Worksheet" vs "Revision" matters beyond labeling: real answer-key
+    # notices always say "answer key for worksheet no. N", never "...for
+    # revision no. N" -- Revision is a separate numbered series that
+    # doesn't get its own answer key, so it must never enter answer-key
+    # pairing (a same-numbered Revision would otherwise steal an answer
+    # key from the Worksheet it actually belongs to).
+    if has_worksheet_word:
         return "Worksheet"
+    if re.search(r"\brevision\b|culmination", t_lower):
+        return "Revision"
     return "Notes"
 
 
@@ -215,6 +244,7 @@ def classify_pattern(text: str) -> Optional[Classification]:
         return Classification(
             "Subject Notes", "pattern", 0.85,
             subject=_extract_subject(text), chapter=_extract_chapter(text),
+            chapter_number=_extract_chapter_number(text),
             material_type=_extract_material_type(t),
             worksheet_number=_extract_worksheet_number(text),
         )

@@ -91,8 +91,6 @@
     font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase;
     color: var(--brand); font-weight: 700;
   }
-  .masthead h1 { font-size: 21px; font-weight: 700; margin: 3px 0 2px; letter-spacing: -0.01em; }
-  .masthead .school { font-size: 12px; color: var(--text-muted); }
   .subscribe-btn {
     display: inline-flex; align-items: center; gap: 5px; margin-top: 8px;
     font-size: 12.5px; font-weight: 600; color: var(--brand);
@@ -237,9 +235,7 @@
 <body>
 <div class="wrap">
   <div class="masthead">
-    <div class="eyebrow">Class III F · SNBP International School</div>
-    <h1>Notice Board</h1>
-    <div class="school">Wagholi, Pune — parent notice tracker</div>
+    <div class="eyebrow">Class III F</div>
     <a class="subscribe-btn" href="https://calendar.google.com/calendar/u/0?cid=YzAzN2Y0ZDc0ODkyZjU1N2VkNzQwYjFkMjQxMGU2YmIxZWZjYWIyMjRkZGQ5NWFkNDVkMWU0ODZiYzhhODVlNUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t" target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
       Subscribe on Calendar
@@ -253,7 +249,7 @@
   </div>
 
   <div class="tab-panel active" id="panel-upcoming">
-    <div class="section-note">Exams, school events &amp; holidays, soonest first</div>
+    <div class="section-note">Exams, school events &amp; holidays, newest first</div>
     <div class="action-list" id="actionList"></div>
   </div>
 
@@ -323,7 +319,7 @@ function renderUpcoming() {
     .filter(r => UPCOMING_CATEGORIES.includes(r.category))
     .map(r => ({ ...r, _date: parseISO(r.event_date_iso), _days: daysUntil(parseISO(r.event_date_iso)) }))
     .filter(r => r._days >= -5)
-    .sort((a, b) => a._days - b._days);
+    .sort((a, b) => b._days - a._days);
 
   if (items.length === 0) {
     list.innerHTML = '<div class="empty-state">Nothing upcoming right now.</div>';
@@ -448,18 +444,13 @@ function renderNotes(activeSubject) {
   }
   const items = ALL.filter(r => r.category === "Subject Notes" && r.subject === activeSubject);
 
-  // Worksheet + Answer Key are shown as ONE bucket: paired items get both
-  // links on a single card, and an answer key with no matching worksheet
-  // (its worksheet predates the academic-year cutoff, e.g.) still shows up
-  // here rather than in its own separate section.
-  const MATERIAL_ORDER = ["Notes", "Worksheet"];
-  const MATERIAL_LABEL = { "Notes": "Chapter Notes", "Worksheet": "Worksheets & Answer Keys" };
-
   const cardHtml = r => {
     const links = [];
     if (r.material_type === "Worksheet") {
       if (r.attachment_url) links.push(`<a class="chapter-attach" href="${r.attachment_url}" target="_blank" rel="noopener">Open worksheet →</a>`);
       if (r.answer_key_url) links.push(`<a class="chapter-attach" href="${r.answer_key_url}" target="_blank" rel="noopener">Open answer key →</a>`);
+    } else if (r.material_type === "Revision") {
+      if (r.attachment_url) links.push(`<a class="chapter-attach" href="${r.attachment_url}" target="_blank" rel="noopener">Open revision →</a>`);
     } else if (r.attachment_url) {
       const label = r.material_type === "Answer Key" ? "Open answer key →" : "Open →";
       links.push(`<a class="chapter-attach" href="${r.attachment_url}" target="_blank" rel="noopener">${label}</a>`);
@@ -472,37 +463,69 @@ function renderNotes(activeSubject) {
       </div>`;
   };
 
-  let html = "";
-  MATERIAL_ORDER.forEach(mtype => {
-    const group = mtype === "Worksheet"
-      ? items.filter(r => r.material_type === "Worksheet" || (r.material_type === "Answer Key" && !r.paired))
-      : items.filter(r => (r.material_type || "Notes") === mtype);
-    if (group.length === 0) return;
-    html += `<div class="material-head">${MATERIAL_LABEL[mtype]} <span class="material-count">${group.length}</span></div>`;
+  // Revision numbering resets per exam (PT-1's "Revision 1" != Half
+  // Yearly's "Revision 1"), so sub-group by exam_cycle instead of one flat
+  // list -- otherwise two unrelated "Revision 1"s sit side by side.
+  const cycleGroupedHtml = group => {
+    const cycles = [...new Set(group.map(r => r.exam_cycle || "Other"))];
+    cycles.sort((a, b) => {
+      const latest = c => Math.max(...group.filter(r => (r.exam_cycle || "Other") === c).map(r => parseDMY(r.posted_date)));
+      return latest(b) - latest(a);
+    });
+    return cycles.map(cycle => {
+      const cycleItems = group
+        .filter(r => (r.exam_cycle || "Other") === cycle)
+        .sort((a, b) => parseDMY(a.posted_date) - parseDMY(b.posted_date));
+      return `<div class="cycle-head">${escapeHtml(cycle)}</div>` + cycleItems.map(cardHtml).join("");
+    }).join("");
+  };
 
-    if (mtype === "Worksheet") {
-      // Revision numbering resets per exam (PT-1's "Revision 1" != Half
-      // Yearly's "Revision 1"), so sub-group by exam_cycle instead of one
-      // flat list -- otherwise two unrelated "Revision 1"s sit side by side.
-      const cycles = [...new Set(group.map(r => r.exam_cycle || "Other"))];
-      cycles.sort((a, b) => {
-        const latest = c => Math.max(...group.filter(r => (r.exam_cycle || "Other") === c).map(r => parseDMY(r.posted_date)));
-        return latest(b) - latest(a);
-      });
-      cycles.forEach(cycle => {
-        const cycleItems = group
-          .filter(r => (r.exam_cycle || "Other") === cycle)
-          .sort((a, b) => parseDMY(a.posted_date) - parseDMY(b.posted_date));
-        html += `<div class="cycle-head">${escapeHtml(cycle)}</div>`;
-        html += cycleItems.map(cardHtml).join("");
-      });
-    } else {
-      html += group
-        .sort((a, b) => parseDMY(b.posted_date) - parseDMY(a.posted_date))
-        .map(cardHtml).join("");
-    }
-  });
-  list.innerHTML = html;
+  let html = "";
+
+  // Chapter Notes -- grouped by chapter (number when available, else the
+  // extracted name), since the same chapter often gets more than one
+  // notes posting (e.g. a "textbook" version and a "notes" version).
+  const notes = items.filter(r => (r.material_type || "Notes") === "Notes");
+  if (notes.length) {
+    html += `<div class="material-head">Chapter Notes <span class="material-count">${notes.length}</span></div>`;
+    const chapterKey = r => r.chapter_number != null ? `n:${r.chapter_number}` : `t:${(r.chapter || firstLine(r.text)).toLowerCase()}`;
+    const groups = new Map();
+    notes.forEach(r => {
+      const key = chapterKey(r);
+      if (!groups.has(key)) groups.set(key, []);
+      groups.get(key).push(r);
+    });
+    const sortedKeys = [...groups.keys()].sort((a, b) => {
+      const latest = k => Math.max(...groups.get(k).map(r => parseDMY(r.posted_date)));
+      return latest(b) - latest(a);
+    });
+    sortedKeys.forEach(key => {
+      const group = groups.get(key).sort((a, b) => parseDMY(b.posted_date) - parseDMY(a.posted_date));
+      const rep = group[0];
+      const heading = rep.chapter_number != null
+        ? `Chapter ${rep.chapter_number}${rep.chapter ? ": " + rep.chapter : ""}`
+        : (rep.chapter || firstLine(rep.text));
+      html += `<div class="cycle-head">${escapeHtml(heading)}</div>`;
+      html += group.map(cardHtml).join("");
+    });
+  }
+
+  // Worksheets & Answer Keys -- one bucket, paired items show both links.
+  const worksheets = items.filter(r => r.material_type === "Worksheet" || (r.material_type === "Answer Key" && !r.paired));
+  if (worksheets.length) {
+    html += `<div class="material-head">Worksheets & Answer Keys <span class="material-count">${worksheets.length}</span></div>`;
+    html += cycleGroupedHtml(worksheets);
+  }
+
+  // Revision -- kept separate from Worksheets; never carries an answer-key
+  // link (real answer keys only exist for Worksheets).
+  const revisions = items.filter(r => r.material_type === "Revision");
+  if (revisions.length) {
+    html += `<div class="material-head">Revision <span class="material-count">${revisions.length}</span></div>`;
+    html += cycleGroupedHtml(revisions);
+  }
+
+  list.innerHTML = html || '<div class="empty-state">Nothing here yet.</div>';
 }
 
 document.querySelectorAll(".tab-btn").forEach(btn => {

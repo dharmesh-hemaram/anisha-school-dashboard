@@ -43,6 +43,7 @@ def build_record(notice, classification) -> dict:
         "confidence": classification.confidence,
         "subject": classification.subject,
         "chapter": classification.chapter,
+        "chapter_number": classification.chapter_number,
         "material_type": classification.material_type,
         "worksheet_number": classification.worksheet_number,
         "answer_key_url": None,
@@ -65,7 +66,7 @@ def save(path, records) -> None:
 
 
 def tag_exam_cycles(records: list) -> list:
-    """Tag each Worksheet-type item with the nearest named exam cycle.
+    """Tag each Worksheet/Revision item with the nearest named exam cycle.
 
     Revision/worksheet numbering resets per exam (PT-1's "Revision No. 1"
     and Half Yearly's "Revision No. 1" are unrelated), and the worksheet
@@ -84,7 +85,7 @@ def tag_exam_cycles(records: list) -> list:
                 anchors.append((date.fromisoformat(r["posted_date_iso"]), label))
 
     for r in records:
-        if r["category"] != "Subject Notes" or r.get("material_type") != "Worksheet":
+        if r["category"] != "Subject Notes" or r.get("material_type") not in ("Worksheet", "Revision"):
             r["exam_cycle"] = None
             continue
         wd = date.fromisoformat(r["posted_date_iso"])
@@ -112,11 +113,17 @@ def pair_worksheets(records: list) -> list:
     """Pair each Worksheet with its Answer Key so the dashboard can render
     one card with both links instead of two separate cards/sections.
 
-    Numbers alone aren't reliable: a school posts multiple numbered series
-    per subject (e.g. "Revision No. 3" and "Culmination Worksheet No. 3"
-    are unrelated but share a number), so a same-number match 5 weeks
-    apart can steal an answer key from the item it's actually adjacent to.
-    Instead this does one global greedy match per subject: consider every
+    Only material_type == "Worksheet" is eligible -- "Revision" is
+    excluded entirely, since real answer-key notices always say "answer
+    key for worksheet no. N", never "...for revision no. N". Revision
+    and Worksheet are separate numbered series that can collide on the
+    same number (e.g. "Revision No. 2" and "Culmination Worksheet No. 2"
+    posted the same week) -- letting Revision into the candidate pool let
+    a same-numbered Revision steal an answer key from the Worksheet it
+    actually belongs to.
+
+    Even within Worksheet-only candidates, numbers can still be noisy, so
+    this does one global greedy match per subject: consider every
     worksheet/answer-key pair within a 30-day window, sort by date gap
     (same-number pairs break ties), and assign smallest-gap-first. Paired
     answer keys are flagged `paired=True` so the dashboard skips rendering
