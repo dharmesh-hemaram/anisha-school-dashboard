@@ -619,13 +619,17 @@ function renderUpcoming() {
     // table) gets its prep material pulled in too -- same subject, same
     // exam cycle -- so there's no need to jump to the Exam tab just to see
     // what to study for a test sitting right here in Upcoming. A single
-    // class test only covers one chapter though (unlike the cumulative
-    // portion-table entries, which have no chapter of their own and so
-    // aren't restricted here) -- so Notes get filtered down to that same
-    // chapter; Worksheets/Revision aren't chapter-specific to begin with.
+    // class test only covers one chapter, though: Worksheet/Revision
+    // notices never name a chapter at all (just a number, e.g. "Worksheet
+    // No. 3"), so there's no way to tell whether one actually matches the
+    // chapter under test -- a Chapter 3 test showing a Chapter 5 worksheet
+    // is worse than showing nothing, so those are dropped entirely rather
+    // than shown unfiltered. Only Notes (which do carry a chapter) get
+    // included, and only when it matches. Portion-table entries have no
+    // single chapter of their own -- those still show everything.
     const relatedMaterials = r.subject && r.exam_cycle
       ? ALL.filter(m => m.category === "Subject Notes" && m.subject === r.subject && m.exam_cycle === r.exam_cycle &&
-          (!r.chapter || m.material_type !== "Notes" || m.chapter === r.chapter))
+          (!r.chapter || (m.material_type === "Notes" && m.chapter === r.chapter)))
         .sort((a, b) => parseDMY(b.posted_date) - parseDMY(a.posted_date))
       : [];
     const materialsHtml = relatedMaterials.length
