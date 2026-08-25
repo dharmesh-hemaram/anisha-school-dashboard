@@ -1,0 +1,62 @@
+{
+  "Half Yearly": {
+    "timing": "7:50 a.m. to 11:30 a.m.",
+    "max_marks": 60,
+    "notes": [
+      "If your ward is unwell, kindly do not send him/her to school. They will be given average marks based on their performance in the class and PT-1 exam.",
+      "No retests will be conducted.",
+      "On 3rd September 2026 there will be regular school. No half days allowed. Time: 7:50 a.m. to 2:30 p.m."
+    ],
+    "schedule": [
+      {
+        "date_iso": "2026-09-03",
+        "day": "Thursday",
+        "subject": "Computer Science",
+        "marks": 40,
+        "portion": "Coding: Let's type with Microsoft Word, Let's learn to Code with Blockly\nRobotics: Gears, Electricity and Switches"
+      },
+      {
+        "date_iso": "2026-09-07",
+        "day": "Monday",
+        "subject": "Maths",
+        "marks": 60,
+        "portion": "Subtraction, Multiplication"
+      },
+      {
+        "date_iso": "2026-09-08",
+        "day": "Tuesday",
+        "subject": "Marathi",
+        "marks": 60,
+        "portion": "साहित्य - आपला भारत देश, राखी पौर्णिमा ,चार मित्र, बघितलीय गंमत , अंकलेखन-३१ते ४०\nव्याकरण - लिंग, समूहदर्शक शब्द, वचन ,समानार्थी शब्द विरुद्धार्थी शब्द.\nलेखन कौशल्य - चित्र वर्णन.\nअपठित गद्य:"
+      },
+      {
+        "date_iso": "2026-09-09",
+        "day": "Wednesday",
+        "subject": "Social Studies",
+        "marks": 60,
+        "portion": "Our Government, Delhi and Mumbai, Our Leaders, Transport"
+      },
+      {
+        "date_iso": "2026-09-10",
+        "day": "Thursday",
+        "subject": "English",
+        "marks": 60,
+        "portion": "Literature: The Selfish Giant, Friends (Poem), The Golden Fountain, If I Had A Wings (Poem)\nGrammar: Comma, Nouns (Common, Proper, Singular, Plural, Male and Female), Adjectives, Comparison\nComposition: Letter Writing\nUnseen Comprehension"
+      },
+      {
+        "date_iso": "2026-09-11",
+        "day": "Friday",
+        "subject": "Science",
+        "marks": 60,
+        "portion": "Food and Nutrition in Humans, Birds, Our Body is a Wonderful Machine"
+      },
+      {
+        "date_iso": "2026-09-12",
+        "day": "Saturday",
+        "subject": "Hindi",
+        "marks": 60,
+        "portion": "साहित्य - गेहूँ की बालियाँ,मधुर वाणी, ऐसे किया छुट्टियों का सदुपयोग\nव्याकरण - मात्राएँ शब्द और वाक्य, संज्ञा, गिनती (1 से 35 तक)\nरचनात्मक अभिव्यक्ति - चित्र वर्णन\nअपठित गद्यांश"
+      }
+    ]
+  }
+}
