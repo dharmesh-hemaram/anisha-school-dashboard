@@ -201,6 +201,23 @@
     margin-bottom: 8px;
   }
 
+  /* ---- HW / todo ---- */
+  .hw-list { display: flex; flex-direction: column; gap: 8px; }
+  .hw-row {
+    display: flex; align-items: flex-start; gap: 10px; cursor: pointer;
+    background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+    box-shadow: var(--shadow); padding: 11px 13px;
+  }
+  .hw-check { flex-shrink: 0; width: 24px; height: 24px; color: var(--text-faint); margin-top: 1px; }
+  .hw-check svg { width: 100%; height: 100%; }
+  .hw-row.is-done .hw-check { color: var(--brand); }
+  .hw-body { flex: 1; min-width: 0; }
+  .hw-top { display: flex; align-items: center; gap: 8px; margin-bottom: 3px; flex-wrap: wrap; }
+  .hw-date { font-size: 11.5px; color: var(--text-faint); margin-left: auto; white-space: nowrap; }
+  .hw-text { font-size: 13.5px; color: var(--text); line-height: 1.4; }
+  .hw-row.is-done { opacity: 0.55; }
+  .hw-row.is-done .hw-text { text-decoration: line-through; }
+
   /* ---- Filter chips ---- */
   .chip-row { display: flex; gap: 6px; overflow-x: auto; padding-bottom: 10px; margin-bottom: 8px; -webkit-overflow-scrolling: touch; }
   .chip-row::-webkit-scrollbar { display: none; }
@@ -398,6 +415,7 @@
 
   <div class="tabbar">
     <button class="tab-btn active" data-tab="upcoming">Upcoming</button>
+    <button class="tab-btn" data-tab="hw">HW</button>
     <button class="tab-btn" data-tab="exam">Exam</button>
     <button class="tab-btn" data-tab="notes">Notes</button>
     <button class="tab-btn" data-tab="feed">Feed</button>
@@ -406,6 +424,11 @@
   <div class="tab-panel active" id="panel-upcoming">
     <div class="section-note">Exams, school events &amp; holidays, newest first</div>
     <div class="action-list" id="actionList"></div>
+  </div>
+
+  <div class="tab-panel" id="panel-hw">
+    <div class="section-note">Homework from the last two weeks — tap to mark done</div>
+    <div id="hwList"></div>
   </div>
 
   <div class="tab-panel" id="panel-exam">
@@ -983,6 +1006,104 @@ function renderExam(activeCycle) {
   detail.innerHTML = html;
 }
 
+const HW_COMPLETED_KEY = "hwCompleted_v1";
+const HW_SEEDED_KEY = "hwSeeded_v1";
+const HW_WINDOW_DAYS = 14; // how far back the HW tab looks
+const HW_SEED_DAYS = 7;    // backlog older than this is auto-marked done on first-ever load
+
+function collectHwTasks() {
+  const tasks = [];
+  ALL.forEach(r => {
+    if (r.category !== "Daily Class Update" || !r.periods) return;
+    r.periods.forEach(p => {
+      if (!p.hw) return;
+      tasks.push({
+        id: `${r.id}-p${p.period}`,
+        subject: p.subject,
+        text: p.hw,
+        date_iso: r.posted_date_iso,
+        posted_date: r.posted_date,
+      });
+    });
+  });
+  return tasks;
+}
+
+function loadHwCompleted() {
+  try { return new Set(JSON.parse(localStorage.getItem(HW_COMPLETED_KEY) || "[]")); }
+  catch { return new Set(); }
+}
+function saveHwCompleted(set) {
+  try { localStorage.setItem(HW_COMPLETED_KEY, JSON.stringify([...set])); } catch {}
+}
+
+// First-ever load has no real completion history, and the scraped data
+// can span months -- without this, every HW ever posted would show up as
+// undone backlog. Auto-mark anything older than a week done so only
+// recent, actually-actionable homework needs a look. Runs once: after
+// that, only the user's own taps change what's marked done.
+function seedHwCompletedIfNeeded(tasks) {
+  try {
+    if (localStorage.getItem(HW_SEEDED_KEY)) return loadHwCompleted();
+  } catch {
+    return new Set();
+  }
+  const done = new Set();
+  tasks.forEach(t => {
+    if (-daysUntil(parseISO(t.date_iso)) > HW_SEED_DAYS) done.add(t.id);
+  });
+  saveHwCompleted(done);
+  try { localStorage.setItem(HW_SEEDED_KEY, "1"); } catch {}
+  return done;
+}
+
+const HW_CHECK_ICONS = {
+  done: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9" fill="currentColor" opacity="0.15"/><circle cx="12" cy="12" r="9"/><path d="M8 12.3l2.5 2.5L16 9"/></svg>',
+  todo: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/></svg>',
+};
+
+function hwRowHtml(t, done) {
+  return `
+    <div class="hw-row${done ? " is-done" : ""}" id="hw-${t.id}" onclick="toggleHwDone('${t.id}')">
+      <span class="hw-check">${done ? HW_CHECK_ICONS.done : HW_CHECK_ICONS.todo}</span>
+      <div class="hw-body">
+        <div class="hw-top">
+          ${t.subject ? subjectBadge(t.subject) : ""}
+          <span class="hw-date">${fmtDate(parseDMY(t.posted_date))}</span>
+        </div>
+        <div class="hw-text">${escapeHtml(t.text)}</div>
+      </div>
+    </div>`;
+}
+
+function renderHw() {
+  const list = document.getElementById("hwList");
+  const tasks = collectHwTasks();
+  const completed = seedHwCompletedIfNeeded(tasks);
+
+  const visible = tasks
+    .filter(t => -daysUntil(parseISO(t.date_iso)) <= HW_WINDOW_DAYS)
+    .sort((a, b) => parseDMY(b.posted_date) - parseDMY(a.posted_date));
+
+  if (visible.length === 0) {
+    list.innerHTML = '<div class="empty-state">No homework from the last two weeks.</div>';
+    return;
+  }
+
+  list.innerHTML = `<div class="hw-list">${visible.map(t => hwRowHtml(t, completed.has(t.id))).join("")}</div>`;
+}
+
+function toggleHwDone(id) {
+  const completed = loadHwCompleted();
+  if (completed.has(id)) completed.delete(id); else completed.add(id);
+  saveHwCompleted(completed);
+  const row = document.getElementById(`hw-${id}`);
+  if (!row) return;
+  const nowDone = completed.has(id);
+  row.classList.toggle("is-done", nowDone);
+  row.querySelector(".hw-check").innerHTML = nowDone ? HW_CHECK_ICONS.done : HW_CHECK_ICONS.todo;
+}
+
 document.querySelectorAll(".tab-btn").forEach(btn => {
   btn.onclick = () => {
     document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
@@ -1003,6 +1124,7 @@ Promise.all([
     renderFeed("All");
     renderNotes("English");
     renderExam(null);
+    renderHw();
     document.getElementById("footerNote").textContent =
       `${ALL.length} notices · updated ${new Date().toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" })}`;
   })
