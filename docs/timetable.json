@@ -1,0 +1,135 @@
+{
+  "days": [
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday"
+  ],
+  "periods": [
+    {
+      "period": 1,
+      "time": "8:10 a.m. – 8:45 a.m.",
+      "subjects": {
+        "Monday": "Science",
+        "Tuesday": "Science",
+        "Wednesday": "Assembly",
+        "Thursday": "Assembly",
+        "Friday": "Assembly",
+        "Saturday": "Assembly"
+      }
+    },
+    {
+      "period": 2,
+      "time": "8:45 a.m. – 9:20 a.m.",
+      "subjects": {
+        "Monday": "Science",
+        "Tuesday": "Science",
+        "Wednesday": "Science",
+        "Thursday": "Dance",
+        "Friday": "Mathematics",
+        "Saturday": "Music"
+      }
+    },
+    {
+      "period": null,
+      "time": "9:20 a.m. – 9:40 a.m.",
+      "break": "Short Break"
+    },
+    {
+      "period": 3,
+      "time": "9:40 a.m. – 10:15 a.m.",
+      "subjects": {
+        "Monday": "Marathi",
+        "Tuesday": "Social Studies",
+        "Wednesday": "Marathi",
+        "Thursday": "Marathi",
+        "Friday": "Social Studies",
+        "Saturday": "English"
+      }
+    },
+    {
+      "period": 4,
+      "time": "10:15 a.m.– 10:50 a.m.",
+      "subjects": {
+        "Monday": "Mathematics",
+        "Tuesday": "Mathematics",
+        "Wednesday": "Mathematics",
+        "Thursday": "Mathematics",
+        "Friday": "Sports",
+        "Saturday": "Sports"
+      }
+    },
+    {
+      "period": 5,
+      "time": "10:50 a.m.– 11:25 a.m.",
+      "subjects": {
+        "Monday": "Computer Science",
+        "Tuesday": "Computer Science",
+        "Wednesday": "Computer Science",
+        "Thursday": "Social Studies",
+        "Friday": "Social Studies",
+        "Saturday": "Social Studies"
+      }
+    },
+    {
+      "period": 6,
+      "time": "11:25 a.m.– 12:00 p.m.",
+      "subjects": {
+        "Monday": "Art & Craft",
+        "Tuesday": "Dance",
+        "Wednesday": "English",
+        "Thursday": "Hindi",
+        "Friday": "Speech & Drama",
+        "Saturday": "Martial Arts"
+      }
+    },
+    {
+      "period": null,
+      "time": "12:00 p.m.– 12:35 p.m.",
+      "break": "Long Break"
+    },
+    {
+      "period": 7,
+      "time": "12:35 p.m.– 1:10 p.m.",
+      "subjects": {
+        "Monday": "Leadership",
+        "Tuesday": "SEEK / GK",
+        "Wednesday": "Hindi",
+        "Thursday": "Skating",
+        "Friday": "Hindi",
+        "Saturday": "Hindi"
+      }
+    },
+    {
+      "period": 8,
+      "time": "1:10 p.m. – 1:45 p.m.",
+      "subjects": {
+        "Monday": "Life Skills",
+        "Tuesday": "Reading Program",
+        "Wednesday": "Mathematics",
+        "Thursday": "Skating",
+        "Friday": "English",
+        "Saturday": "English"
+      }
+    },
+    {
+      "period": 9,
+      "time": "1:45 p.m. – 2:20 p.m.",
+      "subjects": {
+        "Monday": "English",
+        "Tuesday": "Hindi",
+        "Wednesday": "English",
+        "Thursday": "Marathi",
+        "Friday": "English",
+        "Saturday": "Art & Craft"
+      }
+    },
+    {
+      "period": null,
+      "time": "2:20 p.m. – 2:30 p.m.",
+      "break": "Class Teacher Period"
+    }
+  ]
+}

@@ -1,0 +1,203 @@
+{
+  "events": [
+    {
+      "date_iso": "2026-04-15",
+      "day": "Wednesday",
+      "name": "World Art Day"
+    },
+    {
+      "date_iso": "2026-06-09",
+      "day": "Tuesday",
+      "name": "Body Safety Education"
+    },
+    {
+      "date_iso": "2026-06-13",
+      "day": "Saturday",
+      "name": "Father’s Day Celebration (Class I & II)"
+    },
+    {
+      "date_iso": "2026-06-13",
+      "day": "Saturday",
+      "name": "World Blood Donation Day (Class I - IV)"
+    },
+    {
+      "date_iso": "2026-06-22",
+      "day": "Monday",
+      "name": "International Yoga Day"
+    },
+    {
+      "date_iso": "2026-06-29",
+      "day": "Monday",
+      "name": "Health Week Begins"
+    },
+    {
+      "date_iso": "2026-07-07",
+      "day": "Tuesday",
+      "name": "Global Forgiveness Day"
+    },
+    {
+      "date_iso": "2026-07-27",
+      "day": "Monday",
+      "name": "Kargil Vijay Diwas"
+    },
+    {
+      "date_iso": "2026-07-31",
+      "day": "Friday",
+      "name": "Investiture Ceremony"
+    },
+    {
+      "date_iso": "2026-08-06",
+      "day": "Thursday",
+      "name": "Hiroshima Day"
+    },
+    {
+      "date_iso": "2026-08-15",
+      "day": "Saturday",
+      "name": "Independence Day Celebration"
+    },
+    {
+      "date_iso": "2026-08-27",
+      "day": "Thursday",
+      "name": "National Sports Day"
+    },
+    {
+      "date_iso": "2026-09-16",
+      "day": "Wednesday",
+      "name": "World Ozone Day"
+    },
+    {
+      "date_iso": "2026-09-26",
+      "day": "Saturday",
+      "name": "Skill Fest"
+    },
+    {
+      "date_iso": "2026-10-02",
+      "day": "Friday",
+      "name": "Gandhi Jayanti"
+    },
+    {
+      "date_iso": "2026-10-10",
+      "day": "Tuesday",
+      "name": "World Mental Health Day"
+    },
+    {
+      "date_iso": "2026-10-12",
+      "day": "Monday",
+      "name": "Navratri Celebration (Class I & II)"
+    },
+    {
+      "date_iso": "2026-10-17",
+      "day": "Saturday",
+      "name": "Navratri Celebration (Class III & IV)"
+    },
+    {
+      "date_iso": "2026-11-21",
+      "day": "Saturday",
+      "name": "Interschool Shining Stars"
+    },
+    {
+      "date_iso": "2026-12-03",
+      "day": "Saturday",
+      "name": "Annual Day (One of the days from the dates given)"
+    },
+    {
+      "date_iso": "2026-12-12",
+      "day": "Saturday",
+      "name": "Shining Stars Sports Tournament"
+    },
+    {
+      "date_iso": "2026-12-19",
+      "day": "Saturday",
+      "name": "Christmas Carnival"
+    },
+    {
+      "date_iso": "2027-01-12",
+      "day": "Tuesday",
+      "name": "World Braille Day"
+    },
+    {
+      "date_iso": "2027-01-18",
+      "day": "Monday",
+      "name": "Sports Week Begins"
+    },
+    {
+      "date_iso": "2027-01-26",
+      "day": "Tuesday",
+      "name": "Republic Day Celebration"
+    },
+    {
+      "date_iso": "2027-02-13",
+      "day": "Saturday",
+      "name": "Leadership Day"
+    },
+    {
+      "date_iso": "2027-02-18",
+      "day": "Thursday",
+      "name": "Shivaji Jayanti"
+    }
+  ],
+  "ptm": [
+    {
+      "label": "PTM-1",
+      "date_iso": "2026-04-18",
+      "scope": "Class I & II"
+    },
+    {
+      "label": "PTM-1",
+      "date_iso": "2026-04-25",
+      "scope": "Class III & IV"
+    },
+    {
+      "label": "PTM-2",
+      "date_iso": "2026-06-20",
+      "scope": null
+    },
+    {
+      "label": "PTM-3",
+      "date_iso": "2026-08-01",
+      "scope": null
+    },
+    {
+      "label": "Term I Progress Report",
+      "date_iso": "2026-10-03",
+      "scope": null
+    },
+    {
+      "label": "PTM-4",
+      "date_iso": "2026-11-28",
+      "scope": null
+    },
+    {
+      "label": "PTM-5",
+      "date_iso": "2027-02-06",
+      "scope": null
+    },
+    {
+      "label": "Term II Progress Report",
+      "date_iso": "2027-03-30",
+      "scope": null
+    }
+  ],
+  "exam_windows": [
+    {
+      "name": "Periodic Test 1",
+      "start_iso": "2026-07-06",
+      "end_iso": "2026-07-13"
+    },
+    {
+      "name": "Half Yearly",
+      "start_iso": "2026-09-05",
+      "end_iso": "2026-09-12"
+    },
+    {
+      "name": "Periodic Test 2",
+      "start_iso": "2027-01-04",
+      "end_iso": "2027-01-11"
+    },
+    {
+      "name": "Final Examination",
+      "start_iso": "2027-03-12",
+      "end_iso": "2027-03-19"
+    }
+  ]
+}

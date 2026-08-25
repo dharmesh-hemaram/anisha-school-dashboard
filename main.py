@@ -8,10 +8,13 @@ Usage:
 """
 
 import argparse
+import json
 import logging
 
 from dotenv import load_dotenv
 
+from attachments.download import download
+from attachments.master_docs import OUTPUT_PATHS, PARSERS, detect
 from classifier.classify import classify
 from datastore.store import build_record, load, merge, pair_worksheets, prune_before, save, tag_exam_cycles
 from scraper.login import build_session_from_env
@@ -20,6 +23,27 @@ from scraper.notices import fetch_notices, fetch_notices_for_year
 DATA_PATH = "docs/notices.json"
 
 logger = logging.getLogger(__name__)
+
+
+def process_master_docs(session, notices) -> None:
+    """Holiday List / Special Days & Events / Time Table are once-a-year
+    attachments carrying structured data notice text never has -- detect
+    them, download+parse, and refresh their dedicated output file. Only
+    ever a couple of matches per run, so failures are logged and skipped
+    rather than aborting the whole pipeline over one bad attachment."""
+    for n in notices:
+        doc_type = detect(n.text)
+        if not doc_type or not n.attachment_url:
+            continue
+        out_path = OUTPUT_PATHS[doc_type]
+        try:
+            data = PARSERS[doc_type](download(session, n.attachment_url))
+        except Exception:
+            logger.exception("Failed to process %s attachment from notice posted %s", doc_type, n.posted_date)
+            continue
+        with open(out_path, "w") as f:
+            json.dump(data, f, indent=2, ensure_ascii=False)
+        logger.info("Wrote %s from notice posted %s", out_path, n.posted_date)
 
 
 def main():
@@ -40,6 +64,8 @@ def main():
         if args.year
         else fetch_notices(session, limit=args.recent)
     )
+
+    process_master_docs(session, notices)
 
     method_counts = {"pattern": 0, "default": 0}
     fresh_records = []

@@ -1,0 +1,131 @@
+{
+  "holidays": [
+    {
+      "date_iso": "2026-03-03",
+      "day": "Wednesday",
+      "name": "Holi"
+    },
+    {
+      "date_iso": "2026-03-19",
+      "day": "Thursday",
+      "name": "Gudi Padwa"
+    },
+    {
+      "date_iso": "2026-03-21",
+      "day": "Saturday",
+      "name": "Ramzan Eid (Date may change)"
+    },
+    {
+      "date_iso": "2026-04-03",
+      "day": "Friday",
+      "name": "Good Friday"
+    },
+    {
+      "date_iso": "2026-04-14",
+      "day": "Tuesday",
+      "name": "Ambedkar Jayanti"
+    },
+    {
+      "date_iso": "2026-06-26",
+      "day": "Friday",
+      "name": "Muharram"
+    },
+    {
+      "date_iso": "2026-07-25",
+      "day": "Saturday",
+      "name": "Ashadi Ekadashi"
+    },
+    {
+      "date_iso": "2026-08-15",
+      "day": "Saturday",
+      "name": "Independence Day"
+    },
+    {
+      "date_iso": "2026-08-25",
+      "day": "Tuesday",
+      "name": "Eid-e-Milad"
+    },
+    {
+      "date_iso": "2026-08-28",
+      "day": "Friday",
+      "name": "Rakshabandhan"
+    },
+    {
+      "date_iso": "2026-09-04",
+      "day": "Friday",
+      "name": "Janmashtami (Date may change)"
+    },
+    {
+      "date_iso": "2026-09-14",
+      "day": "Monday",
+      "name": "Ganesh Chaturthi"
+    },
+    {
+      "date_iso": "2026-09-25",
+      "day": "Friday",
+      "name": "Anant Chaturdashi"
+    },
+    {
+      "date_iso": "2026-10-20",
+      "day": "Tuesday",
+      "name": "Dussehra"
+    },
+    {
+      "date_iso": "2027-01-15",
+      "day": "Friday",
+      "name": "Makar Sankranti"
+    },
+    {
+      "date_iso": "2027-01-26",
+      "day": "Tuesday",
+      "name": "Republic Day"
+    },
+    {
+      "date_iso": "2027-02-19",
+      "day": "Friday",
+      "name": "Shivaji Jayanti"
+    },
+    {
+      "date_iso": "2027-03-10",
+      "day": "Wednesday",
+      "name": "Ramzan Eid"
+    },
+    {
+      "date_iso": "2027-03-22",
+      "day": "Monday",
+      "name": "Holi"
+    },
+    {
+      "date_iso": "2027-03-26",
+      "day": "Friday",
+      "name": "Good Friday"
+    },
+    {
+      "date_iso": "2027-04-07",
+      "day": "Wednesday",
+      "name": "Gudi Padwa"
+    },
+    {
+      "date_iso": "2027-04-14",
+      "day": "Wednesday",
+      "name": "Ambedkar Jayanti"
+    }
+  ],
+  "vacations": [
+    {
+      "name": "Summer Vacation",
+      "start_iso": "2026-04-29",
+      "end_iso": "2026-06-03"
+    },
+    {
+      "name": "Diwali Vacation",
+      "start_iso": "2026-11-05",
+      "end_iso": "2026-11-16"
+    },
+    {
+      "name": "Christmas Vacation",
+      "start_iso": "2026-12-24",
+      "end_iso": "2027-01-01"
+    }
+  ]
+}
