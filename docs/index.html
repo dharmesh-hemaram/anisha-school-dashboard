@@ -182,11 +182,14 @@
   .badge-soon { background: var(--warn-bg); color: var(--warn-ink); border: 1px solid var(--warn-border); }
   .badge-past { background: transparent; color: var(--text-faint); border: 1px solid var(--border); }
   .action-date { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
-  .action-attach {
+  /* Attachments (link or inline image) only show once a card is expanded
+     -- a collapsed Upcoming card is a scannable summary, not a photo feed. */
+  .action-attach, .action-attach-image { display: none; }
+  .action-card.open .action-attach {
     display: inline-block; margin-top: 8px; font-size: 12.5px; color: var(--brand);
     font-weight: 700; text-decoration: none; padding: 4px 0;
   }
-  .action-attach-image {
+  .action-card.open .action-attach-image {
     display: block; max-width: 100%; height: auto; border-radius: 8px; margin-top: 8px; border: 1px solid var(--border);
   }
   .action-materials {
@@ -293,7 +296,15 @@
   .cycle-head {
     font-size: 12px; font-weight: 700; color: var(--brand); margin: 10px 0 6px 2px;
   }
-  .chapter-attach { display: inline-block; font-size: 12.5px; color: var(--brand); font-weight: 700; text-decoration: none; }
+  /* Icon-only "Open" links -- a notebook/checklist/checkmark/refresh-loop
+     instead of text, pinned to the row's right edge. */
+  .material-link-icons { margin-left: auto; display: flex; align-items: center; gap: 6px; flex-shrink: 0; }
+  .material-link-icon {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 18px; height: 18px; padding: 6px; color: var(--brand); flex-shrink: 0;
+  }
+  .material-link-icon svg { width: 100%; height: 100%; }
+  a.material-link-icon { text-decoration: none; }
 
   /* ---- Exam prep ---- */
   .exam-portion-card {
@@ -424,6 +435,10 @@ const CATEGORY_META = {
   "General/Other":      { dot: "var(--dot-general)", label: "General" },
 };
 const UPCOMING_CATEGORIES = ["Exam/Test", "School Event", "Holiday"];
+// Exam/Test and Subject Notes have their own dedicated tabs (Exam, Notes)
+// with much better treatment (portion table, grouped-by-cycle materials)
+// -- showing them in Feed too is just noise duplicating those tabs.
+const FEED_CATEGORIES = Object.keys(CATEGORY_META).filter(c => c !== "Exam/Test" && c !== "Subject Notes");
 
 // Exam-track subjects get their own color + short form; anything else
 // (co-curricular, no exam) falls back to one shared neutral badge below.
@@ -542,14 +557,43 @@ function latestExamCycle() {
 function renderUpcoming() {
   const list = document.getElementById("actionList");
   const currentCycle = latestExamCycle();
+
+  // The portion sheet itself is one notification, not an event on any one
+  // day -- Upcoming should show the individual exam day it actually
+  // announces instead. Synthesize one entry per portion-table row for the
+  // current cycle, skipping only a row whose subject *and* date already
+  // match a real class-test notice (once the school posts the actual
+  // September notice, it takes over rather than showing twice) -- matching
+  // on subject alone would also catch that subject's regular class tests
+  // earlier in the same cycle window, which are a different, smaller test.
+  const portionData = PORTION_SCHEDULES[currentCycle];
+  const portionNotice = ALL.find(r => r.category === "Exam/Test" && r.material_type === "Portion" && r.exam_cycle === currentCycle);
+  const realExamSlots = new Set(
+    ALL.filter(r => r.category === "Exam/Test" && r.material_type !== "Portion" && r.exam_cycle === currentCycle && r.subject)
+      .map(r => `${r.subject}|${r.event_date_iso}`)
+  );
+  const synthetic = portionData?.schedule && portionNotice
+    ? portionData.schedule
+        .filter(row => !realExamSlots.has(`${row.subject}|${row.date_iso}`))
+        .map(row => ({
+          id: `portion-${currentCycle}-${row.subject}`.replace(/\s+/g, "-"),
+          category: "Exam/Test",
+          material_type: null,
+          subject: row.subject,
+          exam_cycle: currentCycle,
+          event_date_iso: row.date_iso,
+          posted_date_iso: portionNotice.posted_date_iso,
+          posted_date: portionNotice.posted_date,
+          text: row.portion,
+          attachment_url: portionNotice.attachment_url,
+        }))
+    : [];
+
   const items = ALL
-    .filter(r => UPCOMING_CATEGORIES.includes(r.category))
+    .filter(r => UPCOMING_CATEGORIES.includes(r.category) && r.material_type !== "Portion")
+    .concat(synthetic)
     .map(r => ({ ...r, _date: parseISO(r.event_date_iso), _days: daysUntil(parseISO(r.event_date_iso)) }))
-    // Exam portion sheets stay useful for their whole exam cycle, not just
-    // the 5 days after they were posted -- but only while that cycle is
-    // still the current one, so a past exam's portion doesn't linger here
-    // once a newer cycle has started.
-    .filter(r => r._days >= -5 || (r.material_type === "Portion" && r.exam_cycle === currentCycle))
+    .filter(r => r._days >= -5)
     .sort((a, b) => b._days - a._days);
 
   if (items.length === 0) {
@@ -564,18 +608,17 @@ function renderUpcoming() {
       : r._days === 0
         ? `<span class="action-badge badge-today">Today</span>`
         : `<span class="action-badge badge-soon">In ${r._days}d</span>`;
-    const isPortion = r.material_type === "Portion";
-    const attach = attachmentHtml(r.attachment_url, "action-attach-image", "action-attach", isPortion ? "View portion →" : "View attachment →");
+    const attach = attachmentHtml(r.attachment_url, "action-attach-image", "action-attach", "View attachment →");
     const postedNote = r.event_date_iso !== r.posted_date_iso
       ? ` <span style="color:var(--text-faint)">· notified ${fmtDate(parseDMY(r.posted_date))}</span>`
       : "";
-    const kind = isPortion ? "Exam Portion" : CATEGORY_META[r.category].label;
-    const cycle = isPortion && r.exam_cycle ? ` · ${escapeHtml(r.exam_cycle)}` : "";
-    // A per-subject class test (has a subject, isn't the portion sheet
-    // itself) gets its prep material pulled in too -- same subject, same
+    const kind = CATEGORY_META[r.category].label;
+    const cycle = r.category === "Exam/Test" && r.exam_cycle ? ` · ${escapeHtml(r.exam_cycle)}` : "";
+    // A per-subject class test (real or synthesized from the portion
+    // table) gets its prep material pulled in too -- same subject, same
     // exam cycle -- so there's no need to jump to the Exam tab just to see
     // what to study for a test sitting right here in Upcoming.
-    const relatedMaterials = !isPortion && r.subject && r.exam_cycle
+    const relatedMaterials = r.subject && r.exam_cycle
       ? ALL.filter(m => m.category === "Subject Notes" && m.subject === r.subject && m.exam_cycle === r.exam_cycle)
         .sort((a, b) => parseDMY(b.posted_date) - parseDMY(a.posted_date))
       : [];
@@ -627,13 +670,14 @@ function renderFeed(activeCategory, activeSubject) {
   activeSubject = activeSubject || "All";
 
   const catChips = document.getElementById("categoryChips");
-  const cats = ["All", ...Object.keys(CATEGORY_META)];
+  const cats = ["All", ...FEED_CATEGORIES];
   catChips.innerHTML = cats.map(c =>
     `<button class="chip${c === activeCategory ? " active" : ""}" data-cat="${c}">${c === "All" ? "All" : CATEGORY_META[c].label}</button>`
   ).join("");
   catChips.querySelectorAll(".chip").forEach(btn => btn.onclick = () => renderFeed(btn.dataset.cat, activeSubject));
 
-  let filtered = activeCategory === "All" ? ALL : ALL.filter(r => r.category === activeCategory);
+  const feedItems = ALL.filter(r => FEED_CATEGORIES.includes(r.category));
+  let filtered = activeCategory === "All" ? feedItems : feedItems.filter(r => r.category === activeCategory);
 
   // Only the exam-track subjects (SUBJECT_META) are worth filtering by --
   // co-curricular subjects would clutter the row, and categories like
@@ -700,18 +744,35 @@ function renderFeed(activeCategory, activeSubject) {
 function materialLinks(r) {
   const links = [];
   if (r.material_type === "Worksheet") {
-    if (r.attachment_url) links.push({ href: r.attachment_url, label: "Open worksheet →" });
-    if (r.answer_key_url) links.push({ href: r.answer_key_url, label: "Open answer key →" });
+    if (r.attachment_url) links.push({ href: r.attachment_url, label: "Open worksheet", type: "worksheet" });
+    if (r.answer_key_url) links.push({ href: r.answer_key_url, label: "Open answer key", type: "answerkey" });
   } else if (r.material_type === "Revision") {
-    if (r.attachment_url) links.push({ href: r.attachment_url, label: "Open revision →" });
+    if (r.attachment_url) links.push({ href: r.attachment_url, label: "Open revision", type: "revision" });
   } else if (r.attachment_url) {
-    const label = r.material_type === "Answer Key" ? "Open answer key →" : "Open →";
-    links.push({ href: r.attachment_url, label });
+    const isAnswerKey = r.material_type === "Answer Key";
+    links.push({ href: r.attachment_url, label: isAnswerKey ? "Open answer key" : "Open", type: isAnswerKey ? "answerkey" : "notes" });
   }
   return links;
 }
-function materialLinksHtml(links) {
-  return links.map(l => `<a class="chapter-attach" href="${l.href}" target="_blank" rel="noopener">${l.label}</a>`).join("");
+// Small icons stand in for the "Open ..." text link: a notebook for Notes,
+// a checklist for a Worksheet (a list of problems to fill in), a checkmark
+// for an Answer Key (the verified solutions), a refresh loop for Revision
+// (going back over material already covered).
+const MATERIAL_LINK_ICONS = {
+  notes: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4.5S4.5 3 8 3s6 1.5 6 1.5v14S11.5 17 8 17s-6 1.5-6 1.5V4.5Z"/><path d="M22 4.5S19.5 3 16 3s-6 1.5-6 1.5v14S13.5 17 16 17s6 1.5 6 1.5V4.5Z"/></svg>',
+  worksheet: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3.5" width="3.4" height="3.4" rx="0.8"/><rect x="3" y="10.3" width="3.4" height="3.4" rx="0.8"/><rect x="3" y="17.1" width="3.4" height="3.4" rx="0.8"/><line x1="9.4" y1="5.2" x2="21" y2="5.2"/><line x1="9.4" y1="12" x2="21" y2="12"/><line x1="9.4" y1="18.8" x2="21" y2="18.8"/></svg>',
+  answerkey: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12.3l2.5 2.5L16 9"/></svg>',
+  revision: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.6-6.35"/><polyline points="21 4 21 9.5 15.5 9.5"/></svg>',
+};
+function materialLinkIconsHtml(links) {
+  // A single-link item is already the whole row's <a> (see below), so its
+  // icon is a decorative hint, not a second nested link.
+  if (links.length === 1) {
+    return `<span class="material-link-icon is-decorative" aria-hidden="true">${MATERIAL_LINK_ICONS[links[0].type]}</span>`;
+  }
+  return links.map(l =>
+    `<a class="material-link-icon" href="${l.href}" target="_blank" rel="noopener" title="${l.label}" aria-label="${l.label}">${MATERIAL_LINK_ICONS[l.type]}</a>`
+  ).join("");
 }
 
 const MATERIAL_TAG_META = {
@@ -730,7 +791,7 @@ function examMaterialRowHtml(r) {
       </div>
       <div class="exam-material-meta">
         <span class="exam-material-date">Posted ${fmtDate(parseDMY(r.posted_date))}</span>
-        ${links.length === 1 ? `<span class="chapter-attach">${links[0].label}</span>` : materialLinksHtml(links)}
+        <span class="material-link-icons">${materialLinkIconsHtml(links)}</span>
       </div>`;
   return links.length === 1
     ? `<a class="exam-material-row exam-material-row-link" href="${links[0].href}" target="_blank" rel="noopener">${inner}</a>`
