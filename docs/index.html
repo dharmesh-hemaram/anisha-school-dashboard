@@ -162,7 +162,15 @@
   .action-card.state-today { border-left-color: var(--warn); background: var(--warn-bg); }
   .action-card.state-soon { border-left-color: var(--warn); }
   .action-card.state-past { border-left-color: var(--text-faint); background: var(--past-bg); opacity: 0.75; }
-  .action-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; }
+  .action-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; cursor: pointer; }
+  .action-top-right { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+  .action-chevron { color: var(--text-faint); font-size: 11px; transition: transform .15s; }
+  .action-card.open .action-chevron { transform: rotate(90deg); }
+  .action-full {
+    display: none; margin-top: 8px; padding-top: 8px; border-top: 1px dashed var(--border);
+    font-size: 13.5px; white-space: pre-line;
+  }
+  .action-card.open .action-full { display: block; }
   .action-kind { font-size: 10px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--text-faint); font-weight: 700; }
   .action-title { font-weight: 700; font-size: 15px; margin: 2px 0 3px; }
   .action-meta { font-size: 12.5px; color: var(--text-muted); }
@@ -366,11 +374,26 @@ const NEUTRAL_SUBJECT_ABBR = {
   "Life Skills": "LS", "Martial Arts": "MA", "Music": "MUS",
   "Reading Program": "RP", "Skating": "SKT", "Speech & Drama": "S&D", "Sports": "SPT",
 };
+function subjectAbbr(subject) {
+  const meta = SUBJECT_META[subject];
+  return meta ? meta.abbr : (NEUTRAL_SUBJECT_ABBR[subject] || subject.slice(0, 4).toUpperCase());
+}
 function subjectBadge(subject) {
   const meta = SUBJECT_META[subject];
   if (meta) return `<span class="subject-badge" style="background:${meta.bg};color:${meta.fg}" title="${escapeHtml(subject)}">${meta.abbr}</span>`;
-  const abbr = NEUTRAL_SUBJECT_ABBR[subject] || subject.slice(0, 4).toUpperCase();
-  return `<span class="subject-badge is-neutral" title="${escapeHtml(subject)}">${abbr}</span>`;
+  return `<span class="subject-badge is-neutral" title="${escapeHtml(subject)}">${subjectAbbr(subject)}</span>`;
+}
+// Same color used for the badge doubles as the button's color when it's
+// used as a filter chip -- solid fill (color as background) when selected,
+// soft tint when not, so the active subject still reads clearly.
+function subjectChipHtml(subject, isActive, cls) {
+  const meta = SUBJECT_META[subject];
+  const bg = meta ? meta.bg : "var(--subj-neutral-bg)";
+  const fg = meta ? meta.fg : "var(--subj-neutral)";
+  const style = isActive
+    ? `background:${fg};color:var(--surface);border-color:${fg}`
+    : `background:${bg};color:${fg};border-color:transparent`;
+  return `<button class="${cls}${isActive ? " active" : ""}" data-subj="${escapeHtml(subject)}" style="${style}" title="${escapeHtml(subject)}">${subjectAbbr(subject)}</button>`;
 }
 
 function todayISO() {
@@ -444,15 +467,19 @@ function renderUpcoming() {
     const kind = isPortion ? "Exam Portion" : CATEGORY_META[r.category].label;
     const cycle = isPortion && r.exam_cycle ? ` · ${escapeHtml(r.exam_cycle)}` : "";
     return `
-      <div class="action-card state-${state}">
-        <div class="action-top">
+      <div class="action-card state-${state}" id="upcoming-${r.id}">
+        <div class="action-top" onclick="document.getElementById('upcoming-${r.id}').classList.toggle('open')">
           <div>
             <div class="action-kind">${kind}${cycle}</div>
             <div class="action-title">${escapeHtml(noticeTitle(r))}</div>
           </div>
-          ${badge}
+          <div class="action-top-right">
+            ${badge}
+            <span class="action-chevron">▸</span>
+          </div>
         </div>
         <div class="action-date">${fmtDate(r._date)}${postedNote}</div>
+        <div class="action-full">${escapeHtml(r.text)}</div>
         ${attach}
       </div>`;
   }).join("");
@@ -501,10 +528,9 @@ function renderFeed(activeCategory, activeSubject) {
     activeSubject = "All";
   } else {
     subjChips.style.display = "";
-    const subjects = ["All", ...[...allSubjects].sort()];
-    subjChips.innerHTML = subjects.map(s =>
-      `<button class="chip${s === activeSubject ? " active" : ""}" data-subj="${escapeHtml(s)}">${escapeHtml(s)}</button>`
-    ).join("");
+    const subjects = [...allSubjects].sort();
+    const allBtn = `<button class="chip${activeSubject === "All" ? " active" : ""}" data-subj="All">All</button>`;
+    subjChips.innerHTML = allBtn + subjects.map(s => subjectChipHtml(s, s === activeSubject, "chip")).join("");
     subjChips.querySelectorAll(".chip").forEach(btn => btn.onclick = () => renderFeed(activeCategory, btn.dataset.subj));
   }
 
@@ -550,9 +576,7 @@ function renderFeed(activeCategory, activeSubject) {
 function renderNotes(activeSubject) {
   const subjects = [...new Set(ALL.filter(r => r.category === "Subject Notes" && r.subject).map(r => r.subject))].sort();
   const grid = document.getElementById("subjectGrid");
-  grid.innerHTML = subjects.map(s =>
-    `<button class="subject-chip${s === activeSubject ? " active" : ""}" data-subj="${escapeHtml(s)}">${escapeHtml(s)}</button>`
-  ).join("");
+  grid.innerHTML = subjects.map(s => subjectChipHtml(s, s === activeSubject, "subject-chip")).join("");
   grid.querySelectorAll(".subject-chip").forEach(btn => btn.onclick = () => renderNotes(btn.dataset.subj));
 
   const list = document.getElementById("chapterList");
