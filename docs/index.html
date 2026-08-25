@@ -587,6 +587,7 @@ function renderUpcoming() {
           id: `portion-${currentCycle}-${row.subject}`.replace(/\s+/g, "-"),
           category: "Exam/Test",
           material_type: null,
+          isSynthetic: true,
           subject: row.subject,
           exam_cycle: currentCycle,
           event_date_iso: row.date_iso,
@@ -621,7 +622,12 @@ function renderUpcoming() {
       ? ` <span style="color:var(--text-faint)">· notified ${fmtDate(parseDMY(r.posted_date))}</span>`
       : "";
     const kind = CATEGORY_META[r.category].label;
-    const cycle = r.category === "Exam/Test" && r.exam_cycle ? ` · ${escapeHtml(r.exam_cycle)}` : "";
+    // A real "class test" notice isn't itself the formal Half Yearly/PT-1
+    // exam -- exam_cycle is just an internal grouping heuristic (nearest
+    // named-cycle anchor in time) used to pull in the right prep material,
+    // not something that should read as "this test IS that exam". Only the
+    // portion-table-derived entries genuinely are that exam.
+    const cycle = r.isSynthetic && r.exam_cycle ? ` · ${escapeHtml(r.exam_cycle)}` : "";
     // A per-subject class test (real or synthesized from the portion
     // table) gets its prep material pulled in too -- same subject, same
     // exam cycle -- so there's no need to jump to the Exam tab just to see
