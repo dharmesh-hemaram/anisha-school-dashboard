@@ -186,6 +186,17 @@
     display: inline-block; margin-top: 8px; font-size: 12.5px; color: var(--brand);
     font-weight: 700; text-decoration: none; padding: 4px 0;
   }
+  .action-attach-image {
+    display: block; max-width: 100%; height: auto; border-radius: 8px; margin-top: 8px; border: 1px solid var(--border);
+  }
+  .action-materials {
+    display: none; margin-top: 10px; padding-top: 10px; border-top: 1px dashed var(--border); white-space: normal;
+  }
+  .action-card.open .action-materials { display: block; }
+  .action-materials-head {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase; color: var(--text-faint);
+    margin-bottom: 8px;
+  }
 
   /* ---- Filter chips ---- */
   .chip-row { display: flex; gap: 6px; overflow-x: auto; padding-bottom: 10px; margin-bottom: 8px; -webkit-overflow-scrolling: touch; }
@@ -233,6 +244,9 @@
   .feed-item.open .feed-full { display: block; }
   .feed-item.open .feed-preview { display: none; }
   .feed-attach { display: inline-block; margin-top: 9px; font-size: 12.5px; color: var(--brand); font-weight: 700; text-decoration: none; }
+  .feed-attach-image {
+    display: block; max-width: 100%; height: auto; border-radius: 8px; margin-top: 9px; border: 1px solid var(--border);
+  }
 
   .period-list { display: flex; flex-direction: column; gap: 9px; }
   .period-row { display: flex; gap: 9px; align-items: flex-start; }
@@ -374,9 +388,9 @@
 
   <div class="tabbar">
     <button class="tab-btn active" data-tab="upcoming">Upcoming</button>
-    <button class="tab-btn" data-tab="feed">Feed</button>
-    <button class="tab-btn" data-tab="notes">Notes</button>
     <button class="tab-btn" data-tab="exam">Exam</button>
+    <button class="tab-btn" data-tab="notes">Notes</button>
+    <button class="tab-btn" data-tab="feed">Feed</button>
   </div>
 
   <div class="tab-panel active" id="panel-upcoming">
@@ -384,10 +398,10 @@
     <div class="action-list" id="actionList"></div>
   </div>
 
-  <div class="tab-panel" id="panel-feed">
-    <div class="chip-row" id="categoryChips"></div>
-    <div class="chip-row" id="subjectChips"></div>
-    <div id="feedList"></div>
+  <div class="tab-panel" id="panel-exam">
+    <div class="section-note">Everything for one exam — schedule, portion &amp; notes — in one place</div>
+    <div class="subject-grid" id="examCycleGrid"></div>
+    <div id="examDetail"></div>
   </div>
 
   <div class="tab-panel" id="panel-notes">
@@ -396,10 +410,10 @@
     <div id="chapterList"></div>
   </div>
 
-  <div class="tab-panel" id="panel-exam">
-    <div class="section-note">Everything for one exam — schedule, portion &amp; notes — in one place</div>
-    <div class="subject-grid" id="examCycleGrid"></div>
-    <div id="examDetail"></div>
+  <div class="tab-panel" id="panel-feed">
+    <div class="chip-row" id="categoryChips"></div>
+    <div class="chip-row" id="subjectChips"></div>
+    <div id="feedList"></div>
   </div>
 
   <footer class="note">
@@ -500,6 +514,18 @@ function noticeTitle(r) {
 function escapeHtml(s) {
   return s.replace(/[&<>"']/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[c]));
 }
+// A photo attachment (a seek-kit materials list, a Facebook-recap photo) is
+// more useful shown inline than as a bare "View attachment" link -- a PDF
+// (worksheet, portion sheet) still needs the link since it can't render
+// inline anyway.
+const IMAGE_ATTACHMENT_RE = /\.(jpe?g|png|gif|webp)$/i;
+function attachmentHtml(url, imgClass, linkClass, label) {
+  if (!url) return "";
+  if (IMAGE_ATTACHMENT_RE.test(url)) {
+    return `<a href="${url}" target="_blank" rel="noopener"><img class="${imgClass}" src="${url}" loading="lazy" alt=""></a>`;
+  }
+  return `<a class="${linkClass}" href="${url}" target="_blank" rel="noopener">${label}</a>`;
+}
 
 let ALL = [];
 // Hand-transcribed from each exam's portion-sheet attachment (a scanned
@@ -548,14 +574,26 @@ function renderUpcoming() {
         ? `<span class="action-badge badge-today">Today</span>`
         : `<span class="action-badge badge-soon">In ${r._days}d</span>`;
     const isPortion = r.material_type === "Portion";
-    const attach = r.attachment_url
-      ? `<a class="action-attach" href="${r.attachment_url}" target="_blank" rel="noopener">${isPortion ? "View portion →" : "View attachment →"}</a>`
-      : "";
+    const attach = attachmentHtml(r.attachment_url, "action-attach-image", "action-attach", isPortion ? "View portion →" : "View attachment →");
     const postedNote = r.event_date_iso !== r.posted_date_iso
       ? ` <span style="color:var(--text-faint)">· notified ${fmtDate(parseDMY(r.posted_date))}</span>`
       : "";
     const kind = isPortion ? "Exam Portion" : CATEGORY_META[r.category].label;
     const cycle = isPortion && r.exam_cycle ? ` · ${escapeHtml(r.exam_cycle)}` : "";
+    // A per-subject class test (has a subject, isn't the portion sheet
+    // itself) gets its prep material pulled in too -- same subject, same
+    // exam cycle -- so there's no need to jump to the Exam tab just to see
+    // what to study for a test sitting right here in Upcoming.
+    const relatedMaterials = !isPortion && r.subject && r.exam_cycle
+      ? ALL.filter(m => m.category === "Subject Notes" && m.subject === r.subject && m.exam_cycle === r.exam_cycle)
+        .sort((a, b) => parseDMY(b.posted_date) - parseDMY(a.posted_date))
+      : [];
+    const materialsHtml = relatedMaterials.length
+      ? `<div class="action-materials">
+           <div class="action-materials-head">Notes &amp; worksheets — ${escapeHtml(r.subject)}</div>
+           ${relatedMaterials.map(examMaterialRowHtml).join("")}
+         </div>`
+      : "";
     return `
       <div class="action-card state-${state}" id="upcoming-${r.id}">
         <div class="action-top" onclick="document.getElementById('upcoming-${r.id}').classList.toggle('open')">
@@ -570,6 +608,7 @@ function renderUpcoming() {
         </div>
         <div class="action-date">${fmtDate(r._date)}${postedNote}</div>
         <div class="action-full">${escapeHtml(r.text)}</div>
+        ${materialsHtml}
         ${attach}
       </div>`;
   }).join("");
@@ -643,9 +682,7 @@ function renderFeed(activeCategory, activeSubject) {
     }
     const meta = CATEGORY_META[r.category];
     const preview = noticeTitle(r);
-    const attach = r.attachment_url
-      ? `<a class="feed-attach" href="${r.attachment_url}" target="_blank" rel="noopener">View attachment →</a>`
-      : "";
+    const attach = attachmentHtml(r.attachment_url, "feed-attach-image", "feed-attach", "View attachment →");
     const body = (r.periods && r.periods.length)
       ? renderPeriods(r.periods)
       : escapeHtml(r.text);
@@ -920,7 +957,7 @@ Promise.all([
     PORTION_SCHEDULES = portionSchedules;
     renderUpcoming();
     renderFeed("All");
-    renderNotes(null);
+    renderNotes("English");
     renderExam(null);
     document.getElementById("footerNote").textContent =
       `${ALL.length} notices · updated ${new Date().toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" })}`;

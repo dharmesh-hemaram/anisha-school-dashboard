@@ -1,4 +1,57 @@
 {
+  "PT-1": {
+    "max_marks": 40,
+    "notes": [
+      "There will be regular classes after the exams.",
+      "No half days will be allowed under any circumstances.",
+      "If your ward is unwell, kindly do not send him/her to school. They will be given average marks based on their performance in the class and next exam.",
+      "No retests will be conducted."
+    ],
+    "schedule": [
+      {
+        "date_iso": "2026-07-08",
+        "day": "Wednesday",
+        "subject": "Computer Science",
+        "portion": "Coding: Mouse & Keyboard, Meet Hardware & Software\nRobotics: Energy"
+      },
+      {
+        "date_iso": "2026-07-09",
+        "day": "Thursday",
+        "subject": "Science",
+        "portion": "Parts of a Plant, Food and Feeding Habits of Animals"
+      },
+      {
+        "date_iso": "2026-07-10",
+        "day": "Friday",
+        "subject": "Marathi",
+        "portion": "साहित्य : पावसा पावसा , आपला भारत देश, भाजीच भाजी\nव्याकरण: लिंग , वचन, समानार्थी शब्द, विरुद्धार्थी शब्द.\nलेखन कौशल्य -निबंध\nअपठित उतारा:"
+      },
+      {
+        "date_iso": "2026-07-13",
+        "day": "Monday",
+        "subject": "English",
+        "portion": "Literature: Sizwe's Smile, If I Knew, Healthy Food\nGrammar: Sentences, Possessive Noun\nComposition: Paragraph Writing\nUnseen Comprehension"
+      },
+      {
+        "date_iso": "2026-07-14",
+        "day": "Tuesday",
+        "subject": "Hindi",
+        "portion": "साहित्य: वंदना,देश हमारा, मोर और कौआ,श्याम और बूढ़ी गाय\nव्याकरण : भाषा, वर्ण और वर्णमाला\nरचनात्मक अभिव्यक्ति: अनुच्छेद लेखन\nअपठित गद्यांश"
+      },
+      {
+        "date_iso": "2026-07-15",
+        "day": "Wednesday",
+        "subject": "Maths",
+        "portion": "Numbers up to 9999, Addition"
+      },
+      {
+        "date_iso": "2026-07-18",
+        "day": "Saturday",
+        "subject": "Social Studies",
+        "portion": "Rivers of India, History of Early Humans, Transport"
+      }
+    ]
+  },
   "Half Yearly": {
     "timing": "7:50 a.m. to 11:30 a.m.",
     "max_marks": 60,
