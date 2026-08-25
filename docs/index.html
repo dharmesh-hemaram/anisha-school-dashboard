@@ -213,7 +213,6 @@
   .hw-row.is-done .hw-check { color: var(--brand); }
   .hw-body { flex: 1; min-width: 0; }
   .hw-top { display: flex; align-items: center; gap: 8px; margin-bottom: 3px; flex-wrap: wrap; }
-  .hw-date { font-size: 11.5px; color: var(--text-faint); margin-left: auto; white-space: nowrap; }
   .hw-text { font-size: 13.5px; color: var(--text); line-height: 1.4; }
   .hw-row.is-done { opacity: 0.55; }
   .hw-row.is-done .hw-text { text-decoration: line-through; }
@@ -1067,10 +1066,7 @@ function hwRowHtml(t, done) {
     <div class="hw-row${done ? " is-done" : ""}" id="hw-${t.id}" onclick="toggleHwDone('${t.id}')">
       <span class="hw-check">${done ? HW_CHECK_ICONS.done : HW_CHECK_ICONS.todo}</span>
       <div class="hw-body">
-        <div class="hw-top">
-          ${t.subject ? subjectBadge(t.subject) : ""}
-          <span class="hw-date">${fmtDate(parseDMY(t.posted_date))}</span>
-        </div>
+        ${t.subject ? `<div class="hw-top">${subjectBadge(t.subject)}</div>` : ""}
         <div class="hw-text">${escapeHtml(t.text)}</div>
       </div>
     </div>`;
@@ -1090,7 +1086,18 @@ function renderHw() {
     return;
   }
 
-  list.innerHTML = `<div class="hw-list">${visible.map(t => hwRowHtml(t, completed.has(t.id))).join("")}</div>`;
+  const today = todayISO();
+  let html = "";
+  let lastDate = null;
+  visible.forEach(t => {
+    if (t.posted_date !== lastDate) {
+      const isToday = t.date_iso === today;
+      html += `<div class="feed-day-head${isToday ? " is-today" : ""}">${fmtDate(parseDMY(t.posted_date))}${isToday ? '<span class="today-tag">Today</span>' : ""}</div>`;
+      lastDate = t.posted_date;
+    }
+    html += hwRowHtml(t, completed.has(t.id));
+  });
+  list.innerHTML = `<div class="hw-list">${html}</div>`;
 }
 
 function toggleHwDone(id) {
