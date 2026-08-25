@@ -296,24 +296,23 @@
   .exam-portion-label {
     font-size: 10.5px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--warn-ink);
   }
-  .exam-portion-title { font-weight: 700; font-size: 14.5px; margin: 3px 0 9px; color: var(--text); }
+  .exam-portion-title { font-weight: 700; font-size: 14.5px; margin: 3px 0 4px; color: var(--text); }
+  .exam-portion-meta { font-size: 12px; color: var(--warn-ink); opacity: 0.85; margin-bottom: 9px; }
   .exam-portion-link { font-size: 12.5px; font-weight: 700; color: var(--brand); text-decoration: none; }
-  .exam-schedule-list { display: flex; flex-direction: column; gap: 6px; margin-bottom: 6px; }
-  .exam-schedule-item {
-    background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 8px 10px;
+  .exam-schedule-list { display: flex; flex-direction: column; gap: 7px; margin-bottom: 6px; }
+  /* One row per subject's slot in the portion sheet's own date/subject/
+     topic table -- authoritative, unlike the thin per-subject "class
+     test" notice, so shown in full rather than behind an expand/collapse. */
+  .portion-row {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 9px 11px;
   }
-  .exam-schedule-row { display: flex; align-items: center; gap: 9px; font-size: 13px; cursor: pointer; }
-  .exam-schedule-date { font-weight: 700; color: var(--text-muted); font-size: 12px; flex-shrink: 0; white-space: nowrap; }
-  .exam-schedule-text {
-    color: var(--text-muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1; min-width: 0;
-  }
-  .exam-schedule-chevron { color: var(--text-faint); font-size: 11px; flex-shrink: 0; transition: transform .15s; }
-  .exam-schedule-item.open .exam-schedule-chevron { transform: rotate(90deg); }
-  .exam-schedule-full {
-    display: none; margin-top: 8px; padding-top: 8px; border-top: 1px dashed var(--border);
-    font-size: 13px; white-space: pre-line; color: var(--text);
-  }
-  .exam-schedule-item.open .exam-schedule-full { display: block; }
+  .portion-row-head { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 6px; }
+  .exam-schedule-date { font-weight: 700; color: var(--text-muted); font-size: 12px; white-space: nowrap; }
+  .exam-schedule-marks { font-size: 11px; color: var(--text-faint); margin-left: auto; white-space: nowrap; }
+  .portion-row-text { font-size: 13px; color: var(--text); line-height: 1.5; white-space: pre-line; }
+  .portion-notes { margin: 8px 0 18px; }
+  .portion-notes ul { margin: 0; padding-left: 18px; font-size: 12px; color: var(--text-muted); }
+  .portion-notes li { margin-bottom: 4px; }
 
   /* Everything for one subject -- notes, worksheets, revision -- lives in
      a single card instead of scattering each posting into its own box. */
@@ -492,6 +491,9 @@ function escapeHtml(s) {
 }
 
 let ALL = [];
+// Hand-transcribed from each exam's portion-sheet attachment (a scanned
+// table, not extractable from notice text) -- see docs/portion_schedules.json.
+let PORTION_SCHEDULES = {};
 
 // Every named exam cycle, most recently active first.
 function sortedExamCycles() {
@@ -789,37 +791,45 @@ function renderExam(activeCycle) {
 
   const items = ALL.filter(r => r.exam_cycle === activeCycle);
   const portion = items.find(r => r.category === "Exam/Test" && r.material_type === "Portion");
-  const schedule = items
-    .filter(r => r.category === "Exam/Test" && r.material_type !== "Portion")
-    .sort((a, b) => parseISO(a.event_date_iso) - parseISO(b.event_date_iso));
+  const portionData = PORTION_SCHEDULES[activeCycle];
   const materials = items.filter(r => r.category === "Subject Notes" && r.subject);
 
   let html = "";
 
   if (portion) {
+    const meta = [];
+    if (portionData?.timing) meta.push(`Timing: ${escapeHtml(portionData.timing)}`);
+    if (portionData?.max_marks) meta.push(`Max marks: ${portionData.max_marks}`);
     html += `
       <div class="exam-portion-card">
         <div class="exam-portion-label">Exam Portion</div>
         <div class="exam-portion-title">${escapeHtml(firstLine(portion.text))}</div>
+        ${meta.length ? `<div class="exam-portion-meta">${meta.join(" · ")}</div>` : ""}
         ${portion.attachment_url ? `<a class="exam-portion-link" href="${portion.attachment_url}" target="_blank" rel="noopener">View portion →</a>` : ""}
       </div>`;
   }
 
-  if (schedule.length) {
-    html += `<div class="material-head">Exam Schedule <span class="material-count">${schedule.length}</span></div>`;
-    html += `<div class="exam-schedule-list">` + schedule.map(r => {
-      const subj = r.subject ? subjectBadge(r.subject) : "";
+  // The per-subject "class test" notice is too thin to be useful on its
+  // own (just a date) -- the portion sheet's own date/subject/topic table,
+  // hand-transcribed into portion_schedules.json, is the real source of
+  // truth once it exists for a cycle.
+  if (portionData?.schedule?.length) {
+    html += `<div class="material-head">Exam Schedule <span class="material-count">${portionData.schedule.length}</span></div>`;
+    html += `<div class="exam-schedule-list">` + portionData.schedule.map(row => {
+      const marks = row.marks ? `<span class="exam-schedule-marks">${row.marks} marks</span>` : "";
       return `
-        <div class="exam-schedule-item" id="exam-sched-${r.id}">
-          <div class="exam-schedule-row" onclick="document.getElementById('exam-sched-${r.id}').classList.toggle('open')">
-            ${subj}
-            <span class="exam-schedule-date">${fmtDate(parseISO(r.event_date_iso))}</span>
-            <span class="exam-schedule-text">${escapeHtml(firstLine(r.text))}</span>
-            <span class="exam-schedule-chevron">▸</span>
+        <div class="portion-row">
+          <div class="portion-row-head">
+            ${subjectBadge(row.subject)}
+            <span class="exam-schedule-date">${fmtDate(parseISO(row.date_iso))}, ${escapeHtml(row.day)}</span>
+            ${marks}
           </div>
-          <div class="exam-schedule-full">${escapeHtml(r.text)}</div>
+          <div class="portion-row-text">${escapeHtml(row.portion)}</div>
         </div>`;
     }).join("") + `</div>`;
+    if (portionData.notes?.length) {
+      html += `<div class="portion-notes"><ul>${portionData.notes.map(n => `<li>${escapeHtml(n)}</li>`).join("")}</ul></div>`;
+    }
   }
 
   const bySubject = new Map();
@@ -828,7 +838,7 @@ function renderExam(activeCycle) {
     bySubject.get(r.subject).push(r);
   });
 
-  if (!portion && !schedule.length && bySubject.size === 0) {
+  if (!portion && !portionData?.schedule?.length && bySubject.size === 0) {
     html += '<div class="empty-state">Nothing tagged to this exam yet.</div>';
   }
 
@@ -856,10 +866,13 @@ document.querySelectorAll(".tab-btn").forEach(btn => {
   };
 });
 
-fetch("notices.json?_=" + Date.now())
-  .then(r => r.json())
-  .then(data => {
+Promise.all([
+  fetch("notices.json?_=" + Date.now()).then(r => r.json()),
+  fetch("portion_schedules.json?_=" + Date.now()).then(r => r.ok ? r.json() : {}).catch(() => ({})),
+])
+  .then(([data, portionSchedules]) => {
     ALL = data.sort((a, b) => parseDMY(b.posted_date) - parseDMY(a.posted_date));
+    PORTION_SCHEDULES = portionSchedules;
     renderUpcoming();
     renderFeed("All");
     renderNotes(null);
