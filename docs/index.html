@@ -797,9 +797,19 @@ const MATERIAL_TAG_META = {
   "Revision": { cls: "tag-revision", label: "Revision" },
   "Answer Key": { cls: "tag-answerkey", label: "Answer Key" },
 };
+// The raw notice text is verbose boilerplate ("PFA the Culmination
+// Worksheet No. 3 for English") when all that's actually new information
+// is the number -- the subject is already the card/section it's filed
+// under. Use the already-extracted worksheet_number for a plain "Worksheet
+// No. 3" / "Revision No. 8" instead, falling back to the raw text only
+// when no number was extracted (a Worksheet/Revision notice that doesn't
+// state one, or one covering several at once like "Revision-1,2,3,4").
 function examMaterialRowHtml(r) {
   const { cls: tagClass, label: tagLabel } = MATERIAL_TAG_META[r.material_type] || { cls: "tag-notes", label: "Notes" };
-  const title = r.chapter || firstLine(r.text);
+  const title = r.chapter
+    || ((r.material_type === "Worksheet" || r.material_type === "Revision") && r.worksheet_number != null
+      ? `${tagLabel} No. ${r.worksheet_number}`
+      : firstLine(r.text));
   const links = materialLinks(r);
   const inner = `
       <div class="exam-material-body">
