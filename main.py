@@ -13,7 +13,7 @@ import logging
 from dotenv import load_dotenv
 
 from classifier.classify import classify
-from datastore.store import build_record, load, merge, save, tag_exam_cycles
+from datastore.store import build_record, load, merge, prune_before, save, tag_exam_cycles
 from scraper.login import build_session_from_env
 from scraper.notices import fetch_notices, fetch_notices_for_year
 
@@ -26,6 +26,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--year", type=int, help="Backfill mode: pull every notice from this year")
     parser.add_argument("--recent", type=int, default=50, help="Daily mode: how many recent notices to fetch")
+    parser.add_argument("--since", type=str, help="Exclude notices posted before this ISO date (YYYY-MM-DD) -- for dropping a prior academic year's leftovers from a backfill")
     args = parser.parse_args()
 
     logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
@@ -49,6 +50,10 @@ def main():
 
     existing = load(DATA_PATH)
     merged = merge(existing, fresh_records)
+    if args.since:
+        before = len(merged)
+        merged = prune_before(merged, args.since)
+        logger.info("Pruned %d notices before %s", before - len(merged), args.since)
     merged = tag_exam_cycles(merged)
     save(DATA_PATH, merged)
 

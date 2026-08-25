@@ -94,6 +94,14 @@ def tag_exam_cycles(records: list) -> list:
     return records
 
 
+def prune_before(records: list, cutoff_iso: str) -> list:
+    """Drop notices posted before `cutoff_iso` -- for excluding a prior
+    academic year's notices from a full-year backfill (e.g. Class III F's
+    notices only start once the new academic year's welcome notice goes
+    out; everything before that is the previous class/year's leftovers)."""
+    return [r for r in records if r["posted_date_iso"] >= cutoff_iso]
+
+
 def merge(existing: list, fresh: list) -> list:
     """Merge freshly-classified notices into the existing store.
 
