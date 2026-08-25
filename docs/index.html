@@ -299,18 +299,45 @@
   .exam-portion-title { font-weight: 700; font-size: 14.5px; margin: 3px 0 9px; color: var(--text); }
   .exam-portion-link { font-size: 12.5px; font-weight: 700; color: var(--brand); text-decoration: none; }
   .exam-schedule-list { display: flex; flex-direction: column; gap: 6px; margin-bottom: 6px; }
-  .exam-schedule-row {
-    display: flex; align-items: center; gap: 9px; background: var(--surface); border: 1px solid var(--border);
-    border-radius: 8px; padding: 8px 10px; font-size: 13px;
+  .exam-schedule-item {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 8px 10px;
   }
+  .exam-schedule-row { display: flex; align-items: center; gap: 9px; font-size: 13px; cursor: pointer; }
   .exam-schedule-date { font-weight: 700; color: var(--text-muted); font-size: 12px; flex-shrink: 0; white-space: nowrap; }
   .exam-schedule-text {
     color: var(--text-muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1; min-width: 0;
   }
+  .exam-schedule-chevron { color: var(--text-faint); font-size: 11px; flex-shrink: 0; transition: transform .15s; }
+  .exam-schedule-item.open .exam-schedule-chevron { transform: rotate(90deg); }
+  .exam-schedule-full {
+    display: none; margin-top: 8px; padding-top: 8px; border-top: 1px dashed var(--border);
+    font-size: 13px; white-space: pre-line; color: var(--text);
+  }
+  .exam-schedule-item.open .exam-schedule-full { display: block; }
+
+  /* Everything for one subject -- notes, worksheets, revision -- lives in
+     a single card instead of scattering each posting into its own box. */
+  .exam-subject-card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+    padding: 13px 14px; margin-bottom: 12px;
+  }
   .exam-subject-head {
     display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 14px; color: var(--text);
-    margin: 20px 0 8px; padding-top: 16px; border-top: 1px solid var(--border);
+    margin-bottom: 11px;
   }
+  .exam-subject-head .material-count { margin-left: auto; }
+  .exam-material-row { padding-top: 10px; border-top: 1px dashed var(--border); }
+  .exam-material-row:first-child { padding-top: 0; border-top: none; }
+  .exam-material-top { display: flex; align-items: baseline; gap: 7px; flex-wrap: wrap; }
+  .exam-material-tag {
+    flex-shrink: 0; font-size: 9.5px; font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase;
+    background: var(--surface-2); color: var(--text-faint); border-radius: 4px; padding: 1px 6px;
+  }
+  .exam-material-tag.tag-worksheet { background: var(--brand-soft); color: var(--brand); }
+  .exam-material-tag.tag-revision { background: var(--warn-bg); color: var(--warn-ink); }
+  .exam-material-title { font-weight: 700; font-size: 13.5px; }
+  .exam-material-meta { display: flex; align-items: center; gap: 14px; margin-top: 5px; flex-wrap: wrap; }
+  .exam-material-date { font-size: 11.5px; color: var(--text-faint); }
 
   a { color: var(--brand); }
   select, input {
@@ -623,22 +650,43 @@ function renderFeed(activeCategory, activeSubject) {
   list.innerHTML = html;
 }
 
-function materialCardHtml(r) {
+function materialLinksHtml(r, linkClass) {
   const links = [];
   if (r.material_type === "Worksheet") {
-    if (r.attachment_url) links.push(`<a class="chapter-attach" href="${r.attachment_url}" target="_blank" rel="noopener">Open worksheet →</a>`);
-    if (r.answer_key_url) links.push(`<a class="chapter-attach" href="${r.answer_key_url}" target="_blank" rel="noopener">Open answer key →</a>`);
+    if (r.attachment_url) links.push(`<a class="${linkClass}" href="${r.attachment_url}" target="_blank" rel="noopener">Open worksheet →</a>`);
+    if (r.answer_key_url) links.push(`<a class="${linkClass}" href="${r.answer_key_url}" target="_blank" rel="noopener">Open answer key →</a>`);
   } else if (r.material_type === "Revision") {
-    if (r.attachment_url) links.push(`<a class="chapter-attach" href="${r.attachment_url}" target="_blank" rel="noopener">Open revision →</a>`);
+    if (r.attachment_url) links.push(`<a class="${linkClass}" href="${r.attachment_url}" target="_blank" rel="noopener">Open revision →</a>`);
   } else if (r.attachment_url) {
     const label = r.material_type === "Answer Key" ? "Open answer key →" : "Open →";
-    links.push(`<a class="chapter-attach" href="${r.attachment_url}" target="_blank" rel="noopener">${label}</a>`);
+    links.push(`<a class="${linkClass}" href="${r.attachment_url}" target="_blank" rel="noopener">${label}</a>`);
   }
+  return links.join("");
+}
+
+function materialCardHtml(r) {
   return `
     <div class="chapter-card">
       <div class="chapter-title">${escapeHtml(r.chapter || firstLine(r.text))}</div>
       <div class="chapter-date">Posted ${fmtDate(parseDMY(r.posted_date))}</div>
-      <div class="chapter-links">${links.join("")}</div>
+      <div class="chapter-links">${materialLinksHtml(r, "chapter-attach")}</div>
+    </div>`;
+}
+
+function examMaterialRowHtml(r) {
+  const tagClass = r.material_type === "Worksheet" ? "tag-worksheet" : r.material_type === "Revision" ? "tag-revision" : "tag-notes";
+  const tagLabel = r.material_type === "Worksheet" ? "Worksheet" : r.material_type === "Revision" ? "Revision" : "Notes";
+  const title = r.chapter || firstLine(r.text);
+  return `
+    <div class="exam-material-row">
+      <div class="exam-material-top">
+        <span class="exam-material-tag ${tagClass}">${tagLabel}</span>
+        <span class="exam-material-title">${escapeHtml(title)}</span>
+      </div>
+      <div class="exam-material-meta">
+        <span class="exam-material-date">Posted ${fmtDate(parseDMY(r.posted_date))}</span>
+        ${materialLinksHtml(r, "chapter-attach")}
+      </div>
     </div>`;
 }
 
@@ -762,10 +810,14 @@ function renderExam(activeCycle) {
     html += `<div class="exam-schedule-list">` + schedule.map(r => {
       const subj = r.subject ? subjectBadge(r.subject) : "";
       return `
-        <div class="exam-schedule-row">
-          ${subj}
-          <span class="exam-schedule-date">${fmtDate(parseISO(r.event_date_iso))}</span>
-          <span class="exam-schedule-text">${escapeHtml(firstLine(r.text))}</span>
+        <div class="exam-schedule-item" id="exam-sched-${r.id}">
+          <div class="exam-schedule-row" onclick="document.getElementById('exam-sched-${r.id}').classList.toggle('open')">
+            ${subj}
+            <span class="exam-schedule-date">${fmtDate(parseISO(r.event_date_iso))}</span>
+            <span class="exam-schedule-text">${escapeHtml(firstLine(r.text))}</span>
+            <span class="exam-schedule-chevron">▸</span>
+          </div>
+          <div class="exam-schedule-full">${escapeHtml(r.text)}</div>
         </div>`;
     }).join("") + `</div>`;
   }
@@ -780,30 +832,16 @@ function renderExam(activeCycle) {
     html += '<div class="empty-state">Nothing tagged to this exam yet.</div>';
   }
 
+  // One card per subject -- notes, worksheets and revision all listed
+  // together instead of scattered across separate boxes, so everything
+  // needed to prep that subject is in one place.
   [...bySubject.keys()].sort().forEach(subject => {
-    const subjItems = bySubject.get(subject);
-    html += `<div class="exam-subject-head">${subjectBadge(subject)}<span>${escapeHtml(subject)}</span></div>`;
-
-    const notes = subjItems.filter(r => (r.material_type || "Notes") === "Notes")
-      .sort((a, b) => parseDMY(b.posted_date) - parseDMY(a.posted_date));
-    if (notes.length) {
-      html += `<div class="material-head">Chapter Notes <span class="material-count">${notes.length}</span></div>`;
-      html += notes.map(materialCardHtml).join("");
-    }
-
-    const worksheets = subjItems.filter(r => r.material_type === "Worksheet")
-      .sort((a, b) => parseDMY(a.posted_date) - parseDMY(b.posted_date));
-    if (worksheets.length) {
-      html += `<div class="material-head">Worksheets <span class="material-count">${worksheets.length}</span></div>`;
-      html += worksheets.map(materialCardHtml).join("");
-    }
-
-    const revisions = subjItems.filter(r => r.material_type === "Revision")
-      .sort((a, b) => parseDMY(a.posted_date) - parseDMY(b.posted_date));
-    if (revisions.length) {
-      html += `<div class="material-head">Revision <span class="material-count">${revisions.length}</span></div>`;
-      html += revisions.map(materialCardHtml).join("");
-    }
+    const subjItems = bySubject.get(subject).sort((a, b) => parseDMY(b.posted_date) - parseDMY(a.posted_date));
+    html += `
+      <div class="exam-subject-card">
+        <div class="exam-subject-head">${subjectBadge(subject)}<span>${escapeHtml(subject)}</span><span class="material-count">${subjItems.length}</span></div>
+        ${subjItems.map(examMaterialRowHtml).join("")}
+      </div>`;
   });
 
   detail.innerHTML = html;
