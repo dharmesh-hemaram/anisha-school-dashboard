@@ -288,6 +288,30 @@
   .chapter-links { display: flex; flex-wrap: wrap; gap: 4px 14px; margin-top: 7px; }
   .chapter-attach { display: inline-block; font-size: 12.5px; color: var(--brand); font-weight: 700; text-decoration: none; }
 
+  /* ---- Exam prep ---- */
+  .exam-portion-card {
+    background: var(--warn-bg); border: 1px solid var(--warn-border); border-left: 4px solid var(--warn);
+    border-radius: 6px 10px 10px 6px; padding: 12px 14px; margin-bottom: 16px;
+  }
+  .exam-portion-label {
+    font-size: 10.5px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--warn-ink);
+  }
+  .exam-portion-title { font-weight: 700; font-size: 14.5px; margin: 3px 0 9px; color: var(--text); }
+  .exam-portion-link { font-size: 12.5px; font-weight: 700; color: var(--brand); text-decoration: none; }
+  .exam-schedule-list { display: flex; flex-direction: column; gap: 6px; margin-bottom: 6px; }
+  .exam-schedule-row {
+    display: flex; align-items: center; gap: 9px; background: var(--surface); border: 1px solid var(--border);
+    border-radius: 8px; padding: 8px 10px; font-size: 13px;
+  }
+  .exam-schedule-date { font-weight: 700; color: var(--text-muted); font-size: 12px; flex-shrink: 0; white-space: nowrap; }
+  .exam-schedule-text {
+    color: var(--text-muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1; min-width: 0;
+  }
+  .exam-subject-head {
+    display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 14px; color: var(--text);
+    margin: 20px 0 8px; padding-top: 16px; border-top: 1px solid var(--border);
+  }
+
   a { color: var(--brand); }
   select, input {
     font-size: 16px; /* prevents iOS auto-zoom on focus */
@@ -315,6 +339,7 @@
     <button class="tab-btn active" data-tab="upcoming">Upcoming</button>
     <button class="tab-btn" data-tab="feed">Feed</button>
     <button class="tab-btn" data-tab="notes">Notes</button>
+    <button class="tab-btn" data-tab="exam">Exam</button>
   </div>
 
   <div class="tab-panel active" id="panel-upcoming">
@@ -332,6 +357,12 @@
     <div class="section-note">Select a subject to see all notes, chapter-wise</div>
     <div class="subject-grid" id="subjectGrid"></div>
     <div id="chapterList"></div>
+  </div>
+
+  <div class="tab-panel" id="panel-exam">
+    <div class="section-note">Everything for one exam — schedule, portion &amp; notes — in one place</div>
+    <div class="subject-grid" id="examCycleGrid"></div>
+    <div id="examDetail"></div>
   </div>
 
   <footer class="note">
@@ -573,6 +604,25 @@ function renderFeed(activeCategory, activeSubject) {
   list.innerHTML = html;
 }
 
+function materialCardHtml(r) {
+  const links = [];
+  if (r.material_type === "Worksheet") {
+    if (r.attachment_url) links.push(`<a class="chapter-attach" href="${r.attachment_url}" target="_blank" rel="noopener">Open worksheet →</a>`);
+    if (r.answer_key_url) links.push(`<a class="chapter-attach" href="${r.answer_key_url}" target="_blank" rel="noopener">Open answer key →</a>`);
+  } else if (r.material_type === "Revision") {
+    if (r.attachment_url) links.push(`<a class="chapter-attach" href="${r.attachment_url}" target="_blank" rel="noopener">Open revision →</a>`);
+  } else if (r.attachment_url) {
+    const label = r.material_type === "Answer Key" ? "Open answer key →" : "Open →";
+    links.push(`<a class="chapter-attach" href="${r.attachment_url}" target="_blank" rel="noopener">${label}</a>`);
+  }
+  return `
+    <div class="chapter-card">
+      <div class="chapter-title">${escapeHtml(r.chapter || firstLine(r.text))}</div>
+      <div class="chapter-date">Posted ${fmtDate(parseDMY(r.posted_date))}</div>
+      <div class="chapter-links">${links.join("")}</div>
+    </div>`;
+}
+
 function renderNotes(activeSubject) {
   const subjects = [...new Set(ALL.filter(r => r.category === "Subject Notes" && r.subject).map(r => r.subject))].sort();
   const grid = document.getElementById("subjectGrid");
@@ -585,25 +635,7 @@ function renderNotes(activeSubject) {
     return;
   }
   const items = ALL.filter(r => r.category === "Subject Notes" && r.subject === activeSubject);
-
-  const cardHtml = r => {
-    const links = [];
-    if (r.material_type === "Worksheet") {
-      if (r.attachment_url) links.push(`<a class="chapter-attach" href="${r.attachment_url}" target="_blank" rel="noopener">Open worksheet →</a>`);
-      if (r.answer_key_url) links.push(`<a class="chapter-attach" href="${r.answer_key_url}" target="_blank" rel="noopener">Open answer key →</a>`);
-    } else if (r.material_type === "Revision") {
-      if (r.attachment_url) links.push(`<a class="chapter-attach" href="${r.attachment_url}" target="_blank" rel="noopener">Open revision →</a>`);
-    } else if (r.attachment_url) {
-      const label = r.material_type === "Answer Key" ? "Open answer key →" : "Open →";
-      links.push(`<a class="chapter-attach" href="${r.attachment_url}" target="_blank" rel="noopener">${label}</a>`);
-    }
-    return `
-      <div class="chapter-card">
-        <div class="chapter-title">${escapeHtml(r.chapter || firstLine(r.text))}</div>
-        <div class="chapter-date">Posted ${fmtDate(parseDMY(r.posted_date))}</div>
-        <div class="chapter-links">${links.join("")}</div>
-      </div>`;
-  };
+  const cardHtml = materialCardHtml;
 
   // Revision numbering resets per exam (PT-1's "Revision 1" != Half
   // Yearly's "Revision 1"), so sub-group by exam_cycle instead of one flat
@@ -670,6 +702,98 @@ function renderNotes(activeSubject) {
   list.innerHTML = html || '<div class="empty-state">Nothing here yet.</div>';
 }
 
+function renderExam(activeCycle) {
+  const cycles = [...new Set(ALL.map(r => r.exam_cycle).filter(Boolean))];
+  cycles.sort((a, b) => {
+    const latest = c => Math.max(...ALL.filter(r => r.exam_cycle === c).map(r => parseDMY(r.posted_date)));
+    return latest(b) - latest(a);
+  });
+  // Default to the most recently active cycle -- almost always "the exam
+  // that's coming up" -- so prep material shows up with zero clicks.
+  if (!activeCycle || !cycles.includes(activeCycle)) activeCycle = cycles[0] || null;
+
+  const grid = document.getElementById("examCycleGrid");
+  grid.innerHTML = cycles.map(c =>
+    `<button class="subject-chip${c === activeCycle ? " active" : ""}" data-cycle="${escapeHtml(c)}">${escapeHtml(c)}</button>`
+  ).join("");
+  grid.querySelectorAll(".subject-chip").forEach(btn => btn.onclick = () => renderExam(btn.dataset.cycle));
+
+  const detail = document.getElementById("examDetail");
+  if (!activeCycle) {
+    detail.innerHTML = '<div class="empty-state">No exam cycles found yet.</div>';
+    return;
+  }
+
+  const items = ALL.filter(r => r.exam_cycle === activeCycle);
+  const portion = items.find(r => r.category === "Exam/Test" && r.material_type === "Portion");
+  const schedule = items
+    .filter(r => r.category === "Exam/Test" && r.material_type !== "Portion")
+    .sort((a, b) => parseISO(a.event_date_iso) - parseISO(b.event_date_iso));
+  const materials = items.filter(r => r.category === "Subject Notes" && r.subject);
+
+  let html = "";
+
+  if (portion) {
+    html += `
+      <div class="exam-portion-card">
+        <div class="exam-portion-label">Exam Portion</div>
+        <div class="exam-portion-title">${escapeHtml(firstLine(portion.text))}</div>
+        ${portion.attachment_url ? `<a class="exam-portion-link" href="${portion.attachment_url}" target="_blank" rel="noopener">View portion →</a>` : ""}
+      </div>`;
+  }
+
+  if (schedule.length) {
+    html += `<div class="material-head">Exam Schedule <span class="material-count">${schedule.length}</span></div>`;
+    html += `<div class="exam-schedule-list">` + schedule.map(r => {
+      const subj = r.subject ? subjectBadge(r.subject) : "";
+      return `
+        <div class="exam-schedule-row">
+          ${subj}
+          <span class="exam-schedule-date">${fmtDate(parseISO(r.event_date_iso))}</span>
+          <span class="exam-schedule-text">${escapeHtml(firstLine(r.text))}</span>
+        </div>`;
+    }).join("") + `</div>`;
+  }
+
+  const bySubject = new Map();
+  materials.forEach(r => {
+    if (!bySubject.has(r.subject)) bySubject.set(r.subject, []);
+    bySubject.get(r.subject).push(r);
+  });
+
+  if (!portion && !schedule.length && bySubject.size === 0) {
+    html += '<div class="empty-state">Nothing tagged to this exam yet.</div>';
+  }
+
+  [...bySubject.keys()].sort().forEach(subject => {
+    const subjItems = bySubject.get(subject);
+    html += `<div class="exam-subject-head">${subjectBadge(subject)}<span>${escapeHtml(subject)}</span></div>`;
+
+    const notes = subjItems.filter(r => (r.material_type || "Notes") === "Notes")
+      .sort((a, b) => parseDMY(b.posted_date) - parseDMY(a.posted_date));
+    if (notes.length) {
+      html += `<div class="material-head">Chapter Notes <span class="material-count">${notes.length}</span></div>`;
+      html += notes.map(materialCardHtml).join("");
+    }
+
+    const worksheets = subjItems.filter(r => r.material_type === "Worksheet")
+      .sort((a, b) => parseDMY(a.posted_date) - parseDMY(b.posted_date));
+    if (worksheets.length) {
+      html += `<div class="material-head">Worksheets <span class="material-count">${worksheets.length}</span></div>`;
+      html += worksheets.map(materialCardHtml).join("");
+    }
+
+    const revisions = subjItems.filter(r => r.material_type === "Revision")
+      .sort((a, b) => parseDMY(a.posted_date) - parseDMY(b.posted_date));
+    if (revisions.length) {
+      html += `<div class="material-head">Revision <span class="material-count">${revisions.length}</span></div>`;
+      html += revisions.map(materialCardHtml).join("");
+    }
+  });
+
+  detail.innerHTML = html;
+}
+
 document.querySelectorAll(".tab-btn").forEach(btn => {
   btn.onclick = () => {
     document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
@@ -686,6 +810,7 @@ fetch("notices.json?_=" + Date.now())
     renderUpcoming();
     renderFeed("All");
     renderNotes(null);
+    renderExam(null);
     document.getElementById("footerNote").textContent =
       `${ALL.length} notices · updated ${new Date().toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" })}`;
   })

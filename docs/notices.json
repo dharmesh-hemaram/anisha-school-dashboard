@@ -162,7 +162,7 @@
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
-    "exam_cycle": null
+    "exam_cycle": "Half Yearly"
   },
   {
     "id": "27bb260eded3a8c4",
@@ -184,7 +184,7 @@
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
-    "exam_cycle": null
+    "exam_cycle": "Half Yearly"
   },
   {
     "id": "5a00dbbaf5563f4a",
@@ -283,7 +283,7 @@
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
-    "exam_cycle": null
+    "exam_cycle": "Half Yearly"
   },
   {
     "id": "2e437c93ed6ddc52",
@@ -305,7 +305,7 @@
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
-    "exam_cycle": null
+    "exam_cycle": "Half Yearly"
   },
   {
     "id": "bd564ecc6bc2e357",
@@ -327,7 +327,7 @@
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
-    "exam_cycle": null
+    "exam_cycle": "Half Yearly"
   },
   {
     "id": "94e7c150d6ff842b",
@@ -410,7 +410,7 @@
     "id": "5190fbea560d0fd1",
     "posted_date": "21-08-2026",
     "posted_date_iso": "2026-08-21",
-    "event_date_iso": "2026-08-25",
+    "event_date_iso": "2026-08-26",
     "text": "Dear Parent,\n\nPlease note that the Eid-e-Milad holiday, which was earlier scheduled for 25th August 2026, has been rescheduled to 26th August 2026.\n\nKindly take note of the revised holiday date.",
     "attachment_url": null,
     "category": "Holiday",
@@ -448,7 +448,7 @@
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
-    "exam_cycle": null
+    "exam_cycle": "Half Yearly"
   },
   {
     "id": "0aee57b79ee552d9",
@@ -547,7 +547,7 @@
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
-    "exam_cycle": null
+    "exam_cycle": "Half Yearly"
   },
   {
     "id": "8d5df867ec7dd3cf",
@@ -569,7 +569,7 @@
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
-    "exam_cycle": null
+    "exam_cycle": "Half Yearly"
   },
   {
     "id": "19ef5a32c51377a9",
@@ -591,7 +591,7 @@
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
-    "exam_cycle": null
+    "exam_cycle": "Half Yearly"
   },
   {
     "id": "5ad51cabd8693a13",
@@ -734,7 +734,7 @@
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
-    "exam_cycle": null
+    "exam_cycle": "Half Yearly"
   },
   {
     "id": "235bd0b3a28fd0cb",
@@ -833,7 +833,7 @@
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
-    "exam_cycle": null
+    "exam_cycle": "Half Yearly"
   },
   {
     "id": "32b8236466aeed1a",
@@ -877,7 +877,7 @@
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
-    "exam_cycle": null
+    "exam_cycle": "Half Yearly"
   },
   {
     "id": "85566841b76a7db7",
@@ -899,7 +899,7 @@
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
-    "exam_cycle": null
+    "exam_cycle": "Half Yearly"
   },
   {
     "id": "c12e377297e92e18",
@@ -921,7 +921,7 @@
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
-    "exam_cycle": null
+    "exam_cycle": "Half Yearly"
   },
   {
     "id": "3f8ce06956733026",
@@ -943,7 +943,7 @@
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
-    "exam_cycle": null
+    "exam_cycle": "Half Yearly"
   },
   {
     "id": "86135d97d153a45d",
@@ -965,7 +965,7 @@
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
-    "exam_cycle": null
+    "exam_cycle": "Half Yearly"
   },
   {
     "id": "1990da5ab743a218",
@@ -1108,7 +1108,7 @@
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
-    "exam_cycle": null
+    "exam_cycle": "Half Yearly"
   },
   {
     "id": "54abeefc197dcb9e",
@@ -1449,7 +1449,7 @@
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
-    "exam_cycle": null
+    "exam_cycle": "Half Yearly"
   },
   {
     "id": "a050cfd7d21b460c",
@@ -1493,7 +1493,7 @@
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
-    "exam_cycle": null
+    "exam_cycle": "Half Yearly"
   },
   {
     "id": "805819b980959066",
@@ -1636,7 +1636,7 @@
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
-    "exam_cycle": null
+    "exam_cycle": "Half Yearly"
   },
   {
     "id": "b92de10e3f4fd7d2",
@@ -1735,7 +1735,7 @@
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
-    "exam_cycle": null
+    "exam_cycle": "Half Yearly"
   },
   {
     "id": "c0d469d1fb039a66",
@@ -1834,7 +1834,7 @@
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
-    "exam_cycle": null
+    "exam_cycle": "Half Yearly"
   },
   {
     "id": "3b5abdd9baac16b9",
@@ -1856,7 +1856,7 @@
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
-    "exam_cycle": null
+    "exam_cycle": "Half Yearly"
   },
   {
     "id": "eb500d9668ebf3b1",
@@ -1955,7 +1955,7 @@
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
-    "exam_cycle": null
+    "exam_cycle": "Half Yearly"
   },
   {
     "id": "1aa04280709ad768",
@@ -2076,7 +2076,7 @@
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
-    "exam_cycle": null
+    "exam_cycle": "Half Yearly"
   },
   {
     "id": "92d9a56e97146d22",
@@ -2098,7 +2098,7 @@
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
-    "exam_cycle": null
+    "exam_cycle": "Half Yearly"
   },
   {
     "id": "bc26aefd4037113a",
@@ -2428,7 +2428,7 @@
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
-    "exam_cycle": null
+    "exam_cycle": "Half Yearly"
   },
   {
     "id": "6f5eeb5cdf86fa1c",
@@ -2582,7 +2582,7 @@
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
-    "exam_cycle": null
+    "exam_cycle": "Half Yearly"
   },
   {
     "id": "e0592259cc946114",
@@ -2604,7 +2604,7 @@
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
-    "exam_cycle": null
+    "exam_cycle": "Half Yearly"
   },
   {
     "id": "5814702054f783e6",
@@ -2626,7 +2626,7 @@
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
-    "exam_cycle": null
+    "exam_cycle": "Half Yearly"
   },
   {
     "id": "750b455d9c2f9019",
@@ -3044,7 +3044,7 @@
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
-    "exam_cycle": null
+    "exam_cycle": "Half Yearly"
   },
   {
     "id": "8407fd69105078c7",
@@ -3066,7 +3066,7 @@
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
-    "exam_cycle": null
+    "exam_cycle": "Half Yearly"
   },
   {
     "id": "4a4b475110ccd9a5",
@@ -3088,7 +3088,7 @@
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
-    "exam_cycle": null
+    "exam_cycle": "Half Yearly"
   },
   {
     "id": "c5d2f9a4d20b0360",
@@ -3187,7 +3187,7 @@
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
-    "exam_cycle": null
+    "exam_cycle": "PT-1"
   },
   {
     "id": "0e52b5fbbf2f6d40",
@@ -3473,7 +3473,7 @@
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
-    "exam_cycle": null
+    "exam_cycle": "PT-1"
   },
   {
     "id": "90b2c4d9c96b8d9e",
@@ -3495,7 +3495,7 @@
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
-    "exam_cycle": null
+    "exam_cycle": "PT-1"
   },
   {
     "id": "e84c0429bb460b83",
@@ -3517,7 +3517,7 @@
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
-    "exam_cycle": null
+    "exam_cycle": "PT-1"
   },
   {
     "id": "26e5139f8790fe2a",
@@ -3539,7 +3539,7 @@
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
-    "exam_cycle": null
+    "exam_cycle": "PT-1"
   },
   {
     "id": "3067d782484f90a8",
@@ -3715,7 +3715,7 @@
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
-    "exam_cycle": null
+    "exam_cycle": "PT-1"
   },
   {
     "id": "d21801274283e3b7",
@@ -4155,7 +4155,7 @@
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
-    "exam_cycle": null
+    "exam_cycle": "PT-1"
   },
   {
     "id": "6626bebb8df5a702",
@@ -4740,7 +4740,7 @@
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
-    "exam_cycle": null
+    "exam_cycle": "PT-1"
   },
   {
     "id": "a5cbb5777279a3db",
@@ -5554,7 +5554,7 @@
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
-    "exam_cycle": null
+    "exam_cycle": "PT-1"
   },
   {
     "id": "423ea69312057686",
@@ -6907,7 +6907,7 @@
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
-    "exam_cycle": null
+    "exam_cycle": "PT-1"
   },
   {
     "id": "7869198332554aa4",
@@ -7006,7 +7006,7 @@
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
-    "exam_cycle": null
+    "exam_cycle": "PT-1"
   },
   {
     "id": "aa2554fa07abfb6a",
@@ -7028,7 +7028,7 @@
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
-    "exam_cycle": null
+    "exam_cycle": "PT-1"
   },
   {
     "id": "72627959ff20071f",
@@ -7050,7 +7050,7 @@
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
-    "exam_cycle": null
+    "exam_cycle": "PT-1"
   },
   {
     "id": "6ff67164846bb314",
@@ -7094,7 +7094,7 @@
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
-    "exam_cycle": null
+    "exam_cycle": "PT-1"
   },
   {
     "id": "dd932879363f32d7",
@@ -7138,7 +7138,7 @@
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
-    "exam_cycle": null
+    "exam_cycle": "PT-1"
   },
   {
     "id": "786c993300f03b20",
@@ -7325,7 +7325,7 @@
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
-    "exam_cycle": null
+    "exam_cycle": "PT-1"
   },
   {
     "id": "8d15f950f845d871",
@@ -7424,7 +7424,7 @@
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
-    "exam_cycle": null
+    "exam_cycle": "PT-1"
   },
   {
     "id": "550315531745fee6",
@@ -7446,7 +7446,7 @@
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
-    "exam_cycle": null
+    "exam_cycle": "PT-1"
   },
   {
     "id": "ac3cae72b7ee0014",
@@ -7468,7 +7468,7 @@
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
-    "exam_cycle": null
+    "exam_cycle": "PT-1"
   },
   {
     "id": "015965533bcb9cd0",
@@ -7490,7 +7490,7 @@
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
-    "exam_cycle": null
+    "exam_cycle": "PT-1"
   },
   {
     "id": "d4c9802fef7a196d",
@@ -7732,7 +7732,7 @@
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
-    "exam_cycle": null
+    "exam_cycle": "PT-1"
   },
   {
     "id": "4e1e0711c03ac1d7",
@@ -7776,7 +7776,7 @@
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
-    "exam_cycle": null
+    "exam_cycle": "PT-1"
   },
   {
     "id": "56aa7121e535eccd",
@@ -7963,7 +7963,7 @@
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
-    "exam_cycle": null
+    "exam_cycle": "PT-1"
   },
   {
     "id": "9d99a782fe055d22",
@@ -8007,7 +8007,7 @@
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
-    "exam_cycle": null
+    "exam_cycle": "PT-1"
   },
   {
     "id": "76a67603e976595a",
@@ -8271,7 +8271,7 @@
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
-    "exam_cycle": null
+    "exam_cycle": "PT-1"
   },
   {
     "id": "dddb99303fdbcb63",
@@ -8293,7 +8293,7 @@
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
-    "exam_cycle": null
+    "exam_cycle": "PT-1"
   },
   {
     "id": "eb856d68c9dbfbf4",
@@ -8469,7 +8469,7 @@
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
-    "exam_cycle": null
+    "exam_cycle": "PT-1"
   },
   {
     "id": "068f4940ed948f05",
@@ -8491,7 +8491,7 @@
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
-    "exam_cycle": null
+    "exam_cycle": "PT-1"
   },
   {
     "id": "14d5d7a0c599bbd3",
@@ -8590,7 +8590,7 @@
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
-    "exam_cycle": null
+    "exam_cycle": "PT-1"
   },
   {
     "id": "3bec4c58ee865b99",
@@ -8733,7 +8733,7 @@
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
-    "exam_cycle": null
+    "exam_cycle": "PT-1"
   },
   {
     "id": "b66c77f03dc6e457",
@@ -9063,7 +9063,7 @@
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
-    "exam_cycle": null
+    "exam_cycle": "PT-1"
   },
   {
     "id": "aa62efbeb589d5a4",
@@ -9085,7 +9085,7 @@
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
-    "exam_cycle": null
+    "exam_cycle": "PT-1"
   },
   {
     "id": "593deeb54f6e2559",
@@ -9107,7 +9107,7 @@
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
-    "exam_cycle": null
+    "exam_cycle": "PT-1"
   },
   {
     "id": "b1d55d218249e745",
@@ -9129,7 +9129,7 @@
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
-    "exam_cycle": null
+    "exam_cycle": "PT-1"
   },
   {
     "id": "161ba86a54233dc0",
@@ -9151,7 +9151,7 @@
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
-    "exam_cycle": null
+    "exam_cycle": "PT-1"
   },
   {
     "id": "21f7a54479595d3d",
@@ -9250,7 +9250,7 @@
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
-    "exam_cycle": null
+    "exam_cycle": "PT-1"
   },
   {
     "id": "94d8dc54ac6366d2",
@@ -9349,7 +9349,7 @@
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
-    "exam_cycle": null
+    "exam_cycle": "PT-1"
   },
   {
     "id": "46e61e1e560b9592",
@@ -9492,7 +9492,7 @@
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
-    "exam_cycle": null
+    "exam_cycle": "PT-1"
   },
   {
     "id": "bd42f23791973417",
@@ -10394,7 +10394,7 @@
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
-    "exam_cycle": null
+    "exam_cycle": "PT-1"
   },
   {
     "id": "dddb20f58b8536d5",
@@ -11385,7 +11385,7 @@
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
-    "exam_cycle": null
+    "exam_cycle": "PT-1"
   },
   {
     "id": "35e2365480a83a1d",
@@ -11634,7 +11634,7 @@
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
-    "exam_cycle": null
+    "exam_cycle": "PT-1"
   },
   {
     "id": "73ac926a144f40e3",

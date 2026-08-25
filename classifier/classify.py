@@ -145,9 +145,27 @@ _NUMERIC_EVENT_DATE_RE = re.compile(r"date\s*[:\-]?\s*(\d{1,2})[/\-](\d{1,2})[/\
 _TEXT_EVENT_DATE_RE = re.compile(
     r"(\d{1,2})(?:st|nd|rd|th)?\s+(" + "|".join(_MONTHS) + r")\s+(\d{4})", re.I,
 )
+# "the Eid-e-Milad holiday, which was earlier scheduled for 25th August
+# 2026, has been rescheduled to 26th August 2026" -- a plain .search() for
+# the first date in the text grabs the outdated original date instead of
+# the corrected one. Scoped to "holiday ... rescheduled to <date>" so it
+# doesn't also fire on a Holiday notice that happens to reschedule an
+# unrelated exam in the same breath (the holiday's own date there is the
+# first-mentioned one, which the fallback below already gets right).
+_HOLIDAY_RESCHEDULE_RE = re.compile(
+    r"holiday[^.]*?reschedul\w*\s+to\s+(\d{1,2})(?:st|nd|rd|th)?\s+(" + "|".join(_MONTHS) + r")\s+(\d{4})",
+    re.I,
+)
 
 
 def _extract_event_date(text: str) -> Optional[str]:
+    m = _HOLIDAY_RESCHEDULE_RE.search(text)
+    if m:
+        d, month_name, y = m.groups()
+        try:
+            return date(int(y), _MONTHS.index(month_name.lower()) + 1, int(d)).isoformat()
+        except ValueError:
+            pass
     m = _NUMERIC_EVENT_DATE_RE.search(text)
     if m:
         d, mo, y = (int(g) for g in m.groups())

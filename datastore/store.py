@@ -79,17 +79,29 @@ def save(path, records) -> None:
         json.dump(records, f, indent=2, ensure_ascii=False)
 
 
-def tag_exam_cycles(records: list) -> list:
-    """Tag each Worksheet/Revision item with the nearest named exam cycle.
+EXAM_SCHEDULE_WINDOW_DAYS = 90
 
-    Revision/worksheet numbering resets per exam (PT-1's "Revision No. 1"
-    and Half Yearly's "Revision No. 1" are unrelated), and the worksheet
-    notices themselves never name the cycle -- only the separate exam
-    announcement notice does ("Periodic Test-1 examinations will
-    commence..."). So: collect every Exam/Test notice that names a cycle
-    as an anchor, then tag each worksheet with whichever anchor is
-    closest in time (either direction -- an announcement can land before,
-    during, or after its prep-worksheet burst), within a 3-week window.
+
+def tag_exam_cycles(records: list) -> list:
+    """Tag each Exam/Test, Worksheet/Revision and Chapter Notes item with
+    the nearest named exam cycle, powering the Exam Prep tab.
+
+    Only a few Exam/Test notices ever name a cycle in their own text -- the
+    portion sheet ("PFA the PT 1 portion sheet"), the announcement
+    ("Periodic Test-1 examinations will commence..."), a reschedule notice.
+    Every individual subject's "class test" notice (the actual date/time
+    for that subject's PT-1 or Half Yearly paper) never says which cycle
+    it belongs to -- it's identifiable only by *when* it was posted,
+    clustered within a couple months of that cycle's named anchor. So:
+    collect the handful of self-named anchors first, then assign every
+    other record to its nearest anchor in time.
+
+    Worksheet/Revision/Notes get a tight 3-week window (they're general
+    teaching material that may not be exam-specific at all, so a notice
+    posted long before or after any exam shouldn't get roped in). Exam/Test
+    class-test notices get a much wider window -- per-subject testing for
+    one cycle can span a couple of months in practice -- since everything
+    in that category genuinely is part of some exam's schedule.
     """
     anchors = []
     for r in records:
@@ -98,22 +110,22 @@ def tag_exam_cycles(records: list) -> list:
             if label:
                 anchors.append((date.fromisoformat(r["posted_date_iso"]), label))
 
-    for r in records:
-        # A portion sheet names its own cycle directly ("PFA the PT 1
-        # portion sheet") -- no need for the nearest-anchor search below.
-        if r["category"] == "Exam/Test" and r.get("material_type") == "Portion":
-            r["exam_cycle"] = extract_exam_cycle_label(r["text"])
-            continue
-        if r["category"] != "Subject Notes" or r.get("material_type") not in ("Worksheet", "Revision"):
-            r["exam_cycle"] = None
-            continue
-        wd = date.fromisoformat(r["posted_date_iso"])
+    def nearest_cycle(wd, window_days):
         best_label, best_dist = None, None
         for anchor_date, label in anchors:
             dist = abs((anchor_date - wd).days)
-            if dist <= EXAM_CYCLE_WINDOW_DAYS and (best_dist is None or dist < best_dist):
+            if dist <= window_days and (best_dist is None or dist < best_dist):
                 best_label, best_dist = label, dist
-        r["exam_cycle"] = best_label
+        return best_label
+
+    for r in records:
+        wd = date.fromisoformat(r["posted_date_iso"])
+        if r["category"] == "Exam/Test":
+            r["exam_cycle"] = nearest_cycle(wd, EXAM_SCHEDULE_WINDOW_DAYS)
+        elif r["category"] == "Subject Notes" and r.get("material_type") in ("Worksheet", "Revision", "Notes"):
+            r["exam_cycle"] = nearest_cycle(wd, EXAM_CYCLE_WINDOW_DAYS)
+        else:
+            r["exam_cycle"] = None
     return records
 
 
