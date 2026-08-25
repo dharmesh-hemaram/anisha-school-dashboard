@@ -153,6 +153,26 @@
   .section-note { font-size: 12px; color: var(--text-faint); margin: 2px 0 12px; }
   .empty-state { font-size: 13px; color: var(--text-faint); font-style: italic; padding: 14px 2px; }
 
+  /* ---- This-week strip: holiday-list/events-calendar entries with no
+     notice of their own, capped to a 7-day lookahead so the yearly master
+     lists don't flood Upcoming with a card per holiday/event. ---- */
+  .week-strip { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; }
+  .week-strip:empty { display: none; margin: 0; }
+  .week-strip-head {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase;
+    color: var(--text-faint); margin-bottom: 2px;
+  }
+  .week-row {
+    display: flex; align-items: center; gap: 9px;
+    background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
+    padding: 7px 11px; font-size: 12.5px;
+  }
+  .week-row.is-today { background: var(--today-bg); border-color: var(--today-border); }
+  .week-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+  .week-when { flex-shrink: 0; font-weight: 700; color: var(--text-muted); min-width: 60px; }
+  .week-row.is-today .week-when { color: var(--today-ink); }
+  .week-name { flex: 1; color: var(--text); }
+
   /* ---- Upcoming cards ---- */
   .action-list { display: flex; flex-direction: column; gap: 8px; }
   .action-card {
@@ -312,16 +332,6 @@
   .cycle-head {
     font-size: 12px; font-weight: 700; color: var(--brand); margin: 10px 0 6px 2px;
   }
-  /* Icon-only "Open" links -- a notebook/checklist/checkmark/refresh-loop
-     instead of text, pinned to the row's right edge. Sized to stand out
-     next to the title/date text, not shrink to match it. */
-  .material-link-icons { margin-left: auto; display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
-  .material-link-icon {
-    display: inline-flex; align-items: center; justify-content: center;
-    width: 34px; height: 34px; padding: 3px; color: var(--brand); flex-shrink: 0;
-  }
-  .material-link-icon svg { width: 100%; height: 100%; }
-  a.material-link-icon { text-decoration: none; }
 
   /* ---- Exam prep ---- */
   .exam-portion-card {
@@ -367,9 +377,6 @@
   }
   .portion-schedule-date { font-size: 12px; color: var(--text-muted); white-space: nowrap; }
   .exam-schedule-marks { font-size: 11px; color: var(--text-faint); white-space: nowrap; }
-  /* The icon sits beside the whole title+date block, vertically centered
-     against both lines together -- not squeezed onto just the date line,
-     which forced that line taller than the text needed. */
   .exam-material-row {
     display: flex; align-items: center; gap: 10px;
     padding-top: 10px; border-top: 1px dashed var(--border);
@@ -422,6 +429,7 @@
 
   <div class="tab-panel active" id="panel-upcoming">
     <div class="section-note">Exams, school events &amp; holidays, newest first</div>
+    <div class="week-strip" id="weekStrip"></div>
     <div class="action-list" id="actionList"></div>
   </div>
 
@@ -567,6 +575,13 @@ let ALL = [];
 // Hand-transcribed from each exam's portion-sheet attachment (a scanned
 // table, not extractable from notice text) -- see docs/portion_schedules.json.
 let PORTION_SCHEDULES = {};
+// Parsed from the once-a-year Holiday List / Special Days & Events master
+// documents (docs/holidays.json, docs/events_calendar.json) -- see
+// attachments/master_docs.py. Most of these never get an individual
+// notice of their own, so without this they'd never surface until
+// someone happened to scroll to that date in Feed.
+let HOLIDAYS = { holidays: [], vacations: [] };
+let EVENTS_CALENDAR = { events: [], ptm: [], exam_windows: [] };
 
 // Every named exam cycle, most recently active first.
 function sortedExamCycles() {
@@ -582,6 +597,49 @@ function sortedExamCycles() {
 // (its portion sheet included) is done being "upcoming".
 function latestExamCycle() {
   return sortedExamCycles()[0] || null;
+}
+
+// A compact 7-day lookahead built from the yearly master lists, separate
+// from the full action-card list below -- the master lists cover the
+// whole academic year (22 holidays, 27 events, 8 PTMs), and turning every
+// one of those into its own Upcoming card would bury the things that
+// actually need a decision or a book to pack. This only ever shows what's
+// happening in the next week, as a few compact rows.
+function renderWeekStrip() {
+  const el = document.getElementById("weekStrip");
+  if (!el) return;
+
+  // A holiday/event that already has its own real notice shows as a full
+  // card lower on this same tab (via UPCOMING_CATEGORIES) -- skip it here
+  // so it doesn't also show as a duplicate row in the strip.
+  const alreadyShown = new Set(
+    ALL.filter(r => ["Holiday", "School Event"].includes(r.category)).map(r => r.event_date_iso)
+  );
+
+  const items = [
+    ...HOLIDAYS.holidays.map(h => ({ date_iso: h.date_iso, name: h.name, dot: "var(--dot-holiday)" })),
+    ...EVENTS_CALENDAR.events.map(e => ({ date_iso: e.date_iso, name: e.name, dot: "var(--dot-event)" })),
+    ...EVENTS_CALENDAR.ptm.map(p => ({
+      date_iso: p.date_iso, dot: "var(--dot-event)",
+      name: p.scope ? `${p.label} — ${p.scope}` : p.label,
+    })),
+  ]
+    .filter(x => !alreadyShown.has(x.date_iso))
+    .map(x => ({ ...x, _days: daysUntil(parseISO(x.date_iso)) }))
+    .filter(x => x._days >= 0 && x._days <= 7)
+    .sort((a, b) => a._days - b._days);
+
+  if (items.length === 0) {
+    el.innerHTML = "";
+    return;
+  }
+
+  el.innerHTML = `<div class="week-strip-head">This week</div>` + items.map(x => `
+    <div class="week-row${x._days === 0 ? " is-today" : ""}">
+      <span class="week-dot" style="background:${x.dot}"></span>
+      <span class="week-when">${x._days === 0 ? "Today" : x._days === 1 ? "Tomorrow" : fmtDate(parseISO(x.date_iso))}</span>
+      <span class="week-name">${escapeHtml(x.name)}</span>
+    </div>`).join("");
 }
 
 function renderUpcoming() {
@@ -780,44 +838,15 @@ function renderFeed(activeCategory, activeSubject) {
   list.innerHTML = html;
 }
 
-// A Worksheet carries two links (worksheet + answer key) -- ambiguous as a
-// single click target, and an accidental tap into the answer key defeats
-// practicing with the worksheet first, so those stay two explicit links.
-// Everything else (Notes, Revision, a lone Answer Key) has exactly one
-// link, so the whole card/row becomes that link -- one bigger, unambiguous
-// tap target instead of a separate "Open" underneath.
-function materialLinks(r) {
-  const links = [];
-  if (r.material_type === "Worksheet") {
-    if (r.attachment_url) links.push({ href: r.attachment_url, label: "Open worksheet", type: "worksheet" });
-    if (r.answer_key_url) links.push({ href: r.answer_key_url, label: "Open answer key", type: "answerkey" });
-  } else if (r.material_type === "Revision") {
-    if (r.attachment_url) links.push({ href: r.attachment_url, label: "Open revision", type: "revision" });
-  } else if (r.attachment_url) {
-    const isAnswerKey = r.material_type === "Answer Key";
-    links.push({ href: r.attachment_url, label: isAnswerKey ? "Open answer key" : "Open", type: isAnswerKey ? "answerkey" : "notes" });
-  }
-  return links;
-}
-// Small icons stand in for the "Open ..." text link: a notebook for Notes,
-// a checklist for a Worksheet (a list of problems to fill in), a checkmark
-// for an Answer Key (the verified solutions), a refresh loop for Revision
-// (going back over material already covered).
-const MATERIAL_LINK_ICONS = {
-  notes: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4.5S4.5 3 8 3s6 1.5 6 1.5v14S11.5 17 8 17s-6 1.5-6 1.5V4.5Z"/><path d="M22 4.5S19.5 3 16 3s-6 1.5-6 1.5v14S13.5 17 16 17s6 1.5 6 1.5V4.5Z"/></svg>',
-  worksheet: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3.5" width="3.4" height="3.4" rx="0.8"/><rect x="3" y="10.3" width="3.4" height="3.4" rx="0.8"/><rect x="3" y="17.1" width="3.4" height="3.4" rx="0.8"/><line x1="9.4" y1="5.2" x2="21" y2="5.2"/><line x1="9.4" y1="12" x2="21" y2="12"/><line x1="9.4" y1="18.8" x2="21" y2="18.8"/></svg>',
-  answerkey: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12.3l2.5 2.5L16 9"/></svg>',
-  revision: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.6-6.35"/><polyline points="21 4 21 9.5 15.5 9.5"/></svg>',
-};
-function materialLinkIconsHtml(links) {
-  // A single-link item is already the whole row's <a> (see below), so its
-  // icon is a decorative hint, not a second nested link.
-  if (links.length === 1) {
-    return `<span class="material-link-icon is-decorative" aria-hidden="true">${MATERIAL_LINK_ICONS[links[0].type]}</span>`;
-  }
-  return links.map(l =>
-    `<a class="material-link-icon" href="${l.href}" target="_blank" rel="noopener" title="${l.label}" aria-label="${l.label}">${MATERIAL_LINK_ICONS[l.type]}</a>`
-  ).join("");
+// Every material row is one click target, straight to the one attachment
+// that's actually useful next -- no icon, no picking between links. A
+// Worksheet opens its paired Answer Key once one exists (checking your
+// answers is the next step once the worksheet's done), falling back to
+// the worksheet itself before that; Notes/Revision/a lone Answer Key each
+// only ever have their own single attachment anyway.
+function materialHref(r) {
+  if (r.material_type === "Worksheet") return r.answer_key_url || r.attachment_url || null;
+  return r.attachment_url || null;
 }
 
 const MATERIAL_TAG_META = {
@@ -838,7 +867,7 @@ function examMaterialRowHtml(r) {
     || ((r.material_type === "Worksheet" || r.material_type === "Revision") && r.worksheet_number != null
       ? `${tagLabel} No. ${r.worksheet_number}`
       : firstLine(r.text));
-  const links = materialLinks(r);
+  const href = materialHref(r);
   const inner = `
       <div class="exam-material-body">
         <div class="exam-material-top">
@@ -848,10 +877,9 @@ function examMaterialRowHtml(r) {
         <div class="exam-material-meta">
           <span class="exam-material-date">Posted ${fmtDate(parseDMY(r.posted_date))}</span>
         </div>
-      </div>
-      <span class="material-link-icons">${materialLinkIconsHtml(links)}</span>`;
-  return links.length === 1
-    ? `<a class="exam-material-row exam-material-row-link" href="${links[0].href}" target="_blank" rel="noopener">${inner}</a>`
+      </div>`;
+  return href
+    ? `<a class="exam-material-row exam-material-row-link" href="${href}" target="_blank" rel="noopener">${inner}</a>`
     : `<div class="exam-material-row">${inner}</div>`;
 }
 
@@ -886,7 +914,7 @@ function renderNotes(activeSubject) {
     return;
   }
   // A paired Answer Key's link already rides along on its Worksheet's row
-  // (materialLinks()), so it doesn't get a row of its own here.
+  // (materialHref()), so it doesn't get a row of its own here.
   const items = ALL.filter(r =>
     r.category === "Subject Notes" && r.subject === activeSubject &&
     !(r.material_type === "Answer Key" && r.paired)
@@ -1123,10 +1151,15 @@ document.querySelectorAll(".tab-btn").forEach(btn => {
 Promise.all([
   fetch("notices.json?_=" + Date.now()).then(r => r.json()),
   fetch("portion_schedules.json?_=" + Date.now()).then(r => r.ok ? r.json() : {}).catch(() => ({})),
+  fetch("holidays.json?_=" + Date.now()).then(r => r.ok ? r.json() : {}).catch(() => ({})),
+  fetch("events_calendar.json?_=" + Date.now()).then(r => r.ok ? r.json() : {}).catch(() => ({})),
 ])
-  .then(([data, portionSchedules]) => {
+  .then(([data, portionSchedules, holidays, eventsCalendar]) => {
     ALL = data.sort((a, b) => parseDMY(b.posted_date) - parseDMY(a.posted_date));
     PORTION_SCHEDULES = portionSchedules;
+    HOLIDAYS = { holidays: [], vacations: [], ...holidays };
+    EVENTS_CALENDAR = { events: [], ptm: [], exam_windows: [], ...eventsCalendar };
+    renderWeekStrip();
     renderUpcoming();
     renderFeed("All");
     renderNotes("English");
