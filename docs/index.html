@@ -299,32 +299,38 @@
   .exam-portion-title { font-weight: 700; font-size: 14.5px; margin: 3px 0 4px; color: var(--text); }
   .exam-portion-meta { font-size: 12px; color: var(--warn-ink); opacity: 0.85; margin-bottom: 9px; }
   .exam-portion-link { font-size: 12.5px; font-weight: 700; color: var(--brand); text-decoration: none; }
-  .exam-schedule-list { display: flex; flex-direction: column; gap: 7px; margin-bottom: 6px; }
-  /* One row per subject's slot in the portion sheet's own date/subject/
-     topic table -- authoritative, unlike the thin per-subject "class
-     test" notice, so shown in full rather than behind an expand/collapse. */
-  .portion-row {
-    background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 9px 11px;
+  .portion-row-text {
+    font-size: 13px; color: var(--text); line-height: 1.5; white-space: pre-line; margin-bottom: 10px;
   }
-  .portion-row-head { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 6px; }
-  .exam-schedule-date { font-weight: 700; color: var(--text-muted); font-size: 12px; white-space: nowrap; }
-  .exam-schedule-marks { font-size: 11px; color: var(--text-faint); margin-left: auto; white-space: nowrap; }
-  .portion-row-text { font-size: 13px; color: var(--text); line-height: 1.5; white-space: pre-line; }
   .portion-notes { margin: 8px 0 18px; }
   .portion-notes ul { margin: 0; padding-left: 18px; font-size: 12px; color: var(--text-muted); }
   .portion-notes li { margin-bottom: 4px; }
+  /* A multi-day stretch between two consecutive tests -- a holiday when one
+     matches, otherwise just a plain gap -- called out as prep buffer time
+     instead of leaving parents to notice the jump themselves. */
+  .exam-gap-row {
+    display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--text-faint);
+    font-style: italic; padding: 2px 4px 10px;
+  }
+  .exam-gap-row::before { content: "⋯"; font-style: normal; }
 
-  /* Everything for one subject -- notes, worksheets, revision -- lives in
-     a single card instead of scattering each posting into its own box. */
+  /* Everything for one subject -- its slot in the portion table (date,
+     marks, topic) and its notes/worksheets/revision -- lives in one card
+     instead of a separate schedule list plus a separate materials card. */
   .exam-subject-card {
     background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
     padding: 13px 14px; margin-bottom: 12px;
   }
   .exam-subject-head {
     display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 14px; color: var(--text);
-    margin-bottom: 11px;
+    margin-bottom: 11px; flex-wrap: wrap;
   }
   .exam-subject-head .material-count { margin-left: auto; }
+  .exam-subject-head-right {
+    margin-left: auto; display: flex; align-items: center; gap: 8px; font-weight: 600;
+  }
+  .portion-schedule-date { font-size: 12px; color: var(--text-muted); white-space: nowrap; }
+  .exam-schedule-marks { font-size: 11px; color: var(--text-faint); white-space: nowrap; }
   .exam-material-row { padding-top: 10px; border-top: 1px dashed var(--border); }
   .exam-material-row:first-child { padding-top: 0; border-top: none; }
   .exam-material-top { display: flex; align-items: baseline; gap: 7px; flex-wrap: wrap; }
@@ -692,6 +698,25 @@ function examMaterialRowHtml(r) {
     </div>`;
 }
 
+// One card per subject: its portion-table slot (date/marks/topic), when
+// there is one, plus every note/worksheet/revision tagged to this cycle.
+function examSubjectCardHtml(subject, items, scheduleRow) {
+  const subjItems = [...items].sort((a, b) => parseDMY(b.posted_date) - parseDMY(a.posted_date));
+  const headRight = scheduleRow
+    ? `<span class="exam-subject-head-right">
+         <span class="portion-schedule-date">${fmtDate(parseISO(scheduleRow.date_iso))}</span>
+         ${scheduleRow.marks ? `<span class="exam-schedule-marks">${scheduleRow.marks} marks</span>` : ""}
+       </span>`
+    : `<span class="material-count">${subjItems.length}</span>`;
+  const portionText = scheduleRow ? `<div class="portion-row-text">${escapeHtml(scheduleRow.portion)}</div>` : "";
+  return `
+    <div class="exam-subject-card">
+      <div class="exam-subject-head">${subjectBadge(subject)}<span>${escapeHtml(subject)}</span>${headRight}</div>
+      ${portionText}
+      ${subjItems.map(examMaterialRowHtml).join("")}
+    </div>`;
+}
+
 function renderNotes(activeSubject) {
   const subjects = [...new Set(ALL.filter(r => r.category === "Subject Notes" && r.subject).map(r => r.subject))].sort();
   const grid = document.getElementById("subjectGrid");
@@ -809,29 +834,6 @@ function renderExam(activeCycle) {
       </div>`;
   }
 
-  // The per-subject "class test" notice is too thin to be useful on its
-  // own (just a date) -- the portion sheet's own date/subject/topic table,
-  // hand-transcribed into portion_schedules.json, is the real source of
-  // truth once it exists for a cycle.
-  if (portionData?.schedule?.length) {
-    html += `<div class="material-head">Exam Schedule <span class="material-count">${portionData.schedule.length}</span></div>`;
-    html += `<div class="exam-schedule-list">` + portionData.schedule.map(row => {
-      const marks = row.marks ? `<span class="exam-schedule-marks">${row.marks} marks</span>` : "";
-      return `
-        <div class="portion-row">
-          <div class="portion-row-head">
-            ${subjectBadge(row.subject)}
-            <span class="exam-schedule-date">${fmtDate(parseISO(row.date_iso))}, ${escapeHtml(row.day)}</span>
-            ${marks}
-          </div>
-          <div class="portion-row-text">${escapeHtml(row.portion)}</div>
-        </div>`;
-    }).join("") + `</div>`;
-    if (portionData.notes?.length) {
-      html += `<div class="portion-notes"><ul>${portionData.notes.map(n => `<li>${escapeHtml(n)}</li>`).join("")}</ul></div>`;
-    }
-  }
-
   const bySubject = new Map();
   materials.forEach(r => {
     if (!bySubject.has(r.subject)) bySubject.set(r.subject, []);
@@ -842,17 +844,42 @@ function renderExam(activeCycle) {
     html += '<div class="empty-state">Nothing tagged to this exam yet.</div>';
   }
 
-  // One card per subject -- notes, worksheets and revision all listed
-  // together instead of scattered across separate boxes, so everything
-  // needed to prep that subject is in one place.
-  [...bySubject.keys()].sort().forEach(subject => {
-    const subjItems = bySubject.get(subject).sort((a, b) => parseDMY(b.posted_date) - parseDMY(a.posted_date));
-    html += `
-      <div class="exam-subject-card">
-        <div class="exam-subject-head">${subjectBadge(subject)}<span>${escapeHtml(subject)}</span><span class="material-count">${subjItems.length}</span></div>
-        ${subjItems.map(examMaterialRowHtml).join("")}
-      </div>`;
-  });
+  if (portionData?.schedule?.length) {
+    // One card per subject holds its portion-table slot (date/marks/topic)
+    // *and* its prep material together -- the date and topic aren't split
+    // into a separate schedule list from the notes/worksheets/revision.
+    const scheduleSubjects = new Set(portionData.schedule.map(row => row.subject));
+    const holidays = ALL.filter(r => r.category === "Holiday");
+
+    portionData.schedule.forEach((row, i) => {
+      html += examSubjectCardHtml(row.subject, bySubject.get(row.subject) || [], row);
+
+      const next = portionData.schedule[i + 1];
+      if (next) {
+        const gapDays = Math.round((parseISO(next.date_iso) - parseISO(row.date_iso)) / 86400000) - 1;
+        if (gapDays >= 2) {
+          const holiday = holidays.find(h => h.event_date_iso > row.date_iso && h.event_date_iso < next.date_iso);
+          const label = holiday ? `Holiday — ${escapeHtml(firstLine(holiday.text))}` : `${gapDays}-day gap`;
+          html += `<div class="exam-gap-row">${label} · buffer time before the next test</div>`;
+        }
+      }
+    });
+
+    if (portionData.notes?.length) {
+      html += `<div class="portion-notes"><ul>${portionData.notes.map(n => `<li>${escapeHtml(n)}</li>`).join("")}</ul></div>`;
+    }
+
+    // A subject with prep material but no slot in the portion table (rare)
+    // still gets a card so nothing's lost.
+    [...bySubject.keys()].filter(s => !scheduleSubjects.has(s)).sort().forEach(subject => {
+      html += examSubjectCardHtml(subject, bySubject.get(subject));
+    });
+  } else {
+    // No transcribed portion table for this cycle -- plain material cards.
+    [...bySubject.keys()].sort().forEach(subject => {
+      html += examSubjectCardHtml(subject, bySubject.get(subject));
+    });
+  }
 
   detail.innerHTML = html;
 }
