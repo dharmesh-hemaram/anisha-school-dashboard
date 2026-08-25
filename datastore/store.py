@@ -11,7 +11,7 @@ from datetime import date, datetime
 from pathlib import Path
 
 from classifier.classify import extract_exam_cycle_label
-from classifier.periods import parse_periods
+from classifier.periods import parse_periods, parse_timetable, TIMETABLE_HEADER_RE
 
 EXAM_CYCLE_WINDOW_DAYS = 21
 
@@ -25,7 +25,20 @@ def _to_iso_date(posted_date: str) -> str:
 
 
 def build_record(notice, classification) -> dict:
-    periods = parse_periods(notice.text) if classification.category == "Daily Class Update" else []
+    # A "sharing the timetable for <date>" notice shares the Daily Class
+    # Update category but is next school day's book list, not a recap --
+    # flagged separately so the dashboard can label it distinctly. Some of
+    # these still use "Period N:" phrasing (parse_periods handles them);
+    # the rest are a bare one-subject-per-line list (parse_timetable).
+    is_timetable = classification.category == "Daily Class Update" and bool(
+        TIMETABLE_HEADER_RE.search(notice.text)
+    )
+    periods = []
+    if classification.category == "Daily Class Update":
+        periods = parse_periods(notice.text)
+        if not periods and is_timetable:
+            periods = parse_timetable(notice.text)
+
     posted_date_iso = _to_iso_date(notice.posted_date)
     return {
         "id": notice_id(notice.posted_date, notice.text),
@@ -40,6 +53,7 @@ def build_record(notice, classification) -> dict:
         "category": classification.category,
         "method": classification.method,
         "periods": periods,
+        "is_timetable": is_timetable,
         "confidence": classification.confidence,
         "subject": classification.subject,
         "chapter": classification.chapter,
@@ -85,6 +99,11 @@ def tag_exam_cycles(records: list) -> list:
                 anchors.append((date.fromisoformat(r["posted_date_iso"]), label))
 
     for r in records:
+        # A portion sheet names its own cycle directly ("PFA the PT 1
+        # portion sheet") -- no need for the nearest-anchor search below.
+        if r["category"] == "Exam/Test" and r.get("material_type") == "Portion":
+            r["exam_cycle"] = extract_exam_cycle_label(r["text"])
+            continue
         if r["category"] != "Subject Notes" or r.get("material_type") not in ("Worksheet", "Revision"):
             r["exam_cycle"] = None
             continue

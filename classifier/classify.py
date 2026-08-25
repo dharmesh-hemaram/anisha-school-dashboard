@@ -56,6 +56,17 @@ _SUBJECT_ALIASES = {
     "maths": "Maths",
     "mathematics": "Maths",
     "evs": "EVS",
+    "art and craft": "Art & Craft",
+    "art & craft": "Art & Craft",
+    "life skills": "Life Skills",
+    "lifeskill": "Life Skills",
+    "lifeskills": "Life Skills",
+    "speech and drama": "Speech & Drama",
+    "speech & drama": "Speech & Drama",
+    "reading program": "Reading Program",
+    "reading programme": "Reading Program",
+    "martial arts": "Martial Arts",
+    "marital arts": "Martial Arts",  # common typo seen in real notices
 }
 
 # Base subject names -- a raw value that starts with one of these (after
@@ -77,10 +88,21 @@ _DEVANAGARI_SUBJECTS = {
 # subject inline ("PFA Math Revision No. 8", "answer key ... of Hindi")
 # without the explicit "Subject: X" label the primary regex expects.
 # Longest-first so "Computer Science" matches before a bare "Science" would.
+#
+# The co-curricular subjects below (Leadership, Art & Craft, Life Skills,
+# Assembly, Sports, Dance, Skating, Speech & Drama, Music, Reading Program,
+# Martial Arts) never carry an exam/worksheet, so they only ever surface
+# through Daily Class Update periods -- without them here those periods
+# rendered as unlabeled text instead of a bolded subject like every other
+# period.
 _KNOWN_SUBJECTS = sorted(
     [
         "Computer Science", "Social Studies", "SST", "Mathematics", "Maths", "Math",
         "Science", "Hindi", "English", "Marathi", "EVS", "Robotics", "GK",
+        "Leadership", "Art and Craft", "Art & Craft", "Life Skills", "Lifeskill",
+        "Assembly", "Sports", "Dance", "Skating", "Speech and Drama",
+        "Speech & Drama", "Music", "Reading Program", "Reading Programme",
+        "Martial Arts", "Marital Arts",
     ],
     key=len, reverse=True,
 )
@@ -238,7 +260,11 @@ def classify_pattern(text: str) -> Optional[Classification]:
     t = text.lower()
 
     if re.search(r"daily class up\w*|\bdcu\b|sharing the time\s*table for", t):
-        return Classification("Daily Class Update", "pattern", 0.9)
+        # A timetable notice names the day it's *for* ("...for 7th April
+        # 2026, Tuesday") which is usually tomorrow, not today -- extract it
+        # so the dashboard can tell whether that timetable is for today.
+        # A plain recap has no such date phrase, so this is a no-op for it.
+        return Classification("Daily Class Update", "pattern", 0.9, event_date_iso=_extract_event_date(text))
 
     if (re.search(r"\bpfa\b", t) and ("notes" in t or " of " in t)) or _SUBJECT_MATERIAL_RE.search(t):
         return Classification(
@@ -247,6 +273,19 @@ def classify_pattern(text: str) -> Optional[Classification]:
             chapter_number=_extract_chapter_number(text),
             material_type=_extract_material_type(t),
             worksheet_number=_extract_worksheet_number(text),
+        )
+
+    # "Portion" notices (the syllabus scope for an upcoming exam, e.g. "PFA
+    # the PT 1 portion sheet", "Sharing the Portion for Half Yearly Exams")
+    # are a distinct kind of Exam/Test notice -- checked ahead of the
+    # exam-keyword rule below so a portion notice that also happens to name
+    # the exam (e.g. "...for Half Yearly Exams") still gets tagged Portion
+    # rather than falling into the generic exam-schedule bucket.
+    if re.search(r"\bportion\b", t) and "reschedul" not in t:
+        return Classification(
+            "Exam/Test", "pattern", 0.85,
+            material_type="Portion",
+            event_date_iso=_extract_event_date(text),
         )
 
     if re.search(

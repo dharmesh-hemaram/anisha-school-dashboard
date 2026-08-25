@@ -36,6 +36,24 @@
     --dot-holiday: #3E7A80;
     --dot-celeb: #A0762F;
     --dot-general: #8A8F7E;
+
+    /* Exam-track subjects (also filed under Notes/Exams) get their own
+       color; co-curricular subjects with no exam share --subj-neutral. */
+    --subj-maths: #3E6B8A;      --subj-maths-bg: #E4ECF1;
+    --subj-science: #3E7A55;    --subj-science-bg: #E3EFE6;
+    --subj-english: #7A4B8A;    --subj-english-bg: #EEE4EF;
+    --subj-hindi: #A6432E;      --subj-hindi-bg: #F3E1DB;
+    --subj-marathi: #1F7A6B;    --subj-marathi-bg: #DFEEEA;
+    --subj-sst: #8A6A1F;        --subj-sst-bg: #F1EAD8;
+    --subj-cs: #4A5A8A;         --subj-cs-bg: #E4E6F1;
+    --subj-evs: #5F8A3E;        --subj-evs-bg: #E7EFDE;
+    --subj-robotics: #2F8A94;   --subj-robotics-bg: #DFEEF0;
+    --subj-gk: #6B5F8A;         --subj-gk-bg: #E7E4EF;
+    --subj-neutral: #6B6455;    --subj-neutral-bg: #E9E6D9;
+
+    --today-bg: #FBEACB;
+    --today-border: #E7C381;
+    --today-ink: #7A4B0A;
   }
   @media (prefers-color-scheme: dark) {
     :root {
@@ -63,6 +81,22 @@
       --dot-holiday: #6BB3B8;
       --dot-celeb: #D2A85E;
       --dot-general: #767E72;
+
+      --subj-maths: #8FB4D6;      --subj-maths-bg: #26344A;
+      --subj-science: #8FCBA3;    --subj-science-bg: #22392C;
+      --subj-english: #C9A0D6;    --subj-english-bg: #382A42;
+      --subj-hindi: #D97B62;      --subj-hindi-bg: #3B281F;
+      --subj-marathi: #7FC9BC;    --subj-marathi-bg: #1F3A35;
+      --subj-sst: #D6BE7F;        --subj-sst-bg: #3A331D;
+      --subj-cs: #A3ADD6;         --subj-cs-bg: #2A2E42;
+      --subj-evs: #A6D68F;        --subj-evs-bg: #2C3A22;
+      --subj-robotics: #83CBD3;   --subj-robotics-bg: #1E3739;
+      --subj-gk: #B3A6D6;         --subj-gk-bg: #2E293C;
+      --subj-neutral: #ABA592;    --subj-neutral-bg: #2C2A22;
+
+      --today-bg: #3A2E17;
+      --today-border: #5C471F;
+      --today-ink: #F0C077;
     }
   }
 
@@ -83,19 +117,20 @@
 
   /* ---- Masthead ---- */
   .masthead {
+    display: flex; align-items: center; justify-content: space-between; gap: 10px;
     padding: calc(10px + env(safe-area-inset-top)) 0 12px;
     border-bottom: 2px solid var(--brand);
     margin-bottom: 4px;
   }
   .masthead .eyebrow {
     font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase;
-    color: var(--brand); font-weight: 700;
+    color: var(--brand); font-weight: 700; flex-shrink: 0;
   }
   .subscribe-btn {
-    display: inline-flex; align-items: center; gap: 5px; margin-top: 8px;
+    display: inline-flex; align-items: center; gap: 5px; flex-shrink: 0;
     font-size: 12.5px; font-weight: 600; color: var(--brand);
     background: var(--brand-soft); border: 1px solid var(--border);
-    border-radius: 999px; padding: 7px 12px; text-decoration: none;
+    border-radius: 6px; padding: 7px 12px; text-decoration: none;
   }
   .subscribe-btn svg { width: 12px; height: 12px; flex-shrink: 0; }
 
@@ -108,7 +143,7 @@
   }
   .tab-btn {
     flex: 1; font-size: 13.5px; font-weight: 600; color: var(--text-muted);
-    background: var(--surface-2); border: 1px solid var(--border); border-radius: 999px;
+    background: var(--surface-2); border: 1px solid var(--border); border-radius: 6px;
     padding: 9px 4px; text-align: center;
   }
   .tab-btn.active { background: var(--brand); color: var(--bg); border-color: var(--brand); }
@@ -133,7 +168,7 @@
   .action-meta { font-size: 12.5px; color: var(--text-muted); }
   .action-badge {
     flex-shrink: 0; font-size: 10.5px; font-weight: 700; padding: 3px 8px;
-    border-radius: 999px; white-space: nowrap;
+    border-radius: 6px; white-space: nowrap;
   }
   .badge-today { background: var(--warn); color: #1E1608; }
   .badge-soon { background: var(--warn-bg); color: var(--warn-ink); border: 1px solid var(--warn-border); }
@@ -149,16 +184,30 @@
   .chip-row::-webkit-scrollbar { display: none; }
   .chip {
     flex-shrink: 0; font-size: 12.5px; font-weight: 600; color: var(--text-muted);
-    background: var(--surface-2); border: 1px solid var(--border); border-radius: 999px;
+    background: var(--surface-2); border: 1px solid var(--border); border-radius: 6px;
     padding: 7px 12px; white-space: nowrap;
   }
   .chip.active { background: var(--brand); color: var(--bg); border-color: var(--brand); }
 
   /* ---- Feed ---- */
-  .feed-day-head { font-size: 12px; font-weight: 700; color: var(--brand); margin: 14px 0 6px; }
+  .feed-day-head {
+    font-size: 12px; font-weight: 700; color: var(--brand); margin: 14px 0 6px;
+    display: flex; align-items: center; gap: 7px;
+  }
+  .feed-day-head.is-today {
+    color: var(--today-ink); background: var(--today-bg); border: 1px solid var(--today-border);
+    padding: 3px 8px; margin-left: -8px;
+  }
+  .feed-day-head .today-tag {
+    font-size: 9.5px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase;
+    background: var(--today-ink); color: var(--today-bg); padding: 1px 5px;
+  }
   .feed-item {
     background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
     padding: 10px 12px; margin-bottom: 7px;
+  }
+  .feed-item.is-today-timetable {
+    border-color: var(--today-border); background: var(--today-bg);
   }
   .feed-item-row { display: flex; align-items: center; gap: 8px; }
   .feed-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
@@ -184,18 +233,29 @@
     background: var(--surface-2); border-radius: 6px; padding: 2px 6px; margin-top: 1px;
   }
   .period-body { font-size: 13.5px; line-height: 1.45; }
-  .period-subject { font-weight: 700; color: var(--brand); }
-  .period-hw { margin-top: 3px; font-size: 12.5px; color: var(--warn-ink); }
+  .subject-badge {
+    display: inline-flex; align-items: center; font-size: 10.5px; font-weight: 700;
+    letter-spacing: 0.02em; padding: 2px 6px; margin-right: 6px; border-radius: 6px;
+    vertical-align: 1px; white-space: nowrap;
+  }
+  .subject-badge.is-neutral {
+    background: var(--subj-neutral-bg); color: var(--subj-neutral);
+  }
+  .period-hw {
+    margin-top: 5px; font-size: 12.5px; color: var(--warn-ink);
+    background: var(--warn-bg); border-left: 3px solid var(--warn);
+    padding: 4px 8px; border-radius: 0 6px 6px 0;
+  }
   .period-hw-tag {
-    font-size: 9.5px; font-weight: 700; letter-spacing: 0.03em; background: var(--warn-bg);
-    border: 1px solid var(--warn-border); border-radius: 4px; padding: 1px 5px; margin-right: 5px;
+    font-size: 9.5px; font-weight: 700; letter-spacing: 0.03em; background: var(--warn);
+    color: #1E1608; border-radius: 6px; padding: 1px 5px; margin-right: 5px;
   }
 
   /* ---- Notes library ---- */
   .subject-grid { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 14px; }
   .subject-chip {
     font-size: 13px; font-weight: 600; color: var(--text); background: var(--surface);
-    border: 1px solid var(--border); border-radius: 10px; padding: 9px 13px;
+    border: 1px solid var(--border); border-radius: 6px; padding: 9px 13px;
   }
   .subject-chip.active { background: var(--brand); color: var(--bg); border-color: var(--brand); }
   .material-head {
@@ -206,7 +266,7 @@
   .material-head:first-child { margin-top: 0; }
   .material-count {
     font-size: 10px; font-weight: 700; color: var(--text-muted); background: var(--surface-2);
-    border-radius: 999px; padding: 1px 7px;
+    border-radius: 6px; padding: 1px 7px;
   }
   .cycle-head {
     font-size: 12px; font-weight: 700; color: var(--brand); margin: 10px 0 6px 2px;
@@ -230,6 +290,7 @@
     margin-top: 26px; padding-top: 12px; border-top: 1px solid var(--border);
     font-size: 10.5px; color: var(--text-faint);
   }
+  .footer-credit { margin-top: 4px; }
 </style>
 </head>
 <body>
@@ -265,7 +326,10 @@
     <div id="chapterList"></div>
   </div>
 
-  <footer class="note" id="footerNote">Loading…</footer>
+  <footer class="note">
+    <div id="footerNote">Loading…</div>
+    <div class="footer-credit">Made with ❤️ by Dharmesh</div>
+  </footer>
 </div>
 
 <script>
@@ -279,6 +343,40 @@ const CATEGORY_META = {
   "General/Other":      { dot: "var(--dot-general)", label: "General" },
 };
 const UPCOMING_CATEGORIES = ["Exam/Test", "School Event", "Holiday"];
+
+// Exam-track subjects get their own color + short form; anything else
+// (co-curricular, no exam) falls back to one shared neutral badge below.
+const SUBJECT_META = {
+  "Maths":            { abbr: "MATH", bg: "var(--subj-maths-bg)",    fg: "var(--subj-maths)" },
+  "Science":          { abbr: "SCI",  bg: "var(--subj-science-bg)",  fg: "var(--subj-science)" },
+  "English":          { abbr: "ENG",  bg: "var(--subj-english-bg)",  fg: "var(--subj-english)" },
+  "Hindi":            { abbr: "HIN",  bg: "var(--subj-hindi-bg)",    fg: "var(--subj-hindi)" },
+  "Marathi":          { abbr: "MAR",  bg: "var(--subj-marathi-bg)",  fg: "var(--subj-marathi)" },
+  "Social Studies":   { abbr: "SST",  bg: "var(--subj-sst-bg)",      fg: "var(--subj-sst)" },
+  "Computer Science": { abbr: "CS",   bg: "var(--subj-cs-bg)",       fg: "var(--subj-cs)" },
+  "EVS":              { abbr: "EVS",  bg: "var(--subj-evs-bg)",      fg: "var(--subj-evs)" },
+  "Robotics":         { abbr: "ROB",  bg: "var(--subj-robotics-bg)", fg: "var(--subj-robotics)" },
+  "GK":               { abbr: "GK",   bg: "var(--subj-gk-bg)",       fg: "var(--subj-gk)" },
+};
+// Co-curricular subjects (no exam) -- colored badge would be 20+ near-
+// indistinguishable hues, so they share one neutral style and just vary
+// by abbreviation.
+const NEUTRAL_SUBJECT_ABBR = {
+  "Art & Craft": "A&C", "Assembly": "ASM", "Dance": "DNC", "Leadership": "LDR",
+  "Life Skills": "LS", "Martial Arts": "MA", "Music": "MUS",
+  "Reading Program": "RP", "Skating": "SKT", "Speech & Drama": "S&D", "Sports": "SPT",
+};
+function subjectBadge(subject) {
+  const meta = SUBJECT_META[subject];
+  if (meta) return `<span class="subject-badge" style="background:${meta.bg};color:${meta.fg}" title="${escapeHtml(subject)}">${meta.abbr}</span>`;
+  const abbr = NEUTRAL_SUBJECT_ABBR[subject] || subject.slice(0, 4).toUpperCase();
+  return `<span class="subject-badge is-neutral" title="${escapeHtml(subject)}">${abbr}</span>`;
+}
+
+function todayISO() {
+  const d = new Date();
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+}
 
 function parseDMY(d) {
   const [dd, mm, yyyy] = d.split("-").map(Number);
@@ -304,6 +402,7 @@ function firstLine(text) {
 function noticeTitle(r) {
   if (r.subject && r.chapter) return `${r.subject} — ${r.chapter}`;
   if (r.subject) return r.subject;
+  if (r.is_timetable) return `Timetable — ${fmtDate(parseISO(r.event_date_iso))}`;
   if (r.category === "Daily Class Update") return "Daily Class Update";
   return firstLine(r.text);
 }
@@ -318,7 +417,9 @@ function renderUpcoming() {
   const items = ALL
     .filter(r => UPCOMING_CATEGORIES.includes(r.category))
     .map(r => ({ ...r, _date: parseISO(r.event_date_iso), _days: daysUntil(parseISO(r.event_date_iso)) }))
-    .filter(r => r._days >= -5)
+    // Exam portion sheets stay useful for the whole exam cycle, not just the
+    // 5 days after they were posted -- exempt them from the recency cutoff.
+    .filter(r => r._days >= -5 || r.material_type === "Portion")
     .sort((a, b) => b._days - a._days);
 
   if (items.length === 0) {
@@ -333,17 +434,20 @@ function renderUpcoming() {
       : r._days === 0
         ? `<span class="action-badge badge-today">Today</span>`
         : `<span class="action-badge badge-soon">In ${r._days}d</span>`;
+    const isPortion = r.material_type === "Portion";
     const attach = r.attachment_url
-      ? `<a class="action-attach" href="${r.attachment_url}" target="_blank" rel="noopener">View attachment →</a>`
+      ? `<a class="action-attach" href="${r.attachment_url}" target="_blank" rel="noopener">${isPortion ? "View portion →" : "View attachment →"}</a>`
       : "";
     const postedNote = r.event_date_iso !== r.posted_date_iso
       ? ` <span style="color:var(--text-faint)">· notified ${fmtDate(parseDMY(r.posted_date))}</span>`
       : "";
+    const kind = isPortion ? "Exam Portion" : CATEGORY_META[r.category].label;
+    const cycle = isPortion && r.exam_cycle ? ` · ${escapeHtml(r.exam_cycle)}` : "";
     return `
       <div class="action-card state-${state}">
         <div class="action-top">
           <div>
-            <div class="action-kind">${CATEGORY_META[r.category].label}</div>
+            <div class="action-kind">${kind}${cycle}</div>
             <div class="action-title">${escapeHtml(noticeTitle(r))}</div>
           </div>
           ${badge}
@@ -362,14 +466,13 @@ function noticeSubjects(r) {
 }
 
 function renderPeriods(periods) {
-  return `<div class="period-list">` + periods.map(p => `
-    <div class="period-row">
-      <span class="period-num">P${p.period}</span>
-      <div class="period-body">
-        ${p.subject ? `<span class="period-subject">${escapeHtml(p.subject)}</span> ` : ""}${p.note ? escapeHtml(p.note) : ""}
-        ${p.hw ? `<div class="period-hw"><span class="period-hw-tag">HW</span>${escapeHtml(p.hw)}</div>` : ""}
-      </div>
-    </div>`).join("") + `</div>`;
+  const rows = periods.map(p => {
+    const subject = p.subject ? subjectBadge(p.subject) : "";
+    const note = p.note ? escapeHtml(p.note) : "";
+    const hw = p.hw ? `<div class="period-hw"><span class="period-hw-tag">HW</span>${escapeHtml(p.hw)}</div>` : "";
+    return `<div class="period-row"><span class="period-num">P${p.period}</span><div class="period-body">${subject}${note}${hw}</div></div>`;
+  }).join("");
+  return `<div class="period-list">${rows}</div>`;
 }
 
 function renderFeed(activeCategory, activeSubject) {
@@ -401,11 +504,13 @@ function renderFeed(activeCategory, activeSubject) {
     return;
   }
 
+  const today = todayISO();
   let html = "";
   let lastDate = null;
   filtered.forEach((r, i) => {
     if (r.posted_date !== lastDate) {
-      html += `<div class="feed-day-head">${fmtDate(parseDMY(r.posted_date))}</div>`;
+      const isToday = r.posted_date_iso === today;
+      html += `<div class="feed-day-head${isToday ? " is-today" : ""}">${fmtDate(parseDMY(r.posted_date))}${isToday ? '<span class="today-tag">Today</span>' : ""}</div>`;
       lastDate = r.posted_date;
     }
     const meta = CATEGORY_META[r.category];
@@ -416,8 +521,9 @@ function renderFeed(activeCategory, activeSubject) {
     const body = (r.periods && r.periods.length)
       ? renderPeriods(r.periods)
       : escapeHtml(r.text);
+    const isTodayTimetable = r.is_timetable && r.event_date_iso === today;
     html += `
-      <div class="feed-item" id="feed-${i}">
+      <div class="feed-item${isTodayTimetable ? " is-today-timetable" : ""}" id="feed-${i}">
         <div class="feed-item-row" onclick="document.getElementById('feed-${i}').classList.toggle('open')">
           <span class="feed-dot" style="background:${meta.dot}"></span>
           <span class="feed-preview">${escapeHtml(preview)}</span>
