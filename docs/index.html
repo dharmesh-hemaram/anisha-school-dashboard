@@ -297,11 +297,12 @@
     font-size: 12px; font-weight: 700; color: var(--brand); margin: 10px 0 6px 2px;
   }
   /* Icon-only "Open" links -- a notebook/checklist/checkmark/refresh-loop
-     instead of text, pinned to the row's right edge. */
-  .material-link-icons { margin-left: auto; display: flex; align-items: center; gap: 6px; flex-shrink: 0; }
+     instead of text, pinned to the row's right edge. Sized to stand out
+     next to the title/date text, not shrink to match it. */
+  .material-link-icons { margin-left: auto; display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
   .material-link-icon {
     display: inline-flex; align-items: center; justify-content: center;
-    width: 18px; height: 18px; padding: 6px; color: var(--brand); flex-shrink: 0;
+    width: 34px; height: 34px; padding: 3px; color: var(--brand); flex-shrink: 0;
   }
   .material-link-icon svg { width: 100%; height: 100%; }
   a.material-link-icon { text-decoration: none; }
@@ -617,9 +618,14 @@ function renderUpcoming() {
     // A per-subject class test (real or synthesized from the portion
     // table) gets its prep material pulled in too -- same subject, same
     // exam cycle -- so there's no need to jump to the Exam tab just to see
-    // what to study for a test sitting right here in Upcoming.
+    // what to study for a test sitting right here in Upcoming. A single
+    // class test only covers one chapter though (unlike the cumulative
+    // portion-table entries, which have no chapter of their own and so
+    // aren't restricted here) -- so Notes get filtered down to that same
+    // chapter; Worksheets/Revision aren't chapter-specific to begin with.
     const relatedMaterials = r.subject && r.exam_cycle
-      ? ALL.filter(m => m.category === "Subject Notes" && m.subject === r.subject && m.exam_cycle === r.exam_cycle)
+      ? ALL.filter(m => m.category === "Subject Notes" && m.subject === r.subject && m.exam_cycle === r.exam_cycle &&
+          (!r.chapter || m.material_type !== "Notes" || m.chapter === r.chapter))
         .sort((a, b) => parseDMY(b.posted_date) - parseDMY(a.posted_date))
       : [];
     const materialsHtml = relatedMaterials.length
