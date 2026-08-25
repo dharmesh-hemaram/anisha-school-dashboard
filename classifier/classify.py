@@ -56,6 +56,16 @@ _SUBJECT_ALIASES = {
     "maths": "Maths",
     "mathematics": "Maths",
     "evs": "EVS",
+    "art and craft": "Art & Craft",
+    "art & craft": "Art & Craft",
+    "life skills": "Life Skills",
+    "lifeskill": "Life Skills",
+    "lifeskills": "Life Skills",
+    "speech and drama": "Speech & Drama",
+    "speech & drama": "Speech & Drama",
+    "reading program": "Reading Program",
+    "reading programme": "Reading Program",
+    "martial arts": "Martial Arts",
 }
 
 # Base subject names -- a raw value that starts with one of these (after
@@ -77,10 +87,21 @@ _DEVANAGARI_SUBJECTS = {
 # subject inline ("PFA Math Revision No. 8", "answer key ... of Hindi")
 # without the explicit "Subject: X" label the primary regex expects.
 # Longest-first so "Computer Science" matches before a bare "Science" would.
+#
+# The co-curricular subjects below (Leadership, Art & Craft, Life Skills,
+# Assembly, Sports, Dance, Skating, Speech & Drama, Music, Reading Program,
+# Martial Arts) never carry an exam/worksheet, so they only ever surface
+# through Daily Class Update periods -- without them here those periods
+# rendered as unlabeled text instead of a bolded subject like every other
+# period.
 _KNOWN_SUBJECTS = sorted(
     [
         "Computer Science", "Social Studies", "SST", "Mathematics", "Maths", "Math",
         "Science", "Hindi", "English", "Marathi", "EVS", "Robotics", "GK",
+        "Leadership", "Art and Craft", "Art & Craft", "Life Skills", "Lifeskill",
+        "Assembly", "Sports", "Dance", "Skating", "Speech and Drama",
+        "Speech & Drama", "Music", "Reading Program", "Reading Programme",
+        "Martial Arts",
     ],
     key=len, reverse=True,
 )

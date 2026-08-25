@@ -362,14 +362,13 @@ function noticeSubjects(r) {
 }
 
 function renderPeriods(periods) {
-  return `<div class="period-list">` + periods.map(p => `
-    <div class="period-row">
-      <span class="period-num">P${p.period}</span>
-      <div class="period-body">
-        ${p.subject ? `<span class="period-subject">${escapeHtml(p.subject)}</span> ` : ""}${p.note ? escapeHtml(p.note) : ""}
-        ${p.hw ? `<div class="period-hw"><span class="period-hw-tag">HW</span>${escapeHtml(p.hw)}</div>` : ""}
-      </div>
-    </div>`).join("") + `</div>`;
+  const rows = periods.map(p => {
+    const subject = p.subject ? `<span class="period-subject">${escapeHtml(p.subject)}</span> ` : "";
+    const note = p.note ? escapeHtml(p.note) : "";
+    const hw = p.hw ? `<div class="period-hw"><span class="period-hw-tag">HW</span>${escapeHtml(p.hw)}</div>` : "";
+    return `<div class="period-row"><span class="period-num">P${p.period}</span><div class="period-body">${subject}${note}${hw}</div></div>`;
+  }).join("");
+  return `<div class="period-list">${rows}</div>`;
 }
 
 function renderFeed(activeCategory, activeSubject) {
