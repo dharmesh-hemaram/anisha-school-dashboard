@@ -466,14 +466,33 @@ function escapeHtml(s) {
 
 let ALL = [];
 
+// Every named exam cycle, most recently active first.
+function sortedExamCycles() {
+  const cycles = [...new Set(ALL.map(r => r.exam_cycle).filter(Boolean))];
+  cycles.sort((a, b) => {
+    const latest = c => Math.max(...ALL.filter(r => r.exam_cycle === c).map(r => parseDMY(r.posted_date)));
+    return latest(b) - latest(a);
+  });
+  return cycles;
+}
+// The exam cycle with the most recent activity -- "the exam that's
+// current right now". Once a newer cycle starts, an older cycle's stuff
+// (its portion sheet included) is done being "upcoming".
+function latestExamCycle() {
+  return sortedExamCycles()[0] || null;
+}
+
 function renderUpcoming() {
   const list = document.getElementById("actionList");
+  const currentCycle = latestExamCycle();
   const items = ALL
     .filter(r => UPCOMING_CATEGORIES.includes(r.category))
     .map(r => ({ ...r, _date: parseISO(r.event_date_iso), _days: daysUntil(parseISO(r.event_date_iso)) }))
-    // Exam portion sheets stay useful for the whole exam cycle, not just the
-    // 5 days after they were posted -- exempt them from the recency cutoff.
-    .filter(r => r._days >= -5 || r.material_type === "Portion")
+    // Exam portion sheets stay useful for their whole exam cycle, not just
+    // the 5 days after they were posted -- but only while that cycle is
+    // still the current one, so a past exam's portion doesn't linger here
+    // once a newer cycle has started.
+    .filter(r => r._days >= -5 || (r.material_type === "Portion" && r.exam_cycle === currentCycle))
     .sort((a, b) => b._days - a._days);
 
   if (items.length === 0) {
@@ -703,11 +722,7 @@ function renderNotes(activeSubject) {
 }
 
 function renderExam(activeCycle) {
-  const cycles = [...new Set(ALL.map(r => r.exam_cycle).filter(Boolean))];
-  cycles.sort((a, b) => {
-    const latest = c => Math.max(...ALL.filter(r => r.exam_cycle === c).map(r => parseDMY(r.posted_date)));
-    return latest(b) - latest(a);
-  });
+  const cycles = sortedExamCycles();
   // Default to the most recently active cycle -- almost always "the exam
   // that's coming up" -- so prep material shows up with zero clicks.
   if (!activeCycle || !cycles.includes(activeCycle)) activeCycle = cycles[0] || null;
