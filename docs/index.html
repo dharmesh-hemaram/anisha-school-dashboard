@@ -486,16 +486,28 @@ function renderFeed(activeCategory, activeSubject) {
   ).join("");
   catChips.querySelectorAll(".chip").forEach(btn => btn.onclick = () => renderFeed(btn.dataset.cat, activeSubject));
 
-  const allSubjects = new Set();
-  ALL.forEach(r => noticeSubjects(r).forEach(s => allSubjects.add(s)));
-  const subjChips = document.getElementById("subjectChips");
-  const subjects = ["All", ...[...allSubjects].sort()];
-  subjChips.innerHTML = subjects.map(s =>
-    `<button class="chip${s === activeSubject ? " active" : ""}" data-subj="${escapeHtml(s)}">${escapeHtml(s)}</button>`
-  ).join("");
-  subjChips.querySelectorAll(".chip").forEach(btn => btn.onclick = () => renderFeed(activeCategory, btn.dataset.subj));
-
   let filtered = activeCategory === "All" ? ALL : ALL.filter(r => r.category === activeCategory);
+
+  // Only the exam-track subjects (SUBJECT_META) are worth filtering by --
+  // co-curricular subjects would clutter the row, and categories like
+  // Holiday/School Event/General never carry a subject at all, so the row
+  // just disappears for those instead of showing an unusable "All" alone.
+  const allSubjects = new Set();
+  filtered.forEach(r => noticeSubjects(r).forEach(s => { if (SUBJECT_META[s]) allSubjects.add(s); }));
+  const subjChips = document.getElementById("subjectChips");
+  if (allSubjects.size === 0) {
+    subjChips.innerHTML = "";
+    subjChips.style.display = "none";
+    activeSubject = "All";
+  } else {
+    subjChips.style.display = "";
+    const subjects = ["All", ...[...allSubjects].sort()];
+    subjChips.innerHTML = subjects.map(s =>
+      `<button class="chip${s === activeSubject ? " active" : ""}" data-subj="${escapeHtml(s)}">${escapeHtml(s)}</button>`
+    ).join("");
+    subjChips.querySelectorAll(".chip").forEach(btn => btn.onclick = () => renderFeed(activeCategory, btn.dataset.subj));
+  }
+
   if (activeSubject !== "All") filtered = filtered.filter(r => noticeSubjects(r).has(activeSubject));
 
   const list = document.getElementById("feedList");
