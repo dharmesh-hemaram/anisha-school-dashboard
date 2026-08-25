@@ -7,10 +7,13 @@ stable ID -- so dedup keys on a content hash of (posted_date, text) instead.
 
 import hashlib
 import json
-from datetime import datetime
+from datetime import date, datetime
 from pathlib import Path
 
+from classifier.classify import extract_exam_cycle_label
 from classifier.periods import parse_periods
+
+EXAM_CYCLE_WINDOW_DAYS = 21
 
 
 def notice_id(posted_date: str, text: str) -> str:
@@ -56,6 +59,39 @@ def load(path) -> list:
 def save(path, records) -> None:
     with open(path, "w") as f:
         json.dump(records, f, indent=2, ensure_ascii=False)
+
+
+def tag_exam_cycles(records: list) -> list:
+    """Tag each Worksheet-type item with the nearest named exam cycle.
+
+    Revision/worksheet numbering resets per exam (PT-1's "Revision No. 1"
+    and Half Yearly's "Revision No. 1" are unrelated), and the worksheet
+    notices themselves never name the cycle -- only the separate exam
+    announcement notice does ("Periodic Test-1 examinations will
+    commence..."). So: collect every Exam/Test notice that names a cycle
+    as an anchor, then tag each worksheet with whichever anchor is
+    closest in time (either direction -- an announcement can land before,
+    during, or after its prep-worksheet burst), within a 3-week window.
+    """
+    anchors = []
+    for r in records:
+        if r["category"] == "Exam/Test":
+            label = extract_exam_cycle_label(r["text"])
+            if label:
+                anchors.append((date.fromisoformat(r["posted_date_iso"]), label))
+
+    for r in records:
+        if r["category"] != "Subject Notes" or r.get("material_type") != "Worksheet":
+            r["exam_cycle"] = None
+            continue
+        wd = date.fromisoformat(r["posted_date_iso"])
+        best_label, best_dist = None, None
+        for anchor_date, label in anchors:
+            dist = abs((anchor_date - wd).days)
+            if dist <= EXAM_CYCLE_WINDOW_DAYS and (best_dist is None or dist < best_dist):
+                best_label, best_dist = label, dist
+        r["exam_cycle"] = best_label
+    return records
 
 
 def merge(existing: list, fresh: list) -> list:

@@ -68,7 +68,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "2aee0d3018f14731",
@@ -84,7 +85,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "3ae11dd9ec9d496f",
@@ -100,7 +102,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "1ff371c83b8b3426",
@@ -116,7 +119,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "e82fb37a23f49f15",
@@ -132,7 +136,8 @@
     "subject": "Hindi",
     "chapter": "गिनती, चित्र वर्णन",
     "material_type": "Notes",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "27bb260eded3a8c4",
@@ -148,7 +153,8 @@
     "subject": "Hindi",
     "chapter": "ऐसे किया छुट्टियों का सदुपयोग",
     "material_type": "Notes",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "5a00dbbaf5563f4a",
@@ -219,7 +225,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "e7907e3795798439",
@@ -235,7 +242,8 @@
     "subject": "Science",
     "chapter": "Our Body is a Wonderful Machine",
     "material_type": "Notes",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "2e437c93ed6ddc52",
@@ -251,7 +259,8 @@
     "subject": "English",
     "chapter": "Comparison",
     "material_type": "Notes",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "bd564ecc6bc2e357",
@@ -267,7 +276,8 @@
     "subject": "English",
     "chapter": "8 If I had wings",
     "material_type": "Notes",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "94e7c150d6ff842b",
@@ -338,7 +348,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "5190fbea560d0fd1",
@@ -354,7 +365,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "e8306785c19cb6e6",
@@ -370,7 +382,8 @@
     "subject": "English",
     "chapter": "7 The Golden fountain",
     "material_type": "Notes",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "0aee57b79ee552d9",
@@ -441,7 +454,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "361f0304ee6788f2",
@@ -457,7 +471,8 @@
     "subject": "Social Studies",
     "chapter": "6",
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "8d5df867ec7dd3cf",
@@ -473,7 +488,8 @@
     "subject": "Social Studies",
     "chapter": "7",
     "material_type": "Notes",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "19ef5a32c51377a9",
@@ -489,7 +505,8 @@
     "subject": "Social Studies",
     "chapter": "6",
     "material_type": "Notes",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "5ad51cabd8693a13",
@@ -505,7 +522,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "041676d03fbae06a",
@@ -521,7 +539,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "f96cce86f4d81fff",
@@ -592,7 +611,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "9834e64ecdf3ab9c",
@@ -608,7 +628,8 @@
     "subject": "Science",
     "chapter": "Our Body is a Wonderful Machine",
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "235bd0b3a28fd0cb",
@@ -679,7 +700,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "34906a83c25588f4",
@@ -695,7 +717,8 @@
     "subject": "Computer Science",
     "chapter": "4: Let's learn to code with blockly",
     "material_type": "Notes",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "32b8236466aeed1a",
@@ -711,7 +734,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "06b109108b586d4d",
@@ -727,7 +751,8 @@
     "subject": "Marathi",
     "chapter": "6. बघितलीय गंमत ( Textbook )",
     "material_type": "Notes",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "85566841b76a7db7",
@@ -743,7 +768,8 @@
     "subject": "Marathi",
     "chapter": "6. बघितलीय गंमत ( Notebook )",
     "material_type": "Notes",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "c12e377297e92e18",
@@ -759,7 +785,8 @@
     "subject": "Hindi",
     "chapter": "3 मात्राऍं, शब्द और वाक्य",
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "3f8ce06956733026",
@@ -775,7 +802,8 @@
     "subject": "Hindi",
     "chapter": "संज्ञा",
     "material_type": "Notes",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "86135d97d153a45d",
@@ -791,7 +819,8 @@
     "subject": "Hindi",
     "chapter": "मधुर वाणी",
     "material_type": "Notes",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "1990da5ab743a218",
@@ -807,7 +836,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "e933db928322fd83",
@@ -878,7 +908,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "1f846561e6b8cb92",
@@ -894,7 +925,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "50fe3c61d90db31b",
@@ -910,7 +942,8 @@
     "subject": "Robotics",
     "chapter": "Make your own electric switch",
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "54abeefc197dcb9e",
@@ -926,7 +959,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "fb3fa65671a50ad7",
@@ -942,7 +976,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "cd854115a86e3a37",
@@ -1013,7 +1048,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "499c31b5a1ea49fe",
@@ -1029,7 +1065,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "bd8e73e0efc7da5f",
@@ -1100,7 +1137,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "6fb0261fa3419759",
@@ -1116,7 +1154,8 @@
     "subject": "Robotics",
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "3ec58a33f049ac64",
@@ -1187,7 +1226,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "7c08ed1848c74c4e",
@@ -1203,7 +1243,8 @@
     "subject": "Maths",
     "chapter": "Subtraction",
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "a050cfd7d21b460c",
@@ -1219,7 +1260,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "986e7086334e8106",
@@ -1235,7 +1277,8 @@
     "subject": "Marathi",
     "chapter": "समूहदर्शक शब्द ( notebook & textbook )",
     "material_type": "Notes",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "805819b980959066",
@@ -1306,7 +1349,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "0dbce374715ffa95",
@@ -1322,7 +1366,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "78b98fc4b287465e",
@@ -1338,7 +1383,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "d9d440f6f56bd46a",
@@ -1354,7 +1400,8 @@
     "subject": "Marathi",
     "chapter": "४ ) राखी पौर्णिमा ५)चार मित्र समूहदर्शक शब्द",
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "b92de10e3f4fd7d2",
@@ -1425,7 +1472,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "0fb7ec9dee025010",
@@ -1441,7 +1489,8 @@
     "subject": "Robotics",
     "chapter": "Electricity and Switches",
     "material_type": "Notes",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "c0d469d1fb039a66",
@@ -1512,7 +1561,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "ead0f0e47ac4d46a",
@@ -1528,7 +1578,8 @@
     "subject": "Science",
     "chapter": "Birds",
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "3b5abdd9baac16b9",
@@ -1544,7 +1595,8 @@
     "subject": "Science",
     "chapter": "Birds",
     "material_type": "Notes",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "eb500d9668ebf3b1",
@@ -1615,7 +1667,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "9a15f5dade2c995a",
@@ -1631,7 +1684,8 @@
     "subject": "English",
     "chapter": "Friends",
     "material_type": "Notes",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "1aa04280709ad768",
@@ -1702,7 +1756,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "2ff68ac9e660335f",
@@ -1718,7 +1773,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "74f37a7fbf31de03",
@@ -1734,7 +1790,8 @@
     "subject": "Hindi",
     "chapter": "मात्राएँ, शब्द और वाक्य",
     "material_type": "Notes",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "92d9a56e97146d22",
@@ -1750,7 +1807,8 @@
     "subject": "Hindi",
     "chapter": "गेहूँ की बालियाँ",
     "material_type": "Notes",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "bc26aefd4037113a",
@@ -1821,7 +1879,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "24de4d4b4851d986",
@@ -1837,7 +1896,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "954c176f346d4a44",
@@ -1853,7 +1913,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "0149d1269bef2cb4",
@@ -1869,7 +1930,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "866f4f799fa9ee21",
@@ -1885,7 +1947,8 @@
     "subject": "Hindi",
     "chapter": null,
     "material_type": "Answer Key",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "67e27bf85c10fe40",
@@ -1956,7 +2019,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "6065606f57d98cce",
@@ -1972,7 +2036,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "738e3904245b4405",
@@ -1988,7 +2053,8 @@
     "subject": "Science",
     "chapter": null,
     "material_type": "Answer Key",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "4d28e54124167187",
@@ -2004,7 +2070,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "a72fbba76066d940",
@@ -2020,7 +2087,8 @@
     "subject": "Maths",
     "chapter": "Subtraction",
     "material_type": "Notes",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "6f5eeb5cdf86fa1c",
@@ -2036,7 +2104,8 @@
     "subject": "Maths",
     "chapter": null,
     "material_type": "Answer Key",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "9244ae7def5fd801",
@@ -2052,7 +2121,8 @@
     "subject": "English",
     "chapter": null,
     "material_type": "Answer Key",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "dbc52950de058a09",
@@ -2068,7 +2138,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "91c095ce1d51f5e9",
@@ -2084,7 +2155,8 @@
     "subject": "Social Studies",
     "chapter": null,
     "material_type": "Answer Key",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "09e75f97525d62d8",
@@ -2100,7 +2172,8 @@
     "subject": "Marathi",
     "chapter": null,
     "material_type": "Answer Key",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "6cb387b954f09e6a",
@@ -2116,7 +2189,8 @@
     "subject": "Computer Science",
     "chapter": null,
     "material_type": "Answer Key",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "f09f8358de96e7a8",
@@ -2132,7 +2206,8 @@
     "subject": "Computer Science",
     "chapter": "Let's type with Microsoft Word",
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "e0592259cc946114",
@@ -2148,7 +2223,8 @@
     "subject": "Marathi",
     "chapter": "5. चार मित्र ( Textbook )",
     "material_type": "Notes",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "5814702054f783e6",
@@ -2164,7 +2240,8 @@
     "subject": "Marathi",
     "chapter": "5. चार मित्र ( Notebook )",
     "material_type": "Notes",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "750b455d9c2f9019",
@@ -2180,7 +2257,8 @@
     "subject": "Maths",
     "chapter": null,
     "material_type": "Answer Key",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "4db7e97237469575",
@@ -2196,7 +2274,8 @@
     "subject": "Hindi",
     "chapter": null,
     "material_type": "Answer Key",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "48040abcc2418ad3",
@@ -2267,7 +2346,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "a5e8bf800364132b",
@@ -2283,7 +2363,8 @@
     "subject": "Science",
     "chapter": null,
     "material_type": "Answer Key",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "8785c03f2e2873ba",
@@ -2299,7 +2380,8 @@
     "subject": "English",
     "chapter": null,
     "material_type": "Answer Key",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "d5a44dac9e25726a",
@@ -2315,7 +2397,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "74e5652ed484e9fd",
@@ -2331,7 +2414,8 @@
     "subject": "Social Studies",
     "chapter": null,
     "material_type": "Answer Key",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "404b5ed467d051b4",
@@ -2347,7 +2431,8 @@
     "subject": "Marathi",
     "chapter": null,
     "material_type": "Answer Key",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "954c376655bf85fc",
@@ -2363,7 +2448,8 @@
     "subject": "Computer Science",
     "chapter": null,
     "material_type": "Answer Key",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "e29a8c56ad3e7850",
@@ -2379,7 +2465,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "427f67f4336ad7d0",
@@ -2395,7 +2482,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "d1af082bdf3a6051",
@@ -2411,7 +2499,8 @@
     "subject": null,
     "chapter": null,
     "material_type": "Worksheet",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": "Half Yearly"
   },
   {
     "id": "29edf34422f82b53",
@@ -2482,7 +2571,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "7aa6ab5fdd567110",
@@ -2498,7 +2588,8 @@
     "subject": "Marathi",
     "chapter": "राखी पौर्णिमा ( notebook)",
     "material_type": "Notes",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "8407fd69105078c7",
@@ -2514,7 +2605,8 @@
     "subject": "Marathi",
     "chapter": "राखी पौर्णिमा ( Textbook)",
     "material_type": "Notes",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "4a4b475110ccd9a5",
@@ -2530,7 +2622,8 @@
     "subject": "English",
     "chapter": "Proper and common noun, singular and plural, Male and female",
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "c5d2f9a4d20b0360",
@@ -2601,7 +2694,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "af392bb03c6664ce",
@@ -2617,7 +2711,8 @@
     "subject": "Maths",
     "chapter": "Tables 1 to 15",
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "0e52b5fbbf2f6d40",
@@ -2633,7 +2728,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "8d2a40e38090f482",
@@ -2649,7 +2745,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "e6f96d4010be5d7e",
@@ -2720,7 +2817,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "af66243ce5c37079",
@@ -2736,7 +2834,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "c1585cb090671c47",
@@ -2752,7 +2851,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "469dd639480daf11",
@@ -2823,7 +2923,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "92124b3751c6fd6f",
@@ -2839,7 +2940,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "c308ba9d5a6d0944",
@@ -2855,7 +2957,8 @@
     "subject": "Social Studies",
     "chapter": "5",
     "material_type": "Notes",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "90b2c4d9c96b8d9e",
@@ -2871,7 +2974,8 @@
     "subject": "Social Studies",
     "chapter": "5: Our Government",
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "e84c0429bb460b83",
@@ -2887,7 +2991,8 @@
     "subject": "English",
     "chapter": "Selfish Giant",
     "material_type": "Notes",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "26e5139f8790fe2a",
@@ -2903,7 +3008,8 @@
     "subject": "Computer Science",
     "chapter": "3: Let's type with Microsoft Word",
     "material_type": "Notes",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "3067d782484f90a8",
@@ -2974,7 +3080,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "23ac0fc63a57c2b3",
@@ -3045,7 +3152,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "d093bad8bbc633aa",
@@ -3061,7 +3169,8 @@
     "subject": "Robotics",
     "chapter": "Gear",
     "material_type": "Notes",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "d21801274283e3b7",
@@ -3132,7 +3241,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "0b02de8f77dbacd8",
@@ -3148,7 +3258,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "c758b020ef3741ae",
@@ -3219,7 +3330,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "003d67f18dc3d348",
@@ -3235,7 +3347,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "fab6f065ef0ec844",
@@ -3251,7 +3364,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "c016588737fe6630",
@@ -3322,7 +3436,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "31241849c5f0ac86",
@@ -3338,7 +3453,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "a91df748f2b01210",
@@ -3354,7 +3470,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "ed1c25cfeb75e88c",
@@ -3425,7 +3542,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "85343b420dfee1f2",
@@ -3441,7 +3559,8 @@
     "subject": "Science",
     "chapter": "Food and Nutrition in Humans",
     "material_type": "Notes",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "6626bebb8df5a702",
@@ -3512,7 +3631,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "ba602c22968a63fa",
@@ -3528,7 +3648,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "0c1d638646ee18a0",
@@ -3544,7 +3665,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "abe378b9b31d7b1f",
@@ -3560,7 +3682,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "fcb929969c0fc2fe",
@@ -3576,7 +3699,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "656e12ec325af7f9",
@@ -3647,7 +3771,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "050d2e5247e7023b",
@@ -3663,7 +3788,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "dbf0935703709af7",
@@ -3679,7 +3805,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "d4da00cff1a7a199",
@@ -3695,7 +3822,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "d2c8b458746e7cfa",
@@ -3754,7 +3882,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "770fa9db461ff0d6",
@@ -3770,7 +3899,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "652a4bf1ce6b2373",
@@ -3829,7 +3959,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "e9966b59cd05ff3c",
@@ -3845,7 +3976,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "a31bcb763619a40e",
@@ -3898,7 +4030,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "31c3427ee201f37f",
@@ -3914,7 +4047,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "e44256f8cbab8fa9",
@@ -3930,7 +4064,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "a5cbb5777279a3db",
@@ -4001,7 +4136,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "52030a547c727a45",
@@ -4072,7 +4208,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "511a65856aca483d",
@@ -4088,7 +4225,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "bc88bba45af81b3c",
@@ -4104,7 +4242,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "3e66da7e87796d12",
@@ -4175,7 +4314,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "d8439db25fb0de05",
@@ -4191,7 +4331,8 @@
     "subject": "English",
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "87821578a10beed8",
@@ -4207,7 +4348,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "2d998a7bb6e0e01a",
@@ -4223,7 +4365,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "6002ff829702b10a",
@@ -4239,7 +4382,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "5328e40bb3db3115",
@@ -4255,7 +4399,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "8d23e5c38efa9a68",
@@ -4271,7 +4416,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "a718cfa7233c5f0f",
@@ -4287,7 +4433,8 @@
     "subject": "Maths",
     "chapter": null,
     "material_type": "Answer Key",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "74b3f042416bb0ba",
@@ -4303,7 +4450,8 @@
     "subject": "Hindi",
     "chapter": null,
     "material_type": "Answer Key",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "3d2d91f5d0df5859",
@@ -4319,7 +4467,8 @@
     "subject": "Maths",
     "chapter": null,
     "material_type": "Worksheet",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": "PT-1"
   },
   {
     "id": "5ec5851f1ec17508",
@@ -4335,7 +4484,8 @@
     "subject": "Maths",
     "chapter": null,
     "material_type": "Worksheet",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": "PT-1"
   },
   {
     "id": "dcf7885efc1d2d69",
@@ -4351,7 +4501,8 @@
     "subject": "English",
     "chapter": null,
     "material_type": "Worksheet",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": "PT-1"
   },
   {
     "id": "6d2ea1fdbaf4fe59",
@@ -4367,7 +4518,8 @@
     "subject": "English",
     "chapter": null,
     "material_type": "Worksheet",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": "PT-1"
   },
   {
     "id": "fe2f2221ee94e0aa",
@@ -4438,7 +4590,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "467eab28b0903a0d",
@@ -4454,7 +4607,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "f0d2945120d23403",
@@ -4470,7 +4624,8 @@
     "subject": "Marathi",
     "chapter": null,
     "material_type": "Answer Key",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "dba73c37fc491c61",
@@ -4486,7 +4641,8 @@
     "subject": "Hindi",
     "chapter": null,
     "material_type": "Worksheet",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": "PT-1"
   },
   {
     "id": "12d822f257a23e7a",
@@ -4502,7 +4658,8 @@
     "subject": "Social Studies",
     "chapter": null,
     "material_type": "Answer Key",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "c192535f9ad2c01f",
@@ -4518,7 +4675,8 @@
     "subject": "Science",
     "chapter": null,
     "material_type": "Answer Key",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "a1654e34b47cc11c",
@@ -4534,7 +4692,8 @@
     "subject": "English",
     "chapter": null,
     "material_type": "Answer Key",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "658da4bed1cd7c8f",
@@ -4550,7 +4709,8 @@
     "subject": "Computer Science",
     "chapter": null,
     "material_type": "Answer Key",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "16e1a7d6876aa771",
@@ -4566,7 +4726,8 @@
     "subject": "Computer Science",
     "chapter": null,
     "material_type": "Worksheet",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": "PT-1"
   },
   {
     "id": "e7d9b0a1c5726b5a",
@@ -4582,7 +4743,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "423ea69312057686",
@@ -4598,7 +4760,8 @@
     "subject": "Marathi",
     "chapter": null,
     "material_type": "Worksheet",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": "PT-1"
   },
   {
     "id": "1e7b4c269eec29ca",
@@ -4614,7 +4777,8 @@
     "subject": "Maths",
     "chapter": null,
     "material_type": "Worksheet",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": "PT-1"
   },
   {
     "id": "ee9622ca11f330a4",
@@ -4630,7 +4794,8 @@
     "subject": "Maths",
     "chapter": null,
     "material_type": "Worksheet",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": "PT-1"
   },
   {
     "id": "a06a584db3e38f3d",
@@ -4646,7 +4811,8 @@
     "subject": "Hindi",
     "chapter": null,
     "material_type": "Worksheet",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": "PT-1"
   },
   {
     "id": "866b8bcc0448b62b",
@@ -4662,7 +4828,8 @@
     "subject": "English",
     "chapter": null,
     "material_type": "Worksheet",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": "PT-1"
   },
   {
     "id": "9a618bb133c3693c",
@@ -4678,7 +4845,8 @@
     "subject": "English",
     "chapter": null,
     "material_type": "Worksheet",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": "PT-1"
   },
   {
     "id": "89269e953d9f2adb",
@@ -4749,7 +4917,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "77a172ac5ee5671a",
@@ -4765,7 +4934,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "443b62ebb219d4f1",
@@ -4781,7 +4951,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "f4236a5651fe92bb",
@@ -4797,7 +4968,8 @@
     "subject": "English",
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "69e06d2db80d360a",
@@ -4813,7 +4985,8 @@
     "subject": "Social Studies",
     "chapter": null,
     "material_type": "Worksheet",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": "PT-1"
   },
   {
     "id": "c1f726897f9ab733",
@@ -4829,7 +5002,8 @@
     "subject": "Social Studies",
     "chapter": null,
     "material_type": "Worksheet",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": "PT-1"
   },
   {
     "id": "8aa629a822fe3aa9",
@@ -4845,7 +5019,8 @@
     "subject": "Science",
     "chapter": null,
     "material_type": "Worksheet",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": "PT-1"
   },
   {
     "id": "f17c3ce7d55bd8c8",
@@ -4861,7 +5036,8 @@
     "subject": "Science",
     "chapter": null,
     "material_type": "Worksheet",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": "PT-1"
   },
   {
     "id": "91031a366050a2d2",
@@ -4877,7 +5053,8 @@
     "subject": "Marathi",
     "chapter": null,
     "material_type": "Worksheet",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": "PT-1"
   },
   {
     "id": "87ee2b6119b1863b",
@@ -4893,7 +5070,8 @@
     "subject": "Marathi",
     "chapter": null,
     "material_type": "Worksheet",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": "PT-1"
   },
   {
     "id": "6e67583df83a493d",
@@ -4909,7 +5087,8 @@
     "subject": "Maths",
     "chapter": null,
     "material_type": "Worksheet",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": "PT-1"
   },
   {
     "id": "27ad39a3e25cddf9",
@@ -4925,7 +5104,8 @@
     "subject": "Maths",
     "chapter": null,
     "material_type": "Worksheet",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": "PT-1"
   },
   {
     "id": "7119136357a9b17b",
@@ -4941,7 +5121,8 @@
     "subject": "Maths",
     "chapter": null,
     "material_type": "Worksheet",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": "PT-1"
   },
   {
     "id": "2f5deda12791f468",
@@ -4957,7 +5138,8 @@
     "subject": "Maths",
     "chapter": null,
     "material_type": "Worksheet",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": "PT-1"
   },
   {
     "id": "044c5cfca79e1391",
@@ -5028,7 +5210,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "c4f5ba879b7afb43",
@@ -5044,7 +5227,8 @@
     "subject": "English",
     "chapter": null,
     "material_type": "Worksheet",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": "PT-1"
   },
   {
     "id": "8fd6479f133212cc",
@@ -5060,7 +5244,8 @@
     "subject": "English",
     "chapter": null,
     "material_type": "Worksheet",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": "PT-1"
   },
   {
     "id": "f5ef9d4b78d9edd2",
@@ -5076,7 +5261,8 @@
     "subject": "English",
     "chapter": null,
     "material_type": "Worksheet",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": "PT-1"
   },
   {
     "id": "07a28550b16f8cec",
@@ -5092,7 +5278,8 @@
     "subject": "English",
     "chapter": null,
     "material_type": "Worksheet",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": "PT-1"
   },
   {
     "id": "82bf03fdee0f004f",
@@ -5108,7 +5295,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "495fb6a10e042a1b",
@@ -5124,7 +5312,8 @@
     "subject": "Hindi",
     "chapter": null,
     "material_type": "Worksheet",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": "PT-1"
   },
   {
     "id": "be3caac65a42bbf0",
@@ -5140,7 +5329,8 @@
     "subject": "Hindi",
     "chapter": null,
     "material_type": "Worksheet",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": "PT-1"
   },
   {
     "id": "e3e99247483e2352",
@@ -5156,7 +5346,8 @@
     "subject": "Social Studies",
     "chapter": null,
     "material_type": "Worksheet",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": "PT-1"
   },
   {
     "id": "6bbf847aa514ae4a",
@@ -5172,7 +5363,8 @@
     "subject": "Social Studies",
     "chapter": null,
     "material_type": "Worksheet",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": "PT-1"
   },
   {
     "id": "035838d73e128d5e",
@@ -5188,7 +5380,8 @@
     "subject": "Marathi",
     "chapter": null,
     "material_type": "Worksheet",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": "PT-1"
   },
   {
     "id": "b5a0c5fda2f2f849",
@@ -5204,7 +5397,8 @@
     "subject": "Maths",
     "chapter": null,
     "material_type": "Worksheet",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": "PT-1"
   },
   {
     "id": "f09e839171eb0ef4",
@@ -5220,7 +5414,8 @@
     "subject": "Maths",
     "chapter": null,
     "material_type": "Worksheet",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": "PT-1"
   },
   {
     "id": "663d379e180ea062",
@@ -5236,7 +5431,8 @@
     "subject": "Science",
     "chapter": null,
     "material_type": "Answer Key",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "aa5886c09ff56433",
@@ -5252,7 +5448,8 @@
     "subject": "Hindi",
     "chapter": null,
     "material_type": "Worksheet",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": "PT-1"
   },
   {
     "id": "759c0b35bb5709d6",
@@ -5268,7 +5465,8 @@
     "subject": "Maths",
     "chapter": null,
     "material_type": "Answer Key",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "dcb4d9badd90ca9d",
@@ -5284,7 +5482,8 @@
     "subject": "Hindi",
     "chapter": null,
     "material_type": "Answer Key",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "d76986d2073e4154",
@@ -5355,7 +5554,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "f575e963fcf0c43f",
@@ -5371,7 +5571,8 @@
     "subject": "Computer Science",
     "chapter": null,
     "material_type": "Answer Key",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "c83d0a4bcbee0e94",
@@ -5387,7 +5588,8 @@
     "subject": "Marathi",
     "chapter": null,
     "material_type": "Answer Key",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "c33863b3aab97b8c",
@@ -5403,7 +5605,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "06319489bbb876de",
@@ -5419,7 +5622,8 @@
     "subject": "Social Studies",
     "chapter": null,
     "material_type": "Worksheet",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": "PT-1"
   },
   {
     "id": "98d26e6738e0dd19",
@@ -5435,7 +5639,8 @@
     "subject": "Social Studies",
     "chapter": null,
     "material_type": "Worksheet",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": "PT-1"
   },
   {
     "id": "d38b83057adc142e",
@@ -5451,7 +5656,8 @@
     "subject": "Science",
     "chapter": null,
     "material_type": "Worksheet",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": "PT-1"
   },
   {
     "id": "6dc5bb5ba49805ea",
@@ -5467,7 +5673,8 @@
     "subject": null,
     "chapter": null,
     "material_type": "Worksheet",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": "PT-1"
   },
   {
     "id": "5e21d6d835bc928e",
@@ -5483,7 +5690,8 @@
     "subject": "English",
     "chapter": null,
     "material_type": "Answer Key",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "2a7868f31044acb5",
@@ -5499,7 +5707,8 @@
     "subject": "Social Studies",
     "chapter": null,
     "material_type": "Answer Key",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "599fc6a70a9cd79a",
@@ -5515,7 +5724,8 @@
     "subject": "Computer Science",
     "chapter": null,
     "material_type": "Worksheet",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": "PT-1"
   },
   {
     "id": "5e39c9a0adcec175",
@@ -5531,7 +5741,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "10a352b97052c416",
@@ -5547,7 +5758,8 @@
     "subject": "Science",
     "chapter": null,
     "material_type": "Worksheet",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": "PT-1"
   },
   {
     "id": "107b6589d6aeb7cf",
@@ -5563,7 +5775,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "344b0d13b711a506",
@@ -5579,7 +5792,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "b115761b8220e402",
@@ -5595,7 +5809,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "a7ebce5d909cc8c8",
@@ -5611,7 +5826,8 @@
     "subject": null,
     "chapter": null,
     "material_type": "Notes",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "7869198332554aa4",
@@ -5682,7 +5898,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "d0ce638cf2a2ef98",
@@ -5698,7 +5915,8 @@
     "subject": "Hindi",
     "chapter": "अनुच्छेद लेखन",
     "material_type": "Notes",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "aa2554fa07abfb6a",
@@ -5714,7 +5932,8 @@
     "subject": "Marathi",
     "chapter": "निबंध लेखन ( notebook)",
     "material_type": "Notes",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "72627959ff20071f",
@@ -5730,7 +5949,8 @@
     "subject": "Marathi",
     "chapter": "व्याकरण लिंग ( notebook & textbook )",
     "material_type": "Notes",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "6ff67164846bb314",
@@ -5746,7 +5966,8 @@
     "subject": "Computer Science",
     "chapter": null,
     "material_type": "Worksheet",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": "PT-1"
   },
   {
     "id": "954d5c2ffe5c645b",
@@ -5762,7 +5983,8 @@
     "subject": "Science",
     "chapter": "Food and Feeding Habits of Animals",
     "material_type": "Notes",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "dd932879363f32d7",
@@ -5778,7 +6000,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "5c5b7cd679696332",
@@ -5794,7 +6017,8 @@
     "subject": "Maths",
     "chapter": "Addition",
     "material_type": "Notes",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "786c993300f03b20",
@@ -5810,7 +6034,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "89ed1fe9324012c7",
@@ -5826,7 +6051,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "c6ceefa4a4086a72",
@@ -5897,7 +6123,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "d97a29dda7669e8b",
@@ -5913,7 +6140,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "cb260eb132d2a8fd",
@@ -5929,7 +6157,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "f1173a1d9618b1f5",
@@ -5945,7 +6174,8 @@
     "subject": "Hindi",
     "chapter": "भाषा, मात्राएँ,शब्द और वाक्य",
     "material_type": "Notes",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "8d15f950f845d871",
@@ -6016,7 +6246,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "0e95a7281657b968",
@@ -6032,7 +6263,8 @@
     "subject": "English",
     "chapter": "Healthy Food",
     "material_type": "Notes",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "550315531745fee6",
@@ -6048,7 +6280,8 @@
     "subject": "Social Studies",
     "chapter": "4",
     "material_type": "Notes",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "ac3cae72b7ee0014",
@@ -6064,7 +6297,8 @@
     "subject": "Social Studies",
     "chapter": "2",
     "material_type": "Notes",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "015965533bcb9cd0",
@@ -6080,7 +6314,8 @@
     "subject": "Social Studies",
     "chapter": "1",
     "material_type": "Notes",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "d4c9802fef7a196d",
@@ -6096,7 +6331,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "568dbc668a5a7188",
@@ -6112,7 +6348,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "9b0d7046490506c0",
@@ -6183,7 +6420,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "d8b64ccfbef0cdd0",
@@ -6254,7 +6492,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "cf6a1f64479d58a8",
@@ -6270,7 +6509,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "b21e5d6129a62bfc",
@@ -6286,7 +6526,8 @@
     "subject": "Social Studies",
     "chapter": "History of Early humans",
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "4e1e0711c03ac1d7",
@@ -6302,7 +6543,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "5edf03f8e56c1d3a",
@@ -6318,7 +6560,8 @@
     "subject": "Computer Science",
     "chapter": "2 Meet Handware and Software",
     "material_type": "Notes",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "56aa7121e535eccd",
@@ -6334,7 +6577,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "e46aa22a5dc29bd7",
@@ -6350,7 +6594,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "6852975123519778",
@@ -6421,7 +6666,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "e896c015c700d705",
@@ -6437,7 +6683,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "b4d3b91068362c4a",
@@ -6453,7 +6700,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "1a9e8ed87cf2195b",
@@ -6469,7 +6717,8 @@
     "subject": "Hindi",
     "chapter": "श्याम और बूढ़ी गाय",
     "material_type": "Notes",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "9d99a782fe055d22",
@@ -6485,7 +6734,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "3ad729547ff9f888",
@@ -6501,7 +6751,8 @@
     "subject": "Marathi",
     "chapter": "१. पावसा पावसा २. आपला भारत देश",
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "76a67603e976595a",
@@ -6517,7 +6768,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "041000bf3cf21a4b",
@@ -6533,7 +6785,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "ce684a11fef58154",
@@ -6549,7 +6802,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "6a91b7afd16ac891",
@@ -6620,7 +6874,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "33847370d9691da0",
@@ -6636,7 +6891,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "8251fb065dbd8b6a",
@@ -6707,7 +6963,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "4d98d0cc130a0a9e",
@@ -6723,7 +6980,8 @@
     "subject": "Science",
     "chapter": "Food and Feeding Habits of Animals",
     "material_type": "Notes",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "dddb99303fdbcb63",
@@ -6739,7 +6997,8 @@
     "subject": "Robotics",
     "chapter": "1:Energy",
     "material_type": "Notes",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "eb856d68c9dbfbf4",
@@ -6810,7 +7069,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "851123ecaa54efeb",
@@ -6881,7 +7141,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "6a540438a237427a",
@@ -6897,7 +7158,8 @@
     "subject": "Marathi",
     "chapter": "3. भाजीच भाजी ( Notebook )",
     "material_type": "Notes",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "068f4940ed948f05",
@@ -6913,7 +7175,8 @@
     "subject": "Marathi",
     "chapter": "3. भाजीच भाजी ( textbook )",
     "material_type": "Notes",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "14d5d7a0c599bbd3",
@@ -6984,7 +7247,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "c22e99e573e0e0b0",
@@ -7000,7 +7264,8 @@
     "subject": "Hindi",
     "chapter": "1 (वंदना, देश हमारा)",
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "3bec4c58ee865b99",
@@ -7071,7 +7336,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "a1244f9a766a7ea0",
@@ -7087,7 +7353,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "494fb358d8bb2fc6",
@@ -7103,7 +7370,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "589fca79f144dcfe",
@@ -7119,7 +7387,8 @@
     "subject": "Social Studies",
     "chapter": "Chapter No.2",
     "material_type": "Notes",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "b66c77f03dc6e457",
@@ -7190,7 +7459,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "641a2e5c3e730f44",
@@ -7261,7 +7531,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "94459a0e4d960f19",
@@ -7332,7 +7603,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "50d5d5cc352a74ca",
@@ -7403,7 +7675,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "4ac3a089a26e727d",
@@ -7419,7 +7692,8 @@
     "subject": null,
     "chapter": null,
     "material_type": "Notes",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "aa62efbeb589d5a4",
@@ -7435,7 +7709,8 @@
     "subject": "Marathi",
     "chapter": "2. आपला भारत देश ( Notebook )",
     "material_type": "Notes",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "593deeb54f6e2559",
@@ -7451,7 +7726,8 @@
     "subject": "Marathi",
     "chapter": "2. आपला भारत देश ( पाठ्यपुस्तक लेखन)",
     "material_type": "Notes",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "b1d55d218249e745",
@@ -7467,7 +7743,8 @@
     "subject": "Computer Science",
     "chapter": "chapter no:1",
     "material_type": "Notes",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "161ba86a54233dc0",
@@ -7483,7 +7760,8 @@
     "subject": "English",
     "chapter": "If I Knew",
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "21f7a54479595d3d",
@@ -7554,7 +7832,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "fe575cbd2ba315ba",
@@ -7570,7 +7849,8 @@
     "subject": "Computer Science",
     "chapter": "chapter no:1",
     "material_type": "Notes",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "94d8dc54ac6366d2",
@@ -7641,7 +7921,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "627b53549cd284f8",
@@ -7657,7 +7938,8 @@
     "subject": "Maths",
     "chapter": "Numbers Up To 9999",
     "material_type": "Notes",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "46e61e1e560b9592",
@@ -7673,7 +7955,8 @@
     "subject": "English",
     "chapter": "2, If I knew",
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "848e765d74ed5a57",
@@ -7689,7 +7972,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "4b97f59b3a4ed596",
@@ -7760,7 +8044,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "bc0b520efdc7b348",
@@ -7776,7 +8061,8 @@
     "subject": "Maths",
     "chapter": "Numbers Up To 9999",
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "bd42f23791973417",
@@ -7847,7 +8133,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "498a8e2bc7259962",
@@ -7863,7 +8150,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "df14dd49d300e773",
@@ -7934,7 +8222,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "c70045d4ca64f655",
@@ -8005,7 +8294,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "7872a39a52a8d1d5",
@@ -8021,7 +8311,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "438bc1f28d7e37c9",
@@ -8037,7 +8328,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "ff47271b24c4a00d",
@@ -8108,7 +8400,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "e33d017a1abf6f48",
@@ -8179,7 +8472,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "67655dab66f68be3",
@@ -8195,7 +8489,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "f776da3c968dbfd6",
@@ -8266,7 +8561,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "7dde46436c920794",
@@ -8282,7 +8578,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "8c6ea192dc53b156",
@@ -8353,7 +8650,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "266966c120c48a8d",
@@ -8424,7 +8722,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "f3ee020982bff300",
@@ -8495,7 +8794,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "85732b25f46e1bbc",
@@ -8566,7 +8866,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "1997d18c405edaf8",
@@ -8582,7 +8883,8 @@
     "subject": "Hindi",
     "chapter": "मोर और कौआ",
     "material_type": "Notes",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "dddb20f58b8536d5",
@@ -8598,7 +8900,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "c2bd80adcc13d677",
@@ -8614,7 +8917,8 @@
     "subject": "Social Studies",
     "chapter": null,
     "material_type": "Answer Key",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "1abaf14700746af3",
@@ -8630,7 +8934,8 @@
     "subject": "Hindi",
     "chapter": null,
     "material_type": "Answer Key",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "377e2baac66fe678",
@@ -8646,7 +8951,8 @@
     "subject": "English",
     "chapter": null,
     "material_type": "Answer Key",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "646a465aab118cb7",
@@ -8662,7 +8968,8 @@
     "subject": "Science",
     "chapter": null,
     "material_type": "Answer Key",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "46665107a09c00c4",
@@ -8678,7 +8985,8 @@
     "subject": "Maths",
     "chapter": null,
     "material_type": "Answer Key",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "83b924c4d89529b6",
@@ -8694,7 +9002,8 @@
     "subject": "Marathi",
     "chapter": null,
     "material_type": "Answer Key",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "7bf40a1c9361ed72",
@@ -8710,7 +9019,8 @@
     "subject": "Computer Science",
     "chapter": null,
     "material_type": "Answer Key",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "3cd946b3e6b05521",
@@ -8726,7 +9036,8 @@
     "subject": "Social Studies",
     "chapter": null,
     "material_type": "Answer Key",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "6a57568d97e5c158",
@@ -8742,7 +9053,8 @@
     "subject": null,
     "chapter": "1: Mouse and Keyboard",
     "material_type": "Notes",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "1d65260b56018e28",
@@ -8758,7 +9070,8 @@
     "subject": "Hindi",
     "chapter": null,
     "material_type": "Answer Key",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "9cf640e94c5a28cf",
@@ -8774,7 +9087,8 @@
     "subject": "English",
     "chapter": null,
     "material_type": "Answer Key",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "74523a0e71cad753",
@@ -8790,7 +9104,8 @@
     "subject": "Science",
     "chapter": null,
     "material_type": "Answer Key",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "d4ab77e7961222c7",
@@ -8806,7 +9121,8 @@
     "subject": "Marathi",
     "chapter": "पावसा - पावसा Notebook writing",
     "material_type": "Notes",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "ff02d653ef25096f",
@@ -8822,7 +9138,8 @@
     "subject": "Marathi",
     "chapter": "पावसा - पावसा Textbook writing",
     "material_type": "Notes",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "14fa25dd76bdc909",
@@ -8838,7 +9155,8 @@
     "subject": "Computer Science",
     "chapter": null,
     "material_type": "Answer Key",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "1ac07584f821d135",
@@ -8854,7 +9172,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "4cbab67b0a4f9260",
@@ -8870,7 +9189,8 @@
     "subject": "Maths",
     "chapter": "Numbers Up To 9999",
     "material_type": "Notes",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "737a7077cbd4d28f",
@@ -8886,7 +9206,8 @@
     "subject": "Marathi",
     "chapter": null,
     "material_type": "Answer Key",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "76c4f051b1817753",
@@ -8902,7 +9223,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "bb2842a951fb68d9",
@@ -8918,7 +9240,8 @@
     "subject": null,
     "chapter": "1",
     "material_type": "Notes",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "0a146ee1d9987962",
@@ -8965,7 +9288,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "7f7024aa96726bbf",
@@ -8981,7 +9305,8 @@
     "subject": "Science",
     "chapter": "Parts of a Plant",
     "material_type": "Notes",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "5124d5a5afff7dc2",
@@ -8997,7 +9322,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "a5a008193d3b6b7a",
@@ -9050,7 +9376,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "5abbca770509cbc8",
@@ -9103,7 +9430,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "93fddf11ff11c1b1",
@@ -9119,7 +9447,8 @@
     "subject": "Computer Science",
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "1b1a46f6aa5a6b95",
@@ -9135,7 +9464,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "0109228e3088cfe8",
@@ -9188,7 +9518,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "811d03008a52e432",
@@ -9241,7 +9572,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "cb2087a868ddf8f1",
@@ -9257,7 +9589,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "33eeb5cd80e9eb3b",
@@ -9273,7 +9606,8 @@
     "subject": "Hindi",
     "chapter": "वंदना, देश हमारा",
     "material_type": "Notes",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "3d5698b873fcb489",
@@ -9289,7 +9623,8 @@
     "subject": "Social Studies",
     "chapter": "Rivers of India",
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "35e2365480a83a1d",
@@ -9305,7 +9640,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "ac77a5e665e3657a",
@@ -9358,7 +9694,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "b7d5b4673bc7d909",
@@ -9374,7 +9711,8 @@
     "subject": "Social Studies",
     "chapter": "1",
     "material_type": "Notes",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "8017ddeb69b9b0d4",
@@ -9390,7 +9728,8 @@
     "subject": "English",
     "chapter": "1 Sizwe's smile",
     "material_type": "Notes",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "b1e725534b1d84ee",
@@ -9443,7 +9782,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "bc5455cdb086ae79",
@@ -9459,7 +9799,8 @@
     "subject": "English",
     "chapter": "Sizwe's Smile (New Words,  Word meaning and Sentences)",
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "73ac926a144f40e3",
@@ -9512,7 +9853,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "b53fefebd92ce530",
@@ -9528,7 +9870,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "c964f524592dfeed",
@@ -9544,7 +9887,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "1cda769124f4a347",
@@ -9560,7 +9904,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "6d5533be35b1d041",
@@ -9576,7 +9921,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "e986d210534bdc75",
@@ -9592,7 +9938,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "8fb7b117a0163a2f",
@@ -9608,7 +9955,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "6adfd56b86772f4f",
@@ -9624,7 +9972,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "c8636fec447d44ad",
@@ -9640,7 +9989,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "644cb6eebf3c3227",
@@ -9656,7 +10006,8 @@
     "subject": null,
     "chapter": "A Magical Garden",
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "d2fd64058944003d",
@@ -9672,7 +10023,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "ec1f2275d751bf30",
@@ -9688,7 +10040,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "7e856e122f001674",
@@ -9704,7 +10057,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "5f44ad978a1698d9",
@@ -9720,7 +10074,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "0f5a7b6492158859",
@@ -9736,7 +10091,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "0730fe03f8193299",
@@ -9752,7 +10108,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "7225daec1b0d4514",
@@ -9768,7 +10125,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "7eff24d2248f9aed",
@@ -9784,7 +10142,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "339b4c834f9aa762",
@@ -9800,7 +10159,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "6c5facee18746294",
@@ -9816,7 +10176,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "ddb577da1cbd8bfd",
@@ -9832,7 +10193,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "fc22b2c6df377bb3",
@@ -9848,7 +10210,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "bc4bf8d6668bac7f",
@@ -9864,7 +10227,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "99757daae882918d",
@@ -9880,7 +10244,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "21e5447c7b0a13e4",
@@ -9896,7 +10261,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "2418e1234f219fc8",
@@ -9912,7 +10278,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "8d04ee15304c6fe5",
@@ -9928,7 +10295,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "d9e15373073bb346",
@@ -9944,7 +10312,8 @@
     "subject": "EVS",
     "chapter": null,
     "material_type": "Worksheet",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": "Final Exam"
   },
   {
     "id": "99cb49f2ee2c9a38",
@@ -9960,7 +10329,8 @@
     "subject": "EVS",
     "chapter": null,
     "material_type": "Worksheet",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": "Final Exam"
   },
   {
     "id": "628950829694ad73",
@@ -9976,7 +10346,8 @@
     "subject": "Maths",
     "chapter": null,
     "material_type": "Worksheet",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": "Final Exam"
   },
   {
     "id": "d8916923ab09987d",
@@ -9992,7 +10363,8 @@
     "subject": "Computer Science",
     "chapter": null,
     "material_type": "Worksheet",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": "Final Exam"
   },
   {
     "id": "5536492d8937ec57",
@@ -10008,7 +10380,8 @@
     "subject": "Computer Science",
     "chapter": null,
     "material_type": "Worksheet",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": "Final Exam"
   },
   {
     "id": "439b9cfa1d8eaf5f",
@@ -10024,7 +10397,8 @@
     "subject": "English",
     "chapter": null,
     "material_type": "Worksheet",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": "Final Exam"
   },
   {
     "id": "3c11a4674ff1eaaa",
@@ -10040,7 +10414,8 @@
     "subject": "Computer Science",
     "chapter": null,
     "material_type": "Worksheet",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": "Final Exam"
   },
   {
     "id": "48ef6bb6955f311e",
@@ -10056,7 +10431,8 @@
     "subject": "EVS",
     "chapter": null,
     "material_type": "Worksheet",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": "Final Exam"
   },
   {
     "id": "8323f81402980336",
@@ -10072,7 +10448,8 @@
     "subject": "Computer Science",
     "chapter": null,
     "material_type": "Worksheet",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": "Final Exam"
   },
   {
     "id": "9bb61cd45331be84",
@@ -10088,7 +10465,8 @@
     "subject": "Maths",
     "chapter": null,
     "material_type": "Worksheet",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": "Final Exam"
   },
   {
     "id": "21f490333deb300c",
@@ -10104,7 +10482,8 @@
     "subject": "English",
     "chapter": null,
     "material_type": "Worksheet",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": "Final Exam"
   },
   {
     "id": "a381ae3806f4e163",
@@ -10120,7 +10499,8 @@
     "subject": "Marathi",
     "chapter": null,
     "material_type": "Worksheet",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": "Final Exam"
   },
   {
     "id": "a0c1a56d93b09b61",
@@ -10136,7 +10516,8 @@
     "subject": "Hindi",
     "chapter": null,
     "material_type": "Worksheet",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": "Final Exam"
   },
   {
     "id": "169bf6f10e97464a",
@@ -10152,7 +10533,8 @@
     "subject": "Hindi",
     "chapter": null,
     "material_type": "Worksheet",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": "Final Exam"
   },
   {
     "id": "0dc0d776a81bb921",
@@ -10168,7 +10550,8 @@
     "subject": "EVS",
     "chapter": null,
     "material_type": "Answer Key",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "45469b5dd1faf56e",
@@ -10184,7 +10567,8 @@
     "subject": "Marathi",
     "chapter": null,
     "material_type": "Answer Key",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "392d68097ef8a7d1",
@@ -10200,7 +10584,8 @@
     "subject": "Maths",
     "chapter": "Ch no 4 Money",
     "material_type": "Notes",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "5b9b862f8c468059",
@@ -10216,7 +10601,8 @@
     "subject": "Maths",
     "chapter": null,
     "material_type": "Answer Key",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "a8b1210115167aaa",
@@ -10232,7 +10618,8 @@
     "subject": "Hindi",
     "chapter": null,
     "material_type": "Answer Key",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "822082b1b3b47181",
@@ -10248,7 +10635,8 @@
     "subject": "English",
     "chapter": null,
     "material_type": "Answer Key",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "0d5eb893c46181d1",
@@ -10264,7 +10652,8 @@
     "subject": "Computer Science",
     "chapter": null,
     "material_type": "Answer Key",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "f9db5835bbfca2d7",
@@ -10280,7 +10669,8 @@
     "subject": "Computer Science",
     "chapter": null,
     "material_type": "Worksheet",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": "Final Exam"
   },
   {
     "id": "5f184e315024176b",
@@ -10296,7 +10686,8 @@
     "subject": "Hindi",
     "chapter": null,
     "material_type": "Worksheet",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": "Final Exam"
   },
   {
     "id": "4274ab5b10bdd430",
@@ -10312,7 +10703,8 @@
     "subject": "Hindi",
     "chapter": null,
     "material_type": "Worksheet",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": "Final Exam"
   },
   {
     "id": "b623adea255351f6",
@@ -10328,7 +10720,8 @@
     "subject": "EVS",
     "chapter": null,
     "material_type": "Worksheet",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": "Final Exam"
   },
   {
     "id": "adfb644a076b8ea0",
@@ -10344,7 +10737,8 @@
     "subject": "Marathi",
     "chapter": null,
     "material_type": "Worksheet",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": "Final Exam"
   },
   {
     "id": "9d3713ef56bc0e6a",
@@ -10360,7 +10754,8 @@
     "subject": "English",
     "chapter": null,
     "material_type": "Worksheet",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": "Final Exam"
   },
   {
     "id": "9356930bfcab064a",
@@ -10376,7 +10771,8 @@
     "subject": "English",
     "chapter": null,
     "material_type": "Worksheet",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": "Final Exam"
   },
   {
     "id": "71ac3a7721242401",
@@ -10392,7 +10788,8 @@
     "subject": "English",
     "chapter": null,
     "material_type": "Worksheet",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": "Final Exam"
   },
   {
     "id": "002c5393337c9aa1",
@@ -10408,7 +10805,8 @@
     "subject": "Computer Science",
     "chapter": null,
     "material_type": "Worksheet",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": "Final Exam"
   },
   {
     "id": "45dfa751a79c55ea",
@@ -10424,7 +10822,8 @@
     "subject": "EVS",
     "chapter": null,
     "material_type": "Worksheet",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": "Final Exam"
   },
   {
     "id": "d06ee6beb4884733",
@@ -10440,7 +10839,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "f2b5866d55230bfb",
@@ -10456,7 +10856,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "c74f7a86045baa5e",
@@ -10472,7 +10873,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "b8d4699631117f75",
@@ -10488,7 +10890,8 @@
     "subject": "Hindi",
     "chapter": null,
     "material_type": "Answer Key",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "05ca86a21873edd3",
@@ -10504,7 +10907,8 @@
     "subject": "Maths",
     "chapter": null,
     "material_type": "Answer Key",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "c485d6213359155b",
@@ -10520,7 +10924,8 @@
     "subject": "Marathi",
     "chapter": null,
     "material_type": "Answer Key",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "b50db2eeb715fba8",
@@ -10536,7 +10941,8 @@
     "subject": "Computer Science",
     "chapter": null,
     "material_type": "Answer Key",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "790bb8383c3878cc",
@@ -10552,7 +10958,8 @@
     "subject": "Robotics",
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "1e0ec717a78254d8",
@@ -10568,7 +10975,8 @@
     "subject": "Robotics",
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "e196290b3c261c55",
@@ -10584,7 +10992,8 @@
     "subject": "EVS",
     "chapter": null,
     "material_type": "Answer Key",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "dc68a6240bdaf235",
@@ -10600,7 +11009,8 @@
     "subject": "English",
     "chapter": null,
     "material_type": "Answer Key",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "03ac56919a0f58e8",
@@ -10616,7 +11026,8 @@
     "subject": "Hindi",
     "chapter": null,
     "material_type": "Worksheet",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": "Final Exam"
   },
   {
     "id": "f65ed7673b102c38",
@@ -10632,7 +11043,8 @@
     "subject": "Marathi",
     "chapter": null,
     "material_type": "Worksheet",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": "Final Exam"
   },
   {
     "id": "3c2f079a2bbcb3ac",
@@ -10648,7 +11060,8 @@
     "subject": "Marathi",
     "chapter": null,
     "material_type": "Notes",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "eed8a50f4cf6da64",
@@ -10664,7 +11077,8 @@
     "subject": "Maths",
     "chapter": null,
     "material_type": "Worksheet",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": "Final Exam"
   },
   {
     "id": "91db3061b81ad074",
@@ -10680,7 +11094,8 @@
     "subject": "EVS",
     "chapter": "Our Nation",
     "material_type": "Notes",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "36ccab33bb8d5429",
@@ -10696,7 +11111,8 @@
     "subject": "Hindi",
     "chapter": null,
     "material_type": "Worksheet",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": "Final Exam"
   },
   {
     "id": "163e7c79d1fe8772",
@@ -10712,7 +11128,8 @@
     "subject": "Marathi",
     "chapter": null,
     "material_type": "Notes",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "a645d82f810fc131",
@@ -10728,7 +11145,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "1e14a966a6a55379",
@@ -10744,7 +11162,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "8f7c55a2095cfc14",
@@ -10760,7 +11179,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "3457387e0274103c",
@@ -10776,7 +11196,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "d48483ad8992dda6",
@@ -10792,7 +11213,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "0e4303e6629584b3",
@@ -10808,7 +11230,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "dfb54b89a36f5fa1",
@@ -10824,7 +11247,8 @@
     "subject": "English",
     "chapter": "Unseen comprehension",
     "material_type": "Notes",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "7f18f7135276cf6e",
@@ -10840,7 +11264,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "25440979100a5d48",
@@ -10856,7 +11281,8 @@
     "subject": "English",
     "chapter": "Mr. Lion and the Special Soup",
     "material_type": "Notes",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "467305ccab7a4d07",
@@ -10872,7 +11298,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "dca81278bd6796cf",
@@ -10888,7 +11315,8 @@
     "subject": "Hindi",
     "chapter": "दिल्ली की सैर",
     "material_type": "Notes",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "216eb5b3d27ad0ca",
@@ -10904,7 +11332,8 @@
     "subject": null,
     "chapter": "Motors",
     "material_type": "Notes",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "fccc91cd89913da5",
@@ -10920,7 +11349,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "d2d1539e85843a91",
@@ -10936,7 +11366,8 @@
     "subject": "English",
     "chapter": "Grammer",
     "material_type": "Notes",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "eebb4a7f272e6e14",
@@ -10952,7 +11383,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "0a8a0616f2cd8024",
@@ -10968,7 +11400,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "d8cda63efab415d9",
@@ -10984,7 +11417,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "38be5a747b101901",
@@ -11000,7 +11434,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "0811af26af81056e",
@@ -11016,7 +11451,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "7e7ffd53f1589246",
@@ -11032,7 +11468,8 @@
     "subject": null,
     "chapter": "Multiple conditions",
     "material_type": "Notes",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "fd28d43d7de86585",
@@ -11048,7 +11485,8 @@
     "subject": "EVS",
     "chapter": "Means of Transport",
     "material_type": "Notes",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "5f527a341f4d3f6b",
@@ -11064,7 +11502,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "d091fbcef19daafc",
@@ -11080,7 +11519,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "673121cfb50674f0",
@@ -11096,7 +11536,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "34acadcab9d51401",
@@ -11112,7 +11553,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "78232d2ff94ccb0c",
@@ -11128,7 +11570,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "12c200342d7f531f",
@@ -11144,7 +11587,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "0c5aed8882ac4dbd",
@@ -11160,7 +11604,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "9f0fa82ef502b21a",
@@ -11176,7 +11621,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "5e0cae3aa110eeb5",
@@ -11192,7 +11638,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "002dc33b57fc2b7a",
@@ -11208,7 +11655,8 @@
     "subject": "Robotics",
     "chapter": null,
     "material_type": "Notes",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "51a28bc97eee0e95",
@@ -11224,7 +11672,8 @@
     "subject": "Marathi",
     "chapter": "अंक लेखन २१ ते ३०, आपले शरीर",
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "613e5f89562b44bb",
@@ -11240,7 +11689,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "2bc88e8f780754d5",
@@ -11256,7 +11706,8 @@
     "subject": "English",
     "chapter": "The Little Plant",
     "material_type": "Notes",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "981c00e4c789edf5",
@@ -11272,7 +11723,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "aec8a997393eae98",
@@ -11288,7 +11740,8 @@
     "subject": null,
     "chapter": "Chatbot",
     "material_type": "Notes",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "18f02e5d8c0e66af",
@@ -11304,7 +11757,8 @@
     "subject": null,
     "chapter": "Electricity",
     "material_type": "Notes",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "7995a25b93024c6e",
@@ -11320,7 +11774,8 @@
     "subject": "Hindi",
     "chapter": "गिनती",
     "material_type": "Notes",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "b9f294be875af36f",
@@ -11336,7 +11791,8 @@
     "subject": "Computer Science",
     "chapter": null,
     "material_type": "Answer Key",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "501a94117cb2ca2d",
@@ -11352,7 +11808,8 @@
     "subject": "Maths",
     "chapter": null,
     "material_type": "Answer Key",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "02a6aed104d5dfdb",
@@ -11368,7 +11825,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "2ba4c3424b01ec80",
@@ -11384,7 +11842,8 @@
     "subject": "English",
     "chapter": null,
     "material_type": "Answer Key",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "f77a1fd01f063815",
@@ -11400,7 +11859,8 @@
     "subject": "Marathi",
     "chapter": null,
     "material_type": "Answer Key",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "3de0c272476d10ed",
@@ -11416,7 +11876,8 @@
     "subject": "Hindi",
     "chapter": null,
     "material_type": "Answer Key",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "cc19515260c05238",
@@ -11432,7 +11893,8 @@
     "subject": "EVS",
     "chapter": "Story of Cloth-making",
     "material_type": "Notes",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "2bcc93ab1728d298",
@@ -11448,7 +11910,8 @@
     "subject": "EVS",
     "chapter": null,
     "material_type": "Answer Key",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "f9b6e0a390369cca",
@@ -11464,7 +11927,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "47207d07ec402534",
@@ -11480,7 +11944,8 @@
     "subject": "Computer Science",
     "chapter": null,
     "material_type": "Answer Key",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "95a1caabf73ad6a8",
@@ -11496,7 +11961,8 @@
     "subject": "Robotics",
     "chapter": "Electricity (Activity 4, Pg No : 51)",
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "1e41bb538753d4d9",
@@ -11512,7 +11978,8 @@
     "subject": "EVS",
     "chapter": null,
     "material_type": "Answer Key",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "166f4eff2b12d999",
@@ -11528,7 +11995,8 @@
     "subject": "Marathi",
     "chapter": null,
     "material_type": "Answer Key",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "4c116bd4dac2cd19",
@@ -11544,7 +12012,8 @@
     "subject": "Maths",
     "chapter": null,
     "material_type": "Answer Key",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "d71655caf92b2e86",
@@ -11560,7 +12029,8 @@
     "subject": "English",
     "chapter": null,
     "material_type": "Answer Key",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "e2ffa02f829cd01b",
@@ -11576,7 +12046,8 @@
     "subject": "Hindi",
     "chapter": null,
     "material_type": "Answer Key",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "b2eef850c5b4fdc4",
@@ -11592,7 +12063,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "4372f44ac8dbdd1e",
@@ -11608,7 +12080,8 @@
     "subject": "Marathi",
     "chapter": null,
     "material_type": "Notes",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "111f0688040b74bc",
@@ -11624,7 +12097,8 @@
     "subject": "Marathi",
     "chapter": null,
     "material_type": "Notes",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "6f788af75ca1671f",
@@ -11640,7 +12114,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "9db42a81b920674e",
@@ -11656,7 +12131,8 @@
     "subject": "Hindi",
     "chapter": "कहानी-लेखन",
     "material_type": "Notes",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "7fcd85c7927e0a9c",
@@ -11672,7 +12148,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "55f680743fa49241",
@@ -11688,7 +12165,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "9081dddb9656ca2b",
@@ -11704,7 +12182,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "cde590609e20fdf9",
@@ -11720,7 +12199,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "ba347207ba7d929b",
@@ -11736,7 +12216,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "b616859424d047a8",
@@ -11752,7 +12233,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "8ba14e61fa589e82",
@@ -11768,7 +12250,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "8ea66f26f07849eb",
@@ -11784,7 +12267,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "b70a96f150e488eb",
@@ -11800,7 +12284,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "0ff910e3b56bfa65",
@@ -11816,7 +12301,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "5f2a68ce1e1e6c5c",
@@ -11832,7 +12318,8 @@
     "subject": "English",
     "chapter": "The Little Plant(poem)",
     "material_type": "Notes",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "c4f975229cb69614",
@@ -11848,7 +12335,8 @@
     "subject": "English",
     "chapter": null,
     "material_type": "Notes",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "8cd6db12883daf1d",
@@ -11864,7 +12352,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "c1d352b0c1bfec21",
@@ -11880,7 +12369,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "9b38ba7d4eaacc11",
@@ -11896,7 +12386,8 @@
     "subject": "EVS",
     "chapter": "Our Earth",
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "4f304c6c359ca652",
@@ -11912,7 +12403,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "2dfc2c50544ea16b",
@@ -11928,7 +12420,8 @@
     "subject": "Maths",
     "chapter": "Time",
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "5c142a0d07c808e4",
@@ -11944,7 +12437,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "9a61a61786953e69",
@@ -11960,7 +12454,8 @@
     "subject": "English",
     "chapter": "The Plum Stone",
     "material_type": "Notes",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "b707e5bdc10b622f",
@@ -11976,7 +12471,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "5fea84aa3ec6bafb",
@@ -11992,7 +12488,8 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "1a3d0db6823a02fe",
@@ -12008,7 +12505,8 @@
     "subject": "EVS",
     "chapter": "Our Earth",
     "material_type": "Notes",
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   },
   {
     "id": "d65c4ad89e4f308a",
@@ -12024,6 +12522,7 @@
     "subject": null,
     "chapter": null,
     "material_type": null,
-    "calendar_event_id": null
+    "calendar_event_id": null,
+    "exam_cycle": null
   }
 ]

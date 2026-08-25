@@ -84,6 +84,24 @@ _KNOWN_SUBJECTS = sorted(
 _KNOWN_SUBJECTS_RE = re.compile(r"\b(" + "|".join(re.escape(s) for s in _KNOWN_SUBJECTS) + r")\b", re.I)
 
 _SUBJECT_MATERIAL_RE = re.compile(r"\b(worksheet|revision|answer\s*key|culmination)\b", re.I)
+
+# Names an exam cycle when a notice explicitly mentions one -- used to tag
+# worksheets/revisions with which exam they're prep for, since numbering
+# resets per cycle (PT-1 has a "Revision No. 1", so does Half Yearly).
+EXAM_CYCLE_PATTERNS = [
+    (re.compile(r"pt\s*-?\s*1\b|periodic\s*test\s*[-–]?\s*1\b", re.I), "PT-1"),
+    (re.compile(r"pt\s*-?\s*2\b|periodic\s*test\s*[-–]?\s*2\b", re.I), "PT-2"),
+    (re.compile(r"half\s*yearly", re.I), "Half Yearly"),
+    (re.compile(r"final\s*exam|annual\s*exam", re.I), "Final Exam"),
+    (re.compile(r"unit\s*test", re.I), "Unit Test"),
+]
+
+
+def extract_exam_cycle_label(text: str) -> Optional[str]:
+    for pattern, label in EXAM_CYCLE_PATTERNS:
+        if pattern.search(text):
+            return label
+    return None
 _SCHOOL_EVENT_RE = re.compile(
     r"\bptm\b|annual concert|school picnic|\btournament\b|selection trials|"
     r"recruitment drive|enrichment activity|seek kit activity|robotics activity",

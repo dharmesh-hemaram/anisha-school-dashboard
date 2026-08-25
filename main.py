@@ -13,7 +13,7 @@ import logging
 from dotenv import load_dotenv
 
 from classifier.classify import classify
-from datastore.store import build_record, load, merge, save
+from datastore.store import build_record, load, merge, save, tag_exam_cycles
 from scraper.login import build_session_from_env
 from scraper.notices import fetch_notices, fetch_notices_for_year
 
@@ -49,6 +49,7 @@ def main():
 
     existing = load(DATA_PATH)
     merged = merge(existing, fresh_records)
+    merged = tag_exam_cycles(merged)
     save(DATA_PATH, merged)
 
     logger.info(
