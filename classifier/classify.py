@@ -150,6 +150,7 @@ class Classification:
     chapter: Optional[str] = None
     event_date_iso: Optional[str] = None
     material_type: Optional[str] = None  # "Notes" | "Worksheet" | "Answer Key" -- Subject Notes only
+    worksheet_number: Optional[int] = None  # for pairing a worksheet with its answer key
 
 
 def _normalize_subject(raw: str) -> str:
@@ -182,12 +183,26 @@ def _extract_chapter(text: str) -> Optional[str]:
     return m.group(1).strip(" .")[:120] if m else None
 
 
+_FUTURE_ANSWER_KEY_RE = re.compile(r"answer\s*key\s+will\s+be", re.I)
+_WORKSHEET_NUMBER_RE = re.compile(r"(?:worksheet|revision)[^\d\n]{0,15}?(\d+)", re.I)
+
+
 def _extract_material_type(t_lower: str) -> str:
+    # "the answer key will be shared after 3 days" is a worksheet notice
+    # forward-referencing an answer key that isn't attached yet -- not an
+    # actual answer key delivery. Check that before the generic keyword.
+    if _FUTURE_ANSWER_KEY_RE.search(t_lower):
+        return "Worksheet"
     if re.search(r"answer\s*key", t_lower):
         return "Answer Key"
     if re.search(r"\bworksheet\b|\brevision\b|culmination", t_lower):
         return "Worksheet"
     return "Notes"
+
+
+def _extract_worksheet_number(text: str) -> Optional[int]:
+    m = _WORKSHEET_NUMBER_RE.search(text)
+    return int(m.group(1)) if m else None
 
 
 def classify_pattern(text: str) -> Optional[Classification]:
@@ -201,6 +216,7 @@ def classify_pattern(text: str) -> Optional[Classification]:
             "Subject Notes", "pattern", 0.85,
             subject=_extract_subject(text), chapter=_extract_chapter(text),
             material_type=_extract_material_type(t),
+            worksheet_number=_extract_worksheet_number(text),
         )
 
     if re.search(

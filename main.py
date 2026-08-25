@@ -13,7 +13,7 @@ import logging
 from dotenv import load_dotenv
 
 from classifier.classify import classify
-from datastore.store import build_record, load, merge, prune_before, save, tag_exam_cycles
+from datastore.store import build_record, load, merge, pair_worksheets, prune_before, save, tag_exam_cycles
 from scraper.login import build_session_from_env
 from scraper.notices import fetch_notices, fetch_notices_for_year
 
@@ -55,6 +55,7 @@ def main():
         merged = prune_before(merged, args.since)
         logger.info("Pruned %d notices before %s", before - len(merged), args.since)
     merged = tag_exam_cycles(merged)
+    merged = pair_worksheets(merged)
     save(DATA_PATH, merged)
 
     logger.info(

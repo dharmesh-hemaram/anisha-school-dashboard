@@ -44,6 +44,9 @@ def build_record(notice, classification) -> dict:
         "subject": classification.subject,
         "chapter": classification.chapter,
         "material_type": classification.material_type,
+        "worksheet_number": classification.worksheet_number,
+        "answer_key_url": None,
+        "paired": False,
         "calendar_event_id": None,
     }
 
@@ -100,6 +103,60 @@ def prune_before(records: list, cutoff_iso: str) -> list:
     notices only start once the new academic year's welcome notice goes
     out; everything before that is the previous class/year's leftovers)."""
     return [r for r in records if r["posted_date_iso"] >= cutoff_iso]
+
+
+PAIR_WINDOW_DAYS = 30
+
+
+def pair_worksheets(records: list) -> list:
+    """Pair each Worksheet with its Answer Key so the dashboard can render
+    one card with both links instead of two separate cards/sections.
+
+    Numbers alone aren't reliable: a school posts multiple numbered series
+    per subject (e.g. "Revision No. 3" and "Culmination Worksheet No. 3"
+    are unrelated but share a number), so a same-number match 5 weeks
+    apart can steal an answer key from the item it's actually adjacent to.
+    Instead this does one global greedy match per subject: consider every
+    worksheet/answer-key pair within a 30-day window, sort by date gap
+    (same-number pairs break ties), and assign smallest-gap-first. Paired
+    answer keys are flagged `paired=True` so the dashboard skips rendering
+    them as their own card.
+    """
+    by_subject = {}
+    for r in records:
+        if r["category"] == "Subject Notes" and r["subject"] and r["material_type"] in ("Worksheet", "Answer Key"):
+            r["answer_key_url"] = None
+            r["paired"] = False
+            by_subject.setdefault(r["subject"], []).append(r)
+
+    for items in by_subject.values():
+        worksheets = [r for r in items if r["material_type"] == "Worksheet"]
+        answer_keys = [r for r in items if r["material_type"] == "Answer Key"]
+
+        candidates = []
+        for w in worksheets:
+            wd = date.fromisoformat(w["posted_date_iso"])
+            for a in answer_keys:
+                gap = abs((date.fromisoformat(a["posted_date_iso"]) - wd).days)
+                if gap > PAIR_WINDOW_DAYS:
+                    continue
+                same_number = w["worksheet_number"] is not None and w["worksheet_number"] == a["worksheet_number"]
+                candidates.append((0 if same_number else 1, gap, w, a))
+
+        # A genuine number match is a stronger signal than mere same-day
+        # coincidence -- rank all number matches ahead of all date-only
+        # matches, then break ties by gap within each group.
+        candidates.sort(key=lambda c: (c[0], c[1]))
+        claimed_w, claimed_a = set(), set()
+        for _, _, w, a in candidates:
+            if id(w) in claimed_w or id(a) in claimed_a:
+                continue
+            w["answer_key_url"] = a["attachment_url"]
+            a["paired"] = True
+            claimed_w.add(id(w))
+            claimed_a.add(id(a))
+
+    return records
 
 
 def merge(existing: list, fresh: list) -> list:
