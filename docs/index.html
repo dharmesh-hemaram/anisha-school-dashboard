@@ -293,18 +293,7 @@
   .cycle-head {
     font-size: 12px; font-weight: 700; color: var(--brand); margin: 10px 0 6px 2px;
   }
-  .chapter-card {
-    background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
-    padding: 10px 12px; margin-bottom: 8px;
-  }
-  .chapter-title { font-weight: 700; font-size: 13.5px; margin-bottom: 2px; }
-  .chapter-date { font-size: 11.5px; color: var(--text-faint); }
-  .chapter-links { display: flex; flex-wrap: wrap; gap: 4px 14px; margin-top: 7px; }
   .chapter-attach { display: inline-block; font-size: 12.5px; color: var(--brand); font-weight: 700; text-decoration: none; }
-  /* A single-link card (Notes, Revision, a lone Answer Key) is the link
-     itself -- tap anywhere on it, not just the "Open" text. */
-  a.chapter-card-link { display: block; text-decoration: none; color: inherit; }
-  a.chapter-card-link:active { background: var(--surface-2); }
 
   /* ---- Exam prep ---- */
   .exam-portion-card {
@@ -332,10 +321,11 @@
   }
   .exam-gap-row::before { content: "⋯"; font-style: normal; }
 
-  /* Everything for one subject -- its slot in the portion table (date,
-     marks, topic) and its notes/worksheets/revision -- lives in one card
-     instead of a separate schedule list plus a separate materials card. */
-  .exam-subject-card {
+  /* One card per group -- notes, worksheets and revision listed together
+     (tagged, not split into separate headed sections) wherever they
+     appear: one card per subject in the Exam tab, one card per exam cycle
+     in the Notes tab. */
+  .material-group-card {
     background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
     padding: 13px 14px; margin-bottom: 12px;
   }
@@ -359,6 +349,7 @@
   }
   .exam-material-tag.tag-worksheet { background: var(--brand-soft); color: var(--brand); }
   .exam-material-tag.tag-revision { background: var(--warn-bg); color: var(--warn-ink); }
+  .exam-material-tag.tag-answerkey { background: var(--subj-neutral-bg); color: var(--subj-neutral); }
   .exam-material-title { font-weight: 700; font-size: 13.5px; }
   .exam-material-meta { display: flex; align-items: center; gap: 14px; margin-top: 5px; flex-wrap: wrap; }
   .exam-material-date { font-size: 11.5px; color: var(--text-faint); }
@@ -723,20 +714,13 @@ function materialLinksHtml(links) {
   return links.map(l => `<a class="chapter-attach" href="${l.href}" target="_blank" rel="noopener">${l.label}</a>`).join("");
 }
 
-function materialCardHtml(r) {
-  const links = materialLinks(r);
-  const inner = `
-      <div class="chapter-title">${escapeHtml(r.chapter || firstLine(r.text))}</div>
-      <div class="chapter-date">Posted ${fmtDate(parseDMY(r.posted_date))}</div>
-      <div class="chapter-links">${links.length === 1 ? `<span class="chapter-attach">${links[0].label}</span>` : materialLinksHtml(links)}</div>`;
-  return links.length === 1
-    ? `<a class="chapter-card chapter-card-link" href="${links[0].href}" target="_blank" rel="noopener">${inner}</a>`
-    : `<div class="chapter-card">${inner}</div>`;
-}
-
+const MATERIAL_TAG_META = {
+  "Worksheet": { cls: "tag-worksheet", label: "Worksheet" },
+  "Revision": { cls: "tag-revision", label: "Revision" },
+  "Answer Key": { cls: "tag-answerkey", label: "Answer Key" },
+};
 function examMaterialRowHtml(r) {
-  const tagClass = r.material_type === "Worksheet" ? "tag-worksheet" : r.material_type === "Revision" ? "tag-revision" : "tag-notes";
-  const tagLabel = r.material_type === "Worksheet" ? "Worksheet" : r.material_type === "Revision" ? "Revision" : "Notes";
+  const { cls: tagClass, label: tagLabel } = MATERIAL_TAG_META[r.material_type] || { cls: "tag-notes", label: "Notes" };
   const title = r.chapter || firstLine(r.text);
   const links = materialLinks(r);
   const inner = `
@@ -765,7 +749,7 @@ function examSubjectCardHtml(subject, items, scheduleRow) {
     : `<span class="material-count">${subjItems.length}</span>`;
   const portionText = scheduleRow ? `<div class="portion-row-text">${escapeHtml(scheduleRow.portion)}</div>` : "";
   return `
-    <div class="exam-subject-card">
+    <div class="material-group-card">
       <div class="exam-subject-head">${subjectBadge(subject)}<span>${escapeHtml(subject)}</span>${headRight}</div>
       ${portionText}
       ${subjItems.map(examMaterialRowHtml).join("")}
@@ -783,72 +767,36 @@ function renderNotes(activeSubject) {
     list.innerHTML = '<div class="empty-state">Pick a subject above to browse its notes.</div>';
     return;
   }
-  const items = ALL.filter(r => r.category === "Subject Notes" && r.subject === activeSubject);
-  const cardHtml = materialCardHtml;
+  // A paired Answer Key's link already rides along on its Worksheet's row
+  // (materialLinks()), so it doesn't get a row of its own here.
+  const items = ALL.filter(r =>
+    r.category === "Subject Notes" && r.subject === activeSubject &&
+    !(r.material_type === "Answer Key" && r.paired)
+  );
 
-  // Revision numbering resets per exam (PT-1's "Revision 1" != Half
-  // Yearly's "Revision 1"), so sub-group by exam_cycle instead of one flat
-  // list -- otherwise two unrelated "Revision 1"s sit side by side.
-  const cycleGroupedHtml = group => {
-    const cycles = [...new Set(group.map(r => r.exam_cycle || "Other"))];
-    cycles.sort((a, b) => {
-      const latest = c => Math.max(...group.filter(r => (r.exam_cycle || "Other") === c).map(r => parseDMY(r.posted_date)));
-      return latest(b) - latest(a);
-    });
-    return cycles.map(cycle => {
-      const cycleItems = group
-        .filter(r => (r.exam_cycle || "Other") === cycle)
-        .sort((a, b) => parseDMY(a.posted_date) - parseDMY(b.posted_date));
-      return `<div class="cycle-head">${escapeHtml(cycle)}</div>` + cycleItems.map(cardHtml).join("");
-    }).join("");
-  };
-
-  let html = "";
-
-  // Chapter Notes -- grouped by chapter (number when available, else the
-  // extracted name), since the same chapter often gets more than one
-  // notes posting (e.g. a "textbook" version and a "notes" version).
-  const notes = items.filter(r => (r.material_type || "Notes") === "Notes");
-  if (notes.length) {
-    html += `<div class="material-head">Chapter Notes <span class="material-count">${notes.length}</span></div>`;
-    const chapterKey = r => r.chapter_number != null ? `n:${r.chapter_number}` : `t:${(r.chapter || firstLine(r.text)).toLowerCase()}`;
-    const groups = new Map();
-    notes.forEach(r => {
-      const key = chapterKey(r);
-      if (!groups.has(key)) groups.set(key, []);
-      groups.get(key).push(r);
-    });
-    const sortedKeys = [...groups.keys()].sort((a, b) => {
-      const latest = k => Math.max(...groups.get(k).map(r => parseDMY(r.posted_date)));
-      return latest(b) - latest(a);
-    });
-    sortedKeys.forEach(key => {
-      const group = groups.get(key).sort((a, b) => parseDMY(b.posted_date) - parseDMY(a.posted_date));
-      const rep = group[0];
-      const heading = rep.chapter_number != null
-        ? `Chapter ${rep.chapter_number}${rep.chapter ? ": " + rep.chapter : ""}`
-        : (rep.chapter || firstLine(rep.text));
-      html += `<div class="cycle-head">${escapeHtml(heading)}</div>`;
-      html += group.map(cardHtml).join("");
-    });
+  if (items.length === 0) {
+    list.innerHTML = '<div class="empty-state">Nothing here yet.</div>';
+    return;
   }
 
-  // Worksheets & Answer Keys -- one bucket, paired items show both links.
-  const worksheets = items.filter(r => r.material_type === "Worksheet" || (r.material_type === "Answer Key" && !r.paired));
-  if (worksheets.length) {
-    html += `<div class="material-head">Worksheets & Answer Keys <span class="material-count">${worksheets.length}</span></div>`;
-    html += cycleGroupedHtml(worksheets);
-  }
+  // Notes, worksheets and revision all grouped together (tagged, not split
+  // into separate headed sections) -- exam cycle is the one dimension that
+  // applies to all three (revision numbering resets per exam, so PT-1's
+  // "Revision 1" and Half Yearly's aren't the same thing), so group by that.
+  const cycles = [...new Set(items.map(r => r.exam_cycle || "Other"))];
+  cycles.sort((a, b) => {
+    const latest = c => Math.max(...items.filter(r => (r.exam_cycle || "Other") === c).map(r => parseDMY(r.posted_date)));
+    return latest(b) - latest(a);
+  });
 
-  // Revision -- kept separate from Worksheets; never carries an answer-key
-  // link (real answer keys only exist for Worksheets).
-  const revisions = items.filter(r => r.material_type === "Revision");
-  if (revisions.length) {
-    html += `<div class="material-head">Revision <span class="material-count">${revisions.length}</span></div>`;
-    html += cycleGroupedHtml(revisions);
-  }
-
-  list.innerHTML = html || '<div class="empty-state">Nothing here yet.</div>';
+  list.innerHTML = cycles.map(cycle => {
+    const cycleItems = items
+      .filter(r => (r.exam_cycle || "Other") === cycle)
+      .sort((a, b) => parseDMY(b.posted_date) - parseDMY(a.posted_date));
+    return `
+      <div class="cycle-head">${escapeHtml(cycle)}</div>
+      <div class="material-group-card">${cycleItems.map(examMaterialRowHtml).join("")}</div>`;
+  }).join("");
 }
 
 function renderExam(activeCycle) {
