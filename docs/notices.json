@@ -1199,7 +1199,7 @@
     "periods": [],
     "is_timetable": false,
     "confidence": 0.9,
-    "subject": "Robotics",
+    "subject": "Computer Science",
     "chapter": "Make your own electric switch",
     "chapter_number": null,
     "material_type": null,
@@ -1441,7 +1441,7 @@
     "periods": [],
     "is_timetable": false,
     "confidence": 0.5,
-    "subject": "Robotics",
+    "subject": "Computer Science",
     "chapter": null,
     "chapter_number": null,
     "material_type": null,
@@ -1826,7 +1826,7 @@
     "periods": [],
     "is_timetable": false,
     "confidence": 0.85,
-    "subject": "Robotics",
+    "subject": "Computer Science",
     "chapter": "Electricity and Switches",
     "chapter_number": null,
     "material_type": "Notes",
@@ -3806,7 +3806,7 @@
     "periods": [],
     "is_timetable": false,
     "confidence": 0.85,
-    "subject": "Robotics",
+    "subject": "Computer Science",
     "chapter": "Gear",
     "chapter_number": null,
     "material_type": "Notes",
@@ -8285,7 +8285,7 @@
     "periods": [
       {
         "period": 1,
-        "subject": "Robotics",
+        "subject": "Computer Science",
         "note": "chapter 2 written work is done",
         "hw": null
       },
@@ -8384,7 +8384,7 @@
     "periods": [],
     "is_timetable": false,
     "confidence": 0.85,
-    "subject": "Robotics",
+    "subject": "Computer Science",
     "chapter": "Energy",
     "chapter_number": 1,
     "material_type": "Notes",
@@ -8483,7 +8483,7 @@
     "periods": [
       {
         "period": 1,
-        "subject": "Robotics",
+        "subject": "Computer Science",
         "note": "chapter 2 explanation is done",
         "hw": null
       },
@@ -8604,7 +8604,7 @@
     "periods": [
       {
         "period": 1,
-        "subject": "Robotics",
+        "subject": "Computer Science",
         "note": "(textbook)",
         "hw": null
       },

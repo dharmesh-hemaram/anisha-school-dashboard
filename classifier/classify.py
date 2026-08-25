@@ -67,6 +67,14 @@ _SUBJECT_ALIASES = {
     "reading programme": "Reading Program",
     "martial arts": "Martial Arts",
     "marital arts": "Martial Arts",  # common typo seen in real notices
+    # Robotics isn't its own paper or period at this school -- the exam
+    # portion table covers it under the same Computer Science slot
+    # ("Coding: ... Robotics: ..."), and it never appears as its own
+    # period in the daily timetable either. Folding it in here keeps a
+    # Robotics notice's notes/worksheets on the same Computer Science
+    # card everywhere (Exam tab, Notes tab, Daily Class Update periods)
+    # instead of splintering off into an orphaned one-subject card.
+    "robotics": "Computer Science",
 }
 
 # Base subject names -- a raw value that starts with one of these (after
@@ -75,7 +83,7 @@ _SUBJECT_ALIASES = {
 # "Hindi Vyakaran" all land under one bucket instead of fragmenting.
 _BASE_SUBJECTS = [
     "Computer Science", "Social Studies", "English", "Hindi", "Marathi",
-    "Science", "Maths", "EVS", "Robotics", "GK",
+    "Science", "Maths", "EVS", "GK",
 ]
 
 # Some notices label the subject in Devanagari script instead of English.
