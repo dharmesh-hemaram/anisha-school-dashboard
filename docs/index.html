@@ -287,6 +287,10 @@
   .chapter-date { font-size: 11.5px; color: var(--text-faint); }
   .chapter-links { display: flex; flex-wrap: wrap; gap: 4px 14px; margin-top: 7px; }
   .chapter-attach { display: inline-block; font-size: 12.5px; color: var(--brand); font-weight: 700; text-decoration: none; }
+  /* A single-link card (Notes, Revision, a lone Answer Key) is the link
+     itself -- tap anywhere on it, not just the "Open" text. */
+  a.chapter-card-link { display: block; text-decoration: none; color: inherit; }
+  a.chapter-card-link:active { background: var(--surface-2); }
 
   /* ---- Exam prep ---- */
   .exam-portion-card {
@@ -333,6 +337,7 @@
   .exam-schedule-marks { font-size: 11px; color: var(--text-faint); white-space: nowrap; }
   .exam-material-row { padding-top: 10px; border-top: 1px dashed var(--border); }
   .exam-material-row:first-child { padding-top: 0; border-top: none; }
+  a.exam-material-row-link { display: block; text-decoration: none; color: inherit; }
   .exam-material-top { display: flex; align-items: baseline; gap: 7px; flex-wrap: wrap; }
   .exam-material-tag {
     flex-shrink: 0; font-size: 9.5px; font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase;
@@ -658,44 +663,57 @@ function renderFeed(activeCategory, activeSubject) {
   list.innerHTML = html;
 }
 
-function materialLinksHtml(r, linkClass) {
+// A Worksheet carries two links (worksheet + answer key) -- ambiguous as a
+// single click target, and an accidental tap into the answer key defeats
+// practicing with the worksheet first, so those stay two explicit links.
+// Everything else (Notes, Revision, a lone Answer Key) has exactly one
+// link, so the whole card/row becomes that link -- one bigger, unambiguous
+// tap target instead of a separate "Open" underneath.
+function materialLinks(r) {
   const links = [];
   if (r.material_type === "Worksheet") {
-    if (r.attachment_url) links.push(`<a class="${linkClass}" href="${r.attachment_url}" target="_blank" rel="noopener">Open worksheet →</a>`);
-    if (r.answer_key_url) links.push(`<a class="${linkClass}" href="${r.answer_key_url}" target="_blank" rel="noopener">Open answer key →</a>`);
+    if (r.attachment_url) links.push({ href: r.attachment_url, label: "Open worksheet →" });
+    if (r.answer_key_url) links.push({ href: r.answer_key_url, label: "Open answer key →" });
   } else if (r.material_type === "Revision") {
-    if (r.attachment_url) links.push(`<a class="${linkClass}" href="${r.attachment_url}" target="_blank" rel="noopener">Open revision →</a>`);
+    if (r.attachment_url) links.push({ href: r.attachment_url, label: "Open revision →" });
   } else if (r.attachment_url) {
     const label = r.material_type === "Answer Key" ? "Open answer key →" : "Open →";
-    links.push(`<a class="${linkClass}" href="${r.attachment_url}" target="_blank" rel="noopener">${label}</a>`);
+    links.push({ href: r.attachment_url, label });
   }
-  return links.join("");
+  return links;
+}
+function materialLinksHtml(links) {
+  return links.map(l => `<a class="chapter-attach" href="${l.href}" target="_blank" rel="noopener">${l.label}</a>`).join("");
 }
 
 function materialCardHtml(r) {
-  return `
-    <div class="chapter-card">
+  const links = materialLinks(r);
+  const inner = `
       <div class="chapter-title">${escapeHtml(r.chapter || firstLine(r.text))}</div>
       <div class="chapter-date">Posted ${fmtDate(parseDMY(r.posted_date))}</div>
-      <div class="chapter-links">${materialLinksHtml(r, "chapter-attach")}</div>
-    </div>`;
+      <div class="chapter-links">${links.length === 1 ? `<span class="chapter-attach">${links[0].label}</span>` : materialLinksHtml(links)}</div>`;
+  return links.length === 1
+    ? `<a class="chapter-card chapter-card-link" href="${links[0].href}" target="_blank" rel="noopener">${inner}</a>`
+    : `<div class="chapter-card">${inner}</div>`;
 }
 
 function examMaterialRowHtml(r) {
   const tagClass = r.material_type === "Worksheet" ? "tag-worksheet" : r.material_type === "Revision" ? "tag-revision" : "tag-notes";
   const tagLabel = r.material_type === "Worksheet" ? "Worksheet" : r.material_type === "Revision" ? "Revision" : "Notes";
   const title = r.chapter || firstLine(r.text);
-  return `
-    <div class="exam-material-row">
+  const links = materialLinks(r);
+  const inner = `
       <div class="exam-material-top">
         <span class="exam-material-tag ${tagClass}">${tagLabel}</span>
         <span class="exam-material-title">${escapeHtml(title)}</span>
       </div>
       <div class="exam-material-meta">
         <span class="exam-material-date">Posted ${fmtDate(parseDMY(r.posted_date))}</span>
-        ${materialLinksHtml(r, "chapter-attach")}
-      </div>
-    </div>`;
+        ${links.length === 1 ? `<span class="chapter-attach">${links[0].label}</span>` : materialLinksHtml(links)}
+      </div>`;
+  return links.length === 1
+    ? `<a class="exam-material-row exam-material-row-link" href="${links[0].href}" target="_blank" rel="noopener">${inner}</a>`
+    : `<div class="exam-material-row">${inner}</div>`;
 }
 
 // One card per subject: its portion-table slot (date/marks/topic), when
