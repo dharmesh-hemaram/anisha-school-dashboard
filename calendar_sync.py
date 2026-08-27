@@ -16,12 +16,26 @@ Only the categories the dashboard's own Upcoming tab shows (see
 UPCOMING_CATEGORIES in docs/index.html) are synced, and the portion sheet
 itself is skipped -- it's one notice covering a whole exam's syllabus, not
 a single day's event.
+
+The current exam cycle's per-subject test days are usually still missing
+from notices.json entirely -- the school posts each subject's "class test"
+notice only as that day approaches, so most of a freshly-announced exam
+(e.g. all of Half Yearly before the school starts posting individual class
+tests) exists only as one portion-sheet notice covering the whole
+syllabus, not a day-by-day schedule. The dashboard's own Upcoming tab
+papers over this by synthesizing one entry per docs/portion_schedules.json
+row, client-side, skipping any row a real notice already covers -- see
+renderUpcoming() in docs/index.html. _synthetic_events() below mirrors
+that same logic in Python so the calendar doesn't fall a whole exam cycle
+behind Upcoming while waiting for individual notices to trickle in.
 """
 
+import hashlib
 import json
 import logging
 import os
 from datetime import date, timedelta
+from pathlib import Path
 
 from google.oauth2.service_account import Credentials
 from googleapiclient.discovery import build
@@ -29,6 +43,7 @@ from googleapiclient.errors import HttpError
 
 SCOPES = ["https://www.googleapis.com/auth/calendar.events"]
 SYNCED_CATEGORIES = {"Exam/Test", "Holiday", "School Event"}
+PORTION_SCHEDULES_PATH = Path("docs/portion_schedules.json")
 
 # Google Calendar's fixed 11-color event palette, referenced by these
 # string IDs. Picked from the paler half of the palette on purpose --
@@ -89,9 +104,95 @@ def _event_body(r: dict) -> dict:
     return body
 
 
+def _latest_exam_cycle(records: list):
+    """Port of sortedExamCycles()[0] in docs/index.html: the cycle whose
+    most-recently-posted tagged record is newest -- "the exam that's
+    current right now"."""
+    cycles = {r["exam_cycle"] for r in records if r.get("exam_cycle")}
+    if not cycles:
+        return None
+    def latest_posted(cycle):
+        dates = [r["posted_date_iso"] for r in records if r.get("exam_cycle") == cycle]
+        return max(dates) if dates else ""
+    return max(cycles, key=latest_posted)
+
+
+def _synthetic_events(records: list) -> list:
+    """One entry per portion_schedules.json row for the current cycle that
+    isn't already covered by a real per-subject class-test notice -- see
+    the module docstring. Each gets a stable id (see _upsert_event) instead
+    of a notices.json-tracked calendar_event_id, since these rows are
+    generated fresh every run rather than persisted."""
+    if not PORTION_SCHEDULES_PATH.exists():
+        return []
+    portion_schedules = json.loads(PORTION_SCHEDULES_PATH.read_text())
+    cycle = _latest_exam_cycle(records)
+    schedule = portion_schedules.get(cycle, {}).get("schedule") if cycle else None
+    if not schedule:
+        return []
+
+    has_portion_notice = any(
+        r["category"] == "Exam/Test" and r.get("material_type") == "Portion" and r.get("exam_cycle") == cycle
+        for r in records
+    )
+    if not has_portion_notice:
+        return []
+
+    real_slots = {
+        (r["subject"], r["event_date_iso"])
+        for r in records
+        if r["category"] == "Exam/Test" and r.get("material_type") != "Portion"
+        and r.get("exam_cycle") == cycle and r.get("subject")
+    }
+
+    return [
+        {
+            "category": "Exam/Test",
+            "material_type": None,
+            "subject": row["subject"],
+            "chapter": None,
+            "event_date_iso": row["date_iso"],
+            "text": row["portion"],
+            # Not the whole cycle's scanned portion sheet -- pointing every
+            # subject's event at the exact same PDF reads as broken rather
+            # than helpful (same reasoning as the Upcoming tab's synthetic
+            # entries).
+            "attachment_url": None,
+            "_sync_id": _synthetic_event_id(cycle, row["subject"]),
+        }
+        for row in schedule
+        if (row["subject"], row["date_iso"]) not in real_slots
+    ]
+
+
+def _synthetic_event_id(cycle: str, subject: str) -> str:
+    # Calendar event IDs must be lowercase base32hex ([a-v0-9]), 5-1024
+    # chars -- a hex digest already satisfies that (0-9a-f is a subset).
+    key = f"portion|{cycle}|{subject}"
+    return "synth" + hashlib.sha1(key.encode()).hexdigest()[:20]
+
+
+def _upsert_event(service, calendar_id: str, body: dict, event_id: str = None) -> tuple[str, bool]:
+    """Update by event_id if given, falling back to insert if that id was
+    never created (or was deleted) -- covers both a real record's
+    Google-assigned id (looked up via calendar_event_id) and a synthetic
+    row's deterministic one. Returns (event_id, was_update)."""
+    if event_id:
+        try:
+            service.events().update(calendarId=calendar_id, eventId=event_id, body=body).execute()
+            return event_id, True
+        except HttpError as e:
+            if e.resp.status not in (404, 410):
+                raise
+            body = {**body, "id": event_id}
+    event = service.events().insert(calendarId=calendar_id, body=body).execute()
+    return event["id"], False
+
+
 def sync_events(records: list) -> tuple[int, int]:
-    """Create/update a calendar event for every eligible record, mutating
-    calendar_event_id on each in place. Returns (created, updated)."""
+    """Create/update a calendar event for every eligible record (mutating
+    calendar_event_id on each in place) plus every synthetic current-cycle
+    entry not yet covered by a real notice. Returns (created, updated)."""
     calendar_id = os.environ["GOOGLE_CALENDAR_ID"]
     service = _service()
 
@@ -102,24 +203,18 @@ def sync_events(records: list) -> tuple[int, int]:
 
     created = updated = 0
     for r in eligible:
-        body = _event_body(r)
-        if r.get("calendar_event_id"):
-            try:
-                service.events().update(
-                    calendarId=calendar_id, eventId=r["calendar_event_id"], body=body
-                ).execute()
-                updated += 1
-                continue
-            except HttpError as e:
-                if e.resp.status != 404:
-                    raise
-                logger.warning(
-                    "Calendar event %s for record %s no longer exists -- recreating",
-                    r["calendar_event_id"], r["id"],
-                )
-                r["calendar_event_id"] = None
-        event = service.events().insert(calendarId=calendar_id, body=body).execute()
-        r["calendar_event_id"] = event["id"]
-        created += 1
+        event_id, was_update = _upsert_event(service, calendar_id, _event_body(r), r.get("calendar_event_id"))
+        r["calendar_event_id"] = event_id
+        if was_update:
+            updated += 1
+        else:
+            created += 1
+
+    for r in _synthetic_events(records):
+        _, was_update = _upsert_event(service, calendar_id, _event_body(r), r["_sync_id"])
+        if was_update:
+            updated += 1
+        else:
+            created += 1
 
     return created, updated
