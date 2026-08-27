@@ -10,12 +10,14 @@ Usage:
 import argparse
 import json
 import logging
+import os
 from datetime import datetime, timezone
 
 from dotenv import load_dotenv
 
 from attachments.download import download
 from attachments.master_docs import OUTPUT_PATHS, PARSERS, detect
+from calendar_sync import sync_events
 from classifier.classify import classify
 from datastore.store import build_record, load, merge, pair_worksheets, prune_before, save, tag_exam_cycles
 from scraper.login import build_session_from_env
@@ -84,6 +86,20 @@ def main():
         logger.info("Pruned %d notices before %s", before - len(merged), args.since)
     merged = tag_exam_cycles(merged)
     merged = pair_worksheets(merged)
+
+    # Optional -- most contributors won't have the calendar set up. Sync
+    # mutates calendar_event_id on eligible records in place, so it has to
+    # run before save(); a Calendar API hiccup should never block the
+    # notices themselves from being written.
+    if os.environ.get("GOOGLE_SERVICE_ACCOUNT_JSON"):
+        try:
+            created, updated = sync_events(merged)
+            logger.info("Synced calendar events: %d created, %d updated", created, updated)
+        except Exception:
+            logger.exception("Calendar sync failed -- continuing without it")
+    else:
+        logger.info("GOOGLE_SERVICE_ACCOUNT_JSON not set -- skipping calendar sync")
+
     save(DATA_PATH, merged)
 
     # Real fetch time, not "whenever the page happens to be viewed" -- the
