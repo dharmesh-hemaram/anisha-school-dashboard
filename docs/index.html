@@ -266,6 +266,13 @@
     font-size: 9px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase;
     background: var(--today-ink); color: var(--today-bg); padding: 1px 4px;
   }
+  /* .action-list/.hw-list space every sibling with the same 8px flex gap,
+     day-header included -- stacking on top of the header's own bottom
+     margin left too much air under it specifically. Pull just the card
+     right after a header back up rather than shrinking the gap itself,
+     which would also cramp card-to-card spacing. */
+  .feed-day-head + .action-card,
+  .feed-day-head + .hw-row { margin-top: -6px; }
   .feed-item {
     background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
     padding: 10px 12px; margin-bottom: 7px;
