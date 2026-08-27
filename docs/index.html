@@ -179,8 +179,15 @@
     background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
     box-shadow: var(--shadow); padding: 11px 13px; border-left: 4px solid var(--text-faint);
   }
+  /* Four states read distinctly at a glance: today is the most urgent
+     (solid warn fill), soon (within 3 days) a lighter warn accent, future
+     a calm brand-colored accent so it doesn't fade into "no state", and
+     past dimmed grey -- otherwise future and past shared the same faint
+     grey border and only differed by the dimming, so a far-off exam read
+     as no different from a plain, non-dated notice. */
   .action-card.state-today { border-left-color: var(--warn); background: var(--warn-bg); }
   .action-card.state-soon { border-left-color: var(--warn); }
+  .action-card.state-future { border-left-color: var(--brand); }
   .action-card.state-past { border-left-color: var(--text-faint); background: var(--past-bg); opacity: 0.75; }
   .action-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; cursor: pointer; }
   .action-top-right { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
@@ -726,7 +733,7 @@ function renderUpcoming() {
   }
 
   list.innerHTML = timelineHtml(items, r => r.event_date_iso, r => {
-    const state = r._days < 0 ? "past" : r._days === 0 ? "today" : r._days <= 3 ? "soon" : "";
+    const state = r._days < 0 ? "past" : r._days === 0 ? "today" : r._days <= 3 ? "soon" : "future";
     const badge = r._days < 0
       ? `<span class="action-badge badge-past">${Math.abs(r._days)}d ago</span>`
       : r._days === 0
