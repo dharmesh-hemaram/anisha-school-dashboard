@@ -167,9 +167,12 @@ def _synthetic_events(records: list) -> list:
 
 def _synthetic_event_id(cycle: str, subject: str) -> str:
     # Calendar event IDs must be lowercase base32hex ([a-v0-9]), 5-1024
-    # chars -- a hex digest already satisfies that (0-9a-f is a subset).
+    # chars -- a plain hex digest satisfies that (0-9a-f is a subset), but
+    # a letter prefix doesn't: an early version prepended "synth", and its
+    # "y" (outside a-v) got every synthetic event rejected with "Invalid
+    # resource id value." No prefix needed -- the hash is already unique.
     key = f"portion|{cycle}|{subject}"
-    return "synth" + hashlib.sha1(key.encode()).hexdigest()[:20]
+    return hashlib.sha1(key.encode()).hexdigest()
 
 
 def _upsert_event(service, calendar_id: str, body: dict, event_id: str = None) -> tuple[str, bool]:
