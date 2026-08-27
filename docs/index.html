@@ -329,19 +329,17 @@
     font-size: 10px; font-weight: 700; color: var(--text-muted); background: var(--surface-2);
     border-radius: 6px; padding: 1px 7px;
   }
-  /* Notes tab groups by material type first (Notes/Worksheets/Revision),
-     exam cycle second within each -- material-type-head is the primary
-     heading, cycle-head the secondary one nested under it. The Exam tab
-     doesn't use material-type-head at all (its subject cards mix types),
-     so cycle-head there keeps its normal top margin. */
-  .material-type-head {
+  /* Notes tab groups by exam cycle first (Half Yearly/PT-1), material type
+     second within each -- cycle-head is the primary heading, material-type-head
+     the secondary one nested under it. */
+  .cycle-head {
     font-size: 12px; font-weight: 700; color: var(--brand); margin: 14px 0 6px 2px;
   }
-  .cycle-head {
+  .material-type-head {
     font-size: 10.5px; font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase;
-    color: var(--text-faint); margin: 10px 0 5px 4px;
+    color: var(--text-faint); margin: 10px 0 5px 4px; display: flex; align-items: center; gap: 7px;
   }
-  .material-type-head + .cycle-head { margin-top: 0; }
+  .cycle-head + .material-type-head { margin-top: 0; }
 
   /* ---- Exam prep ---- */
   .exam-portion-card {
@@ -946,8 +944,8 @@ function renderNotes(activeSubject) {
     return;
   }
 
-  // Material type is the outer grouping -- all Notes first, then all
-  // Worksheets, then Revision -- with exam cycle nested inside each type
+  // Exam cycle is the outer grouping -- which exam you're prepping for is
+  // the first thing you filter by -- material type nested inside each cycle
   // (revision numbering resets per exam, so PT-1's "Revision 1" and Half
   // Yearly's aren't the same thing, and need their own card to stay clear).
   const cycles = [...new Set(items.map(r => r.exam_cycle || "Other"))];
@@ -963,19 +961,20 @@ function renderNotes(activeSubject) {
     { type: "Answer Key", label: "Answer Key" },
   ];
 
-  list.innerHTML = MATERIAL_GROUPS.map(({ type, label }) => {
-    const typeItems = items.filter(r => r.material_type === type);
-    if (typeItems.length === 0) return "";
-    const cyclesHtml = cycles.map(cycle => {
-      const cycleItems = typeItems
-        .filter(r => (r.exam_cycle || "Other") === cycle)
-        .sort((a, b) => parseDMY(b.posted_date) - parseDMY(a.posted_date));
-      if (cycleItems.length === 0) return "";
+  list.innerHTML = cycles.map(cycle => {
+    const cycleItems = items
+      .filter(r => (r.exam_cycle || "Other") === cycle)
+      .sort((a, b) => parseDMY(b.posted_date) - parseDMY(a.posted_date));
+    const typesHtml = MATERIAL_GROUPS.map(({ type, label }) => {
+      const typeItems = cycleItems.filter(r => r.material_type === type);
+      if (typeItems.length === 0) return "";
       return `
-        <div class="cycle-head">${escapeHtml(cycle)}</div>
-        <div class="material-group-card">${cycleItems.map(r => examMaterialRowHtml(r, false)).join("")}</div>`;
+        <div class="material-type-head">${label}<span class="material-count">${typeItems.length}</span></div>
+        ${typeItems.map(r => examMaterialRowHtml(r, false)).join("")}`;
     }).join("");
-    return `<div class="material-type-head">${label}</div>${cyclesHtml}`;
+    return `
+      <div class="cycle-head">${escapeHtml(cycle)}</div>
+      <div class="material-group-card">${typesHtml}</div>`;
   }).join("");
 }
 
@@ -1187,8 +1186,9 @@ Promise.all([
   fetch("portion_schedules.json?_=" + Date.now()).then(r => r.ok ? r.json() : {}).catch(() => ({})),
   fetch("holidays.json?_=" + Date.now()).then(r => r.ok ? r.json() : {}).catch(() => ({})),
   fetch("events_calendar.json?_=" + Date.now()).then(r => r.ok ? r.json() : {}).catch(() => ({})),
+  fetch("last_updated.json?_=" + Date.now()).then(r => r.ok ? r.json() : null).catch(() => null),
 ])
-  .then(([data, portionSchedules, holidays, eventsCalendar]) => {
+  .then(([data, portionSchedules, holidays, eventsCalendar, lastUpdated]) => {
     ALL = data.sort((a, b) => parseDMY(b.posted_date) - parseDMY(a.posted_date));
     PORTION_SCHEDULES = portionSchedules;
     HOLIDAYS = { holidays: [], vacations: [], ...holidays };
@@ -1199,8 +1199,16 @@ Promise.all([
     renderNotes("English");
     renderExam(null);
     renderHw();
-    document.getElementById("footerNote").textContent =
-      `${ALL.length} notices · updated ${new Date().toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" })}`;
+    // The pipeline's own fetch timestamp -- when the data actually last
+    // changed, not just when this page happens to be viewed. Falls back to
+    // "today" only if last_updated.json hasn't been generated yet.
+    const updatedText = lastUpdated?.last_updated
+      ? new Date(lastUpdated.last_updated).toLocaleString("en-IN", {
+          day: "numeric", month: "short", year: "numeric", hour: "numeric", minute: "2-digit",
+          timeZone: "Asia/Kolkata",
+        })
+      : new Date().toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" });
+    document.getElementById("footerNote").textContent = `${ALL.length} notices · updated ${updatedText}`;
   })
   .catch(err => {
     document.getElementById("footerNote").textContent = "Failed to load notices.json — " + err.message;

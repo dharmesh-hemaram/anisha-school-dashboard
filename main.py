@@ -10,6 +10,7 @@ Usage:
 import argparse
 import json
 import logging
+from datetime import datetime, timezone
 
 from dotenv import load_dotenv
 
@@ -21,6 +22,7 @@ from scraper.login import build_session_from_env
 from scraper.notices import fetch_notices, fetch_notices_for_year
 
 DATA_PATH = "docs/notices.json"
+LAST_UPDATED_PATH = "docs/last_updated.json"
 
 logger = logging.getLogger(__name__)
 
@@ -83,6 +85,11 @@ def main():
     merged = tag_exam_cycles(merged)
     merged = pair_worksheets(merged)
     save(DATA_PATH, merged)
+
+    # Real fetch time, not "whenever the page happens to be viewed" -- the
+    # dashboard footer reads this to show when the data actually last changed.
+    with open(LAST_UPDATED_PATH, "w") as f:
+        json.dump({"last_updated": datetime.now(timezone.utc).isoformat()}, f)
 
     logger.info(
         "Wrote %d total records (%d fresh: %d pattern-matched, %d defaulted to General/Other) to %s",

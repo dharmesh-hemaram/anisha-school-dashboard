@@ -2,8 +2,9 @@ name: Scrape notices
 
 on:
   schedule:
-    # 15:00 UTC = 8:30pm IST -- after the school day's notices are posted.
-    - cron: "0 15 * * *"
+    # 09:30 UTC = 3:00pm IST, 11:30 UTC = 5:00pm IST.
+    - cron: "30 9 * * *"
+    - cron: "30 11 * * *"
   workflow_dispatch: {}
 
 permissions:
@@ -29,12 +30,16 @@ jobs:
 
       - name: Commit and push updated notices
         run: |
-          if git diff --quiet -- docs/notices.json; then
-            echo "No new notices."
+          git add docs/notices.json docs/last_updated.json docs/holidays.json docs/events_calendar.json docs/timetable.json
+          if git diff --cached --quiet; then
+            echo "Nothing changed."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add docs/notices.json
-          git commit -m "Update notices [automated]"
+          if git diff --cached --quiet -- docs/notices.json; then
+            git commit -m "Update last-fetched timestamp [automated]"
+          else
+            git commit -m "Update notices [automated]"
+          fi
           git push
