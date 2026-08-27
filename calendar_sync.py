@@ -30,6 +30,24 @@ from googleapiclient.errors import HttpError
 SCOPES = ["https://www.googleapis.com/auth/calendar.events"]
 SYNCED_CATEGORIES = {"Exam/Test", "Holiday", "School Event"}
 
+# Google Calendar's fixed 11-color event palette, referenced by these
+# string IDs -- warm-to-cool roughly mirrors the dashboard's own state
+# colors (today/soon = warm, future = cool). A category with no entry here
+# gets Calendar's default color instead of raising.
+_COLOR_ID = {
+    "Exam/Test": "11",     # Tomato (red) -- reads as the most urgent
+    "Holiday": "10",       # Basil (green)
+    "School Event": "7",   # Peacock (blue)
+}
+# Color alone doesn't survive every calendar view (a generic ICS reader, a
+# list/agenda view, a notification) -- a short text prefix keeps the type
+# identifiable even where color doesn't render.
+_TITLE_PREFIX = {
+    "Exam/Test": "Test",
+    "Holiday": "Holiday",
+    "School Event": "Event",
+}
+
 logger = logging.getLogger(__name__)
 
 
@@ -41,14 +59,13 @@ def _service():
 
 def _title(r: dict) -> str:
     if r.get("subject") and r.get("chapter"):
-        return f"{r['subject']} — {r['chapter']}"
-    if r.get("subject"):
-        # A calendar title stands alone with no "EXAM/TEST" chip next to it
-        # the way the dashboard shows one -- "Maths Exam/Test" reads as
-        # awkward filler, "Maths Test" doesn't.
-        suffix = "Test" if r["category"] == "Exam/Test" else r["category"]
-        return f"{r['subject']} {suffix}"
-    return r["text"].strip().split("\n", 1)[0][:120]
+        base = f"{r['subject']} — {r['chapter']}"
+    elif r.get("subject"):
+        base = r["subject"]
+    else:
+        base = r["text"].strip().split("\n", 1)[0][:120]
+    prefix = _TITLE_PREFIX.get(r["category"])
+    return f"{prefix}: {base}" if prefix else base
 
 
 def _event_body(r: dict) -> dict:
@@ -58,12 +75,16 @@ def _event_body(r: dict) -> dict:
     description = r["text"]
     if r.get("attachment_url"):
         description += f"\n\n{r['attachment_url']}"
-    return {
+    body = {
         "summary": _title(r),
         "description": description,
         "start": {"date": start.isoformat()},
         "end": {"date": end.isoformat()},
     }
+    color_id = _COLOR_ID.get(r["category"])
+    if color_id:
+        body["colorId"] = color_id
+    return body
 
 
 def sync_events(records: list) -> tuple[int, int]:
