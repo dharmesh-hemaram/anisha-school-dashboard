@@ -31,13 +31,15 @@ SCOPES = ["https://www.googleapis.com/auth/calendar.events"]
 SYNCED_CATEGORIES = {"Exam/Test", "Holiday", "School Event"}
 
 # Google Calendar's fixed 11-color event palette, referenced by these
-# string IDs -- warm-to-cool roughly mirrors the dashboard's own state
-# colors (today/soon = warm, future = cool). A category with no entry here
-# gets Calendar's default color instead of raising.
+# string IDs. Picked from the paler half of the palette on purpose --
+# Tomato (bold red) read as an alarm rather than just "this is a test",
+# too shouty for something that isn't actually urgent most of the time.
+# A category with no entry here gets Calendar's default color instead of
+# raising.
 _COLOR_ID = {
-    "Exam/Test": "11",     # Tomato (red) -- reads as the most urgent
-    "Holiday": "10",       # Basil (green)
-    "School Event": "7",   # Peacock (blue)
+    "Exam/Test": "4",     # Flamingo (soft coral)
+    "Holiday": "2",       # Sage (soft green)
+    "School Event": "1",  # Lavender (soft blue-purple)
 }
 # Color alone doesn't survive every calendar view (a generic ICS reader, a
 # list/agenda view, a notification) -- a short text prefix keeps the type
