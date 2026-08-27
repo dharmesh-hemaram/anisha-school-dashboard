@@ -25,7 +25,10 @@ from typing import Optional
 from classifier.classify import _KNOWN_SUBJECTS_RE, _normalize_subject
 
 _PERIOD_SPLIT_RE = re.compile(r"period\s*(\d+)\s*[:\-]?\s*", re.I)
-_HW_SPLIT_RE = re.compile(r"\bh\s*\.?\s*w\.?\s*[:\-]?\s*|\bhomework\s*[:\-]?\s*", re.I)
+# The marker is often "(h.w)" or "(H.W)" rather than a bare "HW-" -- e.g.
+# "Hindi(h.w)- अपठित..." -- so the closing paren must be consumed here too,
+# or it leaks into the extracted homework text as a stray leading ")".
+_HW_SPLIT_RE = re.compile(r"\(?\s*\bh\s*\.?\s*w\.?\s*\)?\s*[:\-]?\s*|\(?\s*\bhomework\)?\s*[:\-]?\s*", re.I)
 
 TIMETABLE_HEADER_RE = re.compile(r"sharing the time\s*table for", re.I)
 _LEADING_NUMBER_RE = re.compile(r"^\s*\d+[.)]\s*")
