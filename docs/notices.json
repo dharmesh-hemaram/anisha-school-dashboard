@@ -341,6 +341,50 @@
     "exam_cycle": "Half Yearly"
   },
   {
+    "id": "6378f1444967af67",
+    "posted_date": "27-08-2026",
+    "posted_date_iso": "2026-08-27",
+    "event_date_iso": "2026-08-27",
+    "text": "Dear Parent,\n\nWe are pleased to share the Facebook post featuring photographs from Our Sparkling Stellar Activity.\n\nhttps://www.facebook.com/share/1MHzKDvmfT/\n\n We invite you to like, share, and follow our Facebook page to stay updated with the latest events, celebrations, and achievements at SNBP International School, Wagholi.",
+    "attachment_url": null,
+    "category": "Event/Celebration",
+    "method": "pattern",
+    "periods": [],
+    "is_timetable": false,
+    "confidence": 0.85,
+    "subject": null,
+    "chapter": null,
+    "chapter_number": null,
+    "material_type": null,
+    "worksheet_number": null,
+    "answer_key_url": null,
+    "paired": false,
+    "calendar_event_id": null,
+    "exam_cycle": null
+  },
+  {
+    "id": "06d66264b54ad9cf",
+    "posted_date": "27-08-2026",
+    "posted_date_iso": "2026-08-27",
+    "event_date_iso": "2026-08-27",
+    "text": "Dear Parent,\n\nWe are pleased to share the Facebook post featuring photographs from Our Raksha Bandhan Celebration.\n\nhttps://www.facebook.com/share/1DXz3t1B9f/\n\n We invite you to like, share, and follow our Facebook page to stay updated with the latest events, celebrations, and achievements at SNBP International School, Wagholi.",
+    "attachment_url": null,
+    "category": "Event/Celebration",
+    "method": "pattern",
+    "periods": [],
+    "is_timetable": false,
+    "confidence": 0.85,
+    "subject": null,
+    "chapter": null,
+    "chapter_number": null,
+    "material_type": null,
+    "worksheet_number": null,
+    "answer_key_url": null,
+    "paired": false,
+    "calendar_event_id": null,
+    "exam_cycle": null
+  },
+  {
     "id": "c9b8479189b477b9",
     "posted_date": "26-08-2026",
     "posted_date_iso": "2026-08-26",
@@ -689,7 +733,7 @@
     "worksheet_number": null,
     "answer_key_url": null,
     "paired": false,
-    "calendar_event_id": null,
+    "calendar_event_id": "u0luo761p19gtqoknht9ssv2pc",
     "exam_cycle": null
   },
   {
@@ -975,7 +1019,7 @@
     "worksheet_number": null,
     "answer_key_url": null,
     "paired": false,
-    "calendar_event_id": null,
+    "calendar_event_id": "s6tl3gk63q775j1n3illgh16bc",
     "exam_cycle": null
   },
   {
@@ -1096,7 +1140,7 @@
     "worksheet_number": null,
     "answer_key_url": null,
     "paired": false,
-    "calendar_event_id": null,
+    "calendar_event_id": "61dko6h06gip2dr2siflgq4i04",
     "exam_cycle": "Half Yearly"
   },
   {
@@ -1283,7 +1327,7 @@
     "worksheet_number": null,
     "answer_key_url": null,
     "paired": false,
-    "calendar_event_id": null,
+    "calendar_event_id": "it20ot7vp78f0qe6asd2g7qt94",
     "exam_cycle": "Half Yearly"
   },
   {
@@ -1470,7 +1514,7 @@
     "worksheet_number": null,
     "answer_key_url": null,
     "paired": false,
-    "calendar_event_id": null,
+    "calendar_event_id": "8bs3tjlu5f90hhamiote1kled8",
     "exam_cycle": "Half Yearly"
   },
   {
@@ -1657,7 +1701,7 @@
     "worksheet_number": null,
     "answer_key_url": null,
     "paired": false,
-    "calendar_event_id": null,
+    "calendar_event_id": "nijvub4lscstued2nb6imcahes",
     "exam_cycle": "Half Yearly"
   },
   {
@@ -1679,7 +1723,7 @@
     "worksheet_number": null,
     "answer_key_url": null,
     "paired": false,
-    "calendar_event_id": null,
+    "calendar_event_id": "482vrbcb5513rn65daaup0kopc",
     "exam_cycle": null
   },
   {
@@ -1800,7 +1844,7 @@
     "worksheet_number": null,
     "answer_key_url": null,
     "paired": false,
-    "calendar_event_id": null,
+    "calendar_event_id": "58h1hl6r6o0pte6a632oq45dfo",
     "exam_cycle": null
   },
   {
@@ -1998,7 +2042,7 @@
     "worksheet_number": null,
     "answer_key_url": null,
     "paired": false,
-    "calendar_event_id": null,
+    "calendar_event_id": "tp2s206b49vbbj2gv9dccengss",
     "exam_cycle": "Half Yearly"
   },
   {
@@ -2141,7 +2185,7 @@
     "worksheet_number": null,
     "answer_key_url": null,
     "paired": false,
-    "calendar_event_id": null,
+    "calendar_event_id": "jeent5ic0k4ncgju3cb383nbi4",
     "exam_cycle": null
   },
   {
@@ -2185,7 +2229,7 @@
     "worksheet_number": null,
     "answer_key_url": null,
     "paired": false,
-    "calendar_event_id": null,
+    "calendar_event_id": "7ne295nll5r43lps11dikcvp8g",
     "exam_cycle": "Half Yearly"
   },
   {
@@ -2383,7 +2427,7 @@
     "worksheet_number": null,
     "answer_key_url": null,
     "paired": false,
-    "calendar_event_id": null,
+    "calendar_event_id": "gieu6iscmio0tigd07aai5gjg8",
     "exam_cycle": "Half Yearly"
   },
   {
@@ -2603,7 +2647,7 @@
     "worksheet_number": null,
     "answer_key_url": null,
     "paired": false,
-    "calendar_event_id": null,
+    "calendar_event_id": "dh8uo45fkd8ue7bp6d64cgf1vo",
     "exam_cycle": null
   },
   {
@@ -2911,7 +2955,7 @@
     "worksheet_number": null,
     "answer_key_url": null,
     "paired": false,
-    "calendar_event_id": null,
+    "calendar_event_id": "lbvap69ruf3aeerd7m5kk32468",
     "exam_cycle": null
   },
   {
@@ -3131,7 +3175,7 @@
     "worksheet_number": null,
     "answer_key_url": null,
     "paired": false,
-    "calendar_event_id": null,
+    "calendar_event_id": "akp7ubsbt55oftg29t639vq6h8",
     "exam_cycle": "Half Yearly"
   },
   {
@@ -3472,7 +3516,7 @@
     "worksheet_number": null,
     "answer_key_url": null,
     "paired": false,
-    "calendar_event_id": null,
+    "calendar_event_id": "9ss60hj6u6d4gsfr2l0r67l44k",
     "exam_cycle": null
   },
   {
@@ -3637,7 +3681,7 @@
     "worksheet_number": null,
     "answer_key_url": null,
     "paired": false,
-    "calendar_event_id": null,
+    "calendar_event_id": "lddh9r0o54f3vpoaarvfbpnf9k",
     "exam_cycle": "Half Yearly"
   },
   {
@@ -3736,7 +3780,7 @@
     "worksheet_number": null,
     "answer_key_url": null,
     "paired": false,
-    "calendar_event_id": null,
+    "calendar_event_id": "5b9t45jetb9tu5b9p8vakipkh0",
     "exam_cycle": "PT-1"
   },
   {
@@ -4000,7 +4044,7 @@
     "worksheet_number": null,
     "answer_key_url": null,
     "paired": false,
-    "calendar_event_id": null,
+    "calendar_event_id": "ke2jjie1vbfmsluabupam57rcg",
     "exam_cycle": null
   },
   {
@@ -4044,7 +4088,7 @@
     "worksheet_number": null,
     "answer_key_url": null,
     "paired": false,
-    "calendar_event_id": null,
+    "calendar_event_id": "1o6dbjvo2jkjts2f8kfde8r7lg",
     "exam_cycle": "PT-1"
   },
   {
@@ -4605,7 +4649,7 @@
     "worksheet_number": null,
     "answer_key_url": null,
     "paired": false,
-    "calendar_event_id": null,
+    "calendar_event_id": "ioss9lcmq2a9cjnriids7jd98k",
     "exam_cycle": null
   },
   {
@@ -5099,7 +5143,7 @@
     "worksheet_number": null,
     "answer_key_url": null,
     "paired": false,
-    "calendar_event_id": null,
+    "calendar_event_id": "7ahehoaov98t99jc69p34s3c2c",
     "exam_cycle": null
   },
   {
@@ -5186,7 +5230,7 @@
     "worksheet_number": null,
     "answer_key_url": null,
     "paired": false,
-    "calendar_event_id": null,
+    "calendar_event_id": "gdee2a4l5jquqi1bb891qgms10",
     "exam_cycle": null
   },
   {
@@ -5267,7 +5311,7 @@
     "worksheet_number": null,
     "answer_key_url": null,
     "paired": false,
-    "calendar_event_id": null,
+    "calendar_event_id": "9v7cac9tvrov40afdsii4bq778",
     "exam_cycle": null
   },
   {
@@ -5289,7 +5333,7 @@
     "worksheet_number": null,
     "answer_key_url": null,
     "paired": false,
-    "calendar_event_id": null,
+    "calendar_event_id": "4rkel81pa98dqeg3a87kigvq78",
     "exam_cycle": "PT-1"
   },
   {
@@ -5487,7 +5531,7 @@
     "worksheet_number": null,
     "answer_key_url": null,
     "paired": false,
-    "calendar_event_id": null,
+    "calendar_event_id": "c0jil8a8dgpdrsmoaojk2l0puo",
     "exam_cycle": null
   },
   {
@@ -5630,7 +5674,7 @@
     "worksheet_number": null,
     "answer_key_url": null,
     "paired": false,
-    "calendar_event_id": null,
+    "calendar_event_id": "r1dqi3a8a2k56ndo2abvfe2c80",
     "exam_cycle": null
   },
   {
@@ -5652,7 +5696,7 @@
     "worksheet_number": null,
     "answer_key_url": null,
     "paired": false,
-    "calendar_event_id": null,
+    "calendar_event_id": "kdr88jr9jgbvuss2tssaaut214",
     "exam_cycle": null
   },
   {
@@ -5674,7 +5718,7 @@
     "worksheet_number": null,
     "answer_key_url": null,
     "paired": false,
-    "calendar_event_id": null,
+    "calendar_event_id": "tjna01kq8sil2ecaaubeej5n7o",
     "exam_cycle": null
   },
   {
@@ -6103,7 +6147,7 @@
     "worksheet_number": null,
     "answer_key_url": null,
     "paired": false,
-    "calendar_event_id": null,
+    "calendar_event_id": "m15ke05f40amn1m5jr70mtmrbc",
     "exam_cycle": "PT-1"
   },
   {
@@ -7346,7 +7390,7 @@
     "worksheet_number": null,
     "answer_key_url": null,
     "paired": false,
-    "calendar_event_id": null,
+    "calendar_event_id": "qlqsfmm8r3icv3tis4765hp7sk",
     "exam_cycle": null
   },
   {
@@ -7852,7 +7896,7 @@
     "worksheet_number": null,
     "answer_key_url": null,
     "paired": false,
-    "calendar_event_id": null,
+    "calendar_event_id": "0ibndaqm5o0jh5sbrsasorvg5k",
     "exam_cycle": null
   },
   {
@@ -8281,7 +8325,7 @@
     "worksheet_number": null,
     "answer_key_url": null,
     "paired": false,
-    "calendar_event_id": null,
+    "calendar_event_id": "1t33lmhaqpq4rhs73joon4k6b0",
     "exam_cycle": "PT-1"
   },
   {
@@ -8303,7 +8347,7 @@
     "worksheet_number": null,
     "answer_key_url": null,
     "paired": false,
-    "calendar_event_id": null,
+    "calendar_event_id": "kndok1ui4tb3bacq0fqav46rf8",
     "exam_cycle": null
   },
   {
@@ -8556,7 +8600,7 @@
     "worksheet_number": null,
     "answer_key_url": null,
     "paired": false,
-    "calendar_event_id": null,
+    "calendar_event_id": "hph8g0eap8qutujdruf83fa3eg",
     "exam_cycle": "PT-1"
   },
   {
@@ -8578,7 +8622,7 @@
     "worksheet_number": null,
     "answer_key_url": null,
     "paired": false,
-    "calendar_event_id": null,
+    "calendar_event_id": "ikgtnd9ij0mu06cp141affcmis",
     "exam_cycle": null
   },
   {
@@ -8600,7 +8644,7 @@
     "worksheet_number": null,
     "answer_key_url": null,
     "paired": false,
-    "calendar_event_id": null,
+    "calendar_event_id": "cj227o5ijml8tciophgngnfdvc",
     "exam_cycle": null
   },
   {
@@ -9139,7 +9183,7 @@
     "worksheet_number": null,
     "answer_key_url": null,
     "paired": false,
-    "calendar_event_id": null,
+    "calendar_event_id": "jjidppda025u2trh8qd2jaoet0",
     "exam_cycle": "PT-1"
   },
   {
@@ -9238,7 +9282,7 @@
     "worksheet_number": null,
     "answer_key_url": null,
     "paired": false,
-    "calendar_event_id": null,
+    "calendar_event_id": "v85b0r071pviaquomvnuv3narg",
     "exam_cycle": null
   },
   {
@@ -9260,7 +9304,7 @@
     "worksheet_number": null,
     "answer_key_url": null,
     "paired": false,
-    "calendar_event_id": null,
+    "calendar_event_id": "70ta852v2nv13ismvcqolhdk54",
     "exam_cycle": null
   },
   {
@@ -9700,7 +9744,7 @@
     "worksheet_number": null,
     "answer_key_url": null,
     "paired": false,
-    "calendar_event_id": null,
+    "calendar_event_id": "614ghrjm4ftbtg9dce887sfb3c",
     "exam_cycle": "PT-1"
   },
   {
@@ -10041,7 +10085,7 @@
     "worksheet_number": null,
     "answer_key_url": null,
     "paired": false,
-    "calendar_event_id": null,
+    "calendar_event_id": "nkquqkhsheltb397cc35d40ms0",
     "exam_cycle": "PT-1"
   },
   {
@@ -10316,7 +10360,7 @@
     "worksheet_number": null,
     "answer_key_url": null,
     "paired": false,
-    "calendar_event_id": null,
+    "calendar_event_id": "4op2j50ocsber1aar0i1tk37sk",
     "exam_cycle": null
   },
   {
@@ -10514,7 +10558,7 @@
     "worksheet_number": null,
     "answer_key_url": null,
     "paired": false,
-    "calendar_event_id": null,
+    "calendar_event_id": "7mrg4oo1n10gscaj0tvuht1mbk",
     "exam_cycle": null
   },
   {
@@ -10613,7 +10657,7 @@
     "worksheet_number": null,
     "answer_key_url": null,
     "paired": false,
-    "calendar_event_id": null,
+    "calendar_event_id": "c3ad61duiigd2dr3pvsgmssbr8",
     "exam_cycle": null
   },
   {
@@ -11750,7 +11794,7 @@
     "worksheet_number": null,
     "answer_key_url": null,
     "paired": false,
-    "calendar_event_id": null,
+    "calendar_event_id": "dv5a1mndci1i31fqkmldu1jp3c",
     "exam_cycle": null
   },
   {
@@ -11934,7 +11978,7 @@
     "worksheet_number": null,
     "answer_key_url": null,
     "paired": false,
-    "calendar_event_id": null,
+    "calendar_event_id": "nh8u40tougvd133tl06ubkumt8",
     "exam_cycle": "PT-1"
   },
   {
@@ -12183,7 +12227,7 @@
     "worksheet_number": null,
     "answer_key_url": null,
     "paired": false,
-    "calendar_event_id": null,
+    "calendar_event_id": "ekaek4pdg2v4r5742lj9hhhq14",
     "exam_cycle": "PT-1"
   },
   {
@@ -12394,7 +12438,7 @@
     "worksheet_number": null,
     "answer_key_url": null,
     "paired": false,
-    "calendar_event_id": null,
+    "calendar_event_id": "uogtu7evj8mejb18k35dunh0a0",
     "exam_cycle": null
   },
   {
@@ -12976,7 +13020,7 @@
     "worksheet_number": null,
     "answer_key_url": null,
     "paired": false,
-    "calendar_event_id": null,
+    "calendar_event_id": "t01bo25j960rs4eets314231f8",
     "exam_cycle": null
   },
   {
@@ -13218,7 +13262,7 @@
     "worksheet_number": null,
     "answer_key_url": null,
     "paired": false,
-    "calendar_event_id": null,
+    "calendar_event_id": "ggtoto5vt537t0gjgian7q633o",
     "exam_cycle": null
   },
   {
