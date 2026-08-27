@@ -607,6 +607,28 @@ function latestExamCycle() {
   return sortedExamCycles()[0] || null;
 }
 
+// Shared "history line" timeline: items (already sorted into the order
+// they should render in) get grouped under one date header per distinct
+// ISO date, with a "Today" tag when that date is today. Feed, HW and
+// Upcoming all read as a per-day list and share this same look; Exam and
+// Notes don't (subject/cycle cards, not a flat dated list), so they build
+// their own markup instead.
+function timelineHtml(items, dateIso, rowHtml) {
+  const today = todayISO();
+  let html = "";
+  let lastIso = null;
+  items.forEach((item, i) => {
+    const iso = dateIso(item);
+    if (iso !== lastIso) {
+      const isToday = iso === today;
+      html += `<div class="feed-day-head${isToday ? " is-today" : ""}">${fmtDate(parseISO(iso))}${isToday ? '<span class="today-tag">Today</span>' : ""}</div>`;
+      lastIso = iso;
+    }
+    html += rowHtml(item, i);
+  });
+  return html;
+}
+
 // A compact 7-day lookahead built from the yearly master lists, separate
 // from the full action-card list below -- the master lists cover the
 // whole academic year (22 holidays, 27 events, 8 PTMs), and turning every
@@ -695,7 +717,7 @@ function renderUpcoming() {
   const items = ALL
     .filter(r => UPCOMING_CATEGORIES.includes(r.category) && r.material_type !== "Portion")
     .concat(synthetic)
-    .map(r => ({ ...r, _date: parseISO(r.event_date_iso), _days: daysUntil(parseISO(r.event_date_iso)) }))
+    .map(r => ({ ...r, _days: daysUntil(parseISO(r.event_date_iso)) }))
     .filter(r => r._days >= -5)
     .sort((a, b) => b._days - a._days);
 
@@ -704,7 +726,7 @@ function renderUpcoming() {
     return;
   }
 
-  list.innerHTML = items.map(r => {
+  list.innerHTML = timelineHtml(items, r => r.event_date_iso, r => {
     const state = r._days < 0 ? "past" : r._days === 0 ? "today" : r._days <= 3 ? "soon" : "";
     const badge = r._days < 0
       ? `<span class="action-badge badge-past">${Math.abs(r._days)}d ago</span>`
@@ -712,8 +734,10 @@ function renderUpcoming() {
         ? `<span class="action-badge badge-today">Today</span>`
         : `<span class="action-badge badge-soon">In ${r._days}d</span>`;
     const attach = attachmentHtml(r.attachment_url, "action-attach-image", "action-attach", "View attachment →");
+    // The day header above already shows the event date -- only the
+    // "notified on a different day" qualifier is still worth a line here.
     const postedNote = r.event_date_iso !== r.posted_date_iso
-      ? ` <span style="color:var(--text-faint)">· notified ${fmtDate(parseDMY(r.posted_date))}</span>`
+      ? `<div class="action-date">notified ${fmtDate(parseDMY(r.posted_date))}</div>`
       : "";
     const kind = CATEGORY_META[r.category].label;
     // A real "class test" notice isn't itself the formal Half Yearly/PT-1
@@ -757,12 +781,12 @@ function renderUpcoming() {
             <span class="action-chevron">▸</span>
           </div>
         </div>
-        <div class="action-date">${fmtDate(r._date)}${postedNote}</div>
+        ${postedNote}
         <div class="action-full">${escapeHtml(r.text)}</div>
         ${materialsHtml}
         ${attach}
       </div>`;
-  }).join("");
+  });
 }
 
 function noticeSubjects(r) {
@@ -824,14 +848,7 @@ function renderFeed(activeCategory, activeSubject) {
   }
 
   const today = todayISO();
-  let html = "";
-  let lastDate = null;
-  filtered.forEach((r, i) => {
-    if (r.posted_date !== lastDate) {
-      const isToday = r.posted_date_iso === today;
-      html += `<div class="feed-day-head${isToday ? " is-today" : ""}">${fmtDate(parseDMY(r.posted_date))}${isToday ? '<span class="today-tag">Today</span>' : ""}</div>`;
-      lastDate = r.posted_date;
-    }
+  list.innerHTML = timelineHtml(filtered, r => r.posted_date_iso, (r, i) => {
     const meta = CATEGORY_META[r.category];
     const preview = noticeTitle(r);
     const attach = attachmentHtml(r.attachment_url, "feed-attach-image", "feed-attach", "View attachment →");
@@ -839,7 +856,7 @@ function renderFeed(activeCategory, activeSubject) {
       ? renderPeriods(r.periods)
       : escapeHtml(r.text);
     const isTodayTimetable = r.is_timetable && r.event_date_iso === today;
-    html += `
+    return `
       <div class="feed-item${isTodayTimetable ? " is-today-timetable" : ""}" id="feed-${i}">
         <div class="feed-item-row" onclick="document.getElementById('feed-${i}').classList.toggle('open')">
           <span class="feed-dot" style="background:${meta.dot}"></span>
@@ -849,7 +866,6 @@ function renderFeed(activeCategory, activeSubject) {
         <div class="feed-full">${body}${attach}</div>
       </div>`;
   });
-  list.innerHTML = html;
 }
 
 // Every material row is one click target, straight to the one attachment
@@ -1147,18 +1163,8 @@ function renderHw() {
     return;
   }
 
-  const today = todayISO();
-  let html = "";
-  let lastDate = null;
-  visible.forEach(t => {
-    if (t.posted_date !== lastDate) {
-      const isToday = t.date_iso === today;
-      html += `<div class="feed-day-head${isToday ? " is-today" : ""}">${fmtDate(parseDMY(t.posted_date))}${isToday ? '<span class="today-tag">Today</span>' : ""}</div>`;
-      lastDate = t.posted_date;
-    }
-    html += hwRowHtml(t, completed.has(t.id));
-  });
-  list.innerHTML = `<div class="hw-list">${html}</div>`;
+  const rows = timelineHtml(visible, t => t.date_iso, t => hwRowHtml(t, completed.has(t.id)));
+  list.innerHTML = `<div class="hw-list">${rows}</div>`;
 }
 
 function toggleHwDone(id) {
