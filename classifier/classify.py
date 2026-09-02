@@ -365,7 +365,14 @@ def classify(text: str) -> Classification:
     result = classify_pattern(text)
     if result is not None:
         return result
-    return Classification(
-        "General/Other", "default", 0.5,
-        subject=_extract_subject(text), chapter=_extract_chapter(text),
-    )
+    # General/Other is the true catch-all -- nothing here confirms the
+    # notice is even about a curriculum subject at all, so running subject
+    # extraction on arbitrary text is pure guesswork with no validation:
+    # a "Subject: X" email-style header (X being anything -- "Availability
+    # of Winter Jackets") gets taken at face value, and the known-subjects
+    # scan can match a co-curricular word embedded in an unrelated proper
+    # noun ("Leadership Advisory Council"). Subject Notes and the Exam/Test
+    # class-test branch above already call this deliberately, in contexts
+    # that confirm the notice is genuinely about a subject -- General/Other
+    # never does.
+    return Classification("General/Other", "default", 0.5)
