@@ -7,6 +7,7 @@ stable ID -- so dedup keys on a content hash of (posted_date, text) instead.
 
 import hashlib
 import json
+import re
 from datetime import date, datetime
 from pathlib import Path
 
@@ -14,6 +15,12 @@ from classifier.classify import extract_exam_cycle_label
 from classifier.periods import parse_periods, parse_timetable, TIMETABLE_HEADER_RE
 
 EXAM_CYCLE_WINDOW_DAYS = 21
+# How far *ahead* of a notice to look for the next cycle's own anchor --
+# wider than EXAM_CYCLE_WINDOW_DAYS because teaching material for the next
+# cycle often starts well before that cycle's own portion sheet is posted
+# (e.g. a new chapter taught the week after PT-1 ends, ~5-6 weeks before
+# Half Yearly's portion sheet goes out). See tag_exam_cycles().
+EXAM_CYCLE_FUTURE_WINDOW_DAYS = 45
 
 
 def notice_id(posted_date: str, text: str) -> str:
@@ -82,27 +89,81 @@ def save(path, records) -> None:
 EXAM_SCHEDULE_WINDOW_DAYS = 90
 
 
-def tag_exam_cycles(records: list) -> list:
+def _normalize_match_text(s: str) -> str:
+    """Fold a chapter fragment and a portion-sheet line onto comparable
+    ground: strip a trailing "(notebook)"/"( Textbook)" annotation the
+    chapter extractor sometimes keeps, treat "&" and "and" as the same
+    connector (both spellings show up interchangeably across notices --
+    "Mouse and keyboard" vs. the portion sheet's "Mouse & Keyboard"), and
+    collapse whitespace/case."""
+    s = re.sub(r"\([^)]*\)\s*$", "", s)
+    s = re.sub(r"\s*&\s*|\band\b", " ", s, flags=re.I)
+    return re.sub(r"\s+", " ", s).strip().lower()
+
+
+def _cycles_matching_chapter(subject, chapter, portion_schedules: dict) -> list:
+    """Every cycle whose portion-sheet text for this subject contains the
+    chapter -- a chapter genuinely taught toward (or revised for) more than
+    one cycle, e.g. Social Studies' "Transport" showing up in both PT-1's
+    and Half Yearly's portion, comes back with both. Empty if there's no
+    subject/chapter to match on at all, which is the common case for
+    Worksheet/Revision (they're "Worksheet No. 3", not tied to a named
+    chapter) -- those fall through to the date heuristic below."""
+    if not subject or not chapter:
+        return []
+    needle = _normalize_match_text(chapter)
+    if not needle:
+        return []
+    matches = []
+    for cycle, cycle_data in portion_schedules.items():
+        for row in cycle_data.get("schedule", []):
+            if row.get("subject") != subject:
+                continue
+            if needle in _normalize_match_text(row.get("portion", "")):
+                matches.append(cycle)
+                break
+    return matches
+
+
+def tag_exam_cycles(records: list, portion_schedules: dict = None) -> list:
     """Tag each Exam/Test, Worksheet/Revision and Chapter Notes item with
-    the nearest named exam cycle, powering the Exam Prep tab.
+    the exam cycle(s) it belongs to, powering the Exam Prep tab.
 
-    Only a few Exam/Test notices ever name a cycle in their own text -- the
-    portion sheet ("PFA the PT 1 portion sheet"), the announcement
-    ("Periodic Test-1 examinations will commence..."), a reschedule notice.
-    Every individual subject's "class test" notice (the actual date/time
-    for that subject's PT-1 or Half Yearly paper) never says which cycle
-    it belongs to -- it's identifiable only by *when* it was posted,
-    clustered within a couple months of that cycle's named anchor. So:
-    collect the handful of self-named anchors first, then assign every
-    other record to its nearest anchor in time.
+    Exam/Test: only a few notices ever name a cycle in their own text --
+    the portion sheet ("PFA the PT 1 portion sheet"), the announcement
+    ("Periodic Test-1 examinations will commence..."), a reschedule
+    notice. Every individual subject's "class test" notice (the actual
+    date/time for that subject's PT-1 or Half Yearly paper) never says
+    which cycle it belongs to -- it's identifiable only by *when* it was
+    posted, clustered within a couple months of that cycle's named
+    anchor. So: collect the handful of self-named anchors first, then
+    assign every class-test notice to its nearest anchor in time (nearest
+    in either direction -- a class test is unambiguously tied to one
+    specific day, so simple proximity works fine here). Always a single
+    cycle or None.
 
-    Worksheet/Revision/Notes get a tight 3-week window (they're general
-    teaching material that may not be exam-specific at all, so a notice
-    posted long before or after any exam shouldn't get roped in). Exam/Test
-    class-test notices get a much wider window -- per-subject testing for
-    one cycle can span a couple of months in practice -- since everything
-    in that category genuinely is part of some exam's schedule.
+    Subject Notes (Worksheet/Revision/Notes): the chapter itself, when
+    there is one, is a far stronger and unambiguous signal than posted-date
+    proximity -- and the only way to correctly tag a chapter that's
+    genuinely relevant to *two* cycles. So try matching the chapter against
+    portion_schedules.json first; a record can come back tagged with more
+    than one cycle. Only Notes reliably carries a chapter (Worksheet/
+    Revision numbering doesn't name one), and even Notes doesn't always --
+    a scanned/OCR'd notice, an unrecognized chapter phrasing -- so anything
+    that doesn't match a chapter falls back to the date heuristic. That
+    heuristic prefers the nearest *upcoming* cycle within a generous
+    lookahead over the nearest cycle in either direction: teaching material
+    posted once one cycle's exam has concluded is overwhelmingly aimed at
+    the next cycle, not revision for the one just finished, even when the
+    next cycle's own anchor (its portion sheet) hasn't been posted yet and
+    so sits further away in raw days than the just-finished cycle's anchor
+    does. Only when nothing's on the horizon does it fall back to the
+    nearest cycle in a tighter window either direction (a notice posted
+    long before or after any exam shouldn't get roped into one at all).
+    Always a list (possibly empty) for this category, even for a single
+    match, so callers don't need to special-case one cycle vs. several.
     """
+    portion_schedules = portion_schedules or {}
     anchors = []
     for r in records:
         if r["category"] == "Exam/Test":
@@ -118,12 +179,24 @@ def tag_exam_cycles(records: list) -> list:
                 best_label, best_dist = label, dist
         return best_label
 
+    def nearest_future_cycle(wd, window_days):
+        best_label, best_dist = None, None
+        for anchor_date, label in anchors:
+            dist = (anchor_date - wd).days
+            if 0 <= dist <= window_days and (best_dist is None or dist < best_dist):
+                best_label, best_dist = label, dist
+        return best_label
+
     for r in records:
         wd = date.fromisoformat(r["posted_date_iso"])
         if r["category"] == "Exam/Test":
             r["exam_cycle"] = nearest_cycle(wd, EXAM_SCHEDULE_WINDOW_DAYS)
         elif r["category"] == "Subject Notes" and r.get("material_type") in ("Worksheet", "Revision", "Notes"):
-            r["exam_cycle"] = nearest_cycle(wd, EXAM_CYCLE_WINDOW_DAYS)
+            matched = _cycles_matching_chapter(r.get("subject"), r.get("chapter"), portion_schedules)
+            if not matched:
+                cycle = nearest_future_cycle(wd, EXAM_CYCLE_FUTURE_WINDOW_DAYS) or nearest_cycle(wd, EXAM_CYCLE_WINDOW_DAYS)
+                matched = [cycle] if cycle else []
+            r["exam_cycle"] = matched
         else:
             r["exam_cycle"] = None
     return records
