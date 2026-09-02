@@ -774,7 +774,13 @@ function renderUpcoming() {
     const relatedMaterials = r.subject && r.exam_cycle
       ? ALL.filter(m => m.category === "Subject Notes" && m.subject === r.subject && cyclesOf(m).includes(r.exam_cycle) &&
           (!r.chapter || (m.material_type === "Notes" && m.chapter === r.chapter)))
-        .sort((a, b) => parseDMY(b.posted_date) - parseDMY(a.posted_date))
+        // Same type-then-date clustering as the Exam tab's subject cards
+        // (Notes, then Revision, then Worksheets) instead of interleaved
+        // by whenever each happened to be posted.
+        .sort((a, b) => {
+          const rank = m => { const i = MATERIAL_TYPE_ORDER.indexOf(m.material_type); return i === -1 ? MATERIAL_TYPE_ORDER.length : i; };
+          return rank(a) - rank(b) || parseDMY(b.posted_date) - parseDMY(a.posted_date);
+        })
       : [];
     const materialsHtml = relatedMaterials.length
       ? `<div class="action-materials">
