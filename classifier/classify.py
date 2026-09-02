@@ -202,7 +202,7 @@ class Classification:
     chapter_number: Optional[int] = None
     event_date_iso: Optional[str] = None
     material_type: Optional[str] = None  # "Notes" | "Worksheet" | "Answer Key" -- Subject Notes only
-    worksheet_number: Optional[int] = None  # for pairing a worksheet with its answer key
+    worksheet_numbers: list = None  # e.g. [3] or [1, 2, 3, 4] for a batch notice -- see _extract_worksheet_numbers
 
 
 def _normalize_subject(raw: str) -> str:
@@ -253,6 +253,16 @@ def _extract_chapter_number(text: str) -> Optional[int]:
 
 _FUTURE_ANSWER_KEY_RE = re.compile(r"answer\s*key\s+will\s+be", re.I)
 _WORKSHEET_NUMBER_RE = re.compile(r"(?:worksheet|revision)[^\d\n]{0,15}?(\d+)", re.I)
+# A notice can cover a batch rather than a single number -- real examples:
+# "Revision-1,2,3,4", "Revision 1 to 4", "Revision No. 1&2", "Revision
+# -3(cw) and 4(hw)". After the first number, _extract_worksheet_numbers
+# keeps matching one more "<connector> <optional short annotation>
+# <number>" in a row; "to" expands to the full inclusive range, everything
+# else (",", "&", "and", "-") just appends that one more number. The digit
+# must sit immediately after the connector (only whitespace/a short "(...)"
+# in between), so this never reaches into an unrelated number elsewhere in
+# the notice.
+_ADDITIONAL_NUMBER_RE = re.compile(r"\s*(?:\([^)]{0,10}\))?\s*(,|&|and|to|-)\s*(\d+)", re.I)
 
 
 def _extract_material_type(t_lower: str) -> str:
@@ -277,9 +287,23 @@ def _extract_material_type(t_lower: str) -> str:
     return "Notes"
 
 
-def _extract_worksheet_number(text: str) -> Optional[int]:
+def _extract_worksheet_numbers(text: str) -> Optional[list]:
     m = _WORKSHEET_NUMBER_RE.search(text)
-    return int(m.group(1)) if m else None
+    if not m:
+        return None
+    numbers = [int(m.group(1))]
+    pos = m.end()
+    while True:
+        m2 = _ADDITIONAL_NUMBER_RE.match(text, pos)
+        if not m2:
+            break
+        connector, num = m2.group(1).lower(), int(m2.group(2))
+        if connector == "to":
+            numbers.extend(range(numbers[-1] + 1, num + 1))
+        else:
+            numbers.append(num)
+        pos = m2.end()
+    return numbers
 
 
 def classify_pattern(text: str) -> Optional[Classification]:
@@ -298,7 +322,7 @@ def classify_pattern(text: str) -> Optional[Classification]:
             subject=_extract_subject(text), chapter=_extract_chapter(text),
             chapter_number=_extract_chapter_number(text),
             material_type=_extract_material_type(t),
-            worksheet_number=_extract_worksheet_number(text),
+            worksheet_numbers=_extract_worksheet_numbers(text),
         )
 
     # "Portion" notices (the syllabus scope for an upcoming exam, e.g. "PFA

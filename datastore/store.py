@@ -66,7 +66,7 @@ def build_record(notice, classification) -> dict:
         "chapter": classification.chapter,
         "chapter_number": classification.chapter_number,
         "material_type": classification.material_type,
-        "worksheet_number": classification.worksheet_number,
+        "worksheet_numbers": classification.worksheet_numbers,
         "answer_key_url": None,
         "paired": False,
         "calendar_event_id": None,
@@ -251,7 +251,10 @@ def pair_worksheets(records: list) -> list:
                 gap = abs((date.fromisoformat(a["posted_date_iso"]) - wd).days)
                 if gap > PAIR_WINDOW_DAYS:
                     continue
-                same_number = w["worksheet_number"] is not None and w["worksheet_number"] == a["worksheet_number"]
+                # A batch notice ("Revision-1,2,3,4") can carry more than
+                # one number -- any shared number between the two counts
+                # as a match, not just an exact list equality.
+                same_number = bool(set(w["worksheet_numbers"] or []) & set(a["worksheet_numbers"] or []))
                 candidates.append((0 if same_number else 1, gap, w, a))
 
         # A genuine number match is a stronger signal than mere same-day
