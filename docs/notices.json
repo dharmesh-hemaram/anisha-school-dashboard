@@ -48,6 +48,107 @@
     ]
   },
   {
+    "id": "41f443e441c0bcbe",
+    "posted_date": "02-09-2026",
+    "posted_date_iso": "2026-09-02",
+    "event_date_iso": "2026-09-02",
+    "text": "Class III F\n\nDaily Class Update\n02/09/2026\n\nPeriod 1: Assembly - Special assembly (National Sports Day) was conducted \n\nPeriod 2: English - Special assembly ( National Sports Day) was conducted \n\nPeriod 3: Marathi -Revision 4 was done in the class \n\nPeriod 4: Maths\nRevision 7 and 8 were discussed and completed.\nHW- Complete the remaining questions of Revision 7 and 8.\n\n\nPeriod 5: Computer science : maze activity is done in the lab \n\nPeriod 6: English - Oral revision of grammar topics were done in the class \n\nPeriod 7: Hindi  Revision 6 is done \n\nPeriod 8: Maths\nOral revision \n\nPeriod 9: English-Oral revision of chapter 7 and 8 was done in the class.",
+    "attachment_url": null,
+    "category": "Daily Class Update",
+    "method": "pattern",
+    "periods": [
+      {
+        "period": 1,
+        "subject": "Assembly",
+        "note": "Special assembly (National Sports Day) was conducted",
+        "hw": null
+      },
+      {
+        "period": 2,
+        "subject": "English",
+        "note": "Special assembly ( National Sports Day) was conducted",
+        "hw": null
+      },
+      {
+        "period": 3,
+        "subject": "Marathi",
+        "note": "Revision 4 was done in the class",
+        "hw": null
+      },
+      {
+        "period": 4,
+        "subject": "Maths",
+        "note": "Revision 7 and 8 were discussed and completed",
+        "hw": "Complete the remaining questions of Revision 7 and 8"
+      },
+      {
+        "period": 5,
+        "subject": "Computer Science",
+        "note": "maze activity is done in the lab",
+        "hw": null
+      },
+      {
+        "period": 6,
+        "subject": "English",
+        "note": "Oral revision of grammar topics were done in the class",
+        "hw": null
+      },
+      {
+        "period": 7,
+        "subject": "Hindi",
+        "note": "Revision 6 is done",
+        "hw": null
+      },
+      {
+        "period": 8,
+        "subject": "Maths",
+        "note": "Oral revision",
+        "hw": null
+      },
+      {
+        "period": 9,
+        "subject": "English",
+        "note": "Oral revision of chapter 7 and 8 was done in the class.",
+        "hw": null
+      }
+    ],
+    "is_timetable": false,
+    "confidence": 0.9,
+    "subject": null,
+    "chapter": null,
+    "chapter_number": null,
+    "material_type": null,
+    "worksheet_number": null,
+    "answer_key_url": null,
+    "paired": false,
+    "calendar_event_id": null,
+    "exam_cycle": null
+  },
+  {
+    "id": "da78cbd420f5d018",
+    "posted_date": "02-09-2026",
+    "posted_date_iso": "2026-09-02",
+    "event_date_iso": "2026-09-02",
+    "text": "Dear Parent,\nPFA: Science Revision 6 (Homework)",
+    "attachment_url": "http://wagholierp.snbpinstitutes.in/NEWPHP/Teacher/Notice_photos/292026152420.pdf",
+    "category": "Subject Notes",
+    "method": "pattern",
+    "periods": [],
+    "is_timetable": false,
+    "confidence": 0.85,
+    "subject": "Science",
+    "chapter": null,
+    "chapter_number": null,
+    "material_type": "Revision",
+    "worksheet_number": 6,
+    "answer_key_url": null,
+    "paired": false,
+    "calendar_event_id": null,
+    "exam_cycle": [
+      "Half Yearly"
+    ]
+  },
+  {
     "id": "134220c2f0cf28df",
     "posted_date": "01-09-2026",
     "posted_date_iso": "2026-09-01",
