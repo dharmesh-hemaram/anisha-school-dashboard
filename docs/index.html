@@ -425,6 +425,8 @@
     font-size: 10.5px; color: var(--text-faint);
   }
   .footer-credit { margin-top: 4px; }
+  .footer-report { margin-top: 4px; }
+  .footer-report a { color: var(--text-faint); text-decoration: underline; }
 </style>
 </head>
 <body>
@@ -477,6 +479,7 @@
   <footer class="note">
     <div id="footerNote">Loading…</div>
     <div class="footer-credit">Made with ❤️ by Dharmesh</div>
+    <div class="footer-report"><a href="https://github.com/dharmesh-hemaram/anisha-school-dashboard/issues/new" target="_blank" rel="noopener">Report a bug or issue</a></div>
   </footer>
 </div>
 
@@ -913,13 +916,22 @@ const MATERIAL_GROUPS = [
   { type: "Worksheet", label: "Worksheets" },
   { type: "Answer Key", label: "Answer Key" },
 ];
+// A batch notice covers more than one number -- "Revision-1,2,3,4", "PFA
+// Revision 1 to 4" -- worksheet_numbers holds every one of them, e.g.
+// [1, 2, 3, 4]. Four-or-more-consecutive reads as a range ("No. 1–4"); a
+// shorter or non-consecutive set is listed out ("No. 7, 8").
+function formatNumberList(nums) {
+  if (nums.length === 1) return `${nums[0]}`;
+  const isRange = nums.length >= 3 && nums.every((n, i) => i === 0 || n === nums[i - 1] + 1);
+  return isRange ? `${nums[0]}–${nums[nums.length - 1]}` : nums.join(", ");
+}
+
 // The raw notice text is verbose boilerplate ("PFA the Culmination
 // Worksheet No. 3 for English") when all that's actually new information
 // is the number -- the subject is already the card/section it's filed
-// under. Use the already-extracted worksheet_number for a plain "Worksheet
-// No. 3" / "Revision No. 8" instead, falling back to the raw text only
-// when no number was extracted (a Worksheet/Revision notice that doesn't
-// state one, or one covering several at once like "Revision-1,2,3,4").
+// under. Use the already-extracted worksheet_numbers for a plain "Worksheet
+// No. 3" / "Revision No. 1–4" instead, falling back to the raw text only
+// when no number was extracted at all.
 // showTag=false when the row already sits inside a card grouped by its
 // own material type (Notes tab) -- the card's own heading already says
 // "Worksheets", so repeating a WORKSHEET tag on every row under it is
@@ -928,8 +940,8 @@ const MATERIAL_GROUPS = [
 function examMaterialRowHtml(r, showTag = true) {
   const { cls: tagClass, label: tagLabel } = MATERIAL_TAG_META[r.material_type] || { cls: "tag-notes", label: "Notes" };
   const title = r.chapter
-    || ((r.material_type === "Worksheet" || r.material_type === "Revision") && r.worksheet_number != null
-      ? `${tagLabel} No. ${r.worksheet_number}`
+    || ((r.material_type === "Worksheet" || r.material_type === "Revision") && r.worksheet_numbers?.length
+      ? `${tagLabel} No. ${formatNumberList(r.worksheet_numbers)}`
       : firstLine(r.text));
   const href = materialHref(r);
   const inner = `
