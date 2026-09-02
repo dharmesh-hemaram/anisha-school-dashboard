@@ -25,7 +25,6 @@
     --warn-border: #E7C381;
     --done-bg: #E1E9DA;
     --done-border: #C1D2B7;
-    --past-bg: #E9E7DA;
     --shadow: 0 1px 2px rgba(35,43,61,0.06), 0 4px 14px -6px rgba(35,43,61,0.16);
     --radius: 12px;
 
@@ -72,7 +71,6 @@
       --warn-border: #5C471F;
       --done-bg: #212F22;
       --done-border: #34492F;
-      --past-bg: #20242E;
       --shadow: 0 1px 2px rgba(0,0,0,0.35), 0 6px 18px -8px rgba(0,0,0,0.5);
       --dot-dcu: #8B98AE;
       --dot-notes: #A8B8E8;
@@ -179,16 +177,15 @@
     background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
     box-shadow: var(--shadow); padding: 11px 13px; border-left: 4px solid var(--text-faint);
   }
-  /* Four states read distinctly at a glance: today is the most urgent
-     (solid warn fill), soon (within 3 days) a lighter warn accent, future
-     a calm brand-colored accent so it doesn't fade into "no state", and
-     past dimmed grey -- otherwise future and past shared the same faint
-     grey border and only differed by the dimming, so a far-off exam read
-     as no different from a plain, non-dated notice. */
+  /* Past items never make it into this list (see renderUpcoming's _days
+     filter) -- only today/soon/future need their own look, each reading
+     distinctly at a glance: today is the most urgent (solid warn fill),
+     soon (within 3 days) a lighter warn accent, future a calm
+     brand-colored accent so it doesn't fall back to the same plain border
+     a non-dated notice would have. */
   .action-card.state-today { border-left-color: var(--warn); background: var(--warn-bg); }
   .action-card.state-soon { border-left-color: var(--warn); }
   .action-card.state-future { border-left-color: var(--brand); }
-  .action-card.state-past { border-left-color: var(--text-faint); background: var(--past-bg); opacity: 0.75; }
   .action-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; cursor: pointer; }
   .action-top-right { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
   .action-chevron { color: var(--text-faint); font-size: 11px; transition: transform .15s; }
@@ -741,8 +738,8 @@ function renderUpcoming() {
     .filter(r => UPCOMING_CATEGORIES.includes(r.category) && r.material_type !== "Portion")
     .concat(synthetic)
     .map(r => ({ ...r, _days: daysUntil(parseISO(r.event_date_iso)) }))
-    .filter(r => r._days >= -5)
-    .sort((a, b) => b._days - a._days);
+    .filter(r => r._days >= 0)
+    .sort((a, b) => a._days - b._days);
 
   if (items.length === 0) {
     list.innerHTML = '<div class="empty-state">Nothing upcoming right now.</div>';
@@ -750,12 +747,10 @@ function renderUpcoming() {
   }
 
   list.innerHTML = timelineHtml(items, r => r.event_date_iso, r => {
-    const state = r._days < 0 ? "past" : r._days === 0 ? "today" : r._days <= 3 ? "soon" : "future";
-    const badge = r._days < 0
-      ? `<span class="action-badge badge-past">${Math.abs(r._days)}d ago</span>`
-      : r._days === 0
-        ? `<span class="action-badge badge-today">Today</span>`
-        : `<span class="action-badge badge-soon">In ${r._days}d</span>`;
+    const state = r._days === 0 ? "today" : r._days <= 3 ? "soon" : "future";
+    const badge = r._days === 0
+      ? `<span class="action-badge badge-today">Today</span>`
+      : `<span class="action-badge badge-soon">In ${r._days}d</span>`;
     const attach = attachmentHtml(r.attachment_url, "action-attach-image", "action-attach", "View attachment →");
     const kind = CATEGORY_META[r.category].label;
     // A real "class test" notice isn't itself the formal Half Yearly/PT-1
@@ -901,6 +896,17 @@ const MATERIAL_TAG_META = {
   "Revision": { cls: "tag-revision", label: "Revision" },
   "Answer Key": { cls: "tag-answerkey", label: "Answer Key" },
 };
+// Shared type ordering: Notes tab groups under a heading per type in this
+// order, and the Exam tab's subject cards (which mix types in one card,
+// so no headings) cluster by the same order instead of interleaving by
+// date -- reads as "the notes, then the worksheets, then the revision"
+// rather than shuffled by whenever each happened to be posted.
+const MATERIAL_GROUPS = [
+  { type: "Notes", label: "Notes" },
+  { type: "Revision", label: "Revision" },
+  { type: "Worksheet", label: "Worksheets" },
+  { type: "Answer Key", label: "Answer Key" },
+];
 // The raw notice text is verbose boilerplate ("PFA the Culmination
 // Worksheet No. 3 for English") when all that's actually new information
 // is the number -- the subject is already the card/section it's filed
@@ -935,10 +941,15 @@ function examMaterialRowHtml(r, showTag = true) {
     : `<div class="exam-material-row">${inner}</div>`;
 }
 
+const MATERIAL_TYPE_ORDER = MATERIAL_GROUPS.map(g => g.type);
+
 // One card per subject: its portion-table slot (date/marks/topic), when
 // there is one, plus every note/worksheet/revision tagged to this cycle.
 function examSubjectCardHtml(subject, items, scheduleRow) {
-  const subjItems = [...items].sort((a, b) => parseDMY(b.posted_date) - parseDMY(a.posted_date));
+  // Clustered by type (Notes, then Worksheets, then Revision...) rather
+  // than interleaved by date -- newest first within each cluster.
+  const typeRank = r => { const i = MATERIAL_TYPE_ORDER.indexOf(r.material_type); return i === -1 ? MATERIAL_TYPE_ORDER.length : i; };
+  const subjItems = [...items].sort((a, b) => typeRank(a) - typeRank(b) || parseDMY(b.posted_date) - parseDMY(a.posted_date));
   const headRight = scheduleRow
     ? `<span class="exam-subject-head-right">
          <span class="portion-schedule-date">${fmtDate(parseISO(scheduleRow.date_iso))}</span>
@@ -990,13 +1001,6 @@ function renderNotes(activeSubject) {
     const latest = c => Math.max(...items.filter(r => itemCycles(r).includes(c)).map(r => parseDMY(r.posted_date)));
     return latest(b) - latest(a);
   });
-
-  const MATERIAL_GROUPS = [
-    { type: "Notes", label: "Notes" },
-    { type: "Worksheet", label: "Worksheets" },
-    { type: "Revision", label: "Revision" },
-    { type: "Answer Key", label: "Answer Key" },
-  ];
 
   list.innerHTML = cycles.map(cycle => {
     const cycleItems = items
