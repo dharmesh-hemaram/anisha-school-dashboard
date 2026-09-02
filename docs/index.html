@@ -604,11 +604,21 @@ let PORTION_SCHEDULES = {};
 let HOLIDAYS = { holidays: [], vacations: [] };
 let EVENTS_CALENDAR = { events: [], ptm: [], exam_windows: [] };
 
+// exam_cycle is a plain string on Exam/Test records (a class test or
+// portion sheet is unambiguously tied to one cycle) but a list on Subject
+// Notes records (a chapter can genuinely belong to more than one cycle --
+// see tag_exam_cycles() in datastore/store.py). Normalizes either shape to
+// an array so callers never need to care which.
+function cyclesOf(r) {
+  if (Array.isArray(r.exam_cycle)) return r.exam_cycle;
+  return r.exam_cycle ? [r.exam_cycle] : [];
+}
+
 // Every named exam cycle, most recently active first.
 function sortedExamCycles() {
-  const cycles = [...new Set(ALL.map(r => r.exam_cycle).filter(Boolean))];
+  const cycles = [...new Set(ALL.flatMap(cyclesOf))];
   cycles.sort((a, b) => {
-    const latest = c => Math.max(...ALL.filter(r => r.exam_cycle === c).map(r => parseDMY(r.posted_date)));
+    const latest = c => Math.max(...ALL.filter(r => cyclesOf(r).includes(c)).map(r => parseDMY(r.posted_date)));
     return latest(b) - latest(a);
   });
   return cycles;
@@ -767,7 +777,7 @@ function renderUpcoming() {
     // included, and only when it matches. Portion-table entries have no
     // single chapter of their own -- those still show everything.
     const relatedMaterials = r.subject && r.exam_cycle
-      ? ALL.filter(m => m.category === "Subject Notes" && m.subject === r.subject && m.exam_cycle === r.exam_cycle &&
+      ? ALL.filter(m => m.category === "Subject Notes" && m.subject === r.subject && cyclesOf(m).includes(r.exam_cycle) &&
           (!r.chapter || (m.material_type === "Notes" && m.chapter === r.chapter)))
         .sort((a, b) => parseDMY(b.posted_date) - parseDMY(a.posted_date))
       : [];
@@ -971,9 +981,13 @@ function renderNotes(activeSubject) {
   // the first thing you filter by -- material type nested inside each cycle
   // (revision numbering resets per exam, so PT-1's "Revision 1" and Half
   // Yearly's aren't the same thing, and need their own card to stay clear).
-  const cycles = [...new Set(items.map(r => r.exam_cycle || "Other"))];
+  // A chapter genuinely relevant to more than one cycle (tag_exam_cycles()
+  // in datastore/store.py can tag a record with several) shows up under
+  // every one of them rather than picking just one.
+  const itemCycles = r => { const c = cyclesOf(r); return c.length ? c : ["Other"]; };
+  const cycles = [...new Set(items.flatMap(itemCycles))];
   cycles.sort((a, b) => {
-    const latest = c => Math.max(...items.filter(r => (r.exam_cycle || "Other") === c).map(r => parseDMY(r.posted_date)));
+    const latest = c => Math.max(...items.filter(r => itemCycles(r).includes(c)).map(r => parseDMY(r.posted_date)));
     return latest(b) - latest(a);
   });
 
@@ -986,7 +1000,7 @@ function renderNotes(activeSubject) {
 
   list.innerHTML = cycles.map(cycle => {
     const cycleItems = items
-      .filter(r => (r.exam_cycle || "Other") === cycle)
+      .filter(r => itemCycles(r).includes(cycle))
       .sort((a, b) => parseDMY(b.posted_date) - parseDMY(a.posted_date));
     const typesHtml = MATERIAL_GROUPS.map(({ type, label }) => {
       const typeItems = cycleItems.filter(r => r.material_type === type);
@@ -1019,7 +1033,7 @@ function renderExam(activeCycle) {
     return;
   }
 
-  const items = ALL.filter(r => r.exam_cycle === activeCycle);
+  const items = ALL.filter(r => cyclesOf(r).includes(activeCycle));
   const portion = items.find(r => r.category === "Exam/Test" && r.material_type === "Portion");
   const portionData = PORTION_SCHEDULES[activeCycle];
   const materials = items.filter(r => r.category === "Subject Notes" && r.subject);

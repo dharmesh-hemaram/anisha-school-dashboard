@@ -12,6 +12,7 @@ import json
 import logging
 import os
 from datetime import datetime, timezone
+from pathlib import Path
 
 from dotenv import load_dotenv
 
@@ -25,6 +26,7 @@ from scraper.notices import fetch_notices, fetch_notices_for_year
 
 DATA_PATH = "docs/notices.json"
 LAST_UPDATED_PATH = "docs/last_updated.json"
+PORTION_SCHEDULES_PATH = "docs/portion_schedules.json"
 
 logger = logging.getLogger(__name__)
 
@@ -84,7 +86,8 @@ def main():
         before = len(merged)
         merged = prune_before(merged, args.since)
         logger.info("Pruned %d notices before %s", before - len(merged), args.since)
-    merged = tag_exam_cycles(merged)
+    portion_schedules = load(PORTION_SCHEDULES_PATH) if Path(PORTION_SCHEDULES_PATH).exists() else {}
+    merged = tag_exam_cycles(merged, portion_schedules)
     merged = pair_worksheets(merged)
 
     # Optional -- most contributors won't have the calendar set up. Sync

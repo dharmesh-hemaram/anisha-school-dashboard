@@ -104,15 +104,25 @@ def _event_body(r: dict) -> dict:
     return body
 
 
+def _cycles_of(r: dict) -> list:
+    # exam_cycle is a plain string on Exam/Test records but a list on
+    # Subject Notes records (tag_exam_cycles() in datastore/store.py can
+    # tag a chapter to more than one cycle) -- normalize either shape.
+    ec = r.get("exam_cycle")
+    if isinstance(ec, list):
+        return ec
+    return [ec] if ec else []
+
+
 def _latest_exam_cycle(records: list):
     """Port of sortedExamCycles()[0] in docs/index.html: the cycle whose
     most-recently-posted tagged record is newest -- "the exam that's
     current right now"."""
-    cycles = {r["exam_cycle"] for r in records if r.get("exam_cycle")}
+    cycles = {c for r in records for c in _cycles_of(r)}
     if not cycles:
         return None
     def latest_posted(cycle):
-        dates = [r["posted_date_iso"] for r in records if r.get("exam_cycle") == cycle]
+        dates = [r["posted_date_iso"] for r in records if cycle in _cycles_of(r)]
         return max(dates) if dates else ""
     return max(cycles, key=latest_posted)
 
