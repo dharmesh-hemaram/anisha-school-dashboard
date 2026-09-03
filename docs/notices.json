@@ -155,6 +155,102 @@
     ]
   },
   {
+    "id": "c2988eff4286343d",
+    "posted_date": "03-09-2026",
+    "posted_date_iso": "2026-09-03",
+    "event_date_iso": "2026-09-03",
+    "text": "Dear Parent,\n\nKindly find the attached Answerkey for Hindi\nCulmination Worksheet No. 4\nDo use the same while correcting your ward's work at home.",
+    "attachment_url": "http://wagholierp.snbpinstitutes.in/NEWPHP/Teacher/Notice_photos/39202617341.pdf",
+    "category": "Subject Notes",
+    "method": "pattern",
+    "periods": [],
+    "is_timetable": false,
+    "confidence": 0.85,
+    "subject": "Hindi",
+    "chapter": null,
+    "chapter_number": null,
+    "material_type": "Answer Key",
+    "worksheet_numbers": [
+      4
+    ],
+    "answer_key_url": null,
+    "paired": true,
+    "calendar_event_id": null,
+    "exam_cycle": null
+  },
+  {
+    "id": "7655aedb60ced77b",
+    "posted_date": "03-09-2026",
+    "posted_date_iso": "2026-09-03",
+    "event_date_iso": "2026-09-03",
+    "text": "Dear Parent,\n\nKindly find the attached Answerkey for English \nCulmination Worksheet No. 4\nDo use the same while correcting your ward's work at home.",
+    "attachment_url": "http://wagholierp.snbpinstitutes.in/NEWPHP/Teacher/Notice_photos/39202616445.pdf",
+    "category": "Subject Notes",
+    "method": "pattern",
+    "periods": [],
+    "is_timetable": false,
+    "confidence": 0.85,
+    "subject": "English",
+    "chapter": null,
+    "chapter_number": null,
+    "material_type": "Answer Key",
+    "worksheet_numbers": [
+      4
+    ],
+    "answer_key_url": null,
+    "paired": true,
+    "calendar_event_id": null,
+    "exam_cycle": null
+  },
+  {
+    "id": "5dc353c609eb7b6e",
+    "posted_date": "03-09-2026",
+    "posted_date_iso": "2026-09-03",
+    "event_date_iso": "2026-09-03",
+    "text": "Dear Parent,\n\nKindly find the attached Answerkey for SST Culmination Worksheet No.4\nDo use the same while correcting your ward's work at home.",
+    "attachment_url": "http://wagholierp.snbpinstitutes.in/NEWPHP/Teacher/Notice_photos/392026153635.pdf",
+    "category": "Subject Notes",
+    "method": "pattern",
+    "periods": [],
+    "is_timetable": false,
+    "confidence": 0.85,
+    "subject": "Social Studies",
+    "chapter": null,
+    "chapter_number": null,
+    "material_type": "Answer Key",
+    "worksheet_numbers": [
+      4
+    ],
+    "answer_key_url": null,
+    "paired": true,
+    "calendar_event_id": null,
+    "exam_cycle": null
+  },
+  {
+    "id": "64c48e49617cebfd",
+    "posted_date": "03-09-2026",
+    "posted_date_iso": "2026-09-03",
+    "event_date_iso": "2026-09-03",
+    "text": "Dear Parent,\n\nKindly find the attached Answerkey for Science \nCulmination Worksheet No.4\nDo use the same while correcting your ward's work at home.",
+    "attachment_url": "http://wagholierp.snbpinstitutes.in/NEWPHP/Teacher/Notice_photos/39202615264.pdf",
+    "category": "Subject Notes",
+    "method": "pattern",
+    "periods": [],
+    "is_timetable": false,
+    "confidence": 0.85,
+    "subject": "Science",
+    "chapter": null,
+    "chapter_number": null,
+    "material_type": "Answer Key",
+    "worksheet_numbers": [
+      4
+    ],
+    "answer_key_url": null,
+    "paired": true,
+    "calendar_event_id": null,
+    "exam_cycle": null
+  },
+  {
     "id": "9c617bcfb6efe309",
     "posted_date": "02-09-2026",
     "posted_date_iso": "2026-09-02",
@@ -817,7 +913,7 @@
     "worksheet_numbers": [
       4
     ],
-    "answer_key_url": null,
+    "answer_key_url": "http://wagholierp.snbpinstitutes.in/NEWPHP/Teacher/Notice_photos/392026153635.pdf",
     "paired": false,
     "calendar_event_id": null,
     "exam_cycle": [
@@ -895,7 +991,7 @@
     "worksheet_numbers": [
       4
     ],
-    "answer_key_url": null,
+    "answer_key_url": "http://wagholierp.snbpinstitutes.in/NEWPHP/Teacher/Notice_photos/39202615264.pdf",
     "paired": false,
     "calendar_event_id": null,
     "exam_cycle": [
@@ -921,7 +1017,7 @@
     "worksheet_numbers": [
       4
     ],
-    "answer_key_url": null,
+    "answer_key_url": "http://wagholierp.snbpinstitutes.in/NEWPHP/Teacher/Notice_photos/39202616445.pdf",
     "paired": false,
     "calendar_event_id": null,
     "exam_cycle": [
@@ -1046,7 +1142,7 @@
     "worksheet_numbers": [
       4
     ],
-    "answer_key_url": null,
+    "answer_key_url": "http://wagholierp.snbpinstitutes.in/NEWPHP/Teacher/Notice_photos/39202617341.pdf",
     "paired": false,
     "calendar_event_id": null,
     "exam_cycle": [
