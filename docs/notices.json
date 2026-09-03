@@ -1,5 +1,160 @@
 [
   {
+    "id": "f325ad6c9ad36b36",
+    "posted_date": "03-09-2026",
+    "posted_date_iso": "2026-09-03",
+    "event_date_iso": "2026-09-03",
+    "text": "Class III F\n\nDaily Class Update\n03/09/2026\n\nPeriod 1: Assembly: Teacher’s Day celebration was done \n\nPeriod 2: Dance- Teacher’s Day celebration was done\n\nPeriod 3: Marathi- Half Yearly (Computer Science) exam was done\n\nPeriod 4: Math s- Half Yearly (Computer Science) exam was done \n\nPeriod 5:  SST - Half Yearly (Computer Science) exam was done\n\nPeriod 6: Hindi - Half Yearly exam was done \n\nPeriod 7: Skating class is conducted \n\nPeriod 8: Skating class is conducted \n\nPeriod 9: Marathi - उजळणी घेतली.",
+    "attachment_url": null,
+    "category": "Daily Class Update",
+    "method": "pattern",
+    "periods": [
+      {
+        "period": 1,
+        "subject": "Assembly",
+        "note": "Teacher’s Day celebration was done",
+        "hw": null
+      },
+      {
+        "period": 2,
+        "subject": "Dance",
+        "note": "Teacher’s Day celebration was done",
+        "hw": null
+      },
+      {
+        "period": 3,
+        "subject": "Marathi",
+        "note": "Half Yearly (Computer Science) exam was done",
+        "hw": null
+      },
+      {
+        "period": 4,
+        "subject": "Maths",
+        "note": "s- Half Yearly (Computer Science) exam was done",
+        "hw": null
+      },
+      {
+        "period": 5,
+        "subject": "Social Studies",
+        "note": "Half Yearly (Computer Science) exam was done",
+        "hw": null
+      },
+      {
+        "period": 6,
+        "subject": "Hindi",
+        "note": "Half Yearly exam was done",
+        "hw": null
+      },
+      {
+        "period": 7,
+        "subject": "Skating",
+        "note": "class is conducted",
+        "hw": null
+      },
+      {
+        "period": 8,
+        "subject": "Skating",
+        "note": "class is conducted",
+        "hw": null
+      },
+      {
+        "period": 9,
+        "subject": "Marathi",
+        "note": "उजळणी घेतली.",
+        "hw": null
+      }
+    ],
+    "is_timetable": false,
+    "confidence": 0.9,
+    "subject": null,
+    "chapter": null,
+    "chapter_number": null,
+    "material_type": null,
+    "worksheet_numbers": null,
+    "answer_key_url": null,
+    "paired": false,
+    "calendar_event_id": null,
+    "exam_cycle": null
+  },
+  {
+    "id": "18f7fe175dad97e7",
+    "posted_date": "03-09-2026",
+    "posted_date_iso": "2026-09-03",
+    "event_date_iso": "2026-09-03",
+    "text": "Dear Parents \nPFA of Revision 6 \nSubject -English",
+    "attachment_url": "http://wagholierp.snbpinstitutes.in/NEWPHP/Teacher/Notice_photos/39202613853.pdf",
+    "category": "Subject Notes",
+    "method": "pattern",
+    "periods": [],
+    "is_timetable": false,
+    "confidence": 0.85,
+    "subject": "English",
+    "chapter": null,
+    "chapter_number": null,
+    "material_type": "Revision",
+    "worksheet_numbers": [
+      6
+    ],
+    "answer_key_url": null,
+    "paired": false,
+    "calendar_event_id": null,
+    "exam_cycle": [
+      "Half Yearly"
+    ]
+  },
+  {
+    "id": "afa172d4e93ce434",
+    "posted_date": "03-09-2026",
+    "posted_date_iso": "2026-09-03",
+    "event_date_iso": "2026-09-03",
+    "text": "Dear Parents \nPFA of Revision 5\nsubject -English",
+    "attachment_url": "http://wagholierp.snbpinstitutes.in/NEWPHP/Teacher/Notice_photos/39202613751.pdf",
+    "category": "Subject Notes",
+    "method": "pattern",
+    "periods": [],
+    "is_timetable": false,
+    "confidence": 0.85,
+    "subject": "English",
+    "chapter": null,
+    "chapter_number": null,
+    "material_type": "Revision",
+    "worksheet_numbers": [
+      5
+    ],
+    "answer_key_url": null,
+    "paired": false,
+    "calendar_event_id": null,
+    "exam_cycle": [
+      "Half Yearly"
+    ]
+  },
+  {
+    "id": "f8ea65c9e395cc9c",
+    "posted_date": "03-09-2026",
+    "posted_date_iso": "2026-09-03",
+    "event_date_iso": "2026-09-03",
+    "text": "Dear parents,\nPFA Marathi Revision No. 4 & &",
+    "attachment_url": "http://wagholierp.snbpinstitutes.in/NEWPHP/Teacher/Notice_photos/392026860.pdf",
+    "category": "Subject Notes",
+    "method": "pattern",
+    "periods": [],
+    "is_timetable": false,
+    "confidence": 0.85,
+    "subject": "Marathi",
+    "chapter": null,
+    "chapter_number": null,
+    "material_type": "Revision",
+    "worksheet_numbers": [
+      4
+    ],
+    "answer_key_url": null,
+    "paired": false,
+    "calendar_event_id": null,
+    "exam_cycle": [
+      "Half Yearly"
+    ]
+  },
+  {
     "id": "9c617bcfb6efe309",
     "posted_date": "02-09-2026",
     "posted_date_iso": "2026-09-02",
@@ -15,14 +170,14 @@
     "chapter": null,
     "chapter_number": null,
     "material_type": "Revision",
+    "worksheet_numbers": [
+      5
+    ],
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
     "exam_cycle": [
       "Half Yearly"
-    ],
-    "worksheet_numbers": [
-      5
     ]
   },
   {
@@ -41,14 +196,14 @@
     "chapter": null,
     "chapter_number": null,
     "material_type": "Revision",
+    "worksheet_numbers": [
+      6
+    ],
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
     "exam_cycle": [
       "Half Yearly"
-    ],
-    "worksheet_numbers": [
-      6
     ]
   },
   {
@@ -122,13 +277,11 @@
     "chapter": null,
     "chapter_number": null,
     "material_type": null,
+    "worksheet_numbers": null,
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
-    "exam_cycle": null,
-    "worksheet_numbers": [
-      4
-    ]
+    "exam_cycle": null
   },
   {
     "id": "da78cbd420f5d018",
@@ -146,14 +299,14 @@
     "chapter": null,
     "chapter_number": null,
     "material_type": "Revision",
+    "worksheet_numbers": [
+      6
+    ],
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
     "exam_cycle": [
       "Half Yearly"
-    ],
-    "worksheet_numbers": [
-      6
     ]
   },
   {
@@ -172,14 +325,14 @@
     "chapter": null,
     "chapter_number": null,
     "material_type": "Revision",
+    "worksheet_numbers": [
+      5
+    ],
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
     "exam_cycle": [
       "Half Yearly"
-    ],
-    "worksheet_numbers": [
-      5
     ]
   },
   {
@@ -198,14 +351,14 @@
     "chapter": null,
     "chapter_number": null,
     "material_type": "Revision",
+    "worksheet_numbers": [
+      4
+    ],
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
     "exam_cycle": [
       "Half Yearly"
-    ],
-    "worksheet_numbers": [
-      4
     ]
   },
   {
@@ -224,14 +377,14 @@
     "chapter": null,
     "chapter_number": null,
     "material_type": "Revision",
+    "worksheet_numbers": [
+      5
+    ],
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
     "exam_cycle": [
       "Half Yearly"
-    ],
-    "worksheet_numbers": [
-      5
     ]
   },
   {
@@ -250,14 +403,14 @@
     "chapter": null,
     "chapter_number": null,
     "material_type": "Revision",
+    "worksheet_numbers": [
+      4
+    ],
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
     "exam_cycle": [
       "Half Yearly"
-    ],
-    "worksheet_numbers": [
-      4
     ]
   },
   {
@@ -276,14 +429,14 @@
     "chapter": null,
     "chapter_number": null,
     "material_type": "Revision",
+    "worksheet_numbers": [
+      3
+    ],
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
     "exam_cycle": [
       "Half Yearly"
-    ],
-    "worksheet_numbers": [
-      3
     ]
   },
   {
@@ -302,14 +455,14 @@
     "chapter": null,
     "chapter_number": null,
     "material_type": "Revision",
+    "worksheet_numbers": [
+      2
+    ],
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
     "exam_cycle": [
       "Half Yearly"
-    ],
-    "worksheet_numbers": [
-      2
     ]
   },
   {
@@ -328,11 +481,11 @@
     "chapter": null,
     "chapter_number": null,
     "material_type": null,
+    "worksheet_numbers": null,
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
-    "exam_cycle": null,
-    "worksheet_numbers": null
+    "exam_cycle": null
   },
   {
     "id": "eb5d810528d85770",
@@ -350,14 +503,14 @@
     "chapter": null,
     "chapter_number": null,
     "material_type": "Revision",
+    "worksheet_numbers": [
+      6
+    ],
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
     "exam_cycle": [
       "Half Yearly"
-    ],
-    "worksheet_numbers": [
-      6
     ]
   },
   {
@@ -376,14 +529,14 @@
     "chapter": null,
     "chapter_number": null,
     "material_type": "Revision",
+    "worksheet_numbers": [
+      5
+    ],
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
     "exam_cycle": [
       "Half Yearly"
-    ],
-    "worksheet_numbers": [
-      5
     ]
   },
   {
@@ -402,14 +555,14 @@
     "chapter": null,
     "chapter_number": null,
     "material_type": "Revision",
+    "worksheet_numbers": [
+      4
+    ],
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
     "exam_cycle": [
       "Half Yearly"
-    ],
-    "worksheet_numbers": [
-      4
     ]
   },
   {
@@ -483,13 +636,11 @@
     "chapter": null,
     "chapter_number": null,
     "material_type": null,
+    "worksheet_numbers": null,
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
-    "exam_cycle": null,
-    "worksheet_numbers": [
-      4
-    ]
+    "exam_cycle": null
   },
   {
     "id": "ad97b0548e50bf9b",
@@ -507,15 +658,15 @@
     "chapter": null,
     "chapter_number": null,
     "material_type": "Revision",
+    "worksheet_numbers": [
+      1,
+      2
+    ],
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
     "exam_cycle": [
       "Half Yearly"
-    ],
-    "worksheet_numbers": [
-      1,
-      2
     ]
   },
   {
@@ -534,14 +685,14 @@
     "chapter": null,
     "chapter_number": null,
     "material_type": "Revision",
+    "worksheet_numbers": [
+      3
+    ],
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
     "exam_cycle": [
       "Half Yearly"
-    ],
-    "worksheet_numbers": [
-      3
     ]
   },
   {
@@ -560,14 +711,14 @@
     "chapter": null,
     "chapter_number": null,
     "material_type": "Worksheet",
+    "worksheet_numbers": [
+      4
+    ],
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
     "exam_cycle": [
       "Half Yearly"
-    ],
-    "worksheet_numbers": [
-      4
     ]
   },
   {
@@ -641,13 +792,11 @@
     "chapter": null,
     "chapter_number": null,
     "material_type": null,
+    "worksheet_numbers": null,
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
-    "exam_cycle": null,
-    "worksheet_numbers": [
-      2
-    ]
+    "exam_cycle": null
   },
   {
     "id": "872750c00b75c2cd",
@@ -665,14 +814,14 @@
     "chapter": null,
     "chapter_number": null,
     "material_type": "Worksheet",
+    "worksheet_numbers": [
+      4
+    ],
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
     "exam_cycle": [
       "Half Yearly"
-    ],
-    "worksheet_numbers": [
-      4
     ]
   },
   {
@@ -691,14 +840,14 @@
     "chapter": null,
     "chapter_number": null,
     "material_type": "Worksheet",
+    "worksheet_numbers": [
+      4
+    ],
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
     "exam_cycle": [
       "Half Yearly"
-    ],
-    "worksheet_numbers": [
-      4
     ]
   },
   {
@@ -717,14 +866,14 @@
     "chapter": null,
     "chapter_number": null,
     "material_type": "Revision",
+    "worksheet_numbers": [
+      3
+    ],
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
     "exam_cycle": [
       "Half Yearly"
-    ],
-    "worksheet_numbers": [
-      3
     ]
   },
   {
@@ -743,14 +892,14 @@
     "chapter": null,
     "chapter_number": null,
     "material_type": "Worksheet",
+    "worksheet_numbers": [
+      4
+    ],
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
     "exam_cycle": [
       "Half Yearly"
-    ],
-    "worksheet_numbers": [
-      4
     ]
   },
   {
@@ -769,14 +918,14 @@
     "chapter": null,
     "chapter_number": null,
     "material_type": "Worksheet",
+    "worksheet_numbers": [
+      4
+    ],
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
     "exam_cycle": [
       "Half Yearly"
-    ],
-    "worksheet_numbers": [
-      4
     ]
   },
   {
@@ -795,13 +944,13 @@
     "chapter": null,
     "chapter_number": null,
     "material_type": "Answer Key",
+    "worksheet_numbers": [
+      4
+    ],
     "answer_key_url": null,
     "paired": true,
     "calendar_event_id": null,
-    "exam_cycle": null,
-    "worksheet_numbers": [
-      4
-    ]
+    "exam_cycle": null
   },
   {
     "id": "ec4e032745df7bd1",
@@ -819,11 +968,11 @@
     "chapter": null,
     "chapter_number": null,
     "material_type": null,
+    "worksheet_numbers": null,
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
-    "exam_cycle": null,
-    "worksheet_numbers": null
+    "exam_cycle": null
   },
   {
     "id": "de6ef291d936973c",
@@ -841,14 +990,14 @@
     "chapter": null,
     "chapter_number": null,
     "material_type": "Revision",
+    "worksheet_numbers": [
+      3
+    ],
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
     "exam_cycle": [
       "Half Yearly"
-    ],
-    "worksheet_numbers": [
-      3
     ]
   },
   {
@@ -867,15 +1016,15 @@
     "chapter": null,
     "chapter_number": null,
     "material_type": "Revision",
+    "worksheet_numbers": [
+      1,
+      2
+    ],
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
     "exam_cycle": [
       "Half Yearly"
-    ],
-    "worksheet_numbers": [
-      1,
-      2
     ]
   },
   {
@@ -894,14 +1043,14 @@
     "chapter": null,
     "chapter_number": null,
     "material_type": "Worksheet",
+    "worksheet_numbers": [
+      4
+    ],
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
     "exam_cycle": [
       "Half Yearly"
-    ],
-    "worksheet_numbers": [
-      4
     ]
   },
   {
@@ -920,14 +1069,14 @@
     "chapter": null,
     "chapter_number": null,
     "material_type": "Worksheet",
+    "worksheet_numbers": [
+      4
+    ],
     "answer_key_url": "http://wagholierp.snbpinstitutes.in/NEWPHP/Teacher/Notice_photos/318202695857.pdf",
     "paired": false,
     "calendar_event_id": null,
     "exam_cycle": [
       "Half Yearly"
-    ],
-    "worksheet_numbers": [
-      4
     ]
   },
   {
@@ -946,14 +1095,14 @@
     "chapter": null,
     "chapter_number": null,
     "material_type": "Revision",
+    "worksheet_numbers": [
+      4
+    ],
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
     "exam_cycle": [
       "Half Yearly"
-    ],
-    "worksheet_numbers": [
-      4
     ]
   },
   {
@@ -972,14 +1121,14 @@
     "chapter": null,
     "chapter_number": null,
     "material_type": "Revision",
+    "worksheet_numbers": [
+      2
+    ],
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
     "exam_cycle": [
       "Half Yearly"
-    ],
-    "worksheet_numbers": [
-      2
     ]
   },
   {
@@ -998,17 +1147,17 @@
     "chapter": null,
     "chapter_number": null,
     "material_type": "Revision",
-    "answer_key_url": null,
-    "paired": false,
-    "calendar_event_id": null,
-    "exam_cycle": [
-      "Half Yearly"
-    ],
     "worksheet_numbers": [
       1,
       2,
       3,
       4
+    ],
+    "answer_key_url": null,
+    "paired": false,
+    "calendar_event_id": null,
+    "exam_cycle": [
+      "Half Yearly"
     ]
   },
   {
@@ -1082,13 +1231,11 @@
     "chapter": null,
     "chapter_number": null,
     "material_type": null,
+    "worksheet_numbers": null,
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
-    "exam_cycle": null,
-    "worksheet_numbers": [
-      2
-    ]
+    "exam_cycle": null
   },
   {
     "id": "4af7a21965448e39",
@@ -1106,14 +1253,14 @@
     "chapter": null,
     "chapter_number": null,
     "material_type": "Revision",
+    "worksheet_numbers": [
+      4
+    ],
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
     "exam_cycle": [
       "Half Yearly"
-    ],
-    "worksheet_numbers": [
-      4
     ]
   },
   {
@@ -1132,14 +1279,14 @@
     "chapter": null,
     "chapter_number": null,
     "material_type": "Revision",
+    "worksheet_numbers": [
+      3
+    ],
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
     "exam_cycle": [
       "Half Yearly"
-    ],
-    "worksheet_numbers": [
-      3
     ]
   },
   {
@@ -1158,14 +1305,14 @@
     "chapter": null,
     "chapter_number": null,
     "material_type": "Revision",
+    "worksheet_numbers": [
+      2
+    ],
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
     "exam_cycle": [
       "Half Yearly"
-    ],
-    "worksheet_numbers": [
-      2
     ]
   },
   {
@@ -1184,14 +1331,14 @@
     "chapter": null,
     "chapter_number": null,
     "material_type": "Revision",
+    "worksheet_numbers": [
+      1
+    ],
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
     "exam_cycle": [
       "Half Yearly"
-    ],
-    "worksheet_numbers": [
-      1
     ]
   },
   {
@@ -1210,14 +1357,14 @@
     "chapter": null,
     "chapter_number": null,
     "material_type": "Revision",
+    "worksheet_numbers": [
+      1
+    ],
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
     "exam_cycle": [
       "Half Yearly"
-    ],
-    "worksheet_numbers": [
-      1
     ]
   },
   {
@@ -1236,14 +1383,14 @@
     "chapter": null,
     "chapter_number": null,
     "material_type": "Revision",
+    "worksheet_numbers": [
+      3
+    ],
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
     "exam_cycle": [
       "Half Yearly"
-    ],
-    "worksheet_numbers": [
-      3
     ]
   },
   {
@@ -1262,14 +1409,14 @@
     "chapter": null,
     "chapter_number": null,
     "material_type": "Revision",
+    "worksheet_numbers": [
+      2
+    ],
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
     "exam_cycle": [
       "Half Yearly"
-    ],
-    "worksheet_numbers": [
-      2
     ]
   },
   {
@@ -1314,14 +1461,14 @@
     "chapter": null,
     "chapter_number": null,
     "material_type": "Revision",
+    "worksheet_numbers": [
+      3
+    ],
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
     "exam_cycle": [
       "Half Yearly"
-    ],
-    "worksheet_numbers": [
-      3
     ]
   },
   {
@@ -1340,14 +1487,14 @@
     "chapter": null,
     "chapter_number": null,
     "material_type": "Revision",
+    "worksheet_numbers": [
+      2
+    ],
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
     "exam_cycle": [
       "Half Yearly"
-    ],
-    "worksheet_numbers": [
-      2
     ]
   },
   {
@@ -1366,14 +1513,14 @@
     "chapter": null,
     "chapter_number": null,
     "material_type": "Revision",
+    "worksheet_numbers": [
+      1
+    ],
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
     "exam_cycle": [
       "Half Yearly"
-    ],
-    "worksheet_numbers": [
-      1
     ]
   },
   {
@@ -1392,11 +1539,11 @@
     "chapter": null,
     "chapter_number": null,
     "material_type": null,
+    "worksheet_numbers": null,
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
-    "exam_cycle": null,
-    "worksheet_numbers": null
+    "exam_cycle": null
   },
   {
     "id": "06d66264b54ad9cf",
@@ -1414,11 +1561,11 @@
     "chapter": null,
     "chapter_number": null,
     "material_type": null,
+    "worksheet_numbers": null,
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": null,
-    "exam_cycle": null,
-    "worksheet_numbers": null
+    "exam_cycle": null
   },
   {
     "id": "c9b8479189b477b9",
