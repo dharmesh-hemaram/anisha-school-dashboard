@@ -251,6 +251,106 @@
     "exam_cycle": null
   },
   {
+    "id": "79ad443d5ecb2214",
+    "posted_date": "03-09-2026",
+    "posted_date_iso": "2026-09-03",
+    "event_date_iso": "2026-09-03",
+    "text": "Dear Parent,\n\nPlease find the attached answer key for worksheet no. 4 of Marathi \n\nKindly use the same for correcting your ward work at home.",
+    "attachment_url": "http://wagholierp.snbpinstitutes.in/NEWPHP/Teacher/Notice_photos/392026185950.pdf",
+    "category": "Subject Notes",
+    "method": "pattern",
+    "periods": [],
+    "is_timetable": false,
+    "confidence": 0.85,
+    "subject": "Marathi",
+    "chapter": null,
+    "chapter_number": null,
+    "material_type": "Answer Key",
+    "worksheet_numbers": [
+      4
+    ],
+    "answer_key_url": null,
+    "paired": true,
+    "calendar_event_id": null,
+    "exam_cycle": null
+  },
+  {
+    "id": "e91360b115f43596",
+    "posted_date": "03-09-2026",
+    "posted_date_iso": "2026-09-03",
+    "event_date_iso": "2026-09-03",
+    "text": "Dear parents,\nPFA Math Revision No. 8",
+    "attachment_url": "http://wagholierp.snbpinstitutes.in/NEWPHP/Teacher/Notice_photos/392026184857.pdf",
+    "category": "Subject Notes",
+    "method": "pattern",
+    "periods": [],
+    "is_timetable": false,
+    "confidence": 0.85,
+    "subject": "Maths",
+    "chapter": null,
+    "chapter_number": null,
+    "material_type": "Revision",
+    "worksheet_numbers": [
+      8
+    ],
+    "answer_key_url": null,
+    "paired": false,
+    "calendar_event_id": null,
+    "exam_cycle": [
+      "Half Yearly"
+    ]
+  },
+  {
+    "id": "4e532398c5f5457c",
+    "posted_date": "03-09-2026",
+    "posted_date_iso": "2026-09-03",
+    "event_date_iso": "2026-09-03",
+    "text": "Dear parents,\nPFA Math Revision No. 7",
+    "attachment_url": "http://wagholierp.snbpinstitutes.in/NEWPHP/Teacher/Notice_photos/392026184647.pdf",
+    "category": "Subject Notes",
+    "method": "pattern",
+    "periods": [],
+    "is_timetable": false,
+    "confidence": 0.85,
+    "subject": "Maths",
+    "chapter": null,
+    "chapter_number": null,
+    "material_type": "Revision",
+    "worksheet_numbers": [
+      7
+    ],
+    "answer_key_url": null,
+    "paired": false,
+    "calendar_event_id": null,
+    "exam_cycle": [
+      "Half Yearly"
+    ]
+  },
+  {
+    "id": "38309f04fb6a5e82",
+    "posted_date": "03-09-2026",
+    "posted_date_iso": "2026-09-03",
+    "event_date_iso": "2026-09-03",
+    "text": "Dear Parent,\n\nPlease find the attached answer key for worksheet no. 4 of Maths\n\nKindly use the same for correcting your ward work at home.",
+    "attachment_url": "http://wagholierp.snbpinstitutes.in/NEWPHP/Teacher/Notice_photos/392026183456.pdf",
+    "category": "Subject Notes",
+    "method": "pattern",
+    "periods": [],
+    "is_timetable": false,
+    "confidence": 0.85,
+    "subject": "Maths",
+    "chapter": null,
+    "chapter_number": null,
+    "material_type": "Answer Key",
+    "worksheet_numbers": [
+      4
+    ],
+    "answer_key_url": null,
+    "paired": true,
+    "calendar_event_id": null,
+    "exam_cycle": null
+  },
+  {
     "id": "9c617bcfb6efe309",
     "posted_date": "02-09-2026",
     "posted_date_iso": "2026-09-02",
@@ -810,7 +910,7 @@
     "worksheet_numbers": [
       4
     ],
-    "answer_key_url": null,
+    "answer_key_url": "http://wagholierp.snbpinstitutes.in/NEWPHP/Teacher/Notice_photos/392026185950.pdf",
     "paired": false,
     "calendar_event_id": null,
     "exam_cycle": [
@@ -939,7 +1039,7 @@
     "worksheet_numbers": [
       4
     ],
-    "answer_key_url": null,
+    "answer_key_url": "http://wagholierp.snbpinstitutes.in/NEWPHP/Teacher/Notice_photos/392026183456.pdf",
     "paired": false,
     "calendar_event_id": null,
     "exam_cycle": [
