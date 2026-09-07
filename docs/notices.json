@@ -1,5 +1,27 @@
 [
   {
+    "id": "0f22397433ae323a",
+    "posted_date": "07-09-2026",
+    "posted_date_iso": "2026-09-07",
+    "event_date_iso": "2026-09-07",
+    "text": "Dear Parent,\n\nWe are pleased to share the Facebook post featuring photographs from Our Janamashtami Celebration \n\nhttps://www.facebook.com/share/p/1EizTnCkL9/\nhttps://www.facebook.com/share/p/1DE2D5KWaA/\n\n We invite you to like, share, and follow our Facebook page to stay updated with the latest events, celebrations, and achievements at SNBP International School, Wagholi.",
+    "attachment_url": null,
+    "category": "Event/Celebration",
+    "method": "pattern",
+    "periods": [],
+    "is_timetable": false,
+    "confidence": 0.85,
+    "subject": null,
+    "chapter": null,
+    "chapter_number": null,
+    "material_type": null,
+    "worksheet_numbers": null,
+    "answer_key_url": null,
+    "paired": false,
+    "calendar_event_id": null,
+    "exam_cycle": null
+  },
+  {
     "id": "f325ad6c9ad36b36",
     "posted_date": "03-09-2026",
     "posted_date_iso": "2026-09-03",
