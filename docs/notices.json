@@ -22,6 +22,28 @@
     "exam_cycle": null
   },
   {
+    "id": "e4fc39d11fe0a50e",
+    "posted_date": "07-09-2026",
+    "posted_date_iso": "2026-09-07",
+    "event_date_iso": "2026-09-07",
+    "text": "Dear Parent, \n\nThird Installment Of School Fee \nis due On 10-09-2026 Kindly maintain sufficient balance in your account as cheques will be deposited on 10-09-2026\nYou can come to the school  before 09-09-2026 to pay In Cash/card/NEFT/ to avoid any late payment charges. \nKindly Ignore If Already Paid.\n\nSchool bank details are:\nA/C No.: \n *23020200001635* \nIFSC code: \n  *FDRL0002302* \nReceiver .Name: \n *SNBP* *INTERNATIONAL* **SCHOOL WAGHOLI* \n\nKindly share the screenshot post payment on ac.snbpwagholi@gmail.com \n\n *Do not Pay fees other than given Account number.*",
+    "attachment_url": null,
+    "category": "General/Other",
+    "method": "default",
+    "periods": [],
+    "is_timetable": false,
+    "confidence": 0.5,
+    "subject": null,
+    "chapter": null,
+    "chapter_number": null,
+    "material_type": null,
+    "worksheet_numbers": null,
+    "answer_key_url": null,
+    "paired": false,
+    "calendar_event_id": null,
+    "exam_cycle": null
+  },
+  {
     "id": "f325ad6c9ad36b36",
     "posted_date": "03-09-2026",
     "posted_date_iso": "2026-09-03",
