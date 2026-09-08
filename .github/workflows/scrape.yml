@@ -92,7 +92,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: actions/download-artifact@v4
+      # Only exists when `scrape` actually ran (schedule/workflow_dispatch)
+      # -- a frontend-only push skips `scrape` entirely, so there's nothing
+      # to download and this job's own checkout above already has current
+      # docs/*.json (nothing skipped touches it).
+      - name: Download scraped data artifact
+        if: needs.scrape.result == 'success'
+        uses: actions/download-artifact@v4
         with:
           name: docs-data
           path: docs-data
@@ -118,7 +124,13 @@ jobs:
       - name: Copy scraped data + add SPA fallback into the build output
         run: |
           mkdir -p web/dist/data
-          cp -r docs-data/. web/dist/data/
+          if [ -d docs-data ]; then
+            cp -r docs-data/. web/dist/data/
+          else
+            cp docs/*.json web/dist/data/
+            mkdir -p web/dist/data/revision-notebooks
+            cp docs/revision-notebooks/*.json web/dist/data/revision-notebooks/
+          fi
           # GitHub Pages has no server-side rewrite -- a hard refresh or
           # shared link on a client-side route (e.g. /exam/Half-Yearly)
           # would otherwise 404. Copying index.html to 404.html makes
