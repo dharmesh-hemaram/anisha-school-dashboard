@@ -365,6 +365,13 @@
   .portion-row-text {
     font-size: 13px; color: var(--text); line-height: 1.5; white-space: pre-line; margin-bottom: 10px;
   }
+  /* A hand-authored revision notebook (Q&A practice page) for a subject's
+     exam cycle -- optional per schedule row, so most cards never render it. */
+  .revision-notebook-link {
+    display: inline-flex; align-items: center; gap: 5px; font-size: 12.5px; font-weight: 700;
+    color: var(--brand); background: var(--brand-soft); border-radius: 6px; padding: 5px 10px;
+    text-decoration: none; margin-bottom: 10px;
+  }
   .portion-notes { margin: 8px 0 18px; }
   .portion-notes ul { margin: 0; padding-left: 18px; font-size: 12px; color: var(--text-muted); }
   .portion-notes li { margin-bottom: 4px; }
@@ -975,10 +982,14 @@ function examSubjectCardHtml(subject, items, scheduleRow) {
        </span>`
     : `<span class="material-count">${subjItems.length}</span>`;
   const portionText = scheduleRow ? `<div class="portion-row-text">${escapeHtml(scheduleRow.portion)}</div>` : "";
+  const revisionLink = scheduleRow?.revision_notebook_url
+    ? `<a class="revision-notebook-link" href="${scheduleRow.revision_notebook_url}" target="_blank" rel="noopener">📓 Revision Notebook (Q&amp;A practice) →</a>`
+    : "";
   return `
     <div class="material-group-card">
       <div class="exam-subject-head">${subjectBadge(subject)}<span>${escapeHtml(subject)}</span>${headRight}</div>
       ${portionText}
+      ${revisionLink}
       ${subjItems.map(r => examMaterialRowHtml(r)).join("")}
     </div>`;
 }

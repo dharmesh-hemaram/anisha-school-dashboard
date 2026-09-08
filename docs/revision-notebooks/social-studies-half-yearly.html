@@ -1,0 +1,879 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Social Studies Revision Notebook</title>
+<meta name="theme-color" content="#232B3D">
+<style>
+  :root {
+    --bg: #F1F0E4;
+    --surface: #FBFAF3;
+    --surface-2: #E9E7D9;
+    --border: #DBD8C5;
+    --text: #232B3D;
+    --text-muted: #5E6675;
+    --text-faint: #8A8F7E;
+    --brand: #2B3654;
+    --brand-soft: #E4E3D3;
+    --warn: #B8710F;
+    --warn-ink: #7A4B0A;
+    --warn-bg: #FBEACB;
+    --shadow: 0 1px 2px rgba(35,43,61,0.06), 0 4px 14px -6px rgba(35,43,61,0.16);
+
+    --subj-maths: #3E6B8A;      --subj-maths-bg: #E4ECF1;
+    --subj-hindi: #A6432E;      --subj-hindi-bg: #F3E1DB;
+    --subj-marathi: #1F7A6B;    --subj-marathi-bg: #DFEEEA;
+    --subj-sst: #8A6A1F;        --subj-sst-bg: #F1EAD8;
+
+    --chap-gov: var(--subj-hindi);       --chap-gov-bg: var(--subj-hindi-bg);
+    --chap-delhi: var(--subj-marathi);   --chap-delhi-bg: var(--subj-marathi-bg);
+    --chap-leaders: var(--subj-sst);     --chap-leaders-bg: var(--subj-sst-bg);
+    --chap-transport: var(--subj-maths); --chap-transport-bg: var(--subj-maths-bg);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #171B24;
+      --surface: #1E232E;
+      --surface-2: #262C39;
+      --border: #333A49;
+      --text: #E9E7DC;
+      --text-muted: #A3AAB8;
+      --text-faint: #767E72;
+      --brand: #A8B8E8;
+      --brand-soft: #29304A;
+      --warn: #E3A54B;
+      --warn-ink: #F0C077;
+      --warn-bg: #3A2E17;
+      --shadow: 0 1px 2px rgba(0,0,0,0.35), 0 6px 18px -8px rgba(0,0,0,0.5);
+
+      --subj-maths: #8FB4D6;      --subj-maths-bg: #26344A;
+      --subj-hindi: #D97B62;      --subj-hindi-bg: #3B281F;
+      --subj-marathi: #7FC9BC;    --subj-marathi-bg: #1F3A35;
+      --subj-sst: #D6BE7F;        --subj-sst-bg: #3A331D;
+    }
+  }
+
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg); color: var(--text);
+    font: 15px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    * { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+  }
+
+  .wrap { max-width: 640px; margin: 0 auto; padding: 0 14px 32px; }
+
+  /* ---- Header ---- */
+  .page-head {
+    padding: calc(10px + env(safe-area-inset-top)) 0 12px;
+    border-bottom: 2px solid var(--brand);
+    margin-bottom: 10px;
+  }
+  .back-link {
+    display: inline-flex; align-items: center; gap: 5px;
+    font-size: 12.5px; font-weight: 600; color: var(--brand);
+    text-decoration: none; margin-bottom: 8px;
+  }
+  .subject-badge {
+    display: inline-flex; align-items: center; font-size: 10.5px; font-weight: 700;
+    letter-spacing: 0.02em; padding: 2px 6px; margin-right: 6px; border-radius: 6px;
+    vertical-align: 1px; white-space: nowrap;
+    background: var(--subj-sst-bg); color: var(--subj-sst);
+  }
+  .page-title { display: flex; align-items: center; font-size: 19px; font-weight: 800; margin: 0 0 4px; }
+  .page-sub { font-size: 12.5px; color: var(--text-muted); margin: 0 0 2px; max-width: 56ch; }
+  .page-meta { font-size: 11.5px; color: var(--text-faint); margin: 4px 0 0; }
+
+  /* ---- Controls ---- */
+  .controls { position: sticky; top: 0; z-index: 5; background: var(--bg); padding: 9px 0 8px; margin-bottom: 8px; border-bottom: 1px solid var(--border); }
+  .chip-row { display: flex; gap: 6px; overflow-x: auto; padding-bottom: 8px; -webkit-overflow-scrolling: touch; }
+  .chip-row::-webkit-scrollbar { display: none; }
+  .filter-chip {
+    flex: none; font-size: 12.5px; font-weight: 600; color: var(--text-muted);
+    background: var(--surface-2); border: 1px solid var(--border); border-radius: 999px;
+    padding: 7px 13px; white-space: nowrap;
+  }
+  .filter-chip.active { background: var(--brand); color: var(--bg); border-color: var(--brand); }
+  .search-row { display: flex; gap: 8px; align-items: center; }
+  #search {
+    flex: 1; font-size: 13px; padding: 8px 13px; border: 1px solid var(--border);
+    border-radius: 999px; background: var(--surface); color: var(--text);
+  }
+  #search:focus { outline: 2px solid var(--brand); outline-offset: 1px; }
+  #printBtn {
+    flex: none; border: none; background: none; color: var(--text-muted);
+    text-decoration: underline; cursor: pointer; font-size: 12px; padding: 4px 0;
+  }
+  .legend { font-size: 11px; color: var(--text-faint); margin: 7px 0 0; }
+  .legend .src-rev, .legend .src-ws { margin-left: 0; margin-right: 3px; }
+
+  /* ---- Category section ---- */
+  .cat-item { margin-bottom: 26px; }
+  .cat-head {
+    display: flex; align-items: center; gap: 9px; padding: 0 0 9px;
+    border-bottom: 2px solid var(--border); margin-bottom: 12px;
+    font-weight: 800; font-size: 15px;
+  }
+  .cat-num-badge {
+    width: 24px; height: 24px; border-radius: 50%; flex: none;
+    background: var(--brand); color: var(--bg);
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 11.5px; font-weight: 700;
+  }
+  .cat-title-text { flex: 1; }
+  .cat-note { font-size: 11.5px; color: var(--text-faint); margin: 0 0 12px; }
+
+  /* ---- Chapter group ---- */
+  .chap-group {
+    background: var(--surface); border-radius: 6px 9px 9px 6px;
+    padding: 10px 12px 11px; margin-bottom: 12px; border-left: 4px solid var(--text-faint);
+    border-top: 1px solid var(--border); border-right: 1px solid var(--border); border-bottom: 1px solid var(--border);
+  }
+  .chap-group:last-child { margin-bottom: 0; }
+  .chap-group[data-chapter="gov"] { border-left-color: var(--chap-gov); }
+  .chap-group[data-chapter="delhi"] { border-left-color: var(--chap-delhi); }
+  .chap-group[data-chapter="leaders"] { border-left-color: var(--chap-leaders); }
+  .chap-group[data-chapter="transport"] { border-left-color: var(--chap-transport); }
+
+  .chap-label {
+    display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 0.02em;
+    text-transform: uppercase; padding: 2px 8px; border-radius: 999px; margin-bottom: 7px;
+  }
+  [data-chapter="gov"] .chap-label { background: var(--chap-gov-bg); color: var(--chap-gov); }
+  [data-chapter="delhi"] .chap-label { background: var(--chap-delhi-bg); color: var(--chap-delhi); }
+  [data-chapter="leaders"] .chap-label { background: var(--chap-leaders-bg); color: var(--chap-leaders); }
+  [data-chapter="transport"] .chap-label { background: var(--chap-transport-bg); color: var(--chap-transport); }
+
+  .setlabel { font-size: 11px; font-weight: 700; color: var(--text-faint); margin: 8px 0 4px; }
+
+  ol, ul { padding-left: 17px; margin: 4px 0; font-size: 13px; }
+  li { margin-bottom: 5px; }
+
+  table { border-collapse: collapse; width: 100%; margin: 5px 0 8px; font-size: 12.5px; }
+  th, td { border: 1px solid var(--border); padding: 5px 7px; text-align: left; word-break: break-word; }
+  th { background: var(--surface); font-weight: 700; }
+
+  .answer-line { font-size: 12px; color: var(--text-muted); margin: 3px 0 0; }
+  .answer-line strong { color: var(--text); }
+
+  .qa { margin-bottom: 9px; }
+  .qa:last-child { margin-bottom: 0; }
+  .qa .q { margin: 0 0 3px; font-weight: 700; font-size: 13px; }
+  .qa .a { margin: 0; font-size: 12.5px; color: var(--text-muted); }
+  .qa .a ul { margin: 3px 0 0; }
+
+  .mcq { margin-bottom: 9px; }
+  .mcq:last-child { margin-bottom: 0; }
+  .mcq .q { margin: 0 0 2px; font-weight: 700; font-size: 13px; }
+  .mcq .opts { margin: 0 0 2px; font-size: 12px; color: var(--text-muted); }
+  .mcq .ans { margin: 0; font-size: 12px; color: var(--text); }
+  .mcq .ans strong { color: var(--brand); }
+
+  /* ---- Fill-in-the-blank reveal ---- */
+  .fib-toggle {
+    display: inline-block; margin: 0 0 7px; padding: 4px 11px; border-radius: 999px;
+    border: 1.5px solid currentColor; background: var(--surface); font-size: 11px;
+    font-weight: 700; cursor: pointer;
+  }
+  [data-chapter="gov"] .fib-toggle { color: var(--chap-gov); }
+  [data-chapter="delhi"] .fib-toggle { color: var(--chap-delhi); }
+  [data-chapter="leaders"] .fib-toggle { color: var(--chap-leaders); }
+  [data-chapter="transport"] .fib-toggle { color: var(--chap-transport); }
+
+  .fib-blank { display: inline-block; min-width: 4.5em; border-bottom: 2px dotted var(--text-faint); height: 1em; vertical-align: -2px; margin: 0 3px; }
+  .fib-answer { display: none; font-weight: 700; }
+  [data-chapter="gov"] .fib-answer { color: var(--chap-gov); }
+  [data-chapter="delhi"] .fib-answer { color: var(--chap-delhi); }
+  [data-chapter="leaders"] .fib-answer { color: var(--chap-leaders); }
+  [data-chapter="transport"] .fib-answer { color: var(--chap-transport); }
+  .chap-group.revealed .fib-answer { display: inline; }
+  .chap-group.revealed .fib-blank { display: none; }
+
+  .src-rev, .src-ws { font-weight: 800; margin-left: 2px; cursor: help; font-size: 0.9em; }
+  .src-rev { color: var(--warn-ink); }
+  .src-ws { color: var(--brand); }
+
+  .pic-item { display: flex; align-items: flex-start; gap: 8px; margin-bottom: 9px; }
+  .pic-item:last-child { margin-bottom: 0; }
+  .pic-item img { width: 74px; height: 56px; object-fit: cover; border-radius: 7px; border: 1px solid var(--border); flex: none; }
+  .pic-item .pic-caption { padding-top: 1px; font-size: 12.5px; }
+
+  .leader-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(74px,1fr)); gap: 8px; margin: 7px 0 2px; }
+  .leader-grid figure { margin: 0; text-align: center; }
+  .leader-grid img { width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 8px; border: 1px solid var(--border); }
+  .leader-grid figcaption { font-size: 10.5px; margin-top: 4px; font-weight: 600; }
+
+  .leader-thumb { width: 28px; height: 28px; border-radius: 50%; object-fit: cover; vertical-align: middle; margin-right: 6px; border: 1px solid var(--border); }
+
+  .sign-cell { width: 52px; text-align: center; }
+  .sign-cell svg { width: 40px; height: 40px; }
+
+  .empty-state { font-size: 13px; color: var(--text-faint); font-style: italic; padding: 14px 2px; }
+
+  footer.page-footer {
+    font-size: 11px; color: var(--text-faint); text-align: center; padding: 10px 4px 4px;
+  }
+
+  @media print {
+    .controls, .back-link { display: none; }
+    .cat-item { box-shadow: none; break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="page-head">
+    <a class="back-link" href="../index.html">&larr; Back to Notice Board</a>
+    <div class="page-title"><span class="subject-badge">SST</span>Revision Notebook</div>
+    <p class="page-sub">Our Government · Delhi and Mumbai · Our Leaders · Transport — every question below comes straight from the textbook, school worksheets, or notebook pages. Nothing has been invented.</p>
+    <p class="page-meta">Half Yearly Exam · Wed, 9 Sept · 60 marks</p>
+  </header>
+
+  <div class="controls">
+    <div class="chip-row" id="chipRow">
+      <button class="filter-chip active" data-chapter="all">All chapters</button>
+      <button class="filter-chip" data-chapter="gov">Our Government</button>
+      <button class="filter-chip" data-chapter="delhi">Delhi &amp; Mumbai</button>
+      <button class="filter-chip" data-chapter="leaders">Our Leaders</button>
+      <button class="filter-chip" data-chapter="transport">Transport</button>
+    </div>
+    <div class="search-row">
+      <input type="text" id="search" placeholder="Search a word, e.g. Gandhi, capital, subway…">
+      <button id="printBtn" onclick="window.print()">Print</button>
+    </div>
+    <p class="legend"><span class="src-rev">*</span>also asked in a Revision sheet &nbsp;&nbsp; <span class="src-ws">#</span>also asked in a school Worksheet</p>
+  </div>
+
+  <div id="catList">
+
+  <!-- 1. FILL IN THE BLANKS -->
+  <div class="cat-item" id="cat-1">
+    <div class="cat-head">
+      <span class="cat-num-badge">1</span><span class="cat-title-text">Fill in the Blanks</span>    </div>
+    <div class="cat-body">
+      <p class="cat-note">Answers are hidden by default. Tap "Show answers" under each chapter to reveal that chapter's answers only.</p>
+
+      <div class="chap-group" data-chapter="gov">
+        <span class="chap-label">Our Government</span><br>
+        <button class="fib-toggle" onclick="toggleFib(this)">Show answers</button>
+        <ol>
+          <li><span class="fib-blank"></span><span class="fib-answer">New Delhi</span> is the capital of India.</li>
+          <li>The <span class="fib-blank"></span><span class="fib-answer">Central Government</span> is the head of the country.</li>
+          <li>There are <span class="fib-blank"></span><span class="fib-answer">28</span> states in India.</li>
+          <li><span class="fib-blank"></span><span class="fib-answer">Union Territories</span> are controlled by the Central Government. <sup class="src-rev" title="Also asked in a Revision sheet">*</sup></li>
+        </ol>
+      </div>
+
+      <div class="chap-group" data-chapter="delhi">
+        <span class="chap-label">Delhi and Mumbai</span><br>
+        <button class="fib-toggle" onclick="toggleFib(this)">Show answers</button>
+        <ol>
+          <li>Delhi is situated along the banks of the River <span class="fib-blank"></span><span class="fib-answer">Yamuna</span>. <sup class="src-ws" title="Also asked in a school Worksheet">#</sup></li>
+          <li>The official name of Delhi is the <span class="fib-blank"></span><span class="fib-answer">National</span> Capital Territory of Delhi. <sup class="src-ws" title="Also asked in a school Worksheet">#</sup></li>
+          <li>The Central Secretariat building has <span class="fib-blank"></span><span class="fib-answer">two</span> blocks.</li>
+          <li>Foreign offices are called <span class="fib-blank"></span><span class="fib-answer">Embassies</span> or High Commissions.</li>
+          <li><span class="fib-blank"></span><span class="fib-answer">Connaught Place</span> is one of the largest business spots.</li>
+          <li><span class="fib-blank"></span><span class="fib-answer">Malabar Hills</span> present the most beautiful view of Mumbai. <sup class="src-rev" title="Also asked in a Revision sheet">*</sup></li>
+        </ol>
+        <p class="answer-line">More practice blanks, now confirmed from Anisha's own completed worksheet:</p>
+        <ol start="7">
+          <li>Mumbai is the <span class="fib-blank"></span><span class="fib-answer">richest</span> city of India and an important <span class="fib-blank"></span><span class="fib-answer">port</span>.</li>
+          <li><span class="fib-blank"></span><span class="fib-answer">Chandni Chowk</span> is one of the oldest and busiest markets in Delhi.</li>
+          <li><span class="fib-blank"></span><span class="fib-answer">Ganesh Chaturthi</span> is an important festival in Mumbai.</li>
+          <li>The climate of Delhi is <span class="fib-blank"></span><span class="fib-answer">extreme</span>.</li>
+        </ol>
+      </div>
+
+      <div class="chap-group" data-chapter="leaders">
+        <span class="chap-label">Our Leaders</span><br>
+        <button class="fib-toggle" onclick="toggleFib(this)">Show answers</button>
+        <ol>
+          <li>Mahatma Gandhi was popularly known as <span class="fib-blank"></span><span class="fib-answer">Bapu</span>. <sup class="src-ws" title="Also asked in a school Worksheet">#</sup></li>
+          <li>Sarojini Naidu was given the title <span class="fib-blank"></span><span class="fib-answer">Nightingale</span> of India. <sup class="src-ws" title="Also asked in a school Worksheet">#</sup></li>
+          <li><span class="fib-blank"></span><span class="fib-answer">Lokmanya</span> means respected by all. <sup class="src-rev" title="Also asked in a Revision sheet">*</sup></li>
+          <li>The slogan <span class="fib-blank"></span><span class="fib-answer">"Jai Hind"</span> was used by Netaji Subhash Chandra Bose.</li>
+          <li>Sarojini Naidu is known as the <span class="fib-blank"></span><span class="fib-answer">Nightingale of India</span>.</li>
+          <li>Tilak started two weekly newspapers, <span class="fib-blank"></span><span class="fib-answer">Kesari</span> (in Marathi) and <span class="fib-blank"></span><span class="fib-answer">Mahratta</span> (in English).</li>
+          <li>Rani Lakshmi Bai was married to <span class="fib-blank"></span><span class="fib-answer">Gangadhar Rao</span>, the King of <span class="fib-blank"></span><span class="fib-answer">Jhansi</span>.</li>
+        </ol>
+      </div>
+
+      <div class="chap-group" data-chapter="transport">
+        <span class="chap-label">Transport</span><br>
+        <button class="fib-toggle" onclick="toggleFib(this)">Show answers</button>
+        <ol>
+          <li>Bullock carts and bicycles are mostly used by people living in <span class="fib-blank"></span><span class="fib-answer">rural</span> areas.</li>
+          <li><span class="fib-blank"></span><span class="fib-answer">Air</span> transport is the fastest means of transport.</li>
+          <li>Animal transport has been a means of <span class="fib-blank"></span><span class="fib-answer">land</span> transport since ancient times.</li>
+          <li>Ships are used to transport huge <span class="fib-blank"></span><span class="fib-answer">quantities</span> of goods to other countries. <sup class="src-rev" title="Also asked in a Revision sheet">*</sup></li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. MATCH THE FOLLOWING -->
+  <div class="cat-item" id="cat-2">
+    <div class="cat-head">
+      <span class="cat-num-badge">2</span><span class="cat-title-text">Match the Following</span>    </div>
+    <div class="cat-body">
+      <div class="chap-group" data-chapter="gov">
+        <span class="chap-label">Our Government</span>
+        <table>
+          <tr><th>States</th><th>Capitals</th></tr>
+          <tr><td>1. Nagaland</td><td>(c) Kohima</td></tr>
+          <tr><td>2. Jharkhand</td><td>(e) Ranchi</td></tr>
+          <tr><td>3. Sikkim</td><td>(a) Gangtok</td></tr>
+          <tr><td>4. Haryana</td><td>(b) Chandigarh</td></tr>
+          <tr><td>5. Gujarat</td><td>(d) Gandhinagar</td></tr>
+        </table>
+        <p class="answer-line"><strong>Answer:</strong> 1–c, 2–e, 3–a, 4–b, 5–d</p>
+      </div>
+
+      <div class="chap-group" data-chapter="delhi">
+        <span class="chap-label">Delhi and Mumbai</span>
+        <h4 class="setlabel">Set A <sup class="src-ws" title="Also asked in a school Worksheet">#</sup></h4>
+        <table>
+          <tr><th>Column A</th><th>Column B</th></tr>
+          <tr><td>1. Raj Ghat</td><td>(c) Samadhi of Mahatma Gandhi</td></tr>
+          <tr><td>2. Marine Drive</td><td>(e) Queen's Necklace</td></tr>
+          <tr><td>3. Sarojini Naidu</td><td>(a) Nightingale of India</td></tr>
+          <tr><td>4. Sardar Patel</td><td>(b) Iron Man of India</td></tr>
+          <tr><td>5. Bal Gangadhar Tilak</td><td>(d) Lokmanya</td></tr>
+        </table>
+        <p class="answer-line"><strong>Answer:</strong> 1–c, 2–e, 3–a, 4–b, 5–d</p>
+
+        <h4 class="setlabel">Set B</h4>
+        <table>
+          <tr><th>Column A</th><th>Column B</th></tr>
+          <tr><td>1. Raj Ghat</td><td>(c) Samadhi of Gandhi</td></tr>
+          <tr><td>2. Shanti Van</td><td>(a) Memorial of Nehru</td></tr>
+          <tr><td>3. Akshardham Temple</td><td>(d) Delhi</td></tr>
+          <tr><td>4. Marine Drive</td><td>(e) Queen's Necklace</td></tr>
+          <tr><td>5. Textile Mills</td><td>(b) Mumbai</td></tr>
+        </table>
+        <p class="answer-line"><strong>Answer:</strong> 1–c, 2–a, 3–d, 4–e, 5–b</p>
+      </div>
+
+      <div class="chap-group" data-chapter="leaders">
+        <span class="chap-label">Our Leaders</span>
+        <h4 class="setlabel">Set A</h4>
+        <table>
+          <tr><th>Column A</th><th>Column B</th></tr>
+          <tr><td>1. Bal Gangadhar Tilak</td><td>(b) Lokmanya</td></tr>
+          <tr><td>2. Sarojini Naidu</td><td>(d) First woman governor of India</td></tr>
+          <tr><td>3. Sardar Patel</td><td>(a) Iron Man of India</td></tr>
+          <tr><td>4. Subhash Chandra Bose</td><td>(c) "Give me blood, I will give you freedom"</td></tr>
+        </table>
+        <p class="answer-line"><strong>Answer:</strong> 1–b, 2–d, 3–a, 4–c</p>
+
+        <h4 class="setlabel">Set B</h4>
+        <table>
+          <tr><th>Column A</th><th>Column B</th></tr>
+          <tr><td>1. Rani Jhansi Bahini</td><td>(b) Captain Lakshmi Sahgal</td></tr>
+          <tr><td>2. Jai Hind</td><td>(c) a slogan</td></tr>
+          <tr><td>3. Subhash Chandra Bose</td><td>(d) born in Odisha</td></tr>
+          <tr><td>4. Indian National Army</td><td>(a) Azad Hind Fauj</td></tr>
+        </table>
+        <p class="answer-line"><strong>Answer:</strong> 1–b, 2–c, 3–d, 4–a</p>
+      </div>
+
+      <div class="chap-group" data-chapter="transport">
+        <span class="chap-label">Transport</span>
+        <h4 class="setlabel">Road signs — Help Box matching</h4>
+        <table>
+          <tr><th>Sign</th><th>Meaning (Help Box)</th></tr>
+          <tr>
+            <td class="sign-cell">
+              <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <polygon points="50,8 92,88 8,88" fill="#fff" stroke="#D32F2F" stroke-width="7" stroke-linejoin="round"/>
+                <circle cx="50" cy="42" r="6" fill="#111"/>
+                <path d="M50 48 L50 66 M50 54 L39 62 M50 54 L61 62 M50 66 L41 80 M50 66 L59 80" stroke="#111" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+              </svg>
+            </td>
+            <td>Zebra crossing</td>
+          </tr>
+          <tr>
+            <td class="sign-cell">
+              <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="43" fill="#fff" stroke="#D32F2F" stroke-width="7"/>
+                <path d="M34 66 V44 A16 16 0 0 1 66 44 V52" stroke="#111" stroke-width="6.5" fill="none" stroke-linecap="round"/>
+                <polygon points="66,45 78,52 66,60" fill="#111"/>
+                <line x1="18" y1="82" x2="82" y2="18" stroke="#D32F2F" stroke-width="6.5"/>
+              </svg>
+            </td>
+            <td>No U-turn</td>
+          </tr>
+          <tr>
+            <td class="sign-cell">
+              <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <polygon points="50,8 92,88 8,88" fill="#fff" stroke="#D32F2F" stroke-width="7" stroke-linejoin="round"/>
+                <rect x="24" y="44" width="7" height="32" fill="#111"/>
+                <rect x="69" y="44" width="7" height="32" fill="#111"/>
+                <line x1="27" y1="50" x2="73" y2="70" stroke="#111" stroke-width="6"/>
+                <line x1="27" y1="70" x2="73" y2="50" stroke="#111" stroke-width="6"/>
+              </svg>
+            </td>
+            <td>Railway crossing</td>
+          </tr>
+          <tr>
+            <td class="sign-cell">
+              <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="43" fill="#fff" stroke="#D32F2F" stroke-width="7"/>
+                <circle cx="50" cy="34" r="6.5" fill="#111"/>
+                <path d="M50 41 L50 60 M50 47 L38 57 M50 47 L62 57 M50 60 L40 77 M50 60 L60 77" stroke="#111" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+                <line x1="18" y1="82" x2="82" y2="18" stroke="#D32F2F" stroke-width="6.5"/>
+              </svg>
+            </td>
+            <td>No pedestrian</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. TRUE OR FALSE -->
+  <div class="cat-item" id="cat-3">
+    <div class="cat-head">
+      <span class="cat-num-badge">3</span><span class="cat-title-text">True or False</span>    </div>
+    <div class="cat-body">
+      <div class="chap-group" data-chapter="gov">
+        <span class="chap-label">Our Government</span>
+        <ol>
+          <li>India became an independent country on 15th August, 1947. → <strong>True</strong></li>
+          <li>The Prime Minister and other ministers of the Central Government live in Mumbai. → <strong>False</strong> — They live in New Delhi, the capital of India.</li>
+          <li>The Central Government runs the whole country. → <strong>True</strong></li>
+          <li>There are 9 Union Territories in India. → <strong>False</strong> — There are 8 Union Territories in India.</li>
+        </ol>
+      </div>
+
+      <div class="chap-group" data-chapter="leaders">
+        <span class="chap-label">Our Leaders</span>
+        <ol>
+          <li>Bal Gangadhar Tilak is also known as 'Iron Man of India'. → <strong>False</strong></li>
+          <li>Mahatma Gandhi is called the 'Father of Nation'. → <strong>True</strong></li>
+          <li>Mahatma Gandhi studied law in America. → <strong>False</strong></li>
+          <li>The slogan 'Jai Hind' was used by Netaji Subhash Chandra Bose to encourage Indians. → <strong>True</strong></li>
+        </ol>
+      </div>
+
+      <div class="chap-group" data-chapter="transport">
+        <span class="chap-label">Transport</span>
+        <ol>
+          <li>Vehicles carry people and goods from one place to another. → <strong>True</strong></li>
+          <li>We must not follow the road safety rules. → <strong>False</strong></li>
+          <li>Camel is called the 'Ship of the Desert'. → <strong>True</strong></li>
+          <li>We must not use zebra crossing to cross the road. → <strong>False</strong></li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. NAME THE FOLLOWING -->
+  <div class="cat-item" id="cat-4">
+    <div class="cat-head">
+      <span class="cat-num-badge">4</span><span class="cat-title-text">Name the Following / One Word</span>    </div>
+    <div class="cat-body">
+      <div class="chap-group" data-chapter="gov">
+        <span class="chap-label">Our Government</span>
+        <ul>
+          <li>Name the capital of India. — <strong>New Delhi</strong></li>
+          <li>How many States and Union Territories are there in India? — <strong>36</strong> (28 states + 8 Union Territories)</li>
+          <li>Prime Minister of India — <strong>Shri Narendra Modi</strong> <sup class="src-ws" title="Also asked in a school Worksheet">#</sup><sup class="src-rev" title="Also asked in a Revision sheet">*</sup></li>
+          <li>President of India — <strong>Smt. Droupadi Murmu</strong> <sup class="src-ws" title="Also asked in a school Worksheet">#</sup><sup class="src-rev" title="Also asked in a Revision sheet">*</sup></li>
+          <li>Vice-President of India — <strong>C. P. Radhakrishnan</strong> <sup class="src-rev" title="Also asked in a Revision sheet">*</sup></li>
+          <li>Home Minister of India — <strong>Shri Amit Shah</strong> <sup class="src-ws" title="Also asked in a school Worksheet">#</sup><sup class="src-rev" title="Also asked in a Revision sheet">*</sup></li>
+          <li>Chief Minister of Maharashtra — <strong>Shri Devendra Fadnavis</strong> <sup class="src-ws" title="Also asked in a school Worksheet">#</sup></li>
+          <li>Governor of Maharashtra — <strong>Shri Jishnu Dev Varma</strong> <sup class="src-ws" title="Also asked in a school Worksheet">#</sup></li>
+          <li>What is the law-making body of the Central Government? — <strong>The Parliament</strong></li>
+          <li>Where does the President of India live? — <strong>Rashtrapati Bhawan</strong></li>
+          <li>Who looks after the country just like the head of the family? — <strong>Central Government</strong></li>
+          <li>Who looks after the Union Territories? — <strong>Central Government</strong></li>
+          <li>Where does the Governor live? — <strong>Raj Bhawan</strong></li>
+        </ul>
+      </div>
+
+      <div class="chap-group" data-chapter="delhi">
+        <span class="chap-label">Delhi and Mumbai</span>
+        <ul>
+          <li>Who built Jantar Mantar? — <strong>Maharaja Jai Singh II</strong> <sup class="src-rev" title="Also asked in a Revision sheet">*</sup></li>
+          <li>Which event was successfully hosted by the city of Delhi in 2023? — <strong>G20 Summit</strong> <sup class="src-rev" title="Also asked in a Revision sheet">*</sup></li>
+        </ul>
+      </div>
+
+      <div class="chap-group" data-chapter="leaders">
+        <span class="chap-label">Our Leaders</span>
+        <ul>
+          <li>Which national leader is also known as the 'Father of the Nation'? — <strong>Mahatma Gandhi</strong></li>
+          <li>Nightingale of India — <strong>Sarojini Naidu</strong> <sup class="src-rev" title="Also asked in a Revision sheet">*</sup></li>
+          <li>Father of Nation — <strong>Mahatma Gandhi</strong> <sup class="src-rev" title="Also asked in a Revision sheet">*</sup></li>
+          <li>What was Mahatma Gandhi's full name? — <strong>Mohandas Karamchand Gandhi</strong> <sup class="src-rev" title="Also asked in a Revision sheet">*</sup></li>
+          <li>When did Rani Laxmibai die? — <strong>1858</strong></li>
+          <li>What is the name of the women's army unit formed by Subhash Chandra Bose? — <strong>Rani Jhansi Bahini</strong></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. DEFINE -->
+  <div class="cat-item" id="cat-5">
+    <div class="cat-head">
+      <span class="cat-num-badge">5</span><span class="cat-title-text">Define</span>    </div>
+    <div class="cat-body">
+      <div class="chap-group" data-chapter="gov">
+        <span class="chap-label">Our Government</span>
+        <div class="qa"><p class="q">Government</p><p class="a">A governing body that looks after the welfare and safety of the people. It frames laws.</p></div>
+        <div class="qa"><p class="q">Central Government <sup class="src-ws" title="Also asked in a school Worksheet">#</sup></p><p class="a">It is the government elected by the people to govern the country.</p></div>
+        <div class="qa"><p class="q">State Government</p><p class="a">It is the government elected by the people to govern the state.</p></div>
+        <div class="qa"><p class="q">Union Territories <sup class="src-ws" title="Also asked in a school Worksheet">#</sup></p><p class="a">Small parts of India that are directly controlled by the Central Government.</p></div>
+      </div>
+
+      <div class="chap-group" data-chapter="transport">
+        <span class="chap-label">Transport</span>
+        <div class="qa"><p class="q">Transportation</p><p class="a">It means to carry people and goods from place to place by means of vehicles.</p></div>
+        <div class="qa"><p class="q">Subway</p><p class="a">It is an underground way to cross the road safely.</p></div>
+        <div class="qa"><p class="q">Level Crossing</p><p class="a">It is a place where a railway line and a road cross each other.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6. STATE CAPITALS -->
+  <div class="cat-item" id="cat-6">
+    <div class="cat-head">
+      <span class="cat-num-badge">6</span><span class="cat-title-text">State / UT Capitals</span>    </div>
+    <div class="cat-body">
+      <div class="chap-group" data-chapter="gov">
+        <span class="chap-label">Our Government</span>
+        <table>
+          <tr><th>State / UT</th><th>Capital</th><th>Source</th></tr>
+          <tr><td>Haryana</td><td>Chandigarh</td><td><sup class="src-ws" title="Also asked in a school Worksheet">#</sup></td></tr>
+          <tr><td>Karnataka</td><td>Bengaluru</td><td><sup class="src-ws" title="Also asked in a school Worksheet">#</sup></td></tr>
+          <tr><td>Sikkim</td><td>Gangtok</td><td><sup class="src-ws" title="Also asked in a school Worksheet">#</sup><sup class="src-rev" title="Also asked in a Revision sheet">*</sup></td></tr>
+          <tr><td>Punjab</td><td>Chandigarh</td><td><sup class="src-ws" title="Also asked in a school Worksheet">#</sup></td></tr>
+          <tr><td>Maharashtra</td><td>Mumbai</td><td><sup class="src-ws" title="Also asked in a school Worksheet">#</sup></td></tr>
+          <tr><td>Assam</td><td>Dispur</td><td><sup class="src-rev" title="Also asked in a Revision sheet">*</sup></td></tr>
+          <tr><td>Nagaland</td><td>Kohima</td><td><sup class="src-rev" title="Also asked in a Revision sheet">*</sup></td></tr>
+          <tr><td>Odisha</td><td>Bhubaneshwar</td><td><sup class="src-rev" title="Also asked in a Revision sheet">*</sup></td></tr>
+          <tr><td>Goa</td><td>Panjim</td><td><sup class="src-rev" title="Also asked in a Revision sheet">*</sup></td></tr>
+          <tr><td>Ladakh</td><td>Leh</td><td><sup class="src-rev" title="Also asked in a Revision sheet">*</sup></td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7. SHORT ANSWERS -->
+  <div class="cat-item" id="cat-7">
+    <div class="cat-head">
+      <span class="cat-num-badge">7</span><span class="cat-title-text">Write Short Answers</span>    </div>
+    <div class="cat-body">
+      <div class="chap-group" data-chapter="gov">
+        <span class="chap-label">Our Government</span>
+        <div class="qa"><p class="q">What is a Government? <sup class="src-rev" title="Also asked in a Revision sheet">*</sup></p><p class="a">The government is a governing body that looks after the welfare and safety of the people.</p></div>
+        <div class="qa"><p class="q">Name any three Union Territories.</p><p class="a">Delhi, Lakshadweep, Puducherry.</p></div>
+        <div class="qa"><p class="q">What are the responsibilities of a State Government?</p><p class="a">The State Government looks after education, health, welfare of the people and also maintains law and order.</p></div>
+      </div>
+
+      <div class="chap-group" data-chapter="delhi">
+        <span class="chap-label">Delhi and Mumbai</span>
+        <div class="qa"><p class="q">What is Mumbai also known for? <sup class="src-ws" title="Also asked in a school Worksheet">#</sup></p><p class="a">Mumbai is also known as the entertainment and business capital of India.</p></div>
+      </div>
+
+      <div class="chap-group" data-chapter="leaders">
+        <span class="chap-label">Our Leaders</span>
+        <div class="qa"><p class="q"><img class="leader-thumb" src="leaders/gandhi.jpg" alt="Mahatma Gandhi">When and where was Mahatma Gandhi born? What did he study in England? <sup class="src-rev" title="Also asked in a Revision sheet">*</sup></p><p class="a">Mahatma Gandhi was born on 2nd October, 1869, in Porbandar, Gujarat. He studied law in England.</p></div>
+        <div class="qa"><p class="q"><img class="leader-thumb" src="leaders/tilak.jpg" alt="Bal Gangadhar Tilak">Which slogan was given by Lokmanya Tilak to encourage millions of Indians? <sup class="src-ws" title="Also asked in a school Worksheet">#</sup></p><p class="a">"Swaraj is my birthright and I shall have it."</p></div>
+        <div class="qa"><p class="q"><img class="leader-thumb" src="leaders/bose.jpg" alt="Subhash Chandra Bose">Which two slogans were used by Netaji to encourage the Indians?</p><p class="a">"Jai Hind" and "Give me blood, I will give you freedom."</p></div>
+      </div>
+
+      <div class="chap-group" data-chapter="transport">
+        <span class="chap-label">Transport</span>
+        <div class="qa"><p class="q">What are the common means of transport used in villages?</p><p class="a">In Indian villages, bullock carts or animal carts are used to carry goods and people.</p></div>
+        <div class="qa"><p class="q">Why do people need to be careful on the roads or streets?</p><p class="a">Because even a bit of carelessness can cost them their life.</p></div>
+        <div class="qa"><p class="q">Why do we use means of transport? <sup class="src-rev" title="Also asked in a Revision sheet">*</sup></p><p class="a">Means of transport help people to travel from one place to another.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 8. LONG ANSWERS -->
+  <div class="cat-item" id="cat-8">
+    <div class="cat-head">
+      <span class="cat-num-badge">8</span><span class="cat-title-text">Long Answers</span>    </div>
+    <div class="cat-body">
+      <div class="chap-group" data-chapter="gov">
+        <span class="chap-label">Our Government</span>
+        <div class="qa"><p class="q">List the responsibilities of the Government. <sup class="src-ws" title="Also asked in a school Worksheet">#</sup></p><div class="a"><ul>
+          <li>Frames laws to run the country smoothly.</li>
+          <li>Provides services like electricity, water, telephone and communication.</li>
+          <li>Decides where to build roads, schools, hospitals, stadiums, parks, stations and airports.</li>
+        </ul></div></div>
+        <div class="qa"><p class="q">What are the functions of the Central Government? <sup class="src-rev" title="Also asked in a Revision sheet">*</sup></p><p class="a">The Central Government is like the head of the family that runs the whole nation. It helps the State Government whenever help is needed.</p></div>
+        <div class="qa"><p class="q">Why has India been divided into States and Union Territories? <sup class="src-ws" title="Also asked in a school Worksheet">#</sup></p><p class="a">India is a big country, and it was not possible for one government to look after such a big country. Hence, it is divided into States and Union Territories.</p></div>
+        <div class="qa"><p class="q">How are Union Territories different from States?</p><p class="a">Every State has its own government, but Union Territories are under the direct control of the Central Government.</p></div>
+      </div>
+
+      <div class="chap-group" data-chapter="delhi">
+        <span class="chap-label">Delhi and Mumbai</span>
+        <div class="qa"><p class="q">List (a) any five places of tourist interest in Delhi (b) two government offices located in Delhi.</p><div class="a"><ul>
+          <li>(a) Red Fort, India Gate, Qutub Minar, Jantar Mantar, Nehru Planetarium</li>
+          <li>(b) Parliament, Prime Minister's Office</li>
+        </ul></div></div>
+        <div class="qa"><p class="q">What are embassies?</p><p class="a">The governments of other countries have offices in Delhi. These foreign offices are called Embassies or High Commissions.</p></div>
+        <div class="qa"><p class="q">List any five tourist spots of Mumbai.</p><p class="a">Gateway of India, Jehangir Art Gallery, Marine Drive, Taraporewala Aquarium, Essel World.</p></div>
+        <div class="qa"><p class="q">Why is New Delhi often referred to as 'Lutyens' Delhi'? <sup class="src-rev" title="Also asked in a Revision sheet">*</sup></p><p class="a">The city of Delhi was planned and designed by British architect Sir Edwin Lutyens. Therefore, it is often referred to as 'Lutyens' Delhi'.</p></div>
+        <div class="qa"><p class="q">Why is Mumbai called the 'City of Dreams'?</p><p class="a">People from all over India come to Mumbai for employment or to become actors. It is home to many television and film stars, so Mumbai is called the City of Dreams.</p></div>
+        <div class="qa"><p class="q">Describe the climate of Delhi.</p><p class="a">The climate of Delhi is extreme. It has very hot summers. Hot and dry winds called <em>loo</em> blow from April to June. The winters are very cold, and it rains from July to September.</p></div>
+        <div class="qa"><p class="q">Write a short note on the transport system of Mumbai.</p><div class="a"><ul>
+          <li>Local train networks connect the city very well and it is the best public transport system in Mumbai.</li>
+          <li>The city also has one of the busiest railway stations in India — the Chhatrapati Shivaji Terminus (CST).</li>
+        </ul></div></div>
+        <div class="qa"><p class="q">What makes Delhi a well-connected city?</p><div class="a"><ul>
+          <li>Well-developed modern roads, bridges and flyovers have made Delhi a modern and comfortable city to live in.</li>
+          <li>Delhi Metro provides a fast and cheap means of transport to the people.</li>
+        </ul></div></div>
+        <div class="qa"><p class="q">Why do you think Delhi is called a 'Mini India'? <sup class="src-ws" title="Also asked in a school Worksheet">#</sup></p><div class="a"><ul>
+          <li>Delhi is famous for job opportunities and education, so people from different states come here.</li>
+          <li>Many universities in Delhi are great centres of learning and higher education; students from all over the world come to study here.</li>
+        </ul></div></div>
+        <div class="qa"><p class="q">Why do you think Bombay High is of great importance?</p><p class="a">Bombay High is an important place because mineral oil is found here in the seabed. This mineral oil is purified in a refinery.</p></div>
+      </div>
+
+      <div class="chap-group" data-chapter="leaders">
+        <span class="chap-label">Our Leaders</span>
+        <div class="qa"><p class="q"><img class="leader-thumb" src="leaders/gandhi.jpg" alt="Mahatma Gandhi">What were the two methods used by Mahatma Gandhi to fight against the British?</p><p class="a">Satyagraha and Ahimsa (non-violence).</p></div>
+        <div class="qa"><p class="q"><img class="leader-thumb" src="leaders/patel.jpg" alt="Sardar Vallabhbhai Patel">Write three sentences on Sardar Patel. <sup class="src-ws" title="Also asked in a school Worksheet">#</sup></p><p class="a">Sardar Vallabhbhai Patel was a lawyer by profession. He was a strong and brave leader. He was inspired by Mahatma Gandhi to take part in the struggle for freedom. He is also known as the 'Iron Man of India'.</p></div>
+        <div class="qa"><p class="q"><img class="leader-thumb" src="leaders/rani.jpg" alt="Rani Lakshmi Bai">Why did Rani Laxmibai fight against the British?</p><p class="a">Rani Laxmibai fought against the British because she wanted to save her kingdom from the British. She joined the soldiers from Meerut and fought for Jhansi. She, along with other leaders, fought against the British in the Revolt of 1857.</p></div>
+        <div class="qa"><p class="q">Great people never give up in spite of difficulties. What do you do when you face difficulties in your studies?</p><p class="a">When I face difficulties in my studies, I never give up. I try again and again. I take help from my teacher and parents. I practice more and more until I understand well.</p></div>
+      </div>
+
+      <div class="chap-group" data-chapter="transport">
+        <span class="chap-label">Transport</span>
+        <div class="qa"><p class="q">List any five rules for road safety.</p><div class="a"><ul>
+          <li>Cross the road using the zebra crossing.</li>
+          <li>Look right, then left, then right again before crossing the road.</li>
+          <li>Walk on the footpath.</li>
+          <li>Obey traffic rules and cross the road only when the traffic stops.</li>
+          <li>If cycling to school, keep to the left; use bylanes to stay safe.</li>
+        </ul></div></div>
+        <div class="qa"><p class="q">Write short notes on the following means of transport:</p><div class="a"><ul>
+          <li><strong>Land:</strong> These means of transport move only on land. Example: buses, tractors, cars.</li>
+          <li><strong>Water:</strong> These means of transport move only on water. Example: ships, boats, tankers and steamers.</li>
+          <li><strong>Air:</strong> It is the fastest means of transport. Used to cover long distances in less time. Example: aeroplane, helicopter.</li>
+          <li><strong>Animal:</strong> Animal transport has been a means of transport since ancient times. The camel is used in the desert, ponies and mules are used in hilly areas, and elephants are used in forest areas.</li>
+        </ul></div></div>
+        <div class="qa"><p class="q">Why should we use subways? <sup class="src-rev" title="Also asked in a Revision sheet">*</sup></p><p class="a">Subways help us reach places quickly without getting stuck in traffic. Subways and foot-over bridges should be used to cross the roads.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 9. APPLICATION BASED -->
+  <div class="cat-item" id="cat-9">
+    <div class="cat-head">
+      <span class="cat-num-badge">9</span><span class="cat-title-text">Application Based</span>    </div>
+    <div class="cat-body">
+      <div class="chap-group" data-chapter="delhi">
+        <span class="chap-label">Delhi and Mumbai</span>
+        <div class="qa"><p class="q">Kanika lives in Mumbai. What kind of clothes do you think she wears in (a) summer (b) winter?</p><div class="a"><ul>
+          <li>Summer in Mumbai is warm and humid, so Kanika wears light, cotton clothes.</li>
+          <li>Winters are not very cold but pleasant, so she wears light but warm clothes.</li>
+        </ul></div></div>
+      </div>
+
+      <div class="chap-group" data-chapter="leaders">
+        <span class="chap-label">Our Leaders</span>
+        <div class="qa"><p class="q"><img class="leader-thumb" src="leaders/gandhi.jpg" alt="Mahatma Gandhi">Mahatma Gandhi was a messenger of peace. What can you learn from him as a leader? <sup class="src-rev" title="Also asked in a Revision sheet">*</sup></p><p class="a">I can learn to always speak the truth and be honest. I can solve problems in a peaceful way without fighting. I can be kind and helpful to others and respect everyone equally. I can also learn to stand up for what is right and work hard for the welfare of the people.</p></div>
+      </div>
+
+      <div class="chap-group" data-chapter="transport">
+        <span class="chap-label">Transport</span>
+        <div class="qa"><p class="q">What mode of transportation, regardless of cost, would you choose if you needed to get somewhere far away in the least amount of time? Explain.</p><p class="a">I would choose an aeroplane or a helicopter to travel to a far-away place in the least amount of time because they are the fastest mode of transport.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 10. MCQ -->
+  <div class="cat-item" id="cat-10">
+    <div class="cat-head">
+      <span class="cat-num-badge">10</span><span class="cat-title-text">MCQ Practice</span>    </div>
+    <div class="cat-body">
+      <p class="cat-note">All answers below are confirmed from Anisha's own worksheet ticks/fill-ins, or directly derivable from the textbook passage on the same page.</p>
+
+      <div class="chap-group" data-chapter="gov">
+        <span class="chap-label">Our Government</span>
+        <div class="mcq"><p class="q">Who looks after our country just like the head of a family?</p><p class="opts">(a) the President&nbsp;&nbsp;(b) the Central Government&nbsp;&nbsp;(c) the Parliament&nbsp;&nbsp;(d) the Vice President</p><p class="ans">Answer: <strong>(b) the Central Government</strong></p></div>
+        <div class="mcq"><p class="q">In which one of the following cities does the Chief Minister of Uttarakhand live and work?</p><p class="opts">(a) Mussoorie&nbsp;&nbsp;(b) Dehradun&nbsp;&nbsp;(c) Lucknow&nbsp;&nbsp;(d) New Delhi</p><p class="ans">Answer: <strong>(b) Dehradun</strong></p></div>
+        <div class="mcq"><p class="q">Which one of the following cities is the common capital of Punjab and Haryana?</p><p class="opts">(a) Amritsar&nbsp;&nbsp;(b) Gurugram&nbsp;&nbsp;(c) Chandigarh&nbsp;&nbsp;(d) Jaipur</p><p class="ans">Answer: <strong>(c) Chandigarh</strong></p></div>
+        <div class="mcq"><p class="q">Which one of the following statements is true about the Union Territories of India?</p><p class="opts">(a) There are 8 Union Territories in India.&nbsp; (b) They are under direct control of the Central Government.&nbsp; (c) They are not included in any of the 28 states.&nbsp; (d) All of these</p><p class="ans">Answer: <strong>(d) All of these</strong></p></div>
+        <div class="mcq"><p class="q">Water scarcity is a problem for farmers in a region. They go to the ______ to meet the Governor of their State to find a solution.</p><p class="opts">(a) Rashtrapati Bhawan&nbsp;&nbsp;(b) Raj Bhawan&nbsp;&nbsp;(c) Parliament House&nbsp;&nbsp;(d) High Court</p><p class="ans">Answer: <strong>(b) Raj Bhawan</strong></p></div>
+      </div>
+
+      <div class="chap-group" data-chapter="delhi">
+        <span class="chap-label">Delhi and Mumbai</span>
+        <div class="mcq"><p class="q">The ______ built New Delhi as the Capital of India.</p><p class="opts">(a) French&nbsp;&nbsp;(b) Portuguese&nbsp;&nbsp;(c) Americans&nbsp;&nbsp;(d) British</p><p class="ans">Answer: <strong>(d) British</strong></p></div>
+        <div class="mcq"><p class="q">Which one of the following stadiums is <em>not</em> in Delhi?</p><p class="opts">(a) Jawaharlal Nehru Stadium&nbsp;&nbsp;(b) Indira Gandhi Stadium&nbsp;&nbsp;(c) Talkatora Stadium&nbsp;&nbsp;(d) Narendra Modi Stadium</p><p class="ans">Answer: <strong>(d) Narendra Modi Stadium</strong></p></div>
+        <div class="mcq"><p class="q">Which one of the following places of Mumbai is famously known as Queen's Necklace?</p><p class="opts">(a) the CST&nbsp;&nbsp;(b) Malabar Hills&nbsp;&nbsp;(c) the Elephanta Caves&nbsp;&nbsp;(d) the Marine Drive</p><p class="ans">Answer: <strong>(d) the Marine Drive</strong></p></div>
+        <div class="mcq"><p class="q">Which one of the following states is a neighbouring state of Delhi?</p><p class="opts">(a) Uttarakhand&nbsp;&nbsp;(b) Maharashtra&nbsp;&nbsp;(c) Haryana&nbsp;&nbsp;(d) Punjab</p><p class="ans">Answer: <strong>(c) Haryana</strong></p></div>
+        <div class="mcq"><p class="q">Which one of the following statements is correct about New Delhi?</p><p class="opts">(a) New Delhi is our national capital.&nbsp; (b) It is a beautiful city situated along the banks of the River Yamuna.&nbsp; (c) It was first built by the Pandava Kings.&nbsp; (d) All of these</p><p class="ans">Answer: <strong>(d) All of these</strong></p></div>
+        <div class="mcq"><p class="q">Which one of the following statements is true about Mumbai?</p><p class="opts">(a) Mumbai was at one time a group of seven islands.&nbsp; (b) Mumbai lies on the west coast of India.&nbsp; (c) Both (a) and (b)&nbsp; (d) Mumbai is the capital of India.</p><p class="ans">Answer: <strong>(c) Both (a) and (b)</strong></p></div>
+        <div class="mcq"><p class="q">You visit Mumbai in the month of May. You experience a ______ climate.</p><p class="opts">(a) warm and humid&nbsp;&nbsp;(b) cold and dry&nbsp;&nbsp;(c) cool and pleasant&nbsp;&nbsp;(d) cool and wet</p><p class="ans">Answer: <strong>(a) warm and humid</strong></p></div>
+      </div>
+
+      <div class="chap-group" data-chapter="leaders">
+        <span class="chap-label">Our Leaders</span>
+        <div class="mcq"><p class="q">Mahatma Gandhi was born on ______.</p><p class="opts">(a) 2 October 1879&nbsp;&nbsp;(b) 2 October 1869&nbsp;&nbsp;(c) 2 October 1969&nbsp;&nbsp;(d) 2 October 1959</p><p class="ans">Answer: <strong>(b) 2 October 1869</strong></p></div>
+        <div class="mcq"><p class="q">Mahatma Gandhi used ______ and Ahimsa to fight against the British.</p><p class="opts">(a) Satyagraha&nbsp;&nbsp;(b) non-violence&nbsp;&nbsp;(c) army&nbsp;&nbsp;(d) navy</p><p class="ans">Answer: <strong>(a) Satyagraha</strong></p></div>
+        <div class="mcq"><p class="q">Sardar Vallabhbhai Patel was a brave and ______ leader.</p><p class="opts">(a) old&nbsp;&nbsp;(b) weak&nbsp;&nbsp;(c) strong&nbsp;&nbsp;(d) none of these</p><p class="ans">Answer: <strong>(c) strong</strong></p></div>
+        <div class="mcq"><p class="q">Sardar Patel was a ______ by profession.</p><p class="opts">(a) lawyer&nbsp;&nbsp;(b) doctor&nbsp;&nbsp;(c) military man&nbsp;&nbsp;(d) teacher</p><p class="ans">Answer: <strong>(a) lawyer</strong></p></div>
+        <div class="mcq"><p class="q">______ was the first woman President of the Indian National Congress.</p><p class="opts">(a) Lakshmi Bai&nbsp;&nbsp;(b) Indira Gandhi&nbsp;&nbsp;(c) Sarojini Naidu&nbsp;&nbsp;(d) Jhalkari Bai</p><p class="ans">Answer: <strong>(c) Sarojini Naidu</strong></p></div>
+        <div class="mcq"><p class="q">Rani Lakshmi Bai was the Queen of ______.</p><p class="opts">(a) Meerut&nbsp;&nbsp;(b) Jhansi&nbsp;&nbsp;(c) Uttar Pradesh&nbsp;&nbsp;(d) Delhi</p><p class="ans">Answer: <strong>(b) Jhansi</strong></p></div>
+      </div>
+
+      <div class="chap-group" data-chapter="transport">
+        <span class="chap-label">Transport</span>
+        <div class="mcq"><p class="q">The choice of transport depends on ______.</p><p class="opts">(a) the distance to be travelled&nbsp;&nbsp;(b) the money we have&nbsp;&nbsp;(c) time available&nbsp;&nbsp;(d) all of these</p><p class="ans">Answer: <strong>(d) all of these</strong></p></div>
+        <div class="mcq"><p class="q">Which one of the following means of transport is used to send huge amounts of grain from one country to another?</p><p class="opts">(a) Car&nbsp;&nbsp;(b) Ship&nbsp;&nbsp;(c) Helicopter&nbsp;&nbsp;(d) Bullock Cart</p><p class="ans">Answer: <strong>(b) Ship</strong></p></div>
+        <div class="mcq"><p class="q">What are the two kinds of land transport?</p><p class="opts">(a) camels and ponies&nbsp;&nbsp;(b) aeroplanes and helicopters&nbsp;&nbsp;(c) cars and trains&nbsp;&nbsp;(d) ships and yachts</p><p class="ans">Answer: <strong>(c) cars and trains</strong></p></div>
+        <div class="mcq"><p class="q">Which one of the following options is true about level crossing?</p><p class="opts">(a) It is a place where a railway line and a road cross each other.&nbsp; (b) We should not cross a railway track when the gates are down.&nbsp; (c) Level crossings can be dangerous.&nbsp; (d) All of these</p><p class="ans">Answer: <strong>(d) All of these</strong></p></div>
+        <div class="mcq"><p class="q">What will you use to move big logs of wood in thick forests?</p><p class="opts">(a) elephants&nbsp;&nbsp;(b) camels&nbsp;&nbsp;(c) ponies&nbsp;&nbsp;(d) bullock carts</p><p class="ans">Answer: <strong>(a) elephants</strong></p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 11. PICTURE STUDY -->
+  <div class="cat-item" id="cat-11">
+    <div class="cat-head">
+      <span class="cat-num-badge">11</span><span class="cat-title-text">Picture Study</span>    </div>
+    <div class="cat-body">
+      <div class="chap-group" data-chapter="gov">
+        <span class="chap-label">Our Government</span>
+        <div class="pic-item">
+          <img src="https://en.wikipedia.org/wiki/Special:FilePath/New_Parliament_Building,_New_Delhi.jpg?width=200" alt="Parliament House, New Delhi">
+          <div class="pic-caption">
+            <p style="margin:0 0 3px;">1. Identify the building shown in the picture. — <strong>The Parliament House (Sansad Bhavan)</strong></p>
+            <p style="margin:0;">2. What is its importance? — <strong>It is the law-making body (Lok Sabha and Rajya Sabha) of India's Central Government.</strong></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="chap-group" data-chapter="delhi">
+        <span class="chap-label">Delhi and Mumbai</span>
+        <div class="pic-item">
+          <img src="https://en.wikipedia.org/wiki/Special:FilePath/Marine_Drive_at_Night.jpg?width=200" alt="Marine Drive, Mumbai at night">
+          <div class="pic-caption"><strong>Marine Drive</strong> <sup class="src-rev" title="Also asked in a Revision sheet">*</sup></div>
+        </div>
+        <div class="pic-item">
+          <img src="https://en.wikipedia.org/wiki/Special:FilePath/India_Gate_in_New_Delhi_03-2016.jpg?width=200" alt="India Gate, New Delhi">
+          <div class="pic-caption"><strong>India Gate</strong> <sup class="src-rev" title="Also asked in a Revision sheet">*</sup></div>
+        </div>
+        <div class="pic-item">
+          <img src="https://en.wikipedia.org/wiki/Special:FilePath/New_Parliament_Building,_New_Delhi.jpg?width=200" alt="Parliament House, New Delhi">
+          <div class="pic-caption"><strong>The Parliament House</strong> <sup class="src-rev" title="Also asked in a Revision sheet">*</sup></div>
+        </div>
+      </div>
+
+      <div class="chap-group" data-chapter="leaders">
+        <span class="chap-label">Our Leaders</span>
+        <div class="pic-item">
+          <img src="leaders/tilak.jpg" alt="Lokmanya Bal Gangadhar Tilak">
+          <div class="pic-caption"><strong>Lokmanya Bal Gangadhar Tilak</strong> <sup class="src-rev" title="Also asked in a Revision sheet">*</sup></div>
+        </div>
+
+        <h4 class="setlabel">Look at the pictures and identify the famous leaders</h4>
+        <div class="leader-grid">
+          <figure>
+            <img src="leaders/gandhi.jpg" alt="Mahatma Gandhi">
+            <figcaption>1. Mahatma Gandhi</figcaption>
+          </figure>
+          <figure>
+            <img src="leaders/naidu.jpg" alt="Sarojini Naidu">
+            <figcaption>2. Sarojini Naidu</figcaption>
+          </figure>
+          <figure>
+            <img src="leaders/bose.jpg" alt="Subhash Chandra Bose">
+            <figcaption>3. Subhash Chandra Bose</figcaption>
+          </figure>
+          <figure>
+            <img src="leaders/patel.jpg" alt="Sardar Vallabhbhai Patel">
+            <figcaption>4. Sardar Vallabhbhai Patel</figcaption>
+          </figure>
+          <figure>
+            <img src="leaders/tilak.jpg" alt="Bal Gangadhar Tilak">
+            <figcaption>5. Bal Gangadhar Tilak</figcaption>
+          </figure>
+          <figure>
+            <img src="leaders/rani.jpg" alt="Rani Lakshmi Bai">
+            <figcaption>6. Rani Lakshmi Bai</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  </div>
+
+  <div class="empty-state" id="emptyState" style="display:none;">Nothing matches that search.</div>
+
+  <footer class="page-footer">
+    Leader portraits above are cropped from Anisha's own school worksheet, so they match what she's asked to identify. Landmark photos (Parliament House, Marine Drive, India Gate) are sourced from Wikimedia Commons (public domain / openly licensed). All used here for identification practice only.<br>
+    End of notebook. Everything above is taken verbatim or near-verbatim from the uploaded textbook chapters, school worksheets, and Anisha's notebook pages — nothing has been invented.
+  </footer>
+
+</div>
+
+<script>
+  const chips = document.querySelectorAll('.filter-chip');
+  const search = document.getElementById('search');
+  let currentChapter = 'all';
+
+  chips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      chips.forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      currentChapter = chip.dataset.chapter;
+      applyFilters();
+    });
+  });
+
+  search.addEventListener('input', applyFilters);
+
+  function toggleFib(btn) {
+    const group = btn.closest('.chap-group');
+    const revealed = group.classList.toggle('revealed');
+    btn.textContent = revealed ? 'Hide answers' : 'Show answers';
+  }
+
+  function applyFilters() {
+    const q = search.value.trim().toLowerCase();
+    let anyCatVisible = false;
+
+    document.querySelectorAll('.cat-item').forEach(cat => {
+      let anyGroupVisible = false;
+      cat.querySelectorAll(':scope > .cat-body > .chap-group').forEach(group => {
+        const chapMatch = currentChapter === 'all' || group.dataset.chapter === currentChapter;
+        const textMatch = !q || group.textContent.toLowerCase().includes(q);
+        const visible = chapMatch && textMatch;
+        group.style.display = visible ? '' : 'none';
+        if (visible) anyGroupVisible = true;
+      });
+      cat.style.display = anyGroupVisible ? '' : 'none';
+      if (anyGroupVisible) anyCatVisible = true;
+    });
+
+    document.getElementById('emptyState').style.display = anyCatVisible ? 'none' : 'block';
+  }
+
+  // Deep-link support: #cat-N scrolls to that section.
+  if (location.hash) {
+    const target = document.querySelector(location.hash);
+    if (target && target.classList.contains('cat-item')) {
+      setTimeout(() => target.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
+    }
+  }
+</script>
+
+</body>
+</html>
