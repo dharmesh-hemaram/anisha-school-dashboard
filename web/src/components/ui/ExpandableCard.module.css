@@ -1,0 +1,26 @@
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+  cursor: pointer;
+}
+.topRight {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+.chevron {
+  color: var(--text-faint);
+  font-size: 11px;
+  transition: transform 0.15s;
+}
+.chevronOpen {
+  transform: rotate(90deg);
+}
+.body {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px dashed var(--border);
+}

@@ -13,7 +13,7 @@ target calendar with the service account's email ("Make changes to
 events"). See .env.example for the env vars this needs.
 
 Only the categories the dashboard's own Upcoming tab shows (see
-UPCOMING_CATEGORIES in docs/index.html) are synced, and the portion sheet
+UPCOMING_CATEGORIES in web/src/lib/constants.ts) are synced, and the portion sheet
 itself is skipped -- it's one notice covering a whole exam's syllabus, not
 a single day's event.
 
@@ -25,7 +25,7 @@ tests) exists only as one portion-sheet notice covering the whole
 syllabus, not a day-by-day schedule. The dashboard's own Upcoming tab
 papers over this by synthesizing one entry per docs/portion_schedules.json
 row, client-side, skipping any row a real notice already covers -- see
-renderUpcoming() in docs/index.html. _synthetic_events() below mirrors
+buildUpcomingItems() in web/src/lib/upcoming.ts. _synthetic_events() below mirrors
 that same logic in Python so the calendar doesn't fall a whole exam cycle
 behind Upcoming while waiting for individual notices to trickle in.
 """
@@ -115,7 +115,7 @@ def _cycles_of(r: dict) -> list:
 
 
 def _latest_exam_cycle(records: list):
-    """Port of sortedExamCycles()[0] in docs/index.html: the cycle whose
+    """Port of latestExamCycle() in web/src/lib/notices.ts: the cycle whose
     most-recently-posted tagged record is newest -- "the exam that's
     current right now"."""
     cycles = {c for r in records for c in _cycles_of(r)}

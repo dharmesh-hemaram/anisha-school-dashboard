@@ -1,0 +1,61 @@
+.card {
+  border-left: 4px solid var(--text-faint);
+}
+.stateToday {
+  border-left-color: var(--warn);
+  background: var(--warn-bg);
+}
+.stateSoon {
+  border-left-color: var(--warn);
+}
+.stateFuture {
+  border-left-color: var(--brand);
+}
+
+.kind {
+  font-size: 10px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  font-weight: 700;
+}
+.title {
+  font-weight: 700;
+  font-size: 15px;
+  margin: 2px 0 3px;
+}
+.badge {
+  flex-shrink: 0;
+  font-size: 10.5px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+.badgeToday {
+  background: var(--warn);
+  color: #1e1608;
+}
+.badgeSoon {
+  background: var(--warn-bg);
+  color: var(--warn-ink);
+  border: 1px solid var(--warn-border);
+}
+
+.full {
+  font-size: 13.5px;
+  white-space: pre-line;
+}
+.materials {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px dashed var(--border);
+}
+.materialsHead {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  margin-bottom: 8px;
+}

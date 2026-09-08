@@ -1,0 +1,87 @@
+.masthead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: calc(10px + env(safe-area-inset-top)) 0 12px;
+  border-bottom: 2px solid var(--brand);
+  margin-bottom: 4px;
+}
+.eyebrow {
+  font-size: 19px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--brand);
+  font-weight: 800;
+  flex-shrink: 0;
+}
+.subscribeBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  flex-shrink: 0;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--brand);
+  background: var(--brand-soft);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 7px 12px;
+  text-decoration: none;
+}
+.subscribeBtn svg {
+  width: 12px;
+  height: 12px;
+  flex-shrink: 0;
+}
+
+.tabbar {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  display: flex;
+  gap: 4px;
+  background: var(--bg);
+  padding: 10px 0;
+  margin-bottom: 4px;
+  border-bottom: 1px solid var(--border);
+}
+.tabBtn {
+  flex: 1;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--text-muted);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 9px 4px;
+  text-align: center;
+  text-decoration: none;
+}
+.tabBtn.active {
+  background: var(--brand);
+  color: var(--bg);
+  border-color: var(--brand);
+}
+
+.panel {
+  padding-top: 10px;
+}
+
+.footer {
+  margin-top: 26px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+  font-size: 10.5px;
+  color: var(--text-faint);
+}
+.footerCredit {
+  margin-top: 4px;
+}
+.footerReport {
+  margin-top: 4px;
+}
+.footerReport a {
+  color: var(--text-faint);
+  text-decoration: underline;
+}

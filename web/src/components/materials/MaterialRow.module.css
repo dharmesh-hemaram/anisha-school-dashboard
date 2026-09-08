@@ -1,0 +1,59 @@
+.row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-top: 10px;
+  border-top: 1px dashed var(--border);
+}
+.row:first-child {
+  padding-top: 0;
+  border-top: none;
+}
+a.rowLink {
+  text-decoration: none;
+  color: inherit;
+}
+.body {
+  flex: 1;
+  min-width: 0;
+}
+.top {
+  display: flex;
+  align-items: baseline;
+  gap: 7px;
+  flex-wrap: wrap;
+}
+.tag {
+  flex-shrink: 0;
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  background: var(--surface-2);
+  color: var(--text-faint);
+  border-radius: 4px;
+  padding: 1px 6px;
+}
+.tagWorksheet {
+  background: var(--brand-soft);
+  color: var(--brand);
+}
+.tagRevision {
+  background: var(--warn-bg);
+  color: var(--warn-ink);
+}
+.tagAnswerKey {
+  background: var(--subj-neutral-bg);
+  color: var(--subj-neutral);
+}
+.title {
+  font-weight: 700;
+  font-size: 13.5px;
+}
+.meta {
+  margin-top: 3px;
+}
+.date {
+  font-size: 11.5px;
+  color: var(--text-faint);
+}

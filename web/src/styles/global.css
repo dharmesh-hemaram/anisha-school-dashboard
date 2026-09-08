@@ -1,0 +1,155 @@
+:root {
+  --bg: #f1f0e4;
+  --surface: #fbfaf3;
+  --surface-2: #e9e7d9;
+  --border: #dbd8c5;
+  --text: #232b3d;
+  --text-muted: #5e6675;
+  --text-faint: #8a8f7e;
+  --brand: #2b3654;
+  --brand-soft: #e4e3d3;
+  --warn: #b8710f;
+  --warn-ink: #7a4b0a;
+  --warn-bg: #fbeacb;
+  --warn-border: #e7c381;
+  --done-bg: #e1e9da;
+  --done-border: #c1d2b7;
+  --shadow: 0 1px 2px rgba(35, 43, 61, 0.06), 0 4px 14px -6px rgba(35, 43, 61, 0.16);
+  --radius: 12px;
+
+  --dot-dcu: #6c7a92;
+  --dot-notes: #2b3654;
+  --dot-exam: #b8710f;
+  --dot-event: #93586b;
+  --dot-holiday: #3e7a80;
+  --dot-celeb: #a0762f;
+  --dot-general: #8a8f7e;
+
+  /* Exam-track subjects (also filed under Notes/Exams) get their own color;
+     co-curricular subjects with no exam share --subj-neutral. */
+  --subj-maths: #3e6b8a;
+  --subj-maths-bg: #e4ecf1;
+  --subj-science: #3e7a55;
+  --subj-science-bg: #e3efe6;
+  --subj-english: #7a4b8a;
+  --subj-english-bg: #eee4ef;
+  --subj-hindi: #a6432e;
+  --subj-hindi-bg: #f3e1db;
+  --subj-marathi: #1f7a6b;
+  --subj-marathi-bg: #dfeeea;
+  --subj-sst: #8a6a1f;
+  --subj-sst-bg: #f1ead8;
+  --subj-cs: #4a5a8a;
+  --subj-cs-bg: #e4e6f1;
+  --subj-evs: #5f8a3e;
+  --subj-evs-bg: #e7efde;
+  --subj-robotics: #2f8a94;
+  --subj-robotics-bg: #dfeef0;
+  --subj-gk: #6b5f8a;
+  --subj-gk-bg: #e7e4ef;
+  --subj-neutral: #6b6455;
+  --subj-neutral-bg: #e9e6d9;
+
+  --today-bg: #fbeacb;
+  --today-border: #e7c381;
+  --today-ink: #7a4b0a;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #171b24;
+    --surface: #1e232e;
+    --surface-2: #262c39;
+    --border: #333a49;
+    --text: #e9e7dc;
+    --text-muted: #a3aab8;
+    --text-faint: #767e72;
+    --brand: #a8b8e8;
+    --brand-soft: #29304a;
+    --warn: #e3a54b;
+    --warn-ink: #f0c077;
+    --warn-bg: #3a2e17;
+    --warn-border: #5c471f;
+    --done-bg: #212f22;
+    --done-border: #34492f;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.35), 0 6px 18px -8px rgba(0, 0, 0, 0.5);
+    --dot-dcu: #8b98ae;
+    --dot-notes: #a8b8e8;
+    --dot-exam: #e3a54b;
+    --dot-event: #c48ca0;
+    --dot-holiday: #6bb3b8;
+    --dot-celeb: #d2a85e;
+    --dot-general: #767e72;
+
+    --subj-maths: #8fb4d6;
+    --subj-maths-bg: #26344a;
+    --subj-science: #8fcba3;
+    --subj-science-bg: #22392c;
+    --subj-english: #c9a0d6;
+    --subj-english-bg: #382a42;
+    --subj-hindi: #d97b62;
+    --subj-hindi-bg: #3b281f;
+    --subj-marathi: #7fc9bc;
+    --subj-marathi-bg: #1f3a35;
+    --subj-sst: #d6be7f;
+    --subj-sst-bg: #3a331d;
+    --subj-cs: #a3add6;
+    --subj-cs-bg: #2a2e42;
+    --subj-evs: #a6d68f;
+    --subj-evs-bg: #2c3a22;
+    --subj-robotics: #83cbd3;
+    --subj-robotics-bg: #1e3739;
+    --subj-gk: #b3a6d6;
+    --subj-gk-bg: #2e293c;
+    --subj-neutral: #aba592;
+    --subj-neutral-bg: #2c2a22;
+
+    --today-bg: #3a2e17;
+    --today-border: #5c471f;
+    --today-ink: #f0c077;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background: var(--bg);
+  color: var(--text);
+  font: 15px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+a {
+  color: var(--brand);
+}
+select,
+input {
+  font-size: 16px; /* prevents iOS auto-zoom on focus */
+  font-family: inherit;
+}
+
+.wrap {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 0 14px 32px;
+}
+
+.sectionNote {
+  font-size: 12px;
+  color: var(--text-faint);
+  margin: 2px 0 12px;
+}

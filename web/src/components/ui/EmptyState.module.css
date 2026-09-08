@@ -1,0 +1,6 @@
+.empty {
+  font-size: 13px;
+  color: var(--text-faint);
+  font-style: italic;
+  padding: 14px 2px;
+}

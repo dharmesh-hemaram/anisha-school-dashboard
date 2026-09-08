@@ -1,0 +1,1337 @@
+{
+  "slug": "social-studies-half-yearly",
+  "subjectBadge": "SST",
+  "title": "Revision Notebook",
+  "subtitle": "Our Government · Delhi and Mumbai · Our Leaders · Transport — every question below comes straight from the textbook, school worksheets, or notebook pages. Nothing has been invented.",
+  "examMeta": "Half Yearly Exam · Wed, 9 Sept · 60 marks",
+  "chapters": [
+    {
+      "id": "gov",
+      "label": "Our Government"
+    },
+    {
+      "id": "delhi",
+      "label": "Delhi & Mumbai"
+    },
+    {
+      "id": "leaders",
+      "label": "Our Leaders"
+    },
+    {
+      "id": "transport",
+      "label": "Transport"
+    }
+  ],
+  "categories": [
+    {
+      "num": 1,
+      "title": "Fill in the Blanks",
+      "data": {
+        "type": "fib",
+        "groups": [
+          {
+            "chapter": "gov",
+            "sets": [
+              {
+                "items": [
+                  {
+                    "template": "___ is the capital of India.",
+                    "answers": [
+                      "New Delhi"
+                    ]
+                  },
+                  {
+                    "template": "The ___ is the head of the country.",
+                    "answers": [
+                      "Central Government"
+                    ]
+                  },
+                  {
+                    "template": "There are ___ states in India.",
+                    "answers": [
+                      "28"
+                    ]
+                  },
+                  {
+                    "template": "___ are controlled by the Central Government.",
+                    "answers": [
+                      "Union Territories"
+                    ],
+                    "sources": {
+                      "revisionSheet": true
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "chapter": "delhi",
+            "sets": [
+              {
+                "items": [
+                  {
+                    "template": "Delhi is situated along the banks of the River ___.",
+                    "answers": [
+                      "Yamuna"
+                    ],
+                    "sources": {
+                      "worksheet": true
+                    }
+                  },
+                  {
+                    "template": "The official name of Delhi is the ___ Capital Territory of Delhi.",
+                    "answers": [
+                      "National"
+                    ],
+                    "sources": {
+                      "worksheet": true
+                    }
+                  },
+                  {
+                    "template": "The Central Secretariat building has ___ blocks.",
+                    "answers": [
+                      "two"
+                    ]
+                  },
+                  {
+                    "template": "Foreign offices are called ___ or High Commissions.",
+                    "answers": [
+                      "Embassies"
+                    ]
+                  },
+                  {
+                    "template": "___ is one of the largest business spots.",
+                    "answers": [
+                      "Connaught Place"
+                    ]
+                  },
+                  {
+                    "template": "___ present the most beautiful view of Mumbai.",
+                    "answers": [
+                      "Malabar Hills"
+                    ],
+                    "sources": {
+                      "revisionSheet": true
+                    }
+                  }
+                ]
+              },
+              {
+                "note": "More practice blanks, now confirmed from her own completed worksheet:",
+                "items": [
+                  {
+                    "template": "Mumbai is the ___ city of India and an important ___.",
+                    "answers": [
+                      "richest",
+                      "port"
+                    ]
+                  },
+                  {
+                    "template": "___ is one of the oldest and busiest markets in Delhi.",
+                    "answers": [
+                      "Chandni Chowk"
+                    ]
+                  },
+                  {
+                    "template": "___ is an important festival in Mumbai.",
+                    "answers": [
+                      "Ganesh Chaturthi"
+                    ]
+                  },
+                  {
+                    "template": "The climate of Delhi is ___.",
+                    "answers": [
+                      "extreme"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "chapter": "leaders",
+            "sets": [
+              {
+                "items": [
+                  {
+                    "template": "Mahatma Gandhi was popularly known as ___.",
+                    "answers": [
+                      "Bapu"
+                    ],
+                    "sources": {
+                      "worksheet": true
+                    }
+                  },
+                  {
+                    "template": "Sarojini Naidu was given the title ___ of India.",
+                    "answers": [
+                      "Nightingale"
+                    ],
+                    "sources": {
+                      "worksheet": true
+                    }
+                  },
+                  {
+                    "template": "___ means respected by all.",
+                    "answers": [
+                      "Lokmanya"
+                    ],
+                    "sources": {
+                      "revisionSheet": true
+                    }
+                  },
+                  {
+                    "template": "The slogan ___ was used by Netaji Subhash Chandra Bose.",
+                    "answers": [
+                      "\"Jai Hind\""
+                    ]
+                  },
+                  {
+                    "template": "Sarojini Naidu is known as the ___.",
+                    "answers": [
+                      "Nightingale of India"
+                    ]
+                  },
+                  {
+                    "template": "Tilak started two weekly newspapers, ___ (in Marathi) and ___ (in English).",
+                    "answers": [
+                      "Kesari",
+                      "Mahratta"
+                    ]
+                  },
+                  {
+                    "template": "Rani Lakshmi Bai was married to ___, the King of ___.",
+                    "answers": [
+                      "Gangadhar Rao",
+                      "Jhansi"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "chapter": "transport",
+            "sets": [
+              {
+                "items": [
+                  {
+                    "template": "Bullock carts and bicycles are mostly used by people living in ___ areas.",
+                    "answers": [
+                      "rural"
+                    ]
+                  },
+                  {
+                    "template": "___ transport is the fastest means of transport.",
+                    "answers": [
+                      "Air"
+                    ]
+                  },
+                  {
+                    "template": "Animal transport has been a means of ___ transport since ancient times.",
+                    "answers": [
+                      "land"
+                    ]
+                  },
+                  {
+                    "template": "Ships are used to transport huge ___ of goods to other countries.",
+                    "answers": [
+                      "quantities"
+                    ],
+                    "sources": {
+                      "revisionSheet": true
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "num": 2,
+      "title": "Match the Following",
+      "data": {
+        "type": "match",
+        "groups": [
+          {
+            "chapter": "gov",
+            "sets": [
+              {
+                "columns": [
+                  "States",
+                  "Capitals"
+                ],
+                "pairs": [
+                  {
+                    "left": "1. Nagaland",
+                    "right": "(c) Kohima"
+                  },
+                  {
+                    "left": "2. Jharkhand",
+                    "right": "(e) Ranchi"
+                  },
+                  {
+                    "left": "3. Sikkim",
+                    "right": "(a) Gangtok"
+                  },
+                  {
+                    "left": "4. Haryana",
+                    "right": "(b) Chandigarh"
+                  },
+                  {
+                    "left": "5. Gujarat",
+                    "right": "(d) Gandhinagar"
+                  }
+                ],
+                "answerLine": "1–c, 2–e, 3–a, 4–b, 5–d"
+              }
+            ]
+          },
+          {
+            "chapter": "delhi",
+            "sets": [
+              {
+                "label": "Set A",
+                "sources": {
+                  "worksheet": true
+                },
+                "columns": [
+                  "Column A",
+                  "Column B"
+                ],
+                "pairs": [
+                  {
+                    "left": "1. Raj Ghat",
+                    "right": "(c) Samadhi of Mahatma Gandhi"
+                  },
+                  {
+                    "left": "2. Marine Drive",
+                    "right": "(e) Queen's Necklace"
+                  },
+                  {
+                    "left": "3. Sarojini Naidu",
+                    "right": "(a) Nightingale of India"
+                  },
+                  {
+                    "left": "4. Sardar Patel",
+                    "right": "(b) Iron Man of India"
+                  },
+                  {
+                    "left": "5. Bal Gangadhar Tilak",
+                    "right": "(d) Lokmanya"
+                  }
+                ],
+                "answerLine": "1–c, 2–e, 3–a, 4–b, 5–d"
+              },
+              {
+                "label": "Set B",
+                "columns": [
+                  "Column A",
+                  "Column B"
+                ],
+                "pairs": [
+                  {
+                    "left": "1. Raj Ghat",
+                    "right": "(c) Samadhi of Gandhi"
+                  },
+                  {
+                    "left": "2. Shanti Van",
+                    "right": "(a) Memorial of Nehru"
+                  },
+                  {
+                    "left": "3. Akshardham Temple",
+                    "right": "(d) Delhi"
+                  },
+                  {
+                    "left": "4. Marine Drive",
+                    "right": "(e) Queen's Necklace"
+                  },
+                  {
+                    "left": "5. Textile Mills",
+                    "right": "(b) Mumbai"
+                  }
+                ],
+                "answerLine": "1–c, 2–a, 3–d, 4–e, 5–b"
+              }
+            ]
+          },
+          {
+            "chapter": "leaders",
+            "sets": [
+              {
+                "label": "Set A",
+                "columns": [
+                  "Column A",
+                  "Column B"
+                ],
+                "pairs": [
+                  {
+                    "left": "1. Bal Gangadhar Tilak",
+                    "right": "(b) Lokmanya"
+                  },
+                  {
+                    "left": "2. Sarojini Naidu",
+                    "right": "(d) First woman governor of India"
+                  },
+                  {
+                    "left": "3. Sardar Patel",
+                    "right": "(a) Iron Man of India"
+                  },
+                  {
+                    "left": "4. Subhash Chandra Bose",
+                    "right": "(c) \"Give me blood, I will give you freedom\""
+                  }
+                ],
+                "answerLine": "1–b, 2–d, 3–a, 4–c"
+              },
+              {
+                "label": "Set B",
+                "columns": [
+                  "Column A",
+                  "Column B"
+                ],
+                "pairs": [
+                  {
+                    "left": "1. Rani Jhansi Bahini",
+                    "right": "(b) Captain Lakshmi Sahgal"
+                  },
+                  {
+                    "left": "2. Jai Hind",
+                    "right": "(c) a slogan"
+                  },
+                  {
+                    "left": "3. Subhash Chandra Bose",
+                    "right": "(d) born in Odisha"
+                  },
+                  {
+                    "left": "4. Indian National Army",
+                    "right": "(a) Azad Hind Fauj"
+                  }
+                ],
+                "answerLine": "1–b, 2–c, 3–d, 4–a"
+              }
+            ]
+          },
+          {
+            "chapter": "transport",
+            "sets": [
+              {
+                "label": "Road signs — Help Box matching",
+                "columns": [
+                  "Sign",
+                  "Meaning (Help Box)"
+                ],
+                "pairs": [
+                  {
+                    "left": "",
+                    "right": "Zebra crossing",
+                    "leftSvg": "<svg viewBox=\"0 0 100 100\" xmlns=\"http://www.w3.org/2000/svg\">\n                <polygon points=\"50,8 92,88 8,88\" fill=\"#fff\" stroke=\"#D32F2F\" stroke-width=\"7\" stroke-linejoin=\"round\"></polygon>\n                <circle cx=\"50\" cy=\"42\" r=\"6\" fill=\"#111\"></circle>\n                <path d=\"M50 48 L50 66 M50 54 L39 62 M50 54 L61 62 M50 66 L41 80 M50 66 L59 80\" stroke=\"#111\" stroke-width=\"4.5\" stroke-linecap=\"round\" fill=\"none\"></path>\n              </svg>"
+                  },
+                  {
+                    "left": "",
+                    "right": "No U-turn",
+                    "leftSvg": "<svg viewBox=\"0 0 100 100\" xmlns=\"http://www.w3.org/2000/svg\">\n                <circle cx=\"50\" cy=\"50\" r=\"43\" fill=\"#fff\" stroke=\"#D32F2F\" stroke-width=\"7\"></circle>\n                <path d=\"M34 66 V44 A16 16 0 0 1 66 44 V52\" stroke=\"#111\" stroke-width=\"6.5\" fill=\"none\" stroke-linecap=\"round\"></path>\n                <polygon points=\"66,45 78,52 66,60\" fill=\"#111\"></polygon>\n                <line x1=\"18\" y1=\"82\" x2=\"82\" y2=\"18\" stroke=\"#D32F2F\" stroke-width=\"6.5\"></line>\n              </svg>"
+                  },
+                  {
+                    "left": "",
+                    "right": "Railway crossing",
+                    "leftSvg": "<svg viewBox=\"0 0 100 100\" xmlns=\"http://www.w3.org/2000/svg\">\n                <polygon points=\"50,8 92,88 8,88\" fill=\"#fff\" stroke=\"#D32F2F\" stroke-width=\"7\" stroke-linejoin=\"round\"></polygon>\n                <rect x=\"24\" y=\"44\" width=\"7\" height=\"32\" fill=\"#111\"></rect>\n                <rect x=\"69\" y=\"44\" width=\"7\" height=\"32\" fill=\"#111\"></rect>\n                <line x1=\"27\" y1=\"50\" x2=\"73\" y2=\"70\" stroke=\"#111\" stroke-width=\"6\"></line>\n                <line x1=\"27\" y1=\"70\" x2=\"73\" y2=\"50\" stroke=\"#111\" stroke-width=\"6\"></line>\n              </svg>"
+                  },
+                  {
+                    "left": "",
+                    "right": "No pedestrian",
+                    "leftSvg": "<svg viewBox=\"0 0 100 100\" xmlns=\"http://www.w3.org/2000/svg\">\n                <circle cx=\"50\" cy=\"50\" r=\"43\" fill=\"#fff\" stroke=\"#D32F2F\" stroke-width=\"7\"></circle>\n                <circle cx=\"50\" cy=\"34\" r=\"6.5\" fill=\"#111\"></circle>\n                <path d=\"M50 41 L50 60 M50 47 L38 57 M50 47 L62 57 M50 60 L40 77 M50 60 L60 77\" stroke=\"#111\" stroke-width=\"4.5\" stroke-linecap=\"round\" fill=\"none\"></path>\n                <line x1=\"18\" y1=\"82\" x2=\"82\" y2=\"18\" stroke=\"#D32F2F\" stroke-width=\"6.5\"></line>\n              </svg>"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "num": 3,
+      "title": "True or False",
+      "data": {
+        "type": "trueFalse",
+        "groups": [
+          {
+            "chapter": "gov",
+            "items": [
+              {
+                "statement": "India became an independent country on 15th August, 1947.",
+                "answer": true
+              },
+              {
+                "statement": "The Prime Minister and other ministers of the Central Government live in Mumbai.",
+                "answer": false,
+                "explanation": "They live in New Delhi, the capital of India."
+              },
+              {
+                "statement": "The Central Government runs the whole country.",
+                "answer": true
+              },
+              {
+                "statement": "There are 9 Union Territories in India.",
+                "answer": false,
+                "explanation": "There are 8 Union Territories in India."
+              }
+            ]
+          },
+          {
+            "chapter": "leaders",
+            "items": [
+              {
+                "statement": "Bal Gangadhar Tilak is also known as 'Iron Man of India'.",
+                "answer": false
+              },
+              {
+                "statement": "Mahatma Gandhi is called the 'Father of Nation'.",
+                "answer": true
+              },
+              {
+                "statement": "Mahatma Gandhi studied law in America.",
+                "answer": false
+              },
+              {
+                "statement": "The slogan 'Jai Hind' was used by Netaji Subhash Chandra Bose to encourage Indians.",
+                "answer": true
+              }
+            ]
+          },
+          {
+            "chapter": "transport",
+            "items": [
+              {
+                "statement": "Vehicles carry people and goods from one place to another.",
+                "answer": true
+              },
+              {
+                "statement": "We must not follow the road safety rules.",
+                "answer": false
+              },
+              {
+                "statement": "Camel is called the 'Ship of the Desert'.",
+                "answer": true
+              },
+              {
+                "statement": "We must not use zebra crossing to cross the road.",
+                "answer": false
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "num": 4,
+      "title": "Name the Following / One Word",
+      "data": {
+        "type": "name",
+        "groups": [
+          {
+            "chapter": "gov",
+            "items": [
+              {
+                "prompt": "Name the capital of India.",
+                "answer": "New Delhi"
+              },
+              {
+                "prompt": "How many States and Union Territories are there in India?",
+                "answer": "36"
+              },
+              {
+                "prompt": "Prime Minister of India",
+                "answer": "Shri Narendra Modi",
+                "sources": {
+                  "revisionSheet": true,
+                  "worksheet": true
+                }
+              },
+              {
+                "prompt": "President of India",
+                "answer": "Smt. Droupadi Murmu",
+                "sources": {
+                  "revisionSheet": true,
+                  "worksheet": true
+                }
+              },
+              {
+                "prompt": "Vice-President of India",
+                "answer": "C. P. Radhakrishnan",
+                "sources": {
+                  "revisionSheet": true
+                }
+              },
+              {
+                "prompt": "Home Minister of India",
+                "answer": "Shri Amit Shah",
+                "sources": {
+                  "revisionSheet": true,
+                  "worksheet": true
+                }
+              },
+              {
+                "prompt": "Chief Minister of Maharashtra",
+                "answer": "Shri Devendra Fadnavis",
+                "sources": {
+                  "worksheet": true
+                }
+              },
+              {
+                "prompt": "Governor of Maharashtra",
+                "answer": "Shri Jishnu Dev Varma",
+                "sources": {
+                  "worksheet": true
+                }
+              },
+              {
+                "prompt": "What is the law-making body of the Central Government?",
+                "answer": "The Parliament"
+              },
+              {
+                "prompt": "Where does the President of India live?",
+                "answer": "Rashtrapati Bhawan"
+              },
+              {
+                "prompt": "Who looks after the country just like the head of the family?",
+                "answer": "Central Government"
+              },
+              {
+                "prompt": "Who looks after the Union Territories?",
+                "answer": "Central Government"
+              },
+              {
+                "prompt": "Where does the Governor live?",
+                "answer": "Raj Bhawan"
+              }
+            ]
+          },
+          {
+            "chapter": "delhi",
+            "items": [
+              {
+                "prompt": "Who built Jantar Mantar?",
+                "answer": "Maharaja Jai Singh II",
+                "sources": {
+                  "revisionSheet": true
+                }
+              },
+              {
+                "prompt": "Which event was successfully hosted by the city of Delhi in 2023?",
+                "answer": "G20 Summit",
+                "sources": {
+                  "revisionSheet": true
+                }
+              }
+            ]
+          },
+          {
+            "chapter": "leaders",
+            "items": [
+              {
+                "prompt": "Which national leader is also known as the 'Father of the Nation'?",
+                "answer": "Mahatma Gandhi"
+              },
+              {
+                "prompt": "Nightingale of India",
+                "answer": "Sarojini Naidu",
+                "sources": {
+                  "revisionSheet": true
+                }
+              },
+              {
+                "prompt": "Father of Nation",
+                "answer": "Mahatma Gandhi",
+                "sources": {
+                  "revisionSheet": true
+                }
+              },
+              {
+                "prompt": "What was Mahatma Gandhi's full name?",
+                "answer": "Mohandas Karamchand Gandhi",
+                "sources": {
+                  "revisionSheet": true
+                }
+              },
+              {
+                "prompt": "When did Rani Laxmibai die?",
+                "answer": "1858"
+              },
+              {
+                "prompt": "What is the name of the women's army unit formed by Subhash Chandra Bose?",
+                "answer": "Rani Jhansi Bahini"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "num": 5,
+      "title": "Define",
+      "data": {
+        "type": "qa",
+        "groups": [
+          {
+            "chapter": "gov",
+            "items": [
+              {
+                "question": "Government",
+                "answer": "A governing body that looks after the welfare and safety of the people. It frames laws."
+              },
+              {
+                "question": "Central Government",
+                "answer": "It is the government elected by the people to govern the country.",
+                "sources": {
+                  "worksheet": true
+                }
+              },
+              {
+                "question": "State Government",
+                "answer": "It is the government elected by the people to govern the state."
+              },
+              {
+                "question": "Union Territories",
+                "answer": "Small parts of India that are directly controlled by the Central Government.",
+                "sources": {
+                  "worksheet": true
+                }
+              }
+            ]
+          },
+          {
+            "chapter": "transport",
+            "items": [
+              {
+                "question": "Transportation",
+                "answer": "It means to carry people and goods from place to place by means of vehicles."
+              },
+              {
+                "question": "Subway",
+                "answer": "It is an underground way to cross the road safely."
+              },
+              {
+                "question": "Level Crossing",
+                "answer": "It is a place where a railway line and a road cross each other."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "num": 6,
+      "title": "State / UT Capitals",
+      "data": {
+        "type": "capitals",
+        "groups": [
+          {
+            "chapter": "gov",
+            "rows": [
+              {
+                "state": "Haryana",
+                "capital": "Chandigarh",
+                "sources": {
+                  "worksheet": true
+                }
+              },
+              {
+                "state": "Karnataka",
+                "capital": "Bengaluru",
+                "sources": {
+                  "worksheet": true
+                }
+              },
+              {
+                "state": "Sikkim",
+                "capital": "Gangtok",
+                "sources": {
+                  "revisionSheet": true,
+                  "worksheet": true
+                }
+              },
+              {
+                "state": "Punjab",
+                "capital": "Chandigarh",
+                "sources": {
+                  "worksheet": true
+                }
+              },
+              {
+                "state": "Maharashtra",
+                "capital": "Mumbai",
+                "sources": {
+                  "worksheet": true
+                }
+              },
+              {
+                "state": "Assam",
+                "capital": "Dispur",
+                "sources": {
+                  "revisionSheet": true
+                }
+              },
+              {
+                "state": "Nagaland",
+                "capital": "Kohima",
+                "sources": {
+                  "revisionSheet": true
+                }
+              },
+              {
+                "state": "Odisha",
+                "capital": "Bhubaneshwar",
+                "sources": {
+                  "revisionSheet": true
+                }
+              },
+              {
+                "state": "Goa",
+                "capital": "Panjim",
+                "sources": {
+                  "revisionSheet": true
+                }
+              },
+              {
+                "state": "Ladakh",
+                "capital": "Leh",
+                "sources": {
+                  "revisionSheet": true
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "num": 7,
+      "title": "Write Short Answers",
+      "data": {
+        "type": "qa",
+        "groups": [
+          {
+            "chapter": "gov",
+            "items": [
+              {
+                "question": "What is a Government?",
+                "answer": "The government is a governing body that looks after the welfare and safety of the people.",
+                "sources": {
+                  "revisionSheet": true
+                }
+              },
+              {
+                "question": "Name any three Union Territories.",
+                "answer": "Delhi, Lakshadweep, Puducherry."
+              },
+              {
+                "question": "What are the responsibilities of a State Government?",
+                "answer": "The State Government looks after education, health, welfare of the people and also maintains law and order."
+              }
+            ]
+          },
+          {
+            "chapter": "delhi",
+            "items": [
+              {
+                "question": "What is Mumbai also known for?",
+                "answer": "Mumbai is also known as the entertainment and business capital of India.",
+                "sources": {
+                  "worksheet": true
+                }
+              }
+            ]
+          },
+          {
+            "chapter": "leaders",
+            "items": [
+              {
+                "question": "When and where was Mahatma Gandhi born? What did he study in England?",
+                "questionLeaderImage": "gandhi.jpg",
+                "answer": "Mahatma Gandhi was born on 2nd October, 1869, in Porbandar, Gujarat. He studied law in England.",
+                "sources": {
+                  "revisionSheet": true
+                }
+              },
+              {
+                "question": "Which slogan was given by Lokmanya Tilak to encourage millions of Indians?",
+                "questionLeaderImage": "tilak.jpg",
+                "answer": "\"Swaraj is my birthright and I shall have it.\"",
+                "sources": {
+                  "worksheet": true
+                }
+              },
+              {
+                "question": "Which two slogans were used by Netaji to encourage the Indians?",
+                "questionLeaderImage": "bose.jpg",
+                "answer": "\"Jai Hind\" and \"Give me blood, I will give you freedom.\""
+              }
+            ]
+          },
+          {
+            "chapter": "transport",
+            "items": [
+              {
+                "question": "What are the common means of transport used in villages?",
+                "answer": "In Indian villages, bullock carts or animal carts are used to carry goods and people."
+              },
+              {
+                "question": "Why do people need to be careful on the roads or streets?",
+                "answer": "Because even a bit of carelessness can cost them their life."
+              },
+              {
+                "question": "Why do we use means of transport?",
+                "answer": "Means of transport help people to travel from one place to another.",
+                "sources": {
+                  "revisionSheet": true
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "num": 8,
+      "title": "Long Answers",
+      "data": {
+        "type": "qa",
+        "groups": [
+          {
+            "chapter": "gov",
+            "items": [
+              {
+                "question": "List the responsibilities of the Government.",
+                "answer": [
+                  "Frames laws to run the country smoothly.",
+                  "Provides services like electricity, water, telephone and communication.",
+                  "Decides where to build roads, schools, hospitals, stadiums, parks, stations and airports."
+                ],
+                "sources": {
+                  "worksheet": true
+                }
+              },
+              {
+                "question": "What are the functions of the Central Government?",
+                "answer": "The Central Government is like the head of the family that runs the whole nation. It helps the State Government whenever help is needed.",
+                "sources": {
+                  "revisionSheet": true
+                }
+              },
+              {
+                "question": "Why has India been divided into States and Union Territories?",
+                "answer": "India is a big country, and it was not possible for one government to look after such a big country. Hence, it is divided into States and Union Territories.",
+                "sources": {
+                  "worksheet": true
+                }
+              },
+              {
+                "question": "How are Union Territories different from States?",
+                "answer": "Every State has its own government, but Union Territories are under the direct control of the Central Government."
+              }
+            ]
+          },
+          {
+            "chapter": "delhi",
+            "items": [
+              {
+                "question": "List (a) any five places of tourist interest in Delhi (b) two government offices located in Delhi.",
+                "answer": [
+                  "(a) Red Fort, India Gate, Qutub Minar, Jantar Mantar, Nehru Planetarium",
+                  "(b) Parliament, Prime Minister's Office"
+                ]
+              },
+              {
+                "question": "What are embassies?",
+                "answer": "The governments of other countries have offices in Delhi. These foreign offices are called Embassies or High Commissions."
+              },
+              {
+                "question": "List any five tourist spots of Mumbai.",
+                "answer": "Gateway of India, Jehangir Art Gallery, Marine Drive, Taraporewala Aquarium, Essel World."
+              },
+              {
+                "question": "Why is New Delhi often referred to as 'Lutyens' Delhi'?",
+                "answer": "The city of Delhi was planned and designed by British architect Sir Edwin Lutyens. Therefore, it is often referred to as 'Lutyens' Delhi'.",
+                "sources": {
+                  "revisionSheet": true
+                }
+              },
+              {
+                "question": "Why is Mumbai called the 'City of Dreams'?",
+                "answer": "People from all over India come to Mumbai for employment or to become actors. It is home to many television and film stars, so Mumbai is called the City of Dreams."
+              },
+              {
+                "question": "Describe the climate of Delhi.",
+                "answer": "The climate of Delhi is extreme. It has very hot summers. Hot and dry winds called loo blow from April to June. The winters are very cold, and it rains from July to September."
+              },
+              {
+                "question": "Write a short note on the transport system of Mumbai.",
+                "answer": [
+                  "Local train networks connect the city very well and it is the best public transport system in Mumbai.",
+                  "The city also has one of the busiest railway stations in India — the Chhatrapati Shivaji Terminus (CST)."
+                ]
+              },
+              {
+                "question": "What makes Delhi a well-connected city?",
+                "answer": [
+                  "Well-developed modern roads, bridges and flyovers have made Delhi a modern and comfortable city to live in.",
+                  "Delhi Metro provides a fast and cheap means of transport to the people."
+                ]
+              },
+              {
+                "question": "Why do you think Delhi is called a 'Mini India'?",
+                "answer": [
+                  "Delhi is famous for job opportunities and education, so people from different states come here.",
+                  "Many universities in Delhi are great centres of learning and higher education; students from all over the world come to study here."
+                ],
+                "sources": {
+                  "worksheet": true
+                }
+              },
+              {
+                "question": "Why do you think Bombay High is of great importance?",
+                "answer": "Bombay High is an important place because mineral oil is found here in the seabed. This mineral oil is purified in a refinery."
+              }
+            ]
+          },
+          {
+            "chapter": "leaders",
+            "items": [
+              {
+                "question": "What were the two methods used by Mahatma Gandhi to fight against the British?",
+                "questionLeaderImage": "gandhi.jpg",
+                "answer": "Satyagraha and Ahimsa (non-violence)."
+              },
+              {
+                "question": "Write three sentences on Sardar Patel.",
+                "questionLeaderImage": "patel.jpg",
+                "answer": "Sardar Vallabhbhai Patel was a lawyer by profession. He was a strong and brave leader. He was inspired by Mahatma Gandhi to take part in the struggle for freedom. He is also known as the 'Iron Man of India'.",
+                "sources": {
+                  "worksheet": true
+                }
+              },
+              {
+                "question": "Why did Rani Laxmibai fight against the British?",
+                "questionLeaderImage": "rani.jpg",
+                "answer": "Rani Laxmibai fought against the British because she wanted to save her kingdom from the British. She joined the soldiers from Meerut and fought for Jhansi. She, along with other leaders, fought against the British in the Revolt of 1857."
+              },
+              {
+                "question": "Great people never give up in spite of difficulties. What do you do when you face difficulties in your studies?",
+                "answer": "When I face difficulties in my studies, I never give up. I try again and again. I take help from my teacher and parents. I practice more and more until I understand well."
+              }
+            ]
+          },
+          {
+            "chapter": "transport",
+            "items": [
+              {
+                "question": "List any five rules for road safety.",
+                "answer": [
+                  "Cross the road using the zebra crossing.",
+                  "Look right, then left, then right again before crossing the road.",
+                  "Walk on the footpath.",
+                  "Obey traffic rules and cross the road only when the traffic stops.",
+                  "If cycling to school, keep to the left; use bylanes to stay safe."
+                ]
+              },
+              {
+                "question": "Write short notes on the following means of transport:",
+                "answer": [
+                  "Land: These means of transport move only on land. Example: buses, tractors, cars.",
+                  "Water: These means of transport move only on water. Example: ships, boats, tankers and steamers.",
+                  "Air: It is the fastest means of transport. Used to cover long distances in less time. Example: aeroplane, helicopter.",
+                  "Animal: Animal transport has been a means of transport since ancient times. The camel is used in the desert, ponies and mules are used in hilly areas, and elephants are used in forest areas."
+                ]
+              },
+              {
+                "question": "Why should we use subways?",
+                "answer": "Subways help us reach places quickly without getting stuck in traffic. Subways and foot-over bridges should be used to cross the roads.",
+                "sources": {
+                  "revisionSheet": true
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "num": 9,
+      "title": "Application Based",
+      "data": {
+        "type": "qa",
+        "groups": [
+          {
+            "chapter": "delhi",
+            "items": [
+              {
+                "question": "Kanika lives in Mumbai. What kind of clothes do you think she wears in (a) summer (b) winter?",
+                "answer": [
+                  "Summer in Mumbai is warm and humid, so Kanika wears light, cotton clothes.",
+                  "Winters are not very cold but pleasant, so she wears light but warm clothes."
+                ]
+              }
+            ]
+          },
+          {
+            "chapter": "leaders",
+            "items": [
+              {
+                "question": "Mahatma Gandhi was a messenger of peace. What can you learn from him as a leader?",
+                "questionLeaderImage": "gandhi.jpg",
+                "answer": "I can learn to always speak the truth and be honest. I can solve problems in a peaceful way without fighting. I can be kind and helpful to others and respect everyone equally. I can also learn to stand up for what is right and work hard for the welfare of the people.",
+                "sources": {
+                  "revisionSheet": true
+                }
+              }
+            ]
+          },
+          {
+            "chapter": "transport",
+            "items": [
+              {
+                "question": "What mode of transportation, regardless of cost, would you choose if you needed to get somewhere far away in the least amount of time? Explain.",
+                "answer": "I would choose an aeroplane or a helicopter to travel to a far-away place in the least amount of time because they are the fastest mode of transport."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "num": 10,
+      "title": "MCQ Practice",
+      "note": "All answers below are confirmed from her own worksheet ticks/fill-ins, or directly derivable from the textbook passage on the same page.",
+      "data": {
+        "type": "mcq",
+        "groups": [
+          {
+            "chapter": "gov",
+            "items": [
+              {
+                "question": "Who looks after our country just like the head of a family?",
+                "options": "(a) the President  (b) the Central Government  (c) the Parliament  (d) the Vice President",
+                "answer": "(b) the Central Government"
+              },
+              {
+                "question": "In which one of the following cities does the Chief Minister of Uttarakhand live and work?",
+                "options": "(a) Mussoorie  (b) Dehradun  (c) Lucknow  (d) New Delhi",
+                "answer": "(b) Dehradun"
+              },
+              {
+                "question": "Which one of the following cities is the common capital of Punjab and Haryana?",
+                "options": "(a) Amritsar  (b) Gurugram  (c) Chandigarh  (d) Jaipur",
+                "answer": "(c) Chandigarh"
+              },
+              {
+                "question": "Which one of the following statements is true about the Union Territories of India?",
+                "options": "(a) There are 8 Union Territories in India.  (b) They are under direct control of the Central Government.  (c) They are not included in any of the 28 states.  (d) All of these",
+                "answer": "(d) All of these"
+              },
+              {
+                "question": "Water scarcity is a problem for farmers in a region. They go to the ______ to meet the Governor of their State to find a solution.",
+                "options": "(a) Rashtrapati Bhawan  (b) Raj Bhawan  (c) Parliament House  (d) High Court",
+                "answer": "(b) Raj Bhawan"
+              }
+            ]
+          },
+          {
+            "chapter": "delhi",
+            "items": [
+              {
+                "question": "The ______ built New Delhi as the Capital of India.",
+                "options": "(a) French  (b) Portuguese  (c) Americans  (d) British",
+                "answer": "(d) British"
+              },
+              {
+                "question": "Which one of the following stadiums is not in Delhi?",
+                "options": "(a) Jawaharlal Nehru Stadium  (b) Indira Gandhi Stadium  (c) Talkatora Stadium  (d) Narendra Modi Stadium",
+                "answer": "(d) Narendra Modi Stadium"
+              },
+              {
+                "question": "Which one of the following places of Mumbai is famously known as Queen's Necklace?",
+                "options": "(a) the CST  (b) Malabar Hills  (c) the Elephanta Caves  (d) the Marine Drive",
+                "answer": "(d) the Marine Drive"
+              },
+              {
+                "question": "Which one of the following states is a neighbouring state of Delhi?",
+                "options": "(a) Uttarakhand  (b) Maharashtra  (c) Haryana  (d) Punjab",
+                "answer": "(c) Haryana"
+              },
+              {
+                "question": "Which one of the following statements is correct about New Delhi?",
+                "options": "(a) New Delhi is our national capital.  (b) It is a beautiful city situated along the banks of the River Yamuna.  (c) It was first built by the Pandava Kings.  (d) All of these",
+                "answer": "(d) All of these"
+              },
+              {
+                "question": "Which one of the following statements is true about Mumbai?",
+                "options": "(a) Mumbai was at one time a group of seven islands.  (b) Mumbai lies on the west coast of India.  (c) Both (a) and (b)  (d) Mumbai is the capital of India.",
+                "answer": "(c) Both (a) and (b)"
+              },
+              {
+                "question": "You visit Mumbai in the month of May. You experience a ______ climate.",
+                "options": "(a) warm and humid  (b) cold and dry  (c) cool and pleasant  (d) cool and wet",
+                "answer": "(a) warm and humid"
+              }
+            ]
+          },
+          {
+            "chapter": "leaders",
+            "items": [
+              {
+                "question": "Mahatma Gandhi was born on ______.",
+                "options": "(a) 2 October 1879  (b) 2 October 1869  (c) 2 October 1969  (d) 2 October 1959",
+                "answer": "(b) 2 October 1869"
+              },
+              {
+                "question": "Mahatma Gandhi used ______ and Ahimsa to fight against the British.",
+                "options": "(a) Satyagraha  (b) non-violence  (c) army  (d) navy",
+                "answer": "(a) Satyagraha"
+              },
+              {
+                "question": "Sardar Vallabhbhai Patel was a brave and ______ leader.",
+                "options": "(a) old  (b) weak  (c) strong  (d) none of these",
+                "answer": "(c) strong"
+              },
+              {
+                "question": "Sardar Patel was a ______ by profession.",
+                "options": "(a) lawyer  (b) doctor  (c) military man  (d) teacher",
+                "answer": "(a) lawyer"
+              },
+              {
+                "question": "______ was the first woman President of the Indian National Congress.",
+                "options": "(a) Lakshmi Bai  (b) Indira Gandhi  (c) Sarojini Naidu  (d) Jhalkari Bai",
+                "answer": "(c) Sarojini Naidu"
+              },
+              {
+                "question": "Rani Lakshmi Bai was the Queen of ______.",
+                "options": "(a) Meerut  (b) Jhansi  (c) Uttar Pradesh  (d) Delhi",
+                "answer": "(b) Jhansi"
+              }
+            ]
+          },
+          {
+            "chapter": "transport",
+            "items": [
+              {
+                "question": "The choice of transport depends on ______.",
+                "options": "(a) the distance to be travelled  (b) the money we have  (c) time available  (d) all of these",
+                "answer": "(d) all of these"
+              },
+              {
+                "question": "Which one of the following means of transport is used to send huge amounts of grain from one country to another?",
+                "options": "(a) Car  (b) Ship  (c) Helicopter  (d) Bullock Cart",
+                "answer": "(b) Ship"
+              },
+              {
+                "question": "What are the two kinds of land transport?",
+                "options": "(a) camels and ponies  (b) aeroplanes and helicopters  (c) cars and trains  (d) ships and yachts",
+                "answer": "(c) cars and trains"
+              },
+              {
+                "question": "Which one of the following options is true about level crossing?",
+                "options": "(a) It is a place where a railway line and a road cross each other.  (b) We should not cross a railway track when the gates are down.  (c) Level crossings can be dangerous.  (d) All of these",
+                "answer": "(d) All of these"
+              },
+              {
+                "question": "What will you use to move big logs of wood in thick forests?",
+                "options": "(a) elephants  (b) camels  (c) ponies  (d) bullock carts",
+                "answer": "(a) elephants"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "num": 11,
+      "title": "Picture Study",
+      "data": {
+        "type": "picture",
+        "groups": [
+          {
+            "chapter": "gov",
+            "items": [
+              {
+                "image": "https://en.wikipedia.org/wiki/Special:FilePath/New_Parliament_Building,_New_Delhi.jpg?width=200",
+                "caption": "1. Identify the building shown in the picture. — The Parliament House (Sansad Bhavan)\n2. What is its importance? — It is the law-making body (Lok Sabha and Rajya Sabha) of India's Central Government."
+              }
+            ]
+          },
+          {
+            "chapter": "delhi",
+            "items": [
+              {
+                "image": "https://en.wikipedia.org/wiki/Special:FilePath/Marine_Drive_at_Night.jpg?width=200",
+                "caption": "Marine Drive",
+                "sources": {
+                  "revisionSheet": true
+                }
+              },
+              {
+                "image": "https://en.wikipedia.org/wiki/Special:FilePath/India_Gate_in_New_Delhi_03-2016.jpg?width=200",
+                "caption": "India Gate",
+                "sources": {
+                  "revisionSheet": true
+                }
+              },
+              {
+                "image": "https://en.wikipedia.org/wiki/Special:FilePath/New_Parliament_Building,_New_Delhi.jpg?width=200",
+                "caption": "The Parliament House",
+                "sources": {
+                  "revisionSheet": true
+                }
+              }
+            ]
+          },
+          {
+            "chapter": "leaders",
+            "items": [
+              {
+                "image": "leaders/tilak.jpg",
+                "caption": "Lokmanya Bal Gangadhar Tilak",
+                "sources": {
+                  "revisionSheet": true
+                }
+              }
+            ],
+            "leaderGrid": {
+              "label": "Look at the pictures and identify the famous leaders",
+              "items": [
+                {
+                  "image": "leaders/gandhi.jpg",
+                  "caption": "1. Mahatma Gandhi"
+                },
+                {
+                  "image": "leaders/naidu.jpg",
+                  "caption": "2. Sarojini Naidu"
+                },
+                {
+                  "image": "leaders/bose.jpg",
+                  "caption": "3. Subhash Chandra Bose"
+                },
+                {
+                  "image": "leaders/patel.jpg",
+                  "caption": "4. Sardar Vallabhbhai Patel"
+                },
+                {
+                  "image": "leaders/tilak.jpg",
+                  "caption": "5. Bal Gangadhar Tilak"
+                },
+                {
+                  "image": "leaders/rani.jpg",
+                  "caption": "6. Rani Lakshmi Bai"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "footerNote": "Leader portraits above are cropped from her own school worksheet, so they match what she's asked to identify. Landmark photos (Parliament House, Marine Drive, India Gate) are sourced from Wikimedia Commons (public domain / openly licensed). All used here for identification practice only.\nEnd of notebook. Everything above is taken verbatim or near-verbatim from the uploaded textbook chapters, school worksheets, and her own notebook pages — nothing has been invented."
+}
