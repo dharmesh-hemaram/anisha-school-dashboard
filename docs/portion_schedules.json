@@ -103,7 +103,8 @@
         "day": "Friday",
         "subject": "Science",
         "marks": 60,
-        "portion": "Food and Nutrition in Humans, Birds, Our Body is a Wonderful Machine"
+        "portion": "Food and Nutrition in Humans, Birds, Our Body is a Wonderful Machine",
+        "revision_notebook_url": "revision/science-half-yearly"
       },
       {
         "date_iso": "2026-09-12",

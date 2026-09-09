@@ -12,7 +12,7 @@ export default function VocabItemCard({ item }: { item: VocabItem }) {
         <SourceMarks sources={item.sources} />
       </p>
       <p className={styles.vocabMeaning}>{item.meaning}</p>
-      <p className={styles.vocabExample}>{item.example}</p>
+      {item.example && <p className={styles.vocabExample}>{item.example}</p>}
     </div>
   );
 }

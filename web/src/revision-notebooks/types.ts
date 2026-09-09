@@ -148,13 +148,16 @@ export interface PictureCategory {
   }[];
 }
 
-// 12. Vocabulary -- a word, its meaning, and a worked example sentence.
-// Distinct from QaItem (question/answer) because every literature chapter's
-// "new words" notebook page is this word+meaning+sentence triple, not a Q&A.
+// 12. Vocabulary -- a word, its meaning, and (where the source gave one) a
+// worked example sentence. Distinct from QaItem (question/answer) because
+// every literature chapter's "new words" notebook page is this word+meaning
+// triple, not a Q&A. `example` is optional for chapters that only define
+// terms (e.g. Science) without a sentence using each one -- omit rather
+// than invent one.
 export interface VocabItem {
   word: string;
   meaning: string;
-  example: string;
+  example?: string;
   sources?: SourceMarks;
 }
 export interface VocabCategory {

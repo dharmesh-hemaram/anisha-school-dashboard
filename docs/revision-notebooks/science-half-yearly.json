@@ -1,0 +1,783 @@
+{
+  "slug": "science-half-yearly",
+  "subjectBadge": "Science",
+  "title": "Revision Notebook",
+  "subtitle": "Food and Nutrition in Humans · Birds · Our Body is a Wonderful Machine — every question below comes from her own notebook, the printed Science-3 textbook/workbook, a school worksheet, or a Revision sheet. Nothing has been invented.",
+  "examMeta": "Half Yearly Exam · Fri, 11 Sept · 60 marks",
+  "chapters": [
+    { "id": "food", "label": "Food and Nutrition in Humans" },
+    { "id": "birds", "label": "Birds" },
+    { "id": "body", "label": "Our Body is a Wonderful Machine" }
+  ],
+  "categories": [
+    {
+      "num": 1,
+      "title": "Word Meanings & Definitions",
+      "data": {
+        "type": "vocab",
+        "groups": [
+          {
+            "chapter": "food",
+            "items": [
+              {
+                "word": "Roughage",
+                "meaning": "Roughage is the fibre present in food items that we get from plants.",
+                "sources": { "revisionSheet": true }
+              }
+            ]
+          },
+          {
+            "chapter": "birds",
+            "items": [
+              {
+                "word": "Beak",
+                "meaning": "The hard, pointed mouthpart of a bird used for eating, perching and building nests.",
+                "sources": { "notes": true, "worksheet": true }
+              },
+              {
+                "word": "Nest",
+                "meaning": "A home made by birds to lay eggs and raise their young ones.",
+                "sources": { "notes": true }
+              },
+              {
+                "word": "Claws",
+                "meaning": "Sharp nails on the bird's feet used for catching food and holding branches.",
+                "sources": { "notes": true, "worksheet": true }
+              },
+              {
+                "word": "Perching",
+                "meaning": "The act of sitting or resting on a branch using feet and claws is called perching.",
+                "sources": { "notes": true }
+              }
+            ]
+          },
+          {
+            "chapter": "body",
+            "items": [
+              {
+                "word": "Organ",
+                "meaning": "An organ is a group of different tissues that work together to perform a specific function.",
+                "sources": { "worksheet": true }
+              },
+              {
+                "word": "Organ System",
+                "meaning": "A group of organs that work together to perform a function forms an organ system.",
+                "example": "Respiratory system: nose, windpipe, lungs.",
+                "sources": { "notes": true }
+              },
+              {
+                "word": "Cell",
+                "meaning": "Cell is the smallest part of our body. It is like a tiny building block that makes our body.",
+                "sources": { "notes": true }
+              },
+              {
+                "word": "Skeleton",
+                "meaning": "The hard framework of bones that gives shape and support to our body.",
+                "sources": { "notes": true }
+              },
+              {
+                "word": "Muscles",
+                "meaning": "Soft tissues in our body that help in movement.",
+                "sources": { "worksheet": true }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "num": 2,
+      "title": "Points to Remember",
+      "data": {
+        "type": "block",
+        "groups": [
+          {
+            "chapter": "birds",
+            "items": [
+              {
+                "heading": "Summary",
+                "lines": [
+                  "The different parts of a bird's body are — beak, eyes, feathers, claws, wings and tail.",
+                  "A bird has three types of feathers — flight feathers, down feathers and body feathers.",
+                  "Different birds have different types of beaks, depending on the kind of food they eat.",
+                  "Different birds have different types of feet and claws.",
+                  "Birds make nests to lay eggs and protect their eggs and nestlings."
+                ],
+                "sources": { "textbook": true }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "num": 3,
+      "title": "Diagram Labeling",
+      "data": {
+        "type": "picture",
+        "groups": [
+          {
+            "chapter": "food",
+            "items": [
+              {
+                "image": "science/digestive-system.jpg",
+                "caption": "The digestive system — A: Food pipe, B: Stomach, C: Large intestine, D: Small intestine.",
+                "sources": { "textbook": true }
+              }
+            ]
+          },
+          {
+            "chapter": "birds",
+            "items": [
+              {
+                "image": "science/bird-body-parts.jpg",
+                "caption": "Parts of a bird's body — 1: Beak, 2: Eye, 3: Body feathers, 4: Wings, 5: Claws, 6: Flight feather, 7: Tail.",
+                "sources": { "textbook": true }
+              },
+              {
+                "image": "science/types-of-feathers.jpg",
+                "caption": "Flight feathers — long and flat, found in the wings and tail, help the bird to fly. Down feathers — soft and fluffy, keep the bird warm. Body feathers — cover the bird's body and give it shape.",
+                "sources": { "textbook": true }
+              }
+            ]
+          },
+          {
+            "chapter": "body",
+            "items": [
+              {
+                "image": "science/respiratory-system.jpg",
+                "caption": "The respiratory system — (a) Nose, (b) Windpipe, (c) Lungs.",
+                "sources": { "textbook": true }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "num": 4,
+      "title": "Fill in the Blanks",
+      "data": {
+        "type": "fib",
+        "groups": [
+          {
+            "chapter": "food",
+            "sets": [
+              {
+                "items": [
+                  {
+                    "template": "___ give us more energy than carbohydrates.",
+                    "answers": ["Fats"],
+                    "sources": { "revisionSheet": true }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "chapter": "birds",
+            "sets": [
+              {
+                "note": "Worksheet No. 4",
+                "items": [
+                  {
+                    "template": "___ have thin and long legs with wide spreading toes.",
+                    "answers": ["Wading birds"],
+                    "sources": { "worksheet": true }
+                  },
+                  {
+                    "template": "A ___ bird has a sticky mouth and tongue to catch insects.",
+                    "answers": ["Swallow"],
+                    "sources": { "worksheet": true }
+                  },
+                  {
+                    "template": "Bird's ___ bones make the body light.",
+                    "answers": ["hollow"],
+                    "sources": { "worksheet": true }
+                  }
+                ]
+              },
+              {
+                "note": "Complete the following with the words in the Help Box",
+                "items": [
+                  {
+                    "template": "The woodpecker uses its ___ like beak to make a hole in a tree trunk.",
+                    "answers": ["chisel"],
+                    "sources": { "textbook": true }
+                  },
+                  {
+                    "template": "Swans have ___ feet.",
+                    "answers": ["webbed"],
+                    "sources": { "textbook": true }
+                  },
+                  {
+                    "template": "A tailor bird uses its ___ to sew its nest.",
+                    "answers": ["beak"],
+                    "sources": { "textbook": true }
+                  },
+                  {
+                    "template": "___ feathers cover the body of a bird.",
+                    "answers": ["Body"],
+                    "sources": { "textbook": true }
+                  },
+                  {
+                    "template": "Strong and sharp claws of flesh-eating birds are called ___.",
+                    "answers": ["talons"],
+                    "sources": { "textbook": true }
+                  },
+                  {
+                    "template": "The nest of a ___ hangs from the branch of a tree.",
+                    "answers": ["weaver bird"],
+                    "sources": { "textbook": true }
+                  },
+                  {
+                    "template": "A ___ has a long and slender beak.",
+                    "answers": ["hoopoe"],
+                    "sources": { "textbook": true }
+                  },
+                  {
+                    "template": "___ feathers keep the bird warm.",
+                    "answers": ["Down"],
+                    "sources": { "textbook": true }
+                  }
+                ]
+              },
+              {
+                "note": "Fill in the blanks with the help of the given words",
+                "items": [
+                  {
+                    "template": "An ostrich has ___ toes on each foot. (three/two)",
+                    "answers": ["two"],
+                    "sources": { "textbook": true }
+                  },
+                  {
+                    "template": "Ducks have ___ feet to swim in water. (webbed/sharp)",
+                    "answers": ["webbed"],
+                    "sources": { "textbook": true }
+                  },
+                  {
+                    "template": "A bird's home is called a ___. (hut/nest)",
+                    "answers": ["nest"],
+                    "sources": { "textbook": true }
+                  },
+                  {
+                    "template": "A ___ makes its nest on high trees. (tailor bird/vulture)",
+                    "answers": ["vulture"],
+                    "sources": { "textbook": true }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "chapter": "body",
+            "sets": [
+              {
+                "note": "Revision-2",
+                "items": [
+                  {
+                    "template": "Different ___ forms an organ system.",
+                    "answers": ["organs"],
+                    "sources": { "revisionSheet": true }
+                  },
+                  {
+                    "template": "Our skeletal system is made up of ___ bones.",
+                    "answers": ["206"],
+                    "sources": { "revisionSheet": true }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "num": 5,
+      "title": "Match the Following",
+      "data": {
+        "type": "match",
+        "groups": [
+          {
+            "chapter": "birds",
+            "sets": [
+              {
+                "sources": { "worksheet": true },
+                "columns": ["Column A", "Column B"],
+                "pairs": [
+                  { "left": "Climbing bird", "right": "Parrot" },
+                  { "left": "Perching bird", "right": "Crow" },
+                  { "left": "Preying bird", "right": "Eagle" },
+                  { "left": "Excretory system", "right": "Kidney" },
+                  { "left": "Wading bird", "right": "Crane" }
+                ],
+                "answerLine": "Climbing bird–Parrot, Perching bird–Crow, Preying bird–Eagle, Excretory system–Kidney, Wading bird–Crane"
+              }
+            ]
+          },
+          {
+            "chapter": "body",
+            "sets": [
+              {
+                "sources": { "revisionSheet": true },
+                "columns": ["Column A", "Column B"],
+                "pairs": [
+                  { "left": "Long and slender beak", "right": "Hoopoe" },
+                  { "left": "Nerves", "right": "Nervous system" },
+                  { "left": "Pulses", "right": "Body building food" },
+                  { "left": "Heart", "right": "Circulatory system" }
+                ],
+                "answerLine": "Long and slender beak–Hoopoe, Nerves–Nervous system, Pulses–Body building food, Heart–Circulatory system"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "num": 6,
+      "title": "True or False",
+      "data": {
+        "type": "trueFalse",
+        "groups": [
+          {
+            "chapter": "food",
+            "items": [
+              {
+                "statement": "We should eat at regular intervals.",
+                "answer": true,
+                "sources": { "revisionSheet": true }
+              },
+              {
+                "statement": "Food rich in carbohydrates are called protective food.",
+                "answer": false,
+                "sources": { "revisionSheet": true }
+              }
+            ]
+          },
+          {
+            "chapter": "birds",
+            "items": [
+              {
+                "statement": "Different birds have different types of feet and claws.",
+                "answer": true,
+                "sources": { "revisionSheet": true }
+              }
+            ]
+          },
+          {
+            "chapter": "body",
+            "items": [
+              {
+                "statement": "Nose, windpipe and lungs form the nervous system.",
+                "answer": false,
+                "sources": { "revisionSheet": true }
+              },
+              {
+                "statement": "All bones form the skeletal system and all muscles form the muscular system.",
+                "answer": true,
+                "sources": { "revisionSheet": true }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "num": 7,
+      "title": "Name the Following / One Word",
+      "data": {
+        "type": "name",
+        "groups": [
+          {
+            "chapter": "food",
+            "items": [
+              {
+                "prompt": "Body-building food (example)",
+                "answer": "Eggs / Fish / Meat / Pulses",
+                "sources": { "revisionSheet": true }
+              },
+              {
+                "prompt": "Protective food (example)",
+                "answer": "Fruits / Vegetables",
+                "sources": { "revisionSheet": true }
+              },
+              {
+                "prompt": "It secretes digestive juices that help digest carbohydrates, fats and proteins",
+                "answer": "Pancreas",
+                "sources": { "worksheet": true }
+              },
+              {
+                "prompt": "In the human digestive system, absorption of water takes place here",
+                "answer": "Large intestine",
+                "sources": { "worksheet": true }
+              },
+              {
+                "prompt": "The breakdown of complex food into simpler forms",
+                "answer": "Digestion",
+                "sources": { "worksheet": true }
+              }
+            ]
+          },
+          {
+            "chapter": "birds",
+            "items": [
+              {
+                "prompt": "Two birds that have short and horny beaks",
+                "answer": "Pigeon and Sparrows",
+                "sources": { "textbook": true }
+              },
+              {
+                "prompt": "A bird that sucks nectar from flowers",
+                "answer": "Humming birds",
+                "sources": { "textbook": true }
+              },
+              {
+                "prompt": "Two birds of prey",
+                "answer": "Eagle and Owl",
+                "sources": { "textbook": true }
+              },
+              {
+                "prompt": "The bird whose nest looks like a shallow cup",
+                "answer": "Vultures",
+                "sources": { "notes": true, "textbook": true }
+              },
+              {
+                "prompt": "Preying birds (example)",
+                "answer": "Eagle / Vulture / Owl",
+                "sources": { "revisionSheet": true }
+              },
+              {
+                "prompt": "Long, thin and curved beak (example)",
+                "answer": "Sunbird / Humming bird",
+                "sources": { "revisionSheet": true }
+              }
+            ]
+          },
+          {
+            "chapter": "body",
+            "items": [
+              {
+                "prompt": "Blood vessels which carry blood from the heart to different parts of the body",
+                "answer": "Arteries",
+                "sources": { "worksheet": true }
+              },
+              {
+                "prompt": "A system in the body for producing babies",
+                "answer": "Reproductive system",
+                "sources": { "worksheet": true }
+              },
+              {
+                "prompt": "A soft part that covers the skeleton",
+                "answer": "Muscles",
+                "sources": { "worksheet": true }
+              },
+              {
+                "prompt": "The smallest unit of our body",
+                "answer": "Cell",
+                "sources": { "worksheet": true }
+              },
+              {
+                "prompt": "It pumps blood to all parts of the body",
+                "answer": "Heart",
+                "sources": { "worksheet": true }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "num": 8,
+      "title": "Short Answer Questions",
+      "data": {
+        "type": "qa",
+        "groups": [
+          {
+            "chapter": "food",
+            "items": [
+              {
+                "question": "From where do we get energy?",
+                "answer": "We get energy from the food we eat. Foods like fruits, vegetables and grains give us energy to play, learn and do all the things we enjoy.",
+                "sources": { "revisionSheet": true }
+              }
+            ]
+          },
+          {
+            "chapter": "birds",
+            "items": [
+              {
+                "question": "Name the different types of feathers found on a bird's body.",
+                "answer": "Flight feather, down feather and body feather.",
+                "sources": { "notes": true, "textbook": true }
+              },
+              {
+                "question": "What is perching?",
+                "answer": "The act of sitting or resting on a branch using feet and claws is called perching.",
+                "sources": { "notes": true, "textbook": true }
+              },
+              {
+                "question": "List two features that help birds to fly.",
+                "answer": "Birds have wings and hollow bones that help them to fly.",
+                "sources": { "notes": true, "revisionSheet": true, "textbook": true }
+              },
+              {
+                "question": "Describe the feet and claws of a wading bird.",
+                "answer": "Wading birds, like crane and herons, have thin and long legs with wide spreading toes.",
+                "sources": { "notes": true, "textbook": true }
+              },
+              {
+                "question": "Why are only some birds like duck and swan able to swim while most other birds cannot?",
+                "answer": "Ducks and swans have webbed feet that act like paddles, helping them to swim in the water.",
+                "sources": { "notes": true, "textbook": true }
+              },
+              {
+                "question": "A bird has wings but no tail. How does this affect the bird while flying?",
+                "answer": "The bird cannot balance or change direction properly while flying.",
+                "sources": { "notes": true, "textbook": true }
+              }
+            ]
+          },
+          {
+            "chapter": "body",
+            "items": [
+              {
+                "question": "How does the excretory system work in our body?",
+                "answer": "The excretory system, which includes organs like the kidneys and urinary bladder, removes waste and extra water from our body.",
+                "sources": { "worksheet": true, "revisionSheet": true }
+              },
+              {
+                "question": "List two ways in which the skeletal system is useful for us.",
+                "answer": [
+                  "The skeleton gives shape, size and support to our body.",
+                  "It protects the internal organs of our body — for example, the skull protects our brain."
+                ],
+                "sources": { "worksheet": true }
+              },
+              {
+                "question": "What is the role of the nervous system in our body?",
+                "answer": "The nervous system controls all our activities like learning, thinking and action. The brain orders each part of the body by sending messages through nerves.",
+                "sources": { "notes": true }
+              },
+              {
+                "question": "Write the function of the lungs.",
+                "answer": "The air reaches the lungs and the lungs expand. The blood present in the lungs absorbs oxygen.",
+                "sources": { "revisionSheet": true }
+              },
+              {
+                "question": "Why should we breathe through the nose and not through the mouth?",
+                "answer": "We breathe through our nose because its inside surface is lined with many small hairs that prevent the entry of germs and dust into our body.",
+                "sources": { "revisionSheet": true }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "num": 9,
+      "title": "Long Answer & Application-Based Questions",
+      "data": {
+        "type": "qa",
+        "groups": [
+          {
+            "chapter": "food",
+            "items": [
+              {
+                "question": "Discuss the journey of food from the mouth to the small intestine.",
+                "answer": [
+                  "Mouth — we chew the food and mix it with saliva.",
+                  "Food pipe — food travels down to the stomach.",
+                  "Stomach — food is mixed and broken down into simpler and soluble substances.",
+                  "Small intestine — useful parts of food (nutrients) are absorbed here."
+                ],
+                "sources": { "notes": true }
+              }
+            ]
+          },
+          {
+            "chapter": "birds",
+            "items": [
+              {
+                "question": "How does a broad and flat beak with tiny holes help a duck to eat insects?",
+                "answer": "A broad and flat beak with tiny holes helps a duck catch insects in the water. The muddy water flows out from the tiny holes, leaving behind plants and insects inside the beak.",
+                "sources": { "notes": true, "textbook": true }
+              },
+              {
+                "question": "Why do pigeons and vultures have different types of beaks?",
+                "answer": [
+                  "Pigeons have short and horny beaks to crush nuts, grains and seeds, while vultures have sharp, hooked beaks for tearing flesh.",
+                  "They have different beaks because they eat different kinds of food."
+                ],
+                "sources": { "notes": true, "textbook": true }
+              },
+              {
+                "question": "Differentiate between the upstroke and downstroke movement of wings.",
+                "answer": "Upstroke — the upward movement of wings, which helps birds get ready for the next flap. Downstroke — the downward movement of wings that pushes air and helps the bird rise and fly.",
+                "sources": { "notes": true, "revisionSheet": true }
+              },
+              {
+                "question": "Sagar sees a pigeon in his courtyard, struggling to fly as its claws are caught in a net. Sagar runs and releases the bird from the net. (a) Which type of bird is a pigeon — perching or preying? (b) How are the claws of a perching bird different from those of a preying bird?",
+                "answer": [
+                  "(a) Pigeons are perching birds.",
+                  "(b) The claws of a perching bird, like a pigeon, are usually shorter and more curved. Preying birds, like eagles, have longer and sharper claws for catching and holding onto their prey."
+                ],
+                "sources": { "notes": true }
+              },
+              {
+                "question": "What happens if all the toes of a woodpecker are pointed in the same direction?",
+                "answer": "If all the toes of a woodpecker were pointed in the same direction, it would be difficult for the woodpecker to cling to a tree trunk. Woodpeckers need two toes pointing forward and two pointing backward to grip onto trees securely while they peck.",
+                "sources": { "notes": true }
+              },
+              {
+                "question": "Which type of bird will have strong claws — a bird that catches fish or a bird that hunts small animals? Why?",
+                "answer": "A bird that hunts small animals, like an eagle, will have strong, sharp claws to catch and hold its prey tightly.",
+                "sources": { "notes": true }
+              },
+              {
+                "question": "You see a bird's nest made of soft cotton and wood. What do you think this tells you about the kind of eggs or nestlings it might have?",
+                "answer": "The soft nest will keep the eggs warm and protect the nestlings, so the bird probably has small and delicate nestlings.",
+                "sources": { "notes": true }
+              },
+              {
+                "question": "Rohan draws a humming bird with a broad and flat beak. Mita says that Rohan has drawn the beak of the humming bird incorrectly. Do you think Mita is right? Give a reason for your answer.",
+                "answer": "Yes, Mita is right. A humming bird has a long and slender beak, which helps it suck the nectar of flowers. Broad and flat beaks are found in water birds like the duck.",
+                "sources": { "textbook": true }
+              }
+            ]
+          },
+          {
+            "chapter": "body",
+            "items": [
+              {
+                "question": "What do you think would happen if the organs in an organ system did not work together properly?",
+                "answer": "If an organ system does not function properly, the body may become unhealthy.",
+                "sources": { "worksheet": true }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "num": 10,
+      "title": "Case-Based & Picture-Based Questions",
+      "data": {
+        "type": "qa",
+        "groups": [
+          {
+            "chapter": "food",
+            "items": [
+              {
+                "question": "Rohan had his lunch in a hurry because he wanted to play with his friends. He did not chew his food properly and swallowed large pieces. After some time, he felt uncomfortable. (a) Why should Rohan chew his food properly? (b) Why is digestion important for our body?",
+                "answer": [
+                  "(a) Because chewing breaks food into smaller pieces and makes digestion easier.",
+                  "(b) Digestion helps our body get nutrients and energy from food."
+                ],
+                "sources": { "revisionSheet": true }
+              }
+            ]
+          },
+          {
+            "chapter": "body",
+            "items": [
+              {
+                "question": "Look at the given diagram of the respiratory system and answer: (1) Name the organ system shown. (2) Label (a), (b) and (c). (3) Write the function of (c).",
+                "answer": [
+                  "(1) Respiratory system.",
+                  "(2) (a) Nose (b) Windpipe (c) Lungs.",
+                  "(3) The air reaches the lungs and the lungs expand. The blood present in the lungs absorbs oxygen."
+                ],
+                "sources": { "revisionSheet": true }
+              },
+              {
+                "question": "Deep breathing is a good yoga practice. It is a process of taking long breaths to relax the whole body. How does deep breathing relax the whole body?",
+                "answer": "It helps in the intake of more oxygen in the body.",
+                "sources": { "worksheet": true }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "num": 11,
+      "title": "MCQ Practice",
+      "data": {
+        "type": "mcq",
+        "groups": [
+          {
+            "chapter": "food",
+            "items": [
+              {
+                "question": "The main function of the large intestine is to",
+                "options": "(a) digest food    (b) make digestive juices    (c) absorb water from food",
+                "answer": "(c) absorb water from food",
+                "sources": { "revisionSheet": true }
+              },
+              {
+                "question": "The digestive system starts with:",
+                "options": "(a) stomach    (b) mouth    (c) food pipe",
+                "answer": "(b) mouth",
+                "sources": { "revisionSheet": true }
+              }
+            ]
+          },
+          {
+            "chapter": "birds",
+            "items": [
+              {
+                "question": "___ are animals with feathers on their bodies.",
+                "options": "(a) Snakes    (b) Birds    (c) Frogs",
+                "answer": "(b) Birds",
+                "sources": { "textbook": true }
+              },
+              {
+                "question": "Birds like duck and swan have —",
+                "options": "(a) strong and hooked beak    (b) broad and flat beak    (c) strong and short beak",
+                "answer": "(b) broad and flat beak",
+                "sources": { "revisionSheet": true, "textbook": true }
+              },
+              {
+                "question": "The feathers that keep a bird warm are called ___ feathers.",
+                "options": "(a) flight    (b) down    (c) body",
+                "answer": "(b) down",
+                "sources": { "revisionSheet": true, "textbook": true }
+              },
+              {
+                "question": "Feet with three toes pointing forward and one toe pointing backward help the birds to",
+                "options": "(a) hold branches tightly    (b) walk through water    (c) climb on trees",
+                "answer": "(a) hold branches tightly",
+                "sources": { "textbook": true }
+              },
+              {
+                "question": "Which of the following features help the eagle to hunt its prey? P: sharp eyesight  Q: sharp beak  R: down feathers",
+                "options": "(a) P and Q    (b) Q and R    (c) P and R",
+                "answer": "(a) P and Q",
+                "sources": { "textbook": true }
+              },
+              {
+                "question": "Birds have hollow bones",
+                "options": "(a) to make their body light    (b) to change the direction while flying    (c) to attach wings to their body",
+                "answer": "(a) to make their body light",
+                "sources": { "textbook": true }
+              }
+            ]
+          },
+          {
+            "chapter": "body",
+            "items": [
+              {
+                "question": "Which one of the following functions is performed by the respiratory system?",
+                "options": "(a) giving oxygen to the body    (b) digesting food    (c) getting fresh air inside the room",
+                "answer": "(a) giving oxygen to the body",
+                "sources": { "revisionSheet": true }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "footerNote": "End of notebook. Everything above is taken verbatim or near-verbatim from her own notebook pages, the printed Science-3 textbook/workbook, school worksheets, and Revision homework sheets — nothing has been invented."
+}
