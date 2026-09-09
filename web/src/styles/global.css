@@ -53,6 +53,14 @@
   --today-bg: #fbeacb;
   --today-border: #e7c381;
   --today-ink: #7a4b0a;
+
+  /* Revision-notebook source marks -- which physical source a question was
+     copied from (her notebook, the printed textbook, a school worksheet, a
+     revision handout). Kept distinct from --brand/--warn-ink and from every
+     --subj-* color so a source mark is never visually confusable with a
+     chapter's accent stripe. */
+  --src-notes-ink: #7a3f6b;
+  --src-textbook-ink: #2f6b46;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -107,6 +115,9 @@
     --today-bg: #3a2e17;
     --today-border: #5c471f;
     --today-ink: #f0c077;
+
+    --src-notes-ink: #d69fc0;
+    --src-textbook-ink: #86c79a;
   }
 }
 

@@ -1,0 +1,1557 @@
+{
+  "slug": "english-half-yearly",
+  "subjectBadge": "English",
+  "title": "Revision Notebook",
+  "subtitle": "The Selfish Giant · Friends · The Golden Fountain · If I Had Wings · Grammar · Letter Writing · Unseen Comprehension — every question below comes from her own notebook, the printed textbook, a school worksheet, or a Revision sheet. Nothing has been invented.",
+  "examMeta": "Half Yearly Exam · Thu, 10 Sept · 60 marks",
+  "chapters": [
+    {
+      "id": "giant",
+      "label": "The Selfish Giant"
+    },
+    {
+      "id": "friends",
+      "label": "Friends"
+    },
+    {
+      "id": "fountain",
+      "label": "The Golden Fountain"
+    },
+    {
+      "id": "wings",
+      "label": "If I Had Wings"
+    },
+    {
+      "id": "grammar",
+      "label": "Grammar"
+    },
+    {
+      "id": "writing",
+      "label": "Letter Writing"
+    },
+    {
+      "id": "unseen",
+      "label": "Unseen Comprehension"
+    }
+  ],
+  "categories": [
+    {
+      "num": 1,
+      "title": "Word Meanings & Vocabulary",
+      "data": {
+        "type": "vocab",
+        "groups": [
+          {
+            "chapter": "giant",
+            "items": [
+              {
+                "word": "creeping",
+                "meaning": "moving gradually and not easily noticed",
+                "example": "I saw a spider creeping on the wall.",
+                "sources": {
+                  "worksheet": true,
+                  "notes": true
+                }
+              },
+              {
+                "word": "selfish",
+                "meaning": "caring only about yourself rather than other people",
+                "example": "He is selfish and does not share his toys.",
+                "sources": {
+                  "worksheet": true,
+                  "notes": true
+                }
+              },
+              {
+                "word": "peeps",
+                "meaning": "looks quickly and secretly at something",
+                "example": "She peeps through the window to see the garden.",
+                "sources": {
+                  "worksheet": true,
+                  "notes": true
+                }
+              },
+              {
+                "word": "trespassers",
+                "meaning": "people who go onto somebody's land without permission",
+                "example": "The guard stopped the trespassers at the gate.",
+                "sources": {
+                  "notes": true
+                }
+              },
+              {
+                "word": "feeble",
+                "meaning": "very weak",
+                "example": "The feeble old dog lay on the mat.",
+                "sources": {
+                  "notes": true,
+                  "revisionSheet": true
+                }
+              }
+            ]
+          },
+          {
+            "chapter": "friends",
+            "items": [
+              {
+                "word": "flickers",
+                "meaning": "(verb) to move or shine unsteadily",
+                "example": "The candle flickered due to the wind.",
+                "sources": {
+                  "notes": true,
+                  "textbook": true
+                }
+              },
+              {
+                "word": "stealing",
+                "meaning": "moving quietly and softly",
+                "example": "The cool breeze came stealing through the window.",
+                "sources": {
+                  "notes": true
+                }
+              },
+              {
+                "word": "scarcely",
+                "meaning": "(adverb) hardly or barely",
+                "example": "It was so dark, I could scarcely see the road.",
+                "sources": {
+                  "notes": true,
+                  "textbook": true
+                }
+              },
+              {
+                "word": "whisper",
+                "meaning": "(verb) to speak very softly",
+                "example": "She whispered a prayer before going to bed.",
+                "sources": {
+                  "notes": true,
+                  "textbook": true,
+                  "worksheet": true
+                }
+              }
+            ]
+          },
+          {
+            "chapter": "fountain",
+            "items": [
+              {
+                "word": "fountain",
+                "meaning": "a structure from which water is sent up into the air by a pump",
+                "example": "Birds were drinking from the fountain.",
+                "sources": {
+                  "notes": true
+                }
+              },
+              {
+                "word": "plain",
+                "meaning": "something very ordinary and not special in any way",
+                "example": "On her birthday, she wore a plain dress.",
+                "sources": {
+                  "notes": true,
+                  "revisionSheet": true
+                }
+              },
+              {
+                "word": "surprise",
+                "meaning": "an event or a piece of news that is unexpected",
+                "example": "She opened the box and found a surprise inside.",
+                "sources": {
+                  "notes": true
+                }
+              },
+              {
+                "word": "wish",
+                "meaning": "to want something to happen or to be true",
+                "example": "I wish to visit Disneyland someday.",
+                "sources": {
+                  "notes": true
+                }
+              },
+              {
+                "word": "presented",
+                "meaning": "gave something to somebody as a gift",
+                "example": "They presented a toy to the baby.",
+                "sources": {
+                  "notes": true,
+                  "worksheet": true,
+                  "revisionSheet": true
+                }
+              }
+            ]
+          },
+          {
+            "chapter": "wings",
+            "items": [
+              {
+                "word": "fingertip",
+                "meaning": "the end of the finger that is furthest from the hand",
+                "example": "He pressed the button with his fingertip.",
+                "sources": {
+                  "notes": true
+                }
+              },
+              {
+                "word": "glide",
+                "meaning": "to move smoothly",
+                "example": "She watched the boat glide over the calm water.",
+                "sources": {
+                  "notes": true,
+                  "revisionSheet": true
+                }
+              },
+              {
+                "word": "chunk",
+                "meaning": "a thick solid piece that has been cut or broken off something",
+                "example": "I want a chunk of chocolate.",
+                "sources": {
+                  "notes": true
+                }
+              },
+              {
+                "word": "graze",
+                "meaning": "to eat grass that is growing in a field",
+                "example": "The cows graze in the field.",
+                "sources": {
+                  "notes": true,
+                  "worksheet": true
+                }
+              },
+              {
+                "word": "gaze",
+                "meaning": "to look at somebody or something for a long time",
+                "example": "The old man gazed at the mountains.",
+                "sources": {
+                  "notes": true
+                }
+              },
+              {
+                "word": "cling",
+                "meaning": "to hold on tightly",
+                "example": "Tourists cling to the rope on the bridge.",
+                "sources": {
+                  "notes": true
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "num": 2,
+      "title": "Grammar Notes",
+      "data": {
+        "type": "block",
+        "groups": [
+          {
+            "chapter": "grammar",
+            "items": [
+              {
+                "heading": "Nouns — Common & Proper",
+                "lines": [
+                  "The name we give in general to every person, animal, place or thing of the same kind is a common noun. Examples: boy, dog, city, pencil.",
+                  "",
+                  "The name we give to a particular person, animal, place or thing is a proper noun. Examples: Aman, Tommy, Delhi.",
+                  "",
+                  "Proper nouns always begin with a capital letter."
+                ],
+                "sources": {
+                  "textbook": true
+                }
+              },
+              {
+                "heading": "Compound Nouns",
+                "lines": [
+                  "Some nouns are made up of more than one word — these are called compound nouns. They can be written as:",
+                  "• one word, e.g. streetlight, cornflakes",
+                  "• separate words, e.g. washing powder, baby tooth",
+                  "• words joined with a hyphen, e.g. father-in-law, mother-in-law"
+                ],
+                "sources": {
+                  "textbook": true
+                }
+              },
+              {
+                "heading": "Nouns — Male & Female",
+                "lines": [
+                  "Words like 'girl', 'sister' and 'daughter' belong to the female group.",
+                  "Words like 'boy', 'brother' and 'son' belong to the male group."
+                ],
+                "sources": {
+                  "textbook": true
+                }
+              },
+              {
+                "heading": "Adjectives",
+                "lines": [
+                  "Words like happy, angry and sad are describing words — they tell us more about a noun. Example: Sana is a happy girl.",
+                  "Describing words are called adjectives."
+                ],
+                "sources": {
+                  "textbook": true
+                }
+              },
+              {
+                "heading": "Degrees of Comparison",
+                "lines": [
+                  "Adjectives describe nouns and pronouns, and can show comparison using three degrees.",
+                  "",
+                  "1. Positive Degree — describes only one person or thing; no comparison is made. e.g. Rahul is tall. This is a beautiful dress.",
+                  "",
+                  "2. Comparative Degree — compares two people or things, using '-er' or 'more' before the adjective. e.g. Rahul is taller than Shyam. This dress is more beautiful than that one.",
+                  "",
+                  "3. Superlative Degree — compares more than two (three or more), using '-est' or 'most' before the adjective, usually with 'the'. e.g. Rahul is the tallest boy in the class. This is the most beautiful dress of all.",
+                  "",
+                  "Short words usually take -er/-est (tall → taller → tallest). Longer words take more/most instead (comfortable → more comfortable → most comfortable)."
+                ],
+                "sources": {
+                  "notes": true,
+                  "textbook": true
+                }
+              },
+              {
+                "heading": "Commas & Full Stops",
+                "lines": [
+                  "A full stop is used at the end of a sentence.",
+                  "",
+                  "Capital letters are used to begin a sentence, to write 'I', and to write a proper noun.",
+                  "",
+                  "When there are more than two similar words in a sentence, we use commas to separate them. e.g. I have brought a chappati, some vegetables, salad and sweets.",
+                  "",
+                  "A comma is also used to separate a noun used to address a person from the rest of the sentence. e.g. Dad, what are you having for dinner today?"
+                ],
+                "sources": {
+                  "textbook": true
+                }
+              },
+              {
+                "heading": "Apostrophe (Possessive Nouns)",
+                "lines": [
+                  "An apostrophe + 's' is used to show belonging. e.g. the boy's bag.",
+                  "",
+                  "For plural nouns that already end in 's', we add only the apostrophe (no extra 's'). e.g. the students' books."
+                ],
+                "sources": {
+                  "textbook": true
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "num": 3,
+      "title": "Fill in the Blanks",
+      "data": {
+        "type": "fib",
+        "groups": [
+          {
+            "chapter": "grammar",
+            "sets": [
+              {
+                "note": "Nouns — singular & plural",
+                "items": [
+                  {
+                    "template": "One child but many ___.",
+                    "answers": [
+                      "children"
+                    ],
+                    "sources": {
+                      "worksheet": true
+                    }
+                  },
+                  {
+                    "template": "One book but many ___.",
+                    "answers": [
+                      "books"
+                    ],
+                    "sources": {
+                      "worksheet": true
+                    }
+                  },
+                  {
+                    "template": "One leaf but many ___.",
+                    "answers": [
+                      "leaves"
+                    ],
+                    "sources": {
+                      "textbook": true
+                    }
+                  },
+                  {
+                    "template": "One wolf but several ___.",
+                    "answers": [
+                      "wolves"
+                    ],
+                    "sources": {
+                      "textbook": true
+                    }
+                  },
+                  {
+                    "template": "One lady but two ___.",
+                    "answers": [
+                      "ladies"
+                    ],
+                    "sources": {
+                      "textbook": true
+                    }
+                  },
+                  {
+                    "template": "One boy but two ___.",
+                    "answers": [
+                      "boys"
+                    ],
+                    "sources": {
+                      "textbook": true
+                    }
+                  },
+                  {
+                    "template": "One girl but many ___.",
+                    "answers": [
+                      "girls"
+                    ],
+                    "sources": {
+                      "textbook": true
+                    }
+                  },
+                  {
+                    "template": "One ___ but several tigers.",
+                    "answers": [
+                      "tiger"
+                    ],
+                    "sources": {
+                      "textbook": true
+                    }
+                  },
+                  {
+                    "template": "One ___ but many tomatoes.",
+                    "answers": [
+                      "tomato"
+                    ],
+                    "sources": {
+                      "textbook": true
+                    }
+                  },
+                  {
+                    "template": "One star but many ___.",
+                    "answers": [
+                      "stars"
+                    ],
+                    "sources": {
+                      "textbook": true
+                    }
+                  },
+                  {
+                    "template": "One ___ but many horses.",
+                    "answers": [
+                      "horse"
+                    ],
+                    "sources": {
+                      "textbook": true
+                    }
+                  },
+                  {
+                    "template": "One pen but many ___.",
+                    "answers": [
+                      "pens"
+                    ],
+                    "sources": {
+                      "textbook": true
+                    }
+                  },
+                  {
+                    "template": "One desk but two ___.",
+                    "answers": [
+                      "desks"
+                    ],
+                    "sources": {
+                      "textbook": true
+                    }
+                  },
+                  {
+                    "template": "The farmer kept the ___ (potato) in a basket.",
+                    "answers": [
+                      "potatoes"
+                    ],
+                    "sources": {
+                      "revisionSheet": true
+                    }
+                  },
+                  {
+                    "template": "The ___ (child) are playing in the playground.",
+                    "answers": [
+                      "children"
+                    ],
+                    "sources": {
+                      "revisionSheet": true
+                    }
+                  },
+                  {
+                    "template": "Keep these ___ (book) on the shelf.",
+                    "answers": [
+                      "books"
+                    ],
+                    "sources": {
+                      "revisionSheet": true
+                    }
+                  }
+                ]
+              },
+              {
+                "note": "Adjectives",
+                "items": [
+                  {
+                    "template": "There are ___ days in a week.",
+                    "answers": [
+                      "seven"
+                    ],
+                    "sources": {
+                      "textbook": true
+                    }
+                  },
+                  {
+                    "template": "During summer, we wear ___ clothes.",
+                    "answers": [
+                      "cotton"
+                    ],
+                    "sources": {
+                      "textbook": true
+                    }
+                  },
+                  {
+                    "template": "The tiger has ___ stripes on its body.",
+                    "answers": [
+                      "black"
+                    ],
+                    "sources": {
+                      "textbook": true
+                    }
+                  },
+                  {
+                    "template": "An elephant is a ___ animal.",
+                    "answers": [
+                      "large"
+                    ],
+                    "sources": {
+                      "textbook": true
+                    }
+                  },
+                  {
+                    "template": "A square has ___ sides.",
+                    "answers": [
+                      "four"
+                    ],
+                    "sources": {
+                      "textbook": true
+                    }
+                  },
+                  {
+                    "template": "There are ___ players in a cricket team.",
+                    "answers": [
+                      "eleven"
+                    ],
+                    "sources": {
+                      "textbook": true
+                    }
+                  },
+                  {
+                    "template": "There are many stars but only ___ moon in the sky.",
+                    "answers": [
+                      "one"
+                    ],
+                    "sources": {
+                      "textbook": true
+                    }
+                  },
+                  {
+                    "template": "Watermelon is green outside but ___ inside.",
+                    "answers": [
+                      "red"
+                    ],
+                    "sources": {
+                      "textbook": true
+                    }
+                  }
+                ]
+              },
+              {
+                "note": "Comparison (degrees of adjectives)",
+                "items": [
+                  {
+                    "template": "This book is ___ than that one. (light)",
+                    "answers": [
+                      "lighter"
+                    ],
+                    "sources": {
+                      "textbook": true
+                    }
+                  },
+                  {
+                    "template": "Mohan is ___ than Sohan. (strong)",
+                    "answers": [
+                      "stronger"
+                    ],
+                    "sources": {
+                      "textbook": true
+                    }
+                  },
+                  {
+                    "template": "Tarun is ___ than his brother. (smart)",
+                    "answers": [
+                      "smarter"
+                    ],
+                    "sources": {
+                      "textbook": true
+                    }
+                  },
+                  {
+                    "template": "The aeroplane moves ___ than the train. (fast)",
+                    "answers": [
+                      "faster"
+                    ],
+                    "sources": {
+                      "textbook": true
+                    }
+                  },
+                  {
+                    "template": "Rita's hair is ___ than Richa's hair. (short)",
+                    "answers": [
+                      "shorter"
+                    ],
+                    "sources": {
+                      "textbook": true
+                    }
+                  },
+                  {
+                    "template": "I am ___ in this seat than that. (comfortable)",
+                    "answers": [
+                      "more comfortable"
+                    ],
+                    "sources": {
+                      "textbook": true
+                    }
+                  },
+                  {
+                    "template": "Jyoti is ___ than Meena. (beautiful)",
+                    "answers": [
+                      "more beautiful"
+                    ],
+                    "sources": {
+                      "textbook": true
+                    }
+                  },
+                  {
+                    "template": "This lesson is ___ than the next lesson. (important)",
+                    "answers": [
+                      "more important"
+                    ],
+                    "sources": {
+                      "textbook": true
+                    }
+                  },
+                  {
+                    "template": "Our journey to Shimla was ___ than our journey to Goa. (exciting)",
+                    "answers": [
+                      "more exciting"
+                    ],
+                    "sources": {
+                      "textbook": true
+                    }
+                  },
+                  {
+                    "template": "Sana is a ___ girl. (smart / smarter / smartest)",
+                    "answers": [
+                      "smart"
+                    ],
+                    "sources": {
+                      "textbook": true
+                    }
+                  },
+                  {
+                    "template": "Ours is the ___ beautiful fountain. (much / more / most)",
+                    "answers": [
+                      "most"
+                    ],
+                    "sources": {
+                      "textbook": true
+                    }
+                  },
+                  {
+                    "template": "The blue box is ___ than the red box. (heavy / heavier / heaviest)",
+                    "answers": [
+                      "heavier"
+                    ],
+                    "sources": {
+                      "textbook": true
+                    }
+                  },
+                  {
+                    "template": "Sana's dress is ___ than yours. (pretty / prettier / prettiest)",
+                    "answers": [
+                      "prettier"
+                    ],
+                    "sources": {
+                      "textbook": true
+                    }
+                  },
+                  {
+                    "template": "A train is ___ than a bicycle. (fast)",
+                    "answers": [
+                      "faster"
+                    ],
+                    "sources": {
+                      "revisionSheet": true
+                    }
+                  },
+                  {
+                    "template": "My new shoes are ___ than my old shoes. (comfortable)",
+                    "answers": [
+                      "more comfortable"
+                    ],
+                    "sources": {
+                      "revisionSheet": true
+                    }
+                  },
+                  {
+                    "template": "This is the ___ room in our house. (bright)",
+                    "answers": [
+                      "brightest"
+                    ],
+                    "sources": {
+                      "revisionSheet": true
+                    }
+                  },
+                  {
+                    "template": "This is the ___ book I have read this year. (interesting)",
+                    "answers": [
+                      "most interesting"
+                    ],
+                    "sources": {
+                      "revisionSheet": true
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "num": 4,
+      "title": "Match the Following",
+      "data": {
+        "type": "match",
+        "groups": [
+          {
+            "chapter": "friends",
+            "sets": [
+              {
+                "sources": {
+                  "textbook": true
+                },
+                "columns": [
+                  "Column A",
+                  "Column B"
+                ],
+                "pairs": [
+                  {
+                    "left": "(i) What does the poet compare the sky to?",
+                    "right": "(b) A kind smile"
+                  },
+                  {
+                    "left": "(ii) How does the wind come to the poet?",
+                    "right": "(c) It comes stealing over the grass and whispers pretty things."
+                  },
+                  {
+                    "left": "(iii) What does the sunshine do to the poet?",
+                    "right": "(a) Flickers through the lace of leaves and kisses him like a mother before bed."
+                  }
+                ],
+                "answerLine": "i–b, ii–c, iii–a"
+              }
+            ]
+          },
+          {
+            "chapter": "grammar",
+            "sets": [
+              {
+                "label": "Male & Female — Set A",
+                "sources": {
+                  "textbook": true
+                },
+                "columns": [
+                  "Male",
+                  "Female"
+                ],
+                "pairs": [
+                  {
+                    "left": "bull",
+                    "right": "cow"
+                  },
+                  {
+                    "left": "peacock",
+                    "right": "peahen"
+                  },
+                  {
+                    "left": "horse",
+                    "right": "mare"
+                  }
+                ]
+              },
+              {
+                "label": "Male & Female — Set B",
+                "sources": {
+                  "worksheet": true
+                },
+                "columns": [
+                  "Male",
+                  "Female"
+                ],
+                "pairs": [
+                  {
+                    "left": "King",
+                    "right": "queen"
+                  },
+                  {
+                    "left": "Prince",
+                    "right": "princess"
+                  },
+                  {
+                    "left": "Uncle",
+                    "right": "aunt"
+                  },
+                  {
+                    "left": "Tiger",
+                    "right": "tigress"
+                  },
+                  {
+                    "left": "Wizard",
+                    "right": "witch"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "num": 5,
+      "title": "True or False",
+      "data": {
+        "type": "trueFalse",
+        "groups": [
+          {
+            "chapter": "fountain",
+            "items": [
+              {
+                "statement": "Sana had a golden fountain in her garden.",
+                "answer": false,
+                "sources": {
+                  "textbook": true
+                }
+              },
+              {
+                "statement": "Sana learned to ride a bicycle.",
+                "answer": true,
+                "sources": {
+                  "textbook": true
+                }
+              },
+              {
+                "statement": "Sana's mother did not like the plain fountain in the neighbour's house.",
+                "answer": false,
+                "sources": {
+                  "textbook": true
+                }
+              },
+              {
+                "statement": "The fountain was not made of gold.",
+                "answer": true,
+                "sources": {
+                  "textbook": true
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "num": 6,
+      "title": "Name the Following / One Word",
+      "data": {
+        "type": "name",
+        "groups": [
+          {
+            "chapter": "fountain",
+            "items": [
+              {
+                "prompt": "fountain (find the adjective)",
+                "answer": "golden",
+                "sources": {
+                  "textbook": true
+                }
+              },
+              {
+                "prompt": "Sana (find the adjective)",
+                "answer": "happy",
+                "sources": {
+                  "textbook": true
+                }
+              },
+              {
+                "prompt": "water (find the adjective)",
+                "answer": "plain",
+                "sources": {
+                  "textbook": true
+                }
+              },
+              {
+                "prompt": "sun (find the adjective)",
+                "answer": "hot",
+                "sources": {
+                  "textbook": true
+                }
+              }
+            ]
+          },
+          {
+            "chapter": "grammar",
+            "items": [
+              {
+                "prompt": "I drive children to school in a big yellow bus. Who am I?",
+                "answer": "Driver",
+                "sources": {
+                  "worksheet": true
+                }
+              },
+              {
+                "prompt": "I grow vegetables, fruits and grains in the field. Who am I?",
+                "answer": "Farmer",
+                "sources": {
+                  "worksheet": true
+                }
+              },
+              {
+                "prompt": "I fly an aeroplane in the sky. Who am I?",
+                "answer": "Pilot",
+                "sources": {
+                  "worksheet": true
+                }
+              },
+              {
+                "prompt": "I build houses, roads and bridges. Who am I?",
+                "answer": "Engineer",
+                "sources": {
+                  "worksheet": true
+                }
+              },
+              {
+                "prompt": "Opposite gender of: Bull",
+                "answer": "Cow",
+                "sources": {
+                  "worksheet": true
+                }
+              },
+              {
+                "prompt": "Opposite gender of: Husband",
+                "answer": "Wife",
+                "sources": {
+                  "worksheet": true
+                }
+              },
+              {
+                "prompt": "Opposite gender of: Peacock",
+                "answer": "Peahen",
+                "sources": {
+                  "worksheet": true
+                }
+              },
+              {
+                "prompt": "Opposite gender of: Lion",
+                "answer": "Lioness",
+                "sources": {
+                  "worksheet": true
+                }
+              },
+              {
+                "prompt": "Opposite gender of: King",
+                "answer": "Queen",
+                "sources": {
+                  "worksheet": true
+                }
+              },
+              {
+                "prompt": "boy — common or proper noun?",
+                "answer": "Common",
+                "sources": {
+                  "textbook": true
+                }
+              },
+              {
+                "prompt": "Goa — common or proper noun?",
+                "answer": "Proper",
+                "sources": {
+                  "textbook": true
+                }
+              },
+              {
+                "prompt": "Rahul — common or proper noun?",
+                "answer": "Proper",
+                "sources": {
+                  "textbook": true
+                }
+              },
+              {
+                "prompt": "pencil — common or proper noun?",
+                "answer": "Common",
+                "sources": {
+                  "textbook": true
+                }
+              },
+              {
+                "prompt": "beach — common or proper noun?",
+                "answer": "Common",
+                "sources": {
+                  "textbook": true
+                }
+              },
+              {
+                "prompt": "Bruno — common or proper noun?",
+                "answer": "Proper",
+                "sources": {
+                  "textbook": true
+                }
+              },
+              {
+                "prompt": "Richa — common or proper noun?",
+                "answer": "Proper",
+                "sources": {
+                  "textbook": true
+                }
+              },
+              {
+                "prompt": "mountains — common or proper noun?",
+                "answer": "Common",
+                "sources": {
+                  "textbook": true
+                }
+              },
+              {
+                "prompt": "the pizza of children (write using an apostrophe)",
+                "answer": "children's pizza",
+                "sources": {
+                  "textbook": true
+                }
+              },
+              {
+                "prompt": "the mugs of the men (write using an apostrophe)",
+                "answer": "men's mugs",
+                "sources": {
+                  "textbook": true
+                }
+              },
+              {
+                "prompt": "the beard of father (write using an apostrophe)",
+                "answer": "father's beard",
+                "sources": {
+                  "textbook": true
+                }
+              },
+              {
+                "prompt": "the dolls of the girls (write using an apostrophe)",
+                "answer": "girls' dolls",
+                "sources": {
+                  "textbook": true
+                }
+              },
+              {
+                "prompt": "Kush + pizza (show belonging)",
+                "answer": "Kush's pizza",
+                "sources": {
+                  "textbook": true
+                }
+              },
+              {
+                "prompt": "dog + bone (show belonging)",
+                "answer": "dog's bone",
+                "sources": {
+                  "textbook": true
+                }
+              },
+              {
+                "prompt": "grandmother + spectacles (show belonging)",
+                "answer": "grandmother's spectacles",
+                "sources": {
+                  "textbook": true
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "num": 7,
+      "title": "Comprehension Questions",
+      "data": {
+        "type": "qa",
+        "groups": [
+          {
+            "chapter": "giant",
+            "items": [
+              {
+                "question": "What was written on the notice put up by the giant? Why does the giant put up this notice?",
+                "answer": "The notice put up by the selfish giant said 'TRESPASSERS WILL BE PROSECUTED'. The giant put up this notice because he doesn't want children to play in his garden.",
+                "sources": {
+                  "notes": true
+                }
+              },
+              {
+                "question": "How did the giant react on seeing the children play in his garden?",
+                "answer": "The giant reacted angrily and did not allow the children to play in his garden.",
+                "sources": {
+                  "worksheet": true,
+                  "notes": true
+                }
+              },
+              {
+                "question": "Why was the giant happy at the end?",
+                "answer": "The selfish giant was happy in the end because he had learnt the secret of happiness that lies in sharing and caring.",
+                "sources": {
+                  "worksheet": true,
+                  "notes": true
+                }
+              },
+              {
+                "question": "Do you think the trees were glad to have the children back? Give a reason for your answer.",
+                "answer": "The trees were so glad to have the children back again that they had covered themselves with flowers and were waving their arms gently above the children's heads.",
+                "sources": {
+                  "notes": true,
+                  "revisionSheet": true
+                }
+              },
+              {
+                "question": "Why do you think spring forgets to visit the giant's garden?",
+                "answer": "Spring forgets to visit the giant's garden because the giant's selfishness and the absence of children's laughter made the garden lack the joy and the happiness.",
+                "sources": {
+                  "notes": true
+                }
+              }
+            ]
+          },
+          {
+            "chapter": "friends",
+            "items": [
+              {
+                "question": "What does the poet mean by saying 'a child should never feel a fear' in nature?",
+                "answer": "The poet means that nature is full of gentle and kind things that make a child feel safe and comfortable. There's no need for a child to feel afraid when surrounded by the caring elements of nature.",
+                "sources": {
+                  "notes": true,
+                  "revisionSheet": true
+                }
+              },
+              {
+                "question": "Which lines of the poem tell us that nature is caring and loving?",
+                "answer": "The lines “The sunshine flickers through the lace, of leaves above my head, and kisses me upon the face like mother before bed,” convey that nature is caring and loving.",
+                "sources": {
+                  "notes": true,
+                  "worksheet": true
+                }
+              }
+            ]
+          },
+          {
+            "chapter": "fountain",
+            "items": [
+              {
+                "question": "Where was the house situated that Sana saw? What did it have in its garden?",
+                "answer": "The house that Sana saw was situated on a hill right in front of her own house. It had a golden fountain in its garden.",
+                "sources": {
+                  "notes": true,
+                  "worksheet": true,
+                  "revisionSheet": true
+                }
+              },
+              {
+                "question": "What did Sana wish to have in her own garden?",
+                "answer": "Sana wished to have a golden fountain in her own garden.",
+                "sources": {
+                  "notes": true,
+                  "revisionSheet": true
+                }
+              },
+              {
+                "question": "Why did the fountain appear golden to Sana?",
+                "answer": "The fountain appeared golden to Sana because of the rays of the sun shining on it. The sunlight made the fountain shine like gold.",
+                "sources": {
+                  "notes": true
+                }
+              },
+              {
+                "question": "Why was Sana shocked when she saw (a) the fountain on the hill, and (b) her own fountain from the house on the hill?",
+                "answer": [
+                  "(a) She was shocked because it was not as she had imagined — it wasn't made of gold and didn't have golden water.",
+                  "(b) She was shocked because her own fountain appeared golden due to the sun's rays, which surprised her and changed her understanding of it."
+                ],
+                "sources": {
+                  "notes": true,
+                  "textbook": true
+                }
+              }
+            ]
+          },
+          {
+            "chapter": "wings",
+            "items": [
+              {
+                "question": "What does the child wish for in the poem?",
+                "answer": "The child wishes to have wings.",
+                "sources": {
+                  "notes": true,
+                  "worksheet": true,
+                  "revisionSheet": true
+                }
+              },
+              {
+                "question": "What does the child want to do with wings?",
+                "answer": "The child wants to fly everywhere and see the world.",
+                "sources": {
+                  "notes": true
+                }
+              },
+              {
+                "question": "From where do you think the poet plans to gaze at the people on the earth?",
+                "answer": "The poet imagines flying with wings and looking down at the people on the earth from the sky.",
+                "sources": {
+                  "notes": true
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "num": 8,
+      "title": "Reference to Context & Personal Response",
+      "data": {
+        "type": "qa",
+        "groups": [
+          {
+            "chapter": "giant",
+            "items": [
+              {
+                "question": "Reference to Context: “How happy we were there!”",
+                "answer": [
+                  "(a) Who are referred to as 'we'? — The children.",
+                  "(b) Why does the speaker say so? — The giant had built a wall around his garden, so they had no place to play.",
+                  "(c) Write the opposite of 'happy'. — sad."
+                ],
+                "sources": {
+                  "notes": true
+                }
+              },
+              {
+                "question": "Personal Response: What have you learnt from this story?",
+                "answer": "We should share our things with friends. This will make you happy.",
+                "sources": {
+                  "notes": true
+                }
+              }
+            ]
+          },
+          {
+            "chapter": "friends",
+            "items": [
+              {
+                "question": "Reference to Context: “The Sunshine flickers through the lace, Of leaves above my head, And kisses me upon the face Like Mother, before bed.”",
+                "answer": [
+                  "(a) Why does the poet compare the sunshine's touch to mother's love? — To show that both are gentle and loving.",
+                  "(b) How does the poet feel about the sunshine? — Loved and cherished, like the warmth and comfort of a mother's love."
+                ],
+                "sources": {
+                  "notes": true
+                }
+              }
+            ]
+          },
+          {
+            "chapter": "fountain",
+            "items": [
+              {
+                "question": "Reference to Context: “But, but… this fountain is not made of gold, nor does it have golden water.”",
+                "answer": [
+                  "(a) Which fountain is being talked about here? — The fountain in the house on the hill that Sana visited.",
+                  "(b) Why did the speaker say so? — She expected it to be made of gold with golden water, but discovered that wasn't true.",
+                  "(c) What did the speaker realise? — That her first impression about the fountain was incorrect."
+                ],
+                "sources": {
+                  "notes": true,
+                  "textbook": true
+                }
+              }
+            ]
+          },
+          {
+            "chapter": "wings",
+            "items": [
+              {
+                "question": "Reference to Context: “I would listen to the clouds of sheep bleat / That graze on the blue.”",
+                "answer": [
+                  "(a) Who will graze on the blue? — Sheep.",
+                  "(b) What do you understand by 'sheep bleat'? — The sound that sheep make.",
+                  "(c) What does the poet mean by 'blue'? — The sky."
+                ],
+                "sources": {
+                  "notes": true
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "num": 9,
+      "title": "MCQ Practice",
+      "data": {
+        "type": "mcq",
+        "groups": [
+          {
+            "chapter": "fountain",
+            "items": [
+              {
+                "question": "Sana's father presented her a bicycle on her ___.",
+                "options": "(a) birthday    (b) annual day    (c) result day",
+                "answer": "(b) annual day",
+                "sources": {
+                  "textbook": true
+                }
+              },
+              {
+                "question": "Sana realised that her fountain is as ___ as the fountain in the other house.",
+                "options": "(a) big    (b) ugly    (c) beautiful",
+                "answer": "(c) beautiful",
+                "sources": {
+                  "textbook": true
+                }
+              }
+            ]
+          },
+          {
+            "chapter": "wings",
+            "items": [
+              {
+                "question": "'If I Had Wings' shows the ___ of the poet to fly.",
+                "options": "(a) wish    (b) song    (c) story",
+                "answer": "(a) wish",
+                "sources": {
+                  "textbook": true
+                }
+              },
+              {
+                "question": "Which of the following does the poet NOT mention in the poem?",
+                "options": "(a) taste a chunk of the moon    (b) swimming the deserts    (c) glide on the wind's breath",
+                "answer": "(b) swimming the deserts",
+                "sources": {
+                  "textbook": true
+                }
+              }
+            ]
+          },
+          {
+            "chapter": "friends",
+            "items": [
+              {
+                "question": "A: The poet is lying under a tree, looking at the sky, feeling the sunshine and the wind. B: The poet enjoys being outside in nature. Which is correct?",
+                "options": "(a) Both A and B are true and B explains A    (b) Both A and B are true but B doesn't explain A    (c) A is false and B is true",
+                "answer": "(a) Both A and B are true and B explains A",
+                "sources": {
+                  "textbook": true
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "num": 10,
+      "title": "Letter Writing",
+      "data": {
+        "type": "block",
+        "groups": [
+          {
+            "chapter": "writing",
+            "items": [
+              {
+                "heading": "Format of an Informal (Personal) Letter",
+                "lines": [
+                  "1. Sender's Address",
+                  "2. Date",
+                  "3. Salutation",
+                  "4. Body of the letter",
+                  "5. Closing line",
+                  "6. Name of the sender"
+                ],
+                "sources": {
+                  "notes": true
+                }
+              },
+              {
+                "heading": "Worked example — letter to a cousin about summer vacation",
+                "lines": [
+                  "2, Green Park",
+                  "Pune – 411001",
+                  "19 July 2026",
+                  "",
+                  "Dear Cousin,",
+                  "",
+                  "How are you? I am fine and hope you are doing well.",
+                  "",
+                  "I want to tell you about my summer vacation. I visited my grandparents in the village. Every morning, I played with my cousins and helped my grandmother water the plants. In the evening, we went to the park and enjoyed eating ice cream.",
+                  "",
+                  "I also read storybooks, drew pictures, and learned to ride a bicycle. We had a wonderful time together. My summer vacation was full of fun and happy memories.",
+                  "",
+                  "I hope you also had a great vacation. Please write back and tell me about your holidays.",
+                  "",
+                  "Yours lovingly,",
+                  "Aarav"
+                ],
+                "sources": {
+                  "worksheet": true
+                }
+              },
+              {
+                "heading": "Worked example — declining a birthday invite (unit test the next day)",
+                "lines": [
+                  "12, Magarpatta Road",
+                  "Pune",
+                  "14 August 2026",
+                  "",
+                  "Dear Beena,",
+                  "",
+                  "Thank you very much for your invitation. But I am sorry, I won't be able to join your birthday party because I have my unit test the next day. I hope you understand.",
+                  "",
+                  "I wish you a very happy birthday in advance and hope you will enjoy the day.",
+                  "",
+                  "With love,",
+                  "Your friend,",
+                  "Meena"
+                ],
+                "sources": {
+                  "textbook": true
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "num": 11,
+      "title": "Unseen Comprehension",
+      "data": {
+        "type": "passage",
+        "groups": [
+          {
+            "chapter": "unseen",
+            "note": "She has practiced this with 9 different unseen passages between April and August 2026 — three worked examples below show the range of question types: recall, rhyming words, vocabulary-in-context, and (in the most recent ones) spotting a noun / adjective / pronoun in the passage.",
+            "items": [
+              {
+                "title": "A Visit to the Library",
+                "text": "Last Saturday, Rohan and his friends visited the library in their town. The library was full of books about animals, science, and adventure stories. A kind librarian helped them find books they liked. Rohan borrowed a book about dinosaurs, while his friends chose storybooks. Reading books in the library made them curious to learn more about the world.",
+                "questions": [
+                  {
+                    "question": "Where did Rohan and his friends go on Saturday?",
+                    "answer": "Rohan and his friends visited the library in their town."
+                  },
+                  {
+                    "question": "How did the librarian help the children?",
+                    "answer": "The librarian helped by finding books they liked."
+                  },
+                  {
+                    "question": "What did Rohan borrow from the library?",
+                    "answer": "Rohan borrowed a book about dinosaurs."
+                  },
+                  {
+                    "question": "Fill in the blanks: The library was full of ___. The librarian was very ___.",
+                    "answer": "books · kind"
+                  }
+                ],
+                "date": "23 Apr 2026",
+                "sources": {
+                  "notes": true
+                }
+              },
+              {
+                "title": "Lina Bakes Chocolate Chip Cookies",
+                "text": "Lina helped her mother bake chocolate chip cookies on Saturday afternoon. The kitchen smelled sweet and warm. They measured flour, sugar, butter and stirred the dough together. Lina rolled the dough into small balls and placed them on the tray. The oven timer beeped and they pulled the tray out carefully. Lina tasted a cookie and declared it the best cookie ever. She packed some in a jar for her father's snack the next day.",
+                "questions": [
+                  {
+                    "question": "What activity did Lina help with?",
+                    "answer": "Lina helped her mother bake chocolate chip cookies on Saturday afternoon."
+                  },
+                  {
+                    "question": "What did Lina put into a jar?",
+                    "answer": "She packed some cookies in a jar, having declared them the best cookies ever."
+                  },
+                  {
+                    "question": "Write rhyming words for: tray, sweet",
+                    "answer": "tray → gray · sweet → meet"
+                  },
+                  {
+                    "question": "Write the meaning of 'measured' and use it in a sentence.",
+                    "answer": "measured — found the size or amount of something. “I measured the milk.”"
+                  }
+                ],
+                "sources": {
+                  "notes": true
+                }
+              },
+              {
+                "title": "Mina's Flower Garden",
+                "text": "Mina visited a flower garden at the edge of town with her teacher. The garden had rows of pink roses, orange marigolds and violet tulips. A gentle breeze made the petals dance and butterflies landed on the blooms. Mina bent down to sniff a rose and felt its soft petals brush her fingers. Her teacher said, “Nature is full of wonders.” Mina nodded and pressed a flower between her notebook pages to remember this visit.",
+                "questions": [
+                  {
+                    "question": "Who visited the flower garden with Mina?",
+                    "answer": "Mina visited the flower garden with her teacher."
+                  },
+                  {
+                    "question": "What flowers did she see?",
+                    "answer": "She saw pink roses, orange marigolds and violet tulips."
+                  },
+                  {
+                    "question": "Write a rhyming word for 'fingers'.",
+                    "answer": "singers"
+                  },
+                  {
+                    "question": "What did Mina press between her notebook pages?",
+                    "answer": "Mina pressed a flower between her notebook pages."
+                  },
+                  {
+                    "question": "Find and write one each from the passage:",
+                    "answer": [
+                      "Noun — garden",
+                      "Adjective — pink",
+                      "Pronoun — her"
+                    ]
+                  }
+                ],
+                "date": "27 Aug 2026",
+                "sources": {
+                  "notes": true
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "footerNote": "End of notebook. Everything above is taken verbatim or near-verbatim from her own notebook pages, the printed English-3 textbook/workbook, school worksheets, and Revision homework sheets — nothing has been invented."
+}

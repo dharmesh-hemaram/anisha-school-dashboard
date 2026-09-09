@@ -1,14 +1,3 @@
-.page {
-  --chap-gov: var(--subj-hindi);
-  --chap-gov-bg: var(--subj-hindi-bg);
-  --chap-delhi: var(--subj-marathi);
-  --chap-delhi-bg: var(--subj-marathi-bg);
-  --chap-leaders: var(--subj-sst);
-  --chap-leaders-bg: var(--subj-sst-bg);
-  --chap-transport: var(--subj-maths);
-  --chap-transport-bg: var(--subj-maths-bg);
-}
-
 /* ---- Header ---- */
 .pageHead {
   padding: calc(10px + env(safe-area-inset-top)) 0 12px;
@@ -24,20 +13,6 @@
   color: var(--brand);
   text-decoration: none;
   margin-bottom: 8px;
-}
-.subjectBadge {
-  display: inline-flex;
-  align-items: center;
-  font-size: 10.5px;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  padding: 2px 6px;
-  margin-right: 6px;
-  border-radius: 6px;
-  vertical-align: 1px;
-  white-space: nowrap;
-  background: var(--subj-sst-bg);
-  color: var(--subj-sst);
 }
 .pageTitle {
   display: flex;
@@ -139,17 +114,12 @@
 .chapGroup:last-child {
   margin-bottom: 0;
 }
-.chapGroup[data-chapter="gov"] {
-  border-left-color: var(--chap-gov);
-}
-.chapGroup[data-chapter="delhi"] {
-  border-left-color: var(--chap-delhi);
-}
-.chapGroup[data-chapter="leaders"] {
-  border-left-color: var(--chap-leaders);
-}
-.chapGroup[data-chapter="transport"] {
-  border-left-color: var(--chap-transport);
+/* Accent color comes from --chap-accent/--chap-accent-bg, set inline per
+   chapter group (see ChapterGroup.tsx + revision-notebooks/chapterPalette.ts)
+   -- no per-chapter-id selector needed, so a notebook can define any number
+   of chapters with any ids and this still just works. */
+.chapGroup {
+  border-left-color: var(--chap-accent, var(--text-faint));
 }
 
 .chapLabel {
@@ -161,22 +131,8 @@
   padding: 2px 8px;
   border-radius: 999px;
   margin-bottom: 7px;
-}
-[data-chapter="gov"] .chapLabel {
-  background: var(--chap-gov-bg);
-  color: var(--chap-gov);
-}
-[data-chapter="delhi"] .chapLabel {
-  background: var(--chap-delhi-bg);
-  color: var(--chap-delhi);
-}
-[data-chapter="leaders"] .chapLabel {
-  background: var(--chap-leaders-bg);
-  color: var(--chap-leaders);
-}
-[data-chapter="transport"] .chapLabel {
-  background: var(--chap-transport-bg);
-  color: var(--chap-transport);
+  background: var(--chap-accent-bg, var(--surface-2));
+  color: var(--chap-accent, var(--text-faint));
 }
 
 .setLabel {
@@ -271,22 +227,13 @@
 /* ---- Fill-in-the-blank ---- */
 .fibAnswer {
   font-weight: 700;
-}
-[data-chapter="gov"] .fibAnswer {
-  color: var(--chap-gov);
-}
-[data-chapter="delhi"] .fibAnswer {
-  color: var(--chap-delhi);
-}
-[data-chapter="leaders"] .fibAnswer {
-  color: var(--chap-leaders);
-}
-[data-chapter="transport"] .fibAnswer {
-  color: var(--chap-transport);
+  color: var(--chap-accent, var(--text));
 }
 
 .srcRev,
-.srcWs {
+.srcWs,
+.srcTb,
+.srcNotes {
   font-weight: 800;
   margin-left: 2px;
   cursor: help;
@@ -297,6 +244,12 @@
 }
 .srcWs {
   color: var(--brand);
+}
+.srcTb {
+  color: var(--src-textbook-ink);
+}
+.srcNotes {
+  color: var(--src-notes-ink);
 }
 
 .picItem {
@@ -369,4 +322,85 @@
   color: var(--text-faint);
   text-align: center;
   padding: 10px 4px 4px;
+}
+
+/* ---- Vocabulary ---- */
+.vocabItem {
+  margin-bottom: 9px;
+}
+.vocabItem:last-child {
+  margin-bottom: 0;
+}
+.vocabWord {
+  margin: 0 0 2px;
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--chap-accent, var(--text));
+}
+.vocabMeaning {
+  margin: 0;
+  font-size: 12.5px;
+  color: var(--text-muted);
+}
+.vocabExample {
+  margin: 2px 0 0;
+  font-size: 12.5px;
+  font-style: italic;
+}
+
+/* ---- Labeled text blocks (letter format / worked examples) ---- */
+.block {
+  margin-bottom: 14px;
+}
+.block:last-child {
+  margin-bottom: 0;
+}
+.blockHeading {
+  margin: 0 0 5px;
+  font-weight: 700;
+  font-size: 13px;
+}
+.blockLines {
+  font-size: 13px;
+  white-space: pre-line;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 9px 11px;
+}
+
+/* ---- Unseen comprehension passages ---- */
+.passage {
+  margin-bottom: 16px;
+}
+.passage:last-child {
+  margin-bottom: 0;
+}
+.passageTitle {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  margin: 0 0 4px;
+  font-weight: 700;
+  font-size: 13px;
+}
+.passageDate {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-faint);
+  white-space: nowrap;
+}
+.passageText {
+  font-size: 12.5px;
+  font-style: italic;
+  color: var(--text-muted);
+  background: var(--surface);
+  border-left: 3px solid var(--chap-accent, var(--border));
+  border-radius: 0 8px 8px 0;
+  padding: 8px 10px;
+  margin: 0 0 8px;
+}
+.passageQs {
+  margin: 0;
 }

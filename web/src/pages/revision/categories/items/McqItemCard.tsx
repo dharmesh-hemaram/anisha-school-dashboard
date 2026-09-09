@@ -1,4 +1,5 @@
 import type { McqItem } from "../../../../revision-notebooks/types";
+import SourceMarks from "../../SourceMarks";
 import styles from "../../RevisionNotebookPage.module.css";
 
 /** One MCQ question. Reused by every chapter's MCQ list -- change the
@@ -6,7 +7,10 @@ import styles from "../../RevisionNotebookPage.module.css";
 export default function McqItemCard({ item }: { item: McqItem }) {
   return (
     <div className={styles.mcq}>
-      <p className={styles.q}>{item.question}</p>
+      <p className={styles.q}>
+        {item.question}
+        <SourceMarks sources={item.sources} />
+      </p>
       <p className={styles.opts}>{item.options}</p>
       <p className={styles.ans}>
         Answer: <strong>{item.answer}</strong>

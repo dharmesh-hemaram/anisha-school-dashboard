@@ -1,4 +1,7 @@
-export type ChapterId = "gov" | "delhi" | "leaders" | "transport";
+// A notebook defines its own chapter ids in its JSON (see `chapters` below)
+// -- this stays a plain string rather than a per-subject union so one set of
+// components/styles works for every notebook without a code change.
+export type ChapterId = string;
 
 export interface Chapter {
   id: ChapterId;
@@ -6,8 +9,14 @@ export interface Chapter {
 }
 
 export interface SourceMarks {
-  revisionSheet?: boolean;
+  /** Copied out in her own notebook (an "eklavyā"-branded copybook page). */
+  notes?: boolean;
+  /** A printed textbook / workbook exercise page. */
+  textbook?: boolean;
+  /** A loose school worksheet ("Worksheet No. X"). */
   worksheet?: boolean;
+  /** A "Revision-N" homework handout. */
+  revisionSheet?: boolean;
 }
 
 // 1. Fill in the Blanks -- a sentence with the answer hidden until "Show
@@ -58,6 +67,7 @@ export interface TrueFalseItem {
   answer: boolean;
   /** The trailing "— They live in ..." correction, only present on some items. */
   explanation?: string;
+  sources?: SourceMarks;
 }
 export interface TrueFalseCategory {
   type: "trueFalse";
@@ -111,6 +121,7 @@ export interface McqItem {
    * spacing choices for no real benefit. */
   options: string;
   answer: string;
+  sources?: SourceMarks;
 }
 export interface McqCategory {
   type: "mcq";
@@ -137,6 +148,50 @@ export interface PictureCategory {
   }[];
 }
 
+// 12. Vocabulary -- a word, its meaning, and a worked example sentence.
+// Distinct from QaItem (question/answer) because every literature chapter's
+// "new words" notebook page is this word+meaning+sentence triple, not a Q&A.
+export interface VocabItem {
+  word: string;
+  meaning: string;
+  example: string;
+  sources?: SourceMarks;
+}
+export interface VocabCategory {
+  type: "vocab";
+  groups: { chapter: ChapterId; items: VocabItem[] }[];
+}
+
+// 13. Labeled text blocks -- a heading plus ordered lines, rendered as
+// plain paragraph text (no bullets). Generic enough to carry both the
+// "format of a letter" checklist and a full worked letter, so Composition
+// doesn't need its own bespoke letter type.
+export interface BlockItem {
+  heading?: string;
+  lines: string[];
+  sources?: SourceMarks;
+}
+export interface BlockCategory {
+  type: "block";
+  groups: { chapter: ChapterId; items: BlockItem[] }[];
+}
+
+// 14. Unseen Comprehension -- a passage she hadn't seen before, plus the
+// Q&A she answered about it. Reuses QaItem for the questions so answer
+// rendering (incl. bulleted answers) doesn't need a second implementation.
+export interface PassageItem {
+  title: string;
+  text: string;
+  /** When she practiced it, e.g. "23 Apr 2026" -- omitted where illegible. */
+  date?: string;
+  questions: QaItem[];
+  sources?: SourceMarks;
+}
+export interface PassageCategory {
+  type: "passage";
+  groups: { chapter: ChapterId; note?: string; items: PassageItem[] }[];
+}
+
 export type NotebookCategoryData =
   | FibCategory
   | MatchCategory
@@ -145,7 +200,10 @@ export type NotebookCategoryData =
   | QaCategory
   | CapitalsCategory
   | McqCategory
-  | PictureCategory;
+  | PictureCategory
+  | VocabCategory
+  | BlockCategory
+  | PassageCategory;
 
 export interface NotebookCategoryEntry {
   num: number;
@@ -156,6 +214,8 @@ export interface NotebookCategoryEntry {
 
 export interface RevisionNotebook {
   slug: string;
+  /** Full subject name as used in lib/subjects.ts's SUBJECT_META (e.g.
+   * "Social Studies", "English") -- drives the header badge's color+abbreviation. */
   subjectBadge: string;
   title: string;
   subtitle: string;

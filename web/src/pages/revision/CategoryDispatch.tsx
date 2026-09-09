@@ -7,6 +7,9 @@ import QaView from "./categories/QaView";
 import CapitalsView from "./categories/CapitalsView";
 import McqView from "./categories/McqView";
 import PictureView from "./categories/PictureView";
+import VocabView from "./categories/VocabView";
+import BlockView from "./categories/BlockView";
+import PassageView from "./categories/PassageView";
 
 export default function CategoryDispatch({ data, chapters }: { data: NotebookCategoryData; chapters: Chapter[] }) {
   switch (data.type) {
@@ -26,5 +29,11 @@ export default function CategoryDispatch({ data, chapters }: { data: NotebookCat
       return <McqView groups={data.groups} chapters={chapters} />;
     case "picture":
       return <PictureView groups={data.groups} chapters={chapters} />;
+    case "vocab":
+      return <VocabView groups={data.groups} chapters={chapters} />;
+    case "block":
+      return <BlockView groups={data.groups} chapters={chapters} />;
+    case "passage":
+      return <PassageView groups={data.groups} chapters={chapters} />;
   }
 }

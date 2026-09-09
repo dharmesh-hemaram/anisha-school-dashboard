@@ -5,6 +5,7 @@ import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { fetchRevisionNotebook } from "../../features/revision/revisionSlice";
 import { Chip, ChipRow } from "../../components/ui/Chip";
 import EmptyState from "../../components/ui/EmptyState";
+import SubjectBadge from "../../components/subjects/SubjectBadge";
 import CategorySection from "./CategorySection";
 import styles from "./RevisionNotebookPage.module.css";
 
@@ -65,7 +66,7 @@ export default function RevisionNotebookPage() {
           ← Back to Notice Board
         </a>
         <div className={styles.pageTitle}>
-          <span className={styles.subjectBadge}>{notebook.subjectBadge}</span>
+          <SubjectBadge subject={notebook.subjectBadge} />
           {notebook.title}
         </div>
         <p className={styles.pageSub}>{notebook.subtitle}</p>
@@ -93,8 +94,10 @@ export default function RevisionNotebookPage() {
           />
         </div>
         <p className={styles.legend}>
-          <sup className={styles.srcRev}>*</sup>also asked in a Revision sheet &nbsp;&nbsp;
-          <sup className={styles.srcWs}>#</sup>also asked in a school Worksheet
+          <sup className={styles.srcNotes}>✎</sup>her notebook &nbsp;&nbsp;
+          <sup className={styles.srcTb}>★</sup>textbook &nbsp;&nbsp;
+          <sup className={styles.srcWs}>☑</sup>worksheet &nbsp;&nbsp;
+          <sup className={styles.srcRev}>↻</sup>revision sheet
         </p>
       </div>
 
