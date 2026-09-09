@@ -1,0 +1,90 @@
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.list li {
+  margin: 0;
+}
+.list a {
+  display: flex;
+  align-items: baseline;
+  gap: 7px;
+  padding: 5px 2px;
+  font-size: 12.5px;
+  color: var(--text-muted);
+  text-decoration: none;
+  border-radius: 6px;
+}
+.list a:hover {
+  color: var(--brand);
+  background: var(--surface-2);
+}
+.num {
+  flex: none;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--text-faint);
+  width: 14px;
+}
+
+/* ---- Desktop sidebar: sits in the margin the 640px `.wrap` column leaves
+   unused, fixed so it stays put while the notebook itself scrolls. Hidden
+   below the breakpoint -- there isn't room for it next to `.wrap` until
+   the viewport is wide enough to fit both comfortably. ---- */
+.sidebar {
+  display: none;
+}
+.sidebarLabel {
+  margin: 0 0 6px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--text-faint);
+}
+@media (min-width: 1180px) {
+  .sidebar {
+    display: block;
+    position: fixed;
+    top: 90px;
+    left: calc(50% + 340px);
+    width: 190px;
+    max-height: calc(100vh - 110px);
+    overflow-y: auto;
+    padding: 10px 4px;
+  }
+}
+
+/* ---- Mobile/narrow: a closed-by-default disclosure inline in the page
+   flow instead -- there's no side margin to put a sidebar in. ---- */
+.mobile {
+  margin: 10px 0;
+}
+.mobile summary {
+  cursor: pointer;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--brand);
+  padding: 6px 2px;
+  list-style: none;
+}
+.mobile summary::-webkit-details-marker {
+  display: none;
+}
+.mobile summary::before {
+  content: "▸ ";
+}
+.mobile[open] summary::before {
+  content: "▾ ";
+}
+.mobile .list {
+  padding: 4px 0 2px 4px;
+  border-left: 2px solid var(--border);
+  margin-left: 4px;
+}
+@media (min-width: 1180px) {
+  .mobile {
+    display: none;
+  }
+}

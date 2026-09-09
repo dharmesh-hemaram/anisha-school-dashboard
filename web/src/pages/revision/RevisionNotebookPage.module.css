@@ -73,6 +73,9 @@
 /* ---- Category section ---- */
 .catItem {
   margin-bottom: 26px;
+  /* Clears the sticky search/chips bar (.controls) when a Table of
+     Contents link jumps straight to this section. */
+  scroll-margin-top: 128px;
 }
 .catHead {
   display: flex;

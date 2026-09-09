@@ -15,6 +15,9 @@
   margin-bottom: 11px;
   flex-wrap: wrap;
 }
+.headClickable {
+  cursor: pointer;
+}
 .countSlot {
   margin-left: auto;
 }

@@ -10,6 +10,7 @@ import EmptyState from "../../components/ui/EmptyState";
 import SubjectBadge from "../../components/subjects/SubjectBadge";
 import MaterialGroupCard from "../../components/materials/MaterialGroupCard";
 import CategorySection from "./CategorySection";
+import TableOfContents from "./TableOfContents";
 import styles from "./RevisionNotebookPage.module.css";
 
 // Every category's `groups` array shares a `chapter` field regardless of
@@ -99,6 +100,7 @@ export default function RevisionNotebookPage() {
   }
 
   const anyVisible = filtered.some((cat) => cat.data.groups.length > 0);
+  const tocEntries = filtered.filter((cat) => cat.data.groups.length > 0).map((cat) => ({ num: cat.num, title: cat.title }));
 
   return (
     <div className={`wrap ${styles.page}`}>
@@ -120,6 +122,7 @@ export default function RevisionNotebookPage() {
               subject={scheduleRow.subject}
               items={scheduleMaterials}
               scheduleRow={{ ...scheduleRow, revision_notebook_url: undefined }}
+              collapsible
             />
           </div>
         )}
@@ -152,6 +155,8 @@ export default function RevisionNotebookPage() {
           <sup className={styles.srcRev}>↻</sup>revision sheet
         </p>
       </div>
+
+      <TableOfContents categories={tocEntries} />
 
       {!anyVisible ? (
         <EmptyState>Nothing matches that search.</EmptyState>
