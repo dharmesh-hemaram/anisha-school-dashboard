@@ -3,9 +3,12 @@ import { useParams } from "react-router-dom";
 import type { NotebookCategoryData } from "../../revision-notebooks/types";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { fetchRevisionNotebook } from "../../features/revision/revisionSlice";
+import { fetchDashboardData } from "../../features/data/dataSlice";
+import { cyclesOf } from "../../lib/notices";
 import { Chip, ChipRow } from "../../components/ui/Chip";
 import EmptyState from "../../components/ui/EmptyState";
 import SubjectBadge from "../../components/subjects/SubjectBadge";
+import MaterialGroupCard from "../../components/materials/MaterialGroupCard";
 import CategorySection from "./CategorySection";
 import styles from "./RevisionNotebookPage.module.css";
 
@@ -29,9 +32,21 @@ export default function RevisionNotebookPage() {
   const [chapter, setChapter] = useState("all");
   const [search, setSearch] = useState("");
 
+  // This route sits outside AppLayout (it's meant to open standalone in its
+  // own tab -- see RevisionNotebookLink), so AppLayout's own fetch never
+  // runs here; without this, notices/portionSchedules would just stay empty
+  // and the exam card below would never appear.
+  const dataStatus = useAppSelector((s) => s.data.status);
+  const notices = useAppSelector((s) => s.data.notices);
+  const portionSchedules = useAppSelector((s) => s.data.portionSchedules);
+
   useEffect(() => {
     if (slug && !entry) dispatch(fetchRevisionNotebook(slug));
   }, [slug, entry, dispatch]);
+
+  useEffect(() => {
+    if (dataStatus === "idle") dispatch(fetchDashboardData());
+  }, [dataStatus, dispatch]);
 
   const notebook = entry?.status === "succeeded" ? entry.notebook : undefined;
   const query = search.trim().toLowerCase();
@@ -40,6 +55,32 @@ export default function RevisionNotebookPage() {
     if (!notebook) return [];
     return notebook.categories.map((cat) => ({ ...cat, data: filterCategoryData(cat.data, chapter, query) }));
   }, [notebook, chapter, query]);
+
+  // Whichever portion-table row links here (any cycle, any subject) -- e.g.
+  // the Half Yearly English row -- so the same worksheets/notes/portion the
+  // Exam tab shows for it also surface right at the top of this notebook,
+  // for the child studying straight off this page instead of the Exam tab.
+  const scheduleRow = useMemo(() => {
+    if (!slug) return undefined;
+    const url = `revision/${slug}`;
+    for (const schedule of Object.values(portionSchedules)) {
+      const row = schedule.schedule.find((r) => r.revision_notebook_url === url);
+      if (row) return row;
+    }
+    return undefined;
+  }, [portionSchedules, slug]);
+
+  const scheduleCycle = useMemo(() => {
+    if (!scheduleRow) return undefined;
+    return Object.entries(portionSchedules).find(([, schedule]) => schedule.schedule.includes(scheduleRow))?.[0];
+  }, [portionSchedules, scheduleRow]);
+
+  const scheduleMaterials = useMemo(() => {
+    if (!scheduleRow || !scheduleCycle) return [];
+    return notices.filter(
+      (r) => r.category === "Subject Notes" && r.subject === scheduleRow.subject && cyclesOf(r).includes(scheduleCycle),
+    );
+  }, [notices, scheduleRow, scheduleCycle]);
 
   if (!entry || entry.status === "loading") {
     return (
@@ -71,6 +112,17 @@ export default function RevisionNotebookPage() {
         </div>
         <p className={styles.pageSub}>{notebook.subtitle}</p>
         <p className={styles.pageMeta}>{notebook.examMeta}</p>
+        {scheduleRow && (
+          <div className={styles.materialCard}>
+            {/* Drop revision_notebook_url here only -- showing a "Revision Notebook
+                →" link back to this exact page, on this exact page, is a dead loop. */}
+            <MaterialGroupCard
+              subject={scheduleRow.subject}
+              items={scheduleMaterials}
+              scheduleRow={{ ...scheduleRow, revision_notebook_url: undefined }}
+            />
+          </div>
+        )}
       </header>
 
       <div className={styles.controls}>
