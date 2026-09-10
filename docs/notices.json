@@ -22,6 +22,28 @@
     "exam_cycle": null
   },
   {
+    "id": "7588ac0acbe6e1aa",
+    "posted_date": "10-09-2026",
+    "posted_date_iso": "2026-09-10",
+    "event_date_iso": "2026-09-10",
+    "text": "Dear Parent,\n\nSharing circular no. 31 - School Widely Important Goal.",
+    "attachment_url": "http://wagholierp.snbpinstitutes.in/NEWPHP/Teacher/Notice_photos/1092026155432.pdf",
+    "category": "General/Other",
+    "method": "default",
+    "periods": [],
+    "is_timetable": false,
+    "confidence": 0.5,
+    "subject": null,
+    "chapter": null,
+    "chapter_number": null,
+    "material_type": null,
+    "worksheet_numbers": null,
+    "answer_key_url": null,
+    "paired": false,
+    "calendar_event_id": null,
+    "exam_cycle": null
+  },
+  {
     "id": "f8c5fe67236ccccc",
     "posted_date": "08-09-2026",
     "posted_date_iso": "2026-09-08",
