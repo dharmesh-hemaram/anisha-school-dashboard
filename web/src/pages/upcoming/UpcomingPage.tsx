@@ -17,7 +17,6 @@ export default function UpcomingPage() {
 
   return (
     <>
-      <div className="sectionNote">Exams, school events &amp; holidays, newest first</div>
       <WeekStrip items={weekStripItems} />
       {items.length === 0 ? (
         <EmptyState>Nothing upcoming right now.</EmptyState>

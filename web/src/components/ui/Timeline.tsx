@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import { Fragment } from "react";
 import { fmtDate, parseISO, todayISO } from "../../lib/date";
-import styles from "./Timeline.module.css";
+import Marker, { MarkerContent } from "./Marker";
 
 interface TimelineProps<T> {
   items: T[];
@@ -10,14 +10,14 @@ interface TimelineProps<T> {
   className?: string;
 }
 
-/** Groups already-ordered `items` under one date header per distinct ISO
- * date, with a "Today" tag when that date is today. Shared by the Upcoming,
- * Feed, and HW tabs, which all read as a per-day list. */
+/** Groups already-ordered `items` under one date-divider Marker per distinct
+ * ISO date, with a "Today" label when that date is today. Shared by the
+ * Upcoming, Feed, and HW tabs, which all read as a per-day list. */
 export default function Timeline<T>({ items, dateIso, children, className }: TimelineProps<T>) {
   const today = todayISO();
 
   return (
-    <div className={className ? `${styles.list} ${className}` : styles.list}>
+    <div className={className ? `flex flex-col gap-2 ${className}` : "flex flex-col gap-2"}>
       {items.map((item, i) => {
         const iso = dateIso(item);
         const showHeader = i === 0 || dateIso(items[i - 1]) !== iso;
@@ -25,10 +25,12 @@ export default function Timeline<T>({ items, dateIso, children, className }: Tim
         return (
           <Fragment key={i}>
             {showHeader && (
-              <div className={isToday ? `${styles.dayHead} ${styles.today}` : styles.dayHead}>
-                {fmtDate(parseISO(iso))}
-                {isToday && <span className={styles.todayTag}>Today</span>}
-              </div>
+              <Marker variant="separator" className={isToday ? "text-primary" : "text-muted-foreground"}>
+                <MarkerContent>
+                  {fmtDate(parseISO(iso))}
+                  {isToday && " · Today"}
+                </MarkerContent>
+              </Marker>
             )}
             {children(item, i)}
           </Fragment>

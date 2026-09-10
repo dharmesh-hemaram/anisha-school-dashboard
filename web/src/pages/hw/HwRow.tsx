@@ -1,9 +1,8 @@
 import type { HwTask } from "../../types";
 import { useAppDispatch } from "../../app/hooks";
 import { toggleDone } from "../../features/hw/hwSlice";
-import Card from "../../components/ui/Card";
+import { Item, ItemContent, ItemDescription, ItemMedia } from "../../components/ui/item";
 import SubjectBadge from "../../components/subjects/SubjectBadge";
-import styles from "./HwRow.module.css";
 
 const DONE_ICON = (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -21,16 +20,12 @@ const TODO_ICON = (
 export default function HwRow({ task, done }: { task: HwTask; done: boolean }) {
   const dispatch = useAppDispatch();
   return (
-    <Card className={done ? `${styles.row} ${styles.done}` : styles.row} onClick={() => dispatch(toggleDone(task.id))}>
-      <span className={styles.check}>{done ? DONE_ICON : TODO_ICON}</span>
-      <div className={styles.body}>
-        {task.subject && (
-          <div className={styles.top}>
-            <SubjectBadge subject={task.subject} />
-          </div>
-        )}
-        <div className={styles.text}>{task.text}</div>
-      </div>
-    </Card>
+    <Item variant="outline" size="xs" className={done ? "cursor-pointer opacity-55" : "cursor-pointer"} onClick={() => dispatch(toggleDone(task.id))}>
+      <ItemMedia variant="icon">{done ? DONE_ICON : TODO_ICON}</ItemMedia>
+      <ItemContent>
+        {task.subject && <SubjectBadge subject={task.subject} />}
+        <ItemDescription className={done ? "line-through" : undefined}>{task.text}</ItemDescription>
+      </ItemContent>
+    </Item>
   );
 }

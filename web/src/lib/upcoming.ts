@@ -8,7 +8,7 @@ import { UPCOMING_CATEGORIES } from "./constants";
 export interface WeekStripItem {
   date_iso: string;
   name: string;
-  dot: string;
+  kind: "holiday" | "event";
   _days: number;
 }
 
@@ -26,11 +26,11 @@ export function buildWeekStripItems(notices: Notice[], holidays: Holidays, event
   );
 
   const items: Omit<WeekStripItem, "_days">[] = [
-    ...holidays.holidays.map((h) => ({ date_iso: h.date_iso, name: h.name, dot: "var(--dot-holiday)" })),
-    ...eventsCalendar.events.map((e) => ({ date_iso: e.date_iso, name: e.name, dot: "var(--dot-event)" })),
+    ...holidays.holidays.map((h) => ({ date_iso: h.date_iso, name: h.name, kind: "holiday" as const })),
+    ...eventsCalendar.events.map((e) => ({ date_iso: e.date_iso, name: e.name, kind: "event" as const })),
     ...eventsCalendar.ptm.map((p) => ({
       date_iso: p.date_iso,
-      dot: "var(--dot-event)",
+      kind: "event" as const,
       name: p.scope ? `${p.label} — ${p.scope}` : p.label,
     })),
   ].filter((x) => !alreadyShown.has(x.date_iso));

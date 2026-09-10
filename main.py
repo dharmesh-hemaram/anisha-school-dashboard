@@ -28,6 +28,13 @@ DATA_PATH = "docs/notices.json"
 LAST_UPDATED_PATH = "docs/last_updated.json"
 PORTION_SCHEDULES_PATH = "docs/portion_schedules.json"
 
+# Class III F's academic year starts here -- anything posted before this is
+# the previous class's leftovers (a different section's notices bleeding
+# into the same scraped feed). Defaulting --since to it means even a full
+# --year backfill can never resurface them, without having to remember to
+# pass the flag by hand every time.
+ACADEMIC_YEAR_START = "2026-03-18"
+
 logger = logging.getLogger(__name__)
 
 
@@ -56,7 +63,12 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--year", type=int, help="Backfill mode: pull every notice from this year")
     parser.add_argument("--recent", type=int, default=50, help="Daily mode: how many recent notices to fetch")
-    parser.add_argument("--since", type=str, help="Exclude notices posted before this ISO date (YYYY-MM-DD) -- for dropping a prior academic year's leftovers from a backfill")
+    parser.add_argument(
+        "--since",
+        type=str,
+        default=ACADEMIC_YEAR_START,
+        help="Exclude notices posted before this ISO date (YYYY-MM-DD) -- defaults to the current academic year's start so a backfill never resurfaces a prior class's leftovers",
+    )
     args = parser.parse_args()
 
     logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")

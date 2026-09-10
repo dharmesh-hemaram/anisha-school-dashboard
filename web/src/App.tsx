@@ -2,7 +2,6 @@ import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import AppLayout from "./routes/AppLayout";
 import UpcomingPage from "./pages/upcoming/UpcomingPage";
 import HwPage from "./pages/hw/HwPage";
-import ExamPage from "./pages/exam/ExamPage";
 import NotesPage from "./pages/notes/NotesPage";
 import FeedPage from "./pages/feed/FeedPage";
 import RevisionNotebookPage from "./pages/revision/RevisionNotebookPage";
@@ -15,8 +14,6 @@ export default function App() {
           <Route index element={<Navigate to="/upcoming" replace />} />
           <Route path="upcoming" element={<UpcomingPage />} />
           <Route path="hw" element={<HwPage />} />
-          <Route path="exam" element={<ExamPage />} />
-          <Route path="exam/:cycle" element={<ExamPage />} />
           <Route path="notes" element={<NotesPage />} />
           <Route path="notes/:subject" element={<NotesPage />} />
           <Route path="feed" element={<FeedPage />} />

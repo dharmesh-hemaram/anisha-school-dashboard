@@ -2,10 +2,9 @@ import { useMemo } from "react";
 import { useSearchParams } from "react-router-dom";
 import { useAppSelector } from "../../app/hooks";
 import { CATEGORY_META, FEED_CATEGORIES } from "../../lib/constants";
-import { SUBJECT_META } from "../../lib/subjects";
+import { SUBJECT_META, subjectAbbr } from "../../lib/subjects";
 import { noticeSubjects } from "../../lib/notices";
-import { Chip, ChipRow } from "../../components/ui/Chip";
-import SubjectChip from "../../components/subjects/SubjectChip";
+import { ToggleGroup, ToggleGroupItem } from "../../components/ui/toggle-group";
 import EmptyState from "../../components/ui/EmptyState";
 import Timeline from "../../components/ui/Timeline";
 import FeedItem from "./FeedItem";
@@ -51,26 +50,28 @@ export default function FeedPage() {
 
   return (
     <>
-      <ChipRow>
-        <Chip active={activeCategory === "All"} onClick={() => setCategory("All")}>
-          All
-        </Chip>
-        {FEED_CATEGORIES.map((c) => (
-          <Chip key={c} active={c === activeCategory} onClick={() => setCategory(c)}>
-            {CATEGORY_META[c].label}
-          </Chip>
-        ))}
-      </ChipRow>
+      <ToggleGroup size="sm" value={[activeCategory]} onValueChange={(v) => setCategory(v[0] ?? "All")}>
+        <ToggleGroupItem value="All">All</ToggleGroupItem>
+        {FEED_CATEGORIES.map((c) => {
+          const Icon = CATEGORY_META[c].icon;
+          return (
+            <ToggleGroupItem key={c} value={c}>
+              <Icon />
+              {CATEGORY_META[c].label}
+            </ToggleGroupItem>
+          );
+        })}
+      </ToggleGroup>
 
       {allSubjects.length > 0 && (
-        <ChipRow>
-          <Chip active={activeSubject === "All"} onClick={() => setSubject("All")}>
-            All
-          </Chip>
+        <ToggleGroup size="sm" value={[activeSubject]} onValueChange={(v) => setSubject(v[0] ?? "All")}>
+          <ToggleGroupItem value="All">All</ToggleGroupItem>
           {allSubjects.map((s) => (
-            <SubjectChip key={s} subject={s} active={s === activeSubject} onClick={() => setSubject(s)} />
+            <ToggleGroupItem key={s} value={s} title={s}>
+              {subjectAbbr(s)}
+            </ToggleGroupItem>
           ))}
-        </ChipRow>
+        </ToggleGroup>
       )}
 
       {filtered.length === 0 ? (
