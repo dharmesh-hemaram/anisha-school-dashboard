@@ -22,7 +22,7 @@
   position: sticky;
   top: 0;
   z-index: 5;
-  background: #fff;
+  background: var(--background);
   padding: 9px 0 8px;
   margin-bottom: 8px;
 }
