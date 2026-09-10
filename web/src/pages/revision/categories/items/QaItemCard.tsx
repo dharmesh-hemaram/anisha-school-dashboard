@@ -1,5 +1,5 @@
 import type { QaItem } from "../../../../revision-notebooks/types";
-import { resolveImage } from "../../../../revision-notebooks/resolveImage";
+import Markdown from "../../../../components/ui/Markdown";
 import SourceMarks from "../../SourceMarks";
 import styles from "../../RevisionNotebookPage.module.css";
 
@@ -11,11 +11,6 @@ import styles from "../../RevisionNotebookPage.module.css";
 export default function QaItemCard({ item }: { item: QaItem }) {
   return (
     <div className={styles.qa}>
-      {item.image && (
-        <a href={resolveImage(item.image)} target="_blank" rel="noreferrer">
-          <img className={styles.qaDiagram} src={resolveImage(item.image)} alt="" />
-        </a>
-      )}
       <p className={styles.q}>
         {item.questionLeaderImage && (
           <img
@@ -24,19 +19,23 @@ export default function QaItemCard({ item }: { item: QaItem }) {
             alt=""
           />
         )}
-        {item.question}
+        <Markdown text={item.question} />
         <SourceMarks sources={item.sources} />
       </p>
       {Array.isArray(item.answer) ? (
         <div className={styles.a}>
           <ul>
             {item.answer.map((line, i) => (
-              <li key={i}>{line}</li>
+              <li key={i}>
+                <Markdown text={line} />
+              </li>
             ))}
           </ul>
         </div>
       ) : (
-        <p className={styles.a}>{item.answer}</p>
+        <p className={styles.a}>
+          <Markdown text={item.answer} />
+        </p>
       )}
     </div>
   );

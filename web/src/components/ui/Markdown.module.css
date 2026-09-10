@@ -1,0 +1,45 @@
+.md {
+  display: inline;
+}
+.para {
+  display: block;
+}
+.para + .para {
+  margin-top: 4px;
+}
+.md img {
+  display: block;
+  width: 100%;
+  max-width: 360px;
+  height: auto;
+  object-fit: contain;
+  background: var(--surface);
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  margin: 4px 0 6px;
+}
+.md table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 5px 0 8px;
+  font-size: 12.5px;
+}
+.md th,
+.md td {
+  border: 1px solid var(--border);
+  padding: 5px 7px;
+  text-align: left;
+  word-break: break-word;
+}
+.md th {
+  background: var(--surface);
+  font-weight: 700;
+}
+.md ul,
+.md ol {
+  margin: 4px 0;
+  padding-left: 17px;
+}
+.md li {
+  margin-bottom: 3px;
+}

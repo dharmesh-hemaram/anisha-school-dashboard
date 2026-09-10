@@ -845,8 +845,7 @@
             "chapter": "body",
             "items": [
               {
-                "question": "Look at the given diagram of the respiratory system and answer: (1) Name the organ system shown. (2) Label (a), (b) and (c). (3) Write the function of (c).",
-                "image": "science/respiratory-system.jpg",
+                "question": "![The respiratory system](science/respiratory-system.jpg)\n\nLook at the given diagram of the respiratory system and answer: (1) Name the organ system shown. (2) Label (a), (b) and (c). (3) Write the function of (c).",
                 "answer": [
                   "(1) Respiratory system.",
                   "(2) (a) Nose (b) Windpipe (c) Lungs.",
@@ -887,8 +886,8 @@
               },
               {
                 "question": "A person who does heavy physical work should consume a diet rich in:",
-                "options": "(a) carbohydrates    (b) minerals    (c) vitamins",
-                "answer": "(a) carbohydrates",
+                "options": "(a) vitamins    (b) minerals    (c) carbohydrates",
+                "answer": "(c) carbohydrates",
                 "sources": { "textbook": true, "worksheet": true }
               },
               {

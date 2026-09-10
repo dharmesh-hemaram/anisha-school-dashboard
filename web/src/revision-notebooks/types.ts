@@ -89,16 +89,14 @@ export interface NameCategory {
 // Application Based) all share the exact same question+answer markup, so
 // they share this one type -- only the category heading differs.
 export interface QaItem {
+  /** Rendered as markdown -- an inline `![](science/x.jpg)` is how a
+   * picture-based question carries its diagram, rather than a dedicated
+   * field the schema has to grow for every new formatting need. */
   question: string;
   /** Pulled out of an inline `<img class="leader-thumb">` sitting mid-question. */
   questionLeaderImage?: string;
-  /** The diagram a picture-based question refers to (e.g. "Look at the
-   * given diagram ... and answer"), shown above the question. Distinct from
-   * questionLeaderImage, which is a small decorative portrait, not content
-   * the question depends on. */
-  image?: string;
   /** A string for a single-paragraph answer, a string array when the
-   * source used a bulleted `<ul>` answer. */
+   * source used a bulleted `<ul>` answer. Also rendered as markdown. */
   answer: string | string[];
   sources?: SourceMarks;
 }

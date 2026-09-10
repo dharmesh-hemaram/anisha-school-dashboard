@@ -147,17 +147,6 @@
 .qa .a ul {
   margin: 3px 0 0;
 }
-.qaDiagram {
-  display: block;
-  width: 100%;
-  max-width: 360px;
-  height: auto;
-  object-fit: contain;
-  background: var(--surface);
-  border-radius: 7px;
-  border: 1px solid var(--border);
-  margin-bottom: 6px;
-}
 
 .mcq {
   margin-bottom: 9px;
