@@ -1,18 +1,20 @@
+import { CalendarDays, ClipboardList, Info, Megaphone, Newspaper, PartyPopper, type LucideIcon } from "lucide-react";
 import type { Category, MaterialType } from "../types";
 
 export interface CategoryMeta {
   dot: string;
   label: string;
+  icon: LucideIcon;
 }
 
 export const CATEGORY_META: Record<Category, CategoryMeta> = {
-  "Exam/Test": { dot: "var(--dot-exam)", label: "Exam/Test" },
-  "School Event": { dot: "var(--dot-event)", label: "School Event" },
-  Holiday: { dot: "var(--dot-holiday)", label: "Holiday" },
-  "Subject Notes": { dot: "var(--dot-notes)", label: "Subject Notes" },
-  "Daily Class Update": { dot: "var(--dot-dcu)", label: "Daily Update" },
-  "Event/Celebration": { dot: "var(--dot-celeb)", label: "Celebration" },
-  "General/Other": { dot: "var(--dot-general)", label: "General" },
+  "Exam/Test": { dot: "var(--dot-exam)", label: "Exam/Test", icon: ClipboardList },
+  "School Event": { dot: "var(--dot-event)", label: "School Event", icon: CalendarDays },
+  Holiday: { dot: "var(--dot-holiday)", label: "Holiday", icon: PartyPopper },
+  "Subject Notes": { dot: "var(--dot-notes)", label: "Subject Notes", icon: Newspaper },
+  "Daily Class Update": { dot: "var(--dot-dcu)", label: "Daily Update", icon: Megaphone },
+  "Event/Celebration": { dot: "var(--dot-celeb)", label: "Celebration", icon: PartyPopper },
+  "General/Other": { dot: "var(--dot-general)", label: "General", icon: Info },
 };
 
 export const UPCOMING_CATEGORIES: Category[] = ["Exam/Test", "School Event", "Holiday"];

@@ -28,6 +28,15 @@ export function latestExamCycle(notices: Notice[]): string | null {
   return sortedExamCycles(notices)[0] || null;
 }
 
+// The hand-authored revision notebooks (Q&A practice pages) only exist for
+// yearly exams -- PT-1/PT-2 class tests are too small in scope to warrant
+// one. Gate the link on the cycle name itself rather than only on whether a
+// URL happens to be present, so a future PT-cycle portion row can never
+// surface it by accident.
+export function isYearlyCycle(cycle: string | null | undefined): boolean {
+  return !!cycle && /yearly/i.test(cycle);
+}
+
 export function noticeSubjects(r: Notice): Set<string> {
   const subjects = new Set<string>();
   if (r.subject) subjects.add(r.subject);

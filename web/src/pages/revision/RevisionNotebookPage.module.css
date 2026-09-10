@@ -1,7 +1,6 @@
 /* ---- Header ---- */
 .pageHead {
   padding: calc(10px + env(safe-area-inset-top)) 0 12px;
-  border-bottom: 2px solid var(--brand);
   margin-bottom: 10px;
 }
 .backLink {
@@ -14,24 +13,6 @@
   text-decoration: none;
   margin-bottom: 8px;
 }
-.pageTitle {
-  display: flex;
-  align-items: center;
-  font-size: 19px;
-  font-weight: 800;
-  margin: 0 0 4px;
-}
-.pageSub {
-  font-size: 12.5px;
-  color: var(--text-muted);
-  margin: 0 0 2px;
-  max-width: 56ch;
-}
-.pageMeta {
-  font-size: 11.5px;
-  color: var(--text-faint);
-  margin: 4px 0 0;
-}
 .materialCard {
   margin-top: 12px;
 }
@@ -41,74 +22,36 @@
   position: sticky;
   top: 0;
   z-index: 5;
-  background: var(--bg);
+  background: var(--background);
   padding: 9px 0 8px;
   margin-bottom: 8px;
-  border-bottom: 1px solid var(--border);
+}
+.chapterToggles {
+  /* Layout only (scrolling, spacing) -- the toggle buttons' own look comes
+     from shadcn's vanilla ToggleGroup/Toggle, untouched. */
+  width: 100%;
+  justify-content: flex-start;
+  overflow-x: auto;
+  padding-bottom: 6px;
+  scrollbar-width: none;
+}
+.chapterToggles::-webkit-scrollbar {
+  display: none;
+}
+.chapterToggles > * {
+  flex-shrink: 0;
 }
 .searchRow {
   display: flex;
   gap: 8px;
   align-items: center;
+  margin-top: 6px;
 }
-.searchInput {
+.searchRow > * {
   flex: 1;
-  font-size: 13px;
-  padding: 8px 13px;
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  background: var(--surface);
-  color: var(--text);
 }
-.searchInput:focus {
-  outline: 2px solid var(--brand);
-  outline-offset: 1px;
-}
-.legend {
-  font-size: 11px;
-  color: var(--text-faint);
-  margin: 7px 0 0;
-}
-
-/* ---- Category section ---- */
-.catItem {
-  margin-bottom: 26px;
-  /* Clears the sticky search/chips bar (.controls) when a Table of
-     Contents link jumps straight to this section. */
-  scroll-margin-top: 128px;
-}
-.catHead {
-  display: flex;
-  align-items: center;
-  gap: 9px;
-  padding: 0 0 9px;
-  border-bottom: 2px solid var(--border);
-  margin-bottom: 12px;
-  font-weight: 800;
-  font-size: 15px;
-}
-.catNumBadge {
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  flex: none;
-  background: var(--brand);
-  color: var(--bg);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 11.5px;
-  font-weight: 700;
-}
-.catNote {
-  font-size: 11.5px;
-  color: var(--text-faint);
-  margin: 0 0 12px;
-}
-
 /* ---- Chapter group ---- */
 .chapGroup {
-  background: var(--surface);
   border-radius: 6px 9px 9px 6px;
   padding: 10px 12px 11px;
   margin-bottom: 12px;
@@ -237,9 +180,7 @@
 }
 
 .srcRev,
-.srcWs,
-.srcTb,
-.srcNotes {
+.srcWs {
   font-weight: 800;
   margin-left: 2px;
   cursor: help;
@@ -250,12 +191,6 @@
 }
 .srcWs {
   color: var(--brand);
-}
-.srcTb {
-  color: var(--src-textbook-ink);
-}
-.srcNotes {
-  color: var(--src-notes-ink);
 }
 
 .picItem {

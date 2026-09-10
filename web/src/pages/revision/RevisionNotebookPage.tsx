@@ -1,16 +1,25 @@
 import { useEffect, useMemo, useState } from "react";
 import { useParams } from "react-router-dom";
+import { ChevronDown, ChevronUp } from "lucide-react";
 import type { NotebookCategoryData } from "../../revision-notebooks/types";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { fetchRevisionNotebook } from "../../features/revision/revisionSlice";
 import { fetchDashboardData } from "../../features/data/dataSlice";
 import { cyclesOf } from "../../lib/notices";
-import { Chip, ChipRow } from "../../components/ui/Chip";
+import { fmtDate, parseISO } from "../../lib/date";
+import { sortMaterialsByTypeThenDate } from "../../lib/materials";
+import { MATERIAL_GROUPS } from "../../lib/constants";
+import { ToggleGroup, ToggleGroupItem } from "../../components/ui/toggle-group";
+import { Accordion } from "../../components/ui/accordion";
+import { Input } from "../../components/ui/input";
+import { Card, CardAction, CardContent, CardHeader, CardTitle } from "../../components/ui/card";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "../../components/ui/collapsible";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "../../components/ui/tabs";
+import { Badge } from "../../components/ui/badge";
 import EmptyState from "../../components/ui/EmptyState";
 import SubjectBadge from "../../components/subjects/SubjectBadge";
-import MaterialGroupCard from "../../components/materials/MaterialGroupCard";
+import MaterialItem from "../../components/materials/MaterialItem";
 import CategorySection from "./CategorySection";
-import TableOfContents from "./TableOfContents";
 import styles from "./RevisionNotebookPage.module.css";
 
 // Every category's `groups` array shares a `chapter` field regardless of
@@ -83,6 +92,12 @@ export default function RevisionNotebookPage() {
     );
   }, [notices, scheduleRow, scheduleCycle]);
 
+  const sortedMaterials = sortMaterialsByTypeThenDate(scheduleMaterials);
+  const materialGroups = MATERIAL_GROUPS.map((g) => ({
+    ...g,
+    items: sortedMaterials.filter((m) => m.material_type === g.type),
+  })).filter((g) => g.items.length > 0);
+
   if (!entry || entry.status === "loading") {
     return (
       <div className={`wrap ${styles.page}`}>
@@ -108,62 +123,87 @@ export default function RevisionNotebookPage() {
         <a className={styles.backLink} href={import.meta.env.BASE_URL}>
           ← Back to Notice Board
         </a>
-        <div className={styles.pageTitle}>
-          <SubjectBadge subject={notebook.subjectBadge} />
-          {notebook.title}
-        </div>
-        <p className={styles.pageSub}>{notebook.subtitle}</p>
-        <p className={styles.pageMeta}>{notebook.examMeta}</p>
         {scheduleRow && (
           <div className={styles.materialCard}>
-            {/* Drop revision_notebook_url here only -- showing a "Revision Notebook
-                →" link back to this exact page, on this exact page, is a dead loop. */}
-            <MaterialGroupCard
-              subject={scheduleRow.subject}
-              items={scheduleMaterials}
-              scheduleRow={{ ...scheduleRow, revision_notebook_url: undefined }}
-              collapsible
-            />
+            <Collapsible>
+              <Card size="sm" className="gap-0 py-0">
+                <CollapsibleTrigger nativeButton={false} render={<CardHeader className="group w-full cursor-pointer py-4" />}>
+                  <div className="flex min-w-0 items-start gap-2">
+                    <SubjectBadge subject={scheduleRow.subject} />
+                    <CardTitle className="min-w-0">{scheduleRow.subject}</CardTitle>
+                  </div>
+                  <CardAction className="flex items-center gap-2">
+                    {scheduleRow.marks ? <Badge variant="secondary">{scheduleRow.marks} marks</Badge> : null}
+                    <ChevronDown className="size-4 text-muted-foreground group-data-panel-open:hidden" />
+                    <ChevronUp className="hidden size-4 text-muted-foreground group-data-panel-open:inline" />
+                  </CardAction>
+                </CollapsibleTrigger>
+                <CollapsibleContent>
+                  <CardContent className="flex flex-col gap-2 pb-4">
+                    <div className="text-xs text-muted-foreground">{fmtDate(parseISO(scheduleRow.date_iso))}</div>
+                    {scheduleRow.portion && <div className="text-[13.5px] whitespace-pre-line">{scheduleRow.portion}</div>}
+                    {sortedMaterials.length === 1 ? (
+                      <MaterialItem notices={[sortedMaterials[0]]} title={scheduleRow.subject} />
+                    ) : (
+                      materialGroups.length > 0 && (
+                        <Tabs defaultValue={materialGroups[0].type} className="w-full">
+                          <TabsList variant="line">
+                            {materialGroups.map((g) => (
+                              <TabsTrigger key={g.type} value={g.type}>
+                                {g.label}
+                              </TabsTrigger>
+                            ))}
+                          </TabsList>
+                          {materialGroups.map((g) => (
+                            <TabsContent key={g.type} value={g.type} className="flex flex-col gap-2">
+                              {g.items.map((m) => (
+                                <MaterialItem key={m.id} notices={[m]} />
+                              ))}
+                            </TabsContent>
+                          ))}
+                        </Tabs>
+                      )
+                    )}
+                  </CardContent>
+                </CollapsibleContent>
+              </Card>
+            </Collapsible>
           </div>
         )}
       </header>
 
       <div className={styles.controls}>
-        <ChipRow>
-          <Chip active={chapter === "all"} onClick={() => setChapter("all")}>
-            All chapters
-          </Chip>
+        <ToggleGroup
+          className={styles.chapterToggles}
+          size="sm"
+          value={[chapter]}
+          onValueChange={(value) => setChapter(value[0] ?? "all")}
+        >
+          <ToggleGroupItem value="all">All chapters</ToggleGroupItem>
           {notebook.chapters.map((c) => (
-            <Chip key={c.id} active={chapter === c.id} onClick={() => setChapter(c.id)}>
+            <ToggleGroupItem key={c.id} value={c.id}>
               {c.label}
-            </Chip>
+            </ToggleGroupItem>
           ))}
-        </ChipRow>
+        </ToggleGroup>
         <div className={styles.searchRow}>
-          <input
-            className={styles.searchInput}
+          <Input
             type="search"
             placeholder="Search questions & answers…"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
         </div>
-        <p className={styles.legend}>
-          <sup className={styles.srcNotes}>✎</sup>her notebook &nbsp;&nbsp;
-          <sup className={styles.srcTb}>★</sup>textbook &nbsp;&nbsp;
-          <sup className={styles.srcWs}>☑</sup>worksheet &nbsp;&nbsp;
-          <sup className={styles.srcRev}>↻</sup>revision sheet
-        </p>
       </div>
-
-      <TableOfContents categories={tocEntries} />
 
       {!anyVisible ? (
         <EmptyState>Nothing matches that search.</EmptyState>
       ) : (
-        filtered.map(
-          (cat) => cat.data.groups.length > 0 && <CategorySection key={cat.num} entry={cat} chapters={notebook.chapters} />,
-        )
+        <Accordion defaultValue={tocEntries.map((e) => e.num)}>
+          {filtered.map(
+            (cat) => cat.data.groups.length > 0 && <CategorySection key={cat.num} entry={cat} chapters={notebook.chapters} />,
+          )}
+        </Accordion>
       )}
 
       <footer className={styles.pageFooter}>

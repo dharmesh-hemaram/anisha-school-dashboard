@@ -33,7 +33,6 @@ export default function HwPage() {
 
   return (
     <>
-      <div className="sectionNote">Homework from the last two weeks — tap to mark done</div>
       {visible.length === 0 ? (
         <EmptyState>No homework from the last two weeks.</EmptyState>
       ) : (
