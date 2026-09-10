@@ -158,6 +158,11 @@
                 "image": "science/types-of-feathers.jpg",
                 "caption": "Flight feathers — long and flat, found in the wings and tail, help the bird to fly. Down feathers — soft and fluffy, keep the bird warm. Body feathers — cover the bird's body and give it shape.",
                 "sources": { "textbook": true }
+              },
+              {
+                "image": "science/duck-webbed-feet.jpg",
+                "caption": "Webbed feet — help swimming birds like ducks and swans to swim in water.",
+                "sources": { "worksheet": true }
               }
             ]
           },
@@ -168,6 +173,16 @@
                 "image": "science/respiratory-system.jpg",
                 "caption": "The respiratory system — (a) Nose, (b) Windpipe, (c) Lungs.",
                 "sources": { "textbook": true }
+              },
+              {
+                "image": "science/excretory-system.jpg",
+                "caption": "The excretory system — includes the kidneys and urinary bladder; removes waste and extra water from our body.",
+                "sources": { "worksheet": true }
+              },
+              {
+                "image": "science/circulatory-system.jpg",
+                "caption": "The circulatory system — the heart and blood vessels that carry blood to all parts of the body.",
+                "sources": { "worksheet": true }
               }
             ]
           }
@@ -314,6 +329,21 @@
                     "template": "Our skeletal system is made up of ___ bones.",
                     "answers": ["206"],
                     "sources": { "revisionSheet": true }
+                  }
+                ]
+              },
+              {
+                "note": "Worksheet No. 4",
+                "items": [
+                  {
+                    "template": "The heart ___ blood to all parts of our body.",
+                    "answers": ["pumps"],
+                    "sources": { "worksheet": true }
+                  },
+                  {
+                    "template": "The brain orders each part of the body by sending messages through ___.",
+                    "answers": ["nerves"],
+                    "sources": { "worksheet": true }
                   }
                 ]
               }
@@ -792,6 +822,20 @@
                 "answer": [
                   "Healthy: Fresh fruits, Roasted nuts, Milkshake, Juices, Sweetened curd.",
                   "Unhealthy: Pizza, French fries, Chips, Cold drinks, Pasta."
+                ],
+                "sources": { "worksheet": true }
+              }
+            ]
+          },
+          {
+            "chapter": "birds",
+            "items": [
+              {
+                "question": "A bird has feathers all over its body. Answer the following according to your understanding: (i) Small fluffy feathers that cover a bird's body to keep it warm are — (ii) Long and sturdy feathers attached to the wings and tailbone are — (iii) Feathers that give shape and colour to the bird are —",
+                "answer": [
+                  "(i) Down feathers.",
+                  "(ii) Flight feathers.",
+                  "(iii) Body feathers."
                 ],
                 "sources": { "worksheet": true }
               }
