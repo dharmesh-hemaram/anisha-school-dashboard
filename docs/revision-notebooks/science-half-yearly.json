@@ -955,6 +955,12 @@
                 "options": "(a) to make their body light    (b) to change the direction while flying    (c) to attach wings to their body",
                 "answer": "(a) to make their body light",
                 "sources": { "textbook": true }
+              },
+              {
+                "question": "Which one of the following characteristics does not help a bird to fly?",
+                "options": "(a) hollow bones    (b) strong beak    (c) wings",
+                "answer": "(b) strong beak",
+                "sources": { "textbook": true }
               }
             ]
           },
