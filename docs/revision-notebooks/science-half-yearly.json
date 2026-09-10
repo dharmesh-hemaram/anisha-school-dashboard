@@ -23,6 +23,26 @@
                 "word": "Roughage",
                 "meaning": "Roughage is the fibre present in food items that we get from plants.",
                 "sources": { "revisionSheet": true }
+              },
+              {
+                "word": "Nutrients",
+                "meaning": "The substances that are needed by our body for good health and growth are called nutrients.",
+                "sources": { "notes": true }
+              },
+              {
+                "word": "Balanced diet",
+                "meaning": "A diet that contains proper amount of all the nutrients, roughage and water required for good health is called balanced diet.",
+                "sources": { "notes": true, "textbook": true }
+              },
+              {
+                "word": "Digestion",
+                "meaning": "Digestion is a process in which the food we eat is broken down into simple and soluble substances that are absorbed by the body.",
+                "sources": { "notes": true, "textbook": true }
+              },
+              {
+                "word": "Junk food",
+                "meaning": "Some food items like french fries, chips, cake and pizza are tasty, but are unhealthy for us. They are called junk food.",
+                "sources": { "notes": true }
               }
             ]
           },
@@ -31,8 +51,8 @@
             "items": [
               {
                 "word": "Beak",
-                "meaning": "The hard, pointed mouthpart of a bird used for eating, perching and building nests.",
-                "sources": { "notes": true, "worksheet": true }
+                "meaning": "The hard, pointed mouthpart of a bird used for eating, pecking and building nests.",
+                "sources": { "notes": true, "worksheet": true, "revisionSheet": true }
               },
               {
                 "word": "Nest",
@@ -169,6 +189,16 @@
                     "template": "___ give us more energy than carbohydrates.",
                     "answers": ["Fats"],
                     "sources": { "revisionSheet": true }
+                  },
+                  {
+                    "template": "Food passes through the ___ to reach the stomach.",
+                    "answers": ["food pipe"],
+                    "sources": { "textbook": true }
+                  },
+                  {
+                    "template": "Iron helps in the formation of ___ in our body.",
+                    "answers": ["blood"],
+                    "sources": { "textbook": true }
                   }
                 ]
               }
@@ -298,6 +328,21 @@
       "data": {
         "type": "match",
         "groups": [
+          {
+            "chapter": "food",
+            "sets": [
+              {
+                "sources": { "worksheet": true },
+                "columns": ["Column A", "Column B"],
+                "pairs": [
+                  { "left": "Rice, Wheat", "right": "Energy-giving food" },
+                  { "left": "Meat, Pulses", "right": "Body building food" },
+                  { "left": "Fruits, Vegetables", "right": "Protective food" }
+                ],
+                "answerLine": "Rice, Wheat–Energy-giving food, Meat, Pulses–Body building food, Fruits, Vegetables–Protective food"
+              }
+            ]
+          },
           {
             "chapter": "birds",
             "sets": [
@@ -500,6 +545,31 @@
                 "question": "From where do we get energy?",
                 "answer": "We get energy from the food we eat. Foods like fruits, vegetables and grains give us energy to play, learn and do all the things we enjoy.",
                 "sources": { "revisionSheet": true }
+              },
+              {
+                "question": "What are nutrients?",
+                "answer": "The substances that are needed by our body for good health and growth are called nutrients.",
+                "sources": { "notes": true }
+              },
+              {
+                "question": "What is digestion?",
+                "answer": "Digestion is a process in which the food we eat is broken down into simple and soluble substances that are absorbed by the body.",
+                "sources": { "notes": true }
+              },
+              {
+                "question": "Why does our body need minerals?",
+                "answer": "Our body needs minerals to stay strong and healthy. Minerals like calcium help our bones grow and become strong. Other minerals help our muscles, nerves and blood do their jobs.",
+                "sources": { "notes": true }
+              },
+              {
+                "question": "Why should we avoid junk food?",
+                "answer": "We should avoid junk food because it is not healthy for our body. Eating too much junk food can make us feel not so good and may cause problems for our tummy and teeth.",
+                "sources": { "notes": true }
+              },
+              {
+                "question": "Why are we advised to take fruits when we are sick?",
+                "answer": "When we are not feeling well, fruits are like magical medicine. They have nutrients in them that help our body get better faster, so eating fruits when we are sick can make us feel stronger and healthier.",
+                "sources": { "notes": true }
               }
             ]
           },
@@ -592,6 +662,21 @@
                   "Small intestine — useful parts of food (nutrients) are absorbed here."
                 ],
                 "sources": { "notes": true }
+              },
+              {
+                "question": "We cannot digest the roughage, but it is important for us. Why?",
+                "answer": "Roughage is like a superhero cleaner for our stomach. It helps to clean out our stomach and keeps everything moving smoothly. It is like a helper for our digestion.",
+                "sources": { "notes": true }
+              },
+              {
+                "question": "Who needs to take more carbohydrates, a rickshaw puller or a car driver? Give a reason for your answer.",
+                "answer": "A rickshaw puller needs more carbohydrates because they do a lot of hard work, like pulling the rickshaw. Carbohydrates give them energy to keep going and do their work well.",
+                "sources": { "notes": true }
+              },
+              {
+                "question": "What should be present more in our diet as children, carbohydrates or proteins? Why?",
+                "answer": "Children need more carbohydrates because they play a lot and run around. Carbohydrates give them energy to play, learn and grow. But we still need some proteins to make our muscles strong.",
+                "sources": { "notes": true }
               }
             ]
           },
@@ -675,6 +760,40 @@
                   "(b) Digestion helps our body get nutrients and energy from food."
                 ],
                 "sources": { "revisionSheet": true }
+              },
+              {
+                "question": "Manisha carries a water bottle with her every time she goes out. She drinks water from the bottle whenever she is thirsty. (a) What is the role of water in our body? (b) How many glasses of water should we drink daily?",
+                "answer": [
+                  "(a) Water is like a special drink that keeps our body working well. It helps us stay refreshed, makes our skin happy and helps us to go to the bathroom when needed.",
+                  "(b) We should drink around 8 to 10 glasses of water every day."
+                ],
+                "sources": { "notes": true }
+              },
+              {
+                "question": "Satyam often suffers from constipation. His grandmother suggests that he should eat a lot of salad and fruits. How is this going to help Satyam?",
+                "answer": "Satyam's grandmother's suggestion is good because salads and fruits are rich in dietary fibre (roughage) and water, both of which are important for relieving and preventing constipation.",
+                "sources": { "notes": true }
+              },
+              {
+                "question": "Anisha is participating in the upcoming school athletic meet. She has started preparing for it, but she often feels a lack of energy. Which type of food will you suggest her to eat?",
+                "answer": "Carbohydrate-rich food — carbohydrates give the body the energy it needs for physical activity like an athletic meet.",
+                "sources": { "textbook": true }
+              },
+              {
+                "question": "Alia loves eating sweets and snacks but often feels tired and lacks energy. Her friend Meera includes fruits, vegetables and whole grains in her meals. Meera is active and full of energy. (a) Who is eating a balanced diet — Alia or Meera? (b) Suggest two healthy habits which help us in proper digestion of food.",
+                "answer": [
+                  "(a) Meera is eating a balanced diet of fruits, vegetables and whole grains.",
+                  "(b) Eating fruits and vegetables in good amount; drinking 8 to 10 glasses of water daily."
+                ],
+                "sources": { "worksheet": true }
+              },
+              {
+                "question": "Rohan asked his friends for suggestions for food to be added to his birthday party. He got these suggestions: Pizza, Fresh fruits, French fries, Roasted nuts, Chips, Milkshake, Cold drinks, Pasta, Juices, Sweetened curd. Identify and separate the foods as healthy and unhealthy.",
+                "answer": [
+                  "Healthy: Fresh fruits, Roasted nuts, Milkshake, Juices, Sweetened curd.",
+                  "Unhealthy: Pizza, French fries, Chips, Cold drinks, Pasta."
+                ],
+                "sources": { "worksheet": true }
               }
             ]
           },
@@ -683,6 +802,7 @@
             "items": [
               {
                 "question": "Look at the given diagram of the respiratory system and answer: (1) Name the organ system shown. (2) Label (a), (b) and (c). (3) Write the function of (c).",
+                "image": "science/respiratory-system.jpg",
                 "answer": [
                   "(1) Respiratory system.",
                   "(2) (a) Nose (b) Windpipe (c) Lungs.",
@@ -720,6 +840,36 @@
                 "options": "(a) stomach    (b) mouth    (c) food pipe",
                 "answer": "(b) mouth",
                 "sources": { "revisionSheet": true }
+              },
+              {
+                "question": "A person who does heavy physical work should consume a diet rich in:",
+                "options": "(a) carbohydrates    (b) minerals    (c) vitamins",
+                "answer": "(a) carbohydrates",
+                "sources": { "textbook": true, "worksheet": true }
+              },
+              {
+                "question": "A diet that contains a large amount of carbohydrates and fats makes the body",
+                "options": "(a) disease free    (b) obese    (c) weak",
+                "answer": "(b) obese",
+                "sources": { "textbook": true, "worksheet": true }
+              },
+              {
+                "question": "Which one of the following is not a good habit for proper digestion of food?",
+                "options": "(a) eating a lot of green vegetables    (b) eating at regular intervals    (c) eating food too fast",
+                "answer": "(c) eating food too fast",
+                "sources": { "textbook": true }
+              },
+              {
+                "question": "Nutrients are absorbed in",
+                "options": "(a) small intestine    (b) large intestine    (c) stomach",
+                "answer": "(a) small intestine",
+                "sources": { "worksheet": true }
+              },
+              {
+                "question": "Which of the following foods are rich in proteins?",
+                "options": "(a) eggs    (b) meat    (c) both (a) and (b)",
+                "answer": "(c) both (a) and (b)",
+                "sources": { "worksheet": true }
               }
             ]
           },

@@ -92,6 +92,11 @@ export interface QaItem {
   question: string;
   /** Pulled out of an inline `<img class="leader-thumb">` sitting mid-question. */
   questionLeaderImage?: string;
+  /** The diagram a picture-based question refers to (e.g. "Look at the
+   * given diagram ... and answer"), shown above the question. Distinct from
+   * questionLeaderImage, which is a small decorative portrait, not content
+   * the question depends on. */
+  image?: string;
   /** A string for a single-paragraph answer, a string array when the
    * source used a bulleted `<ul>` answer. */
   answer: string | string[];

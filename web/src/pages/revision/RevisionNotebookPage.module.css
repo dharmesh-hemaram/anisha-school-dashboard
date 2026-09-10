@@ -147,6 +147,17 @@
 .qa .a ul {
   margin: 3px 0 0;
 }
+.qaDiagram {
+  display: block;
+  width: 100%;
+  max-width: 360px;
+  height: auto;
+  object-fit: contain;
+  background: var(--surface);
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  margin-bottom: 6px;
+}
 
 .mcq {
   margin-bottom: 9px;
@@ -195,20 +206,22 @@
 
 .picItem {
   display: flex;
-  align-items: flex-start;
-  gap: 8px;
-  margin-bottom: 9px;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 14px;
 }
 .picItem:last-child {
   margin-bottom: 0;
 }
 .picItem img {
-  width: 74px;
-  height: 56px;
-  object-fit: cover;
+  display: block;
+  width: 100%;
+  max-width: 360px;
+  height: auto;
+  object-fit: contain;
+  background: var(--surface);
   border-radius: 7px;
   border: 1px solid var(--border);
-  flex: none;
 }
 .picCaption {
   padding-top: 1px;

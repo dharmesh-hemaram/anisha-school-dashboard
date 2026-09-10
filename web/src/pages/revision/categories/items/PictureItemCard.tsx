@@ -6,7 +6,9 @@ import styles from "../../RevisionNotebookPage.module.css";
 export default function PictureItemCard({ item }: { item: PictureItem }) {
   return (
     <div className={styles.picItem}>
-      <img src={resolveImage(item.image)} alt="" />
+      <a href={resolveImage(item.image)} target="_blank" rel="noreferrer">
+        <img src={resolveImage(item.image)} alt="" />
+      </a>
       <div className={styles.picCaption}>
         {item.caption}
         <SourceMarks sources={item.sources} />
