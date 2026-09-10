@@ -2,10 +2,15 @@
   display: inline;
 }
 .para {
-  display: block;
+  display: inline;
 }
-.para + .para {
-  margin-top: 4px;
+/* Only a paragraph followed by another one needs to start a new line --
+   the common case is a single paragraph, which must stay inline so a
+   trailing SourceMarks icon (rendered as a sibling, after this component)
+   sits right after the text instead of wrapping onto its own line. */
+.para:not(:last-child) {
+  display: block;
+  margin-bottom: 4px;
 }
 .md img {
   display: block;
@@ -42,4 +47,11 @@
 }
 .md li {
   margin-bottom: 3px;
+}
+/* Matches .fibAnswer/.vocabWord elsewhere -- **bold** in source text is how
+   a question/answer marks its key term, so it picks up the chapter's own
+   accent color instead of plain black bold. */
+.md strong {
+  color: var(--chap-accent, var(--text));
+  font-weight: 700;
 }

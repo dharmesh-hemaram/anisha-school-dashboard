@@ -33,9 +33,9 @@ export default function QaItemCard({ item }: { item: QaItem }) {
           </ul>
         </div>
       ) : (
-        <p className={styles.a}>
+        <div className={styles.a}>
           <Markdown text={item.answer} />
-        </p>
+        </div>
       )}
     </div>
   );

@@ -75,6 +75,11 @@
             "chapter": "body",
             "items": [
               {
+                "word": "Tissue",
+                "meaning": "A group of similar type of cells that join together to do one kind of work.",
+                "sources": { "notes": true }
+              },
+              {
                 "word": "Organ",
                 "meaning": "An organ is a group of different tissues that work together to perform a specific function.",
                 "sources": { "worksheet": true }
@@ -126,6 +131,25 @@
                 "sources": { "textbook": true }
               }
             ]
+          },
+          {
+            "chapter": "body",
+            "items": [
+              {
+                "heading": "Summary",
+                "lines": [
+                  "Our body is made up of tiny structures called cells.",
+                  "All bones form the skeletal system and all muscles form the muscular system.",
+                  "The mouth, food pipe, stomach, small intestine, large intestine and anus form the digestive system.",
+                  "Nose, windpipe and lungs form the respiratory system.",
+                  "Heart, blood and blood vessels form the circulatory system.",
+                  "Kidneys, lungs and skin form the excretory system.",
+                  "Brain, spinal cord and nerves form the nervous system.",
+                  "Special organs for producing babies form the reproductive system."
+                ],
+                "sources": { "textbook": true }
+              }
+            ]
           }
         ]
       }
@@ -143,6 +167,11 @@
                 "image": "science/digestive-system.jpg",
                 "caption": "The digestive system — A: Food pipe, B: Stomach, C: Large intestine, D: Small intestine.",
                 "sources": { "textbook": true }
+              },
+              {
+                "image": "science/digestive-system-labeled.jpg",
+                "caption": "The digestive system — 1: Mouth, 2: Food pipe, 3: Liver, 4: Stomach, 5: Pancreas, 6: Large intestine, 7: Small intestine, 8: Anus.",
+                "sources": { "notes": true }
               }
             ]
           },
@@ -344,6 +373,15 @@
                     "template": "The brain orders each part of the body by sending messages through ___.",
                     "answers": ["nerves"],
                     "sources": { "worksheet": true }
+                  }
+                ]
+              },
+              {
+                "items": [
+                  {
+                    "template": "The ___ system helps to produce babies.",
+                    "answers": ["reproductive"],
+                    "sources": { "textbook": true }
                   }
                 ]
               }
@@ -556,6 +594,11 @@
                 "prompt": "It pumps blood to all parts of the body",
                 "answer": "Heart",
                 "sources": { "worksheet": true }
+              },
+              {
+                "prompt": "Organ of the nervous system",
+                "answer": "Brain / Spinal Cord / Nerves",
+                "sources": { "notes": true }
               }
             ]
           }
@@ -620,6 +663,14 @@
                 "question": "List two features that help birds to fly.",
                 "answer": "Birds have wings and hollow bones that help them to fly.",
                 "sources": { "notes": true, "revisionSheet": true, "textbook": true }
+              },
+              {
+                "question": "Write any two features that help a bird to fly.",
+                "answer": [
+                  "Birds have a light body, well-formed wings and strong muscles that help them to fly.",
+                  "Birds have a boat-shaped body."
+                ],
+                "sources": { "worksheet": true }
               },
               {
                 "question": "Describe the feet and claws of a wading bird.",
@@ -728,7 +779,7 @@
               },
               {
                 "question": "Differentiate between the upstroke and downstroke movement of wings.",
-                "answer": "Upstroke — the upward movement of wings, which helps birds get ready for the next flap. Downstroke — the downward movement of wings that pushes air and helps the bird rise and fly.",
+                "answer": "| Upstroke | Downstroke |\n|---|---|\n| It is the upward movement of wings, which helps birds get ready for the next flap. | It is the downward movement of wings that pushes air and helps the bird rise and fly. |",
                 "sources": { "notes": true, "revisionSheet": true }
               },
               {
@@ -768,6 +819,40 @@
                 "question": "What do you think would happen if the organs in an organ system did not work together properly?",
                 "answer": "If an organ system does not function properly, the body may become unhealthy.",
                 "sources": { "worksheet": true }
+              },
+              {
+                "question": "Our organ systems work together to carry out major functions of our body. Name any two organ systems that work together.",
+                "answer": [
+                  "Two organ systems that work together are the respiratory system and the circulatory system.",
+                  "The respiratory system helps us breathe and the circulatory system pumps blood carrying oxygen to all parts of our body."
+                ],
+                "sources": { "notes": true }
+              },
+              {
+                "question": "Name the organs that form the respiratory system. What does this system do?",
+                "answer": [
+                  "These organs form the respiratory system: (a) Nose (b) Windpipe (c) Lungs.",
+                  "Function — The respiratory system helps us to breathe. We take in air through our nose. Air goes down through the windpipe. The air reaches the lungs and our body uses the oxygen from the air. Oxygen helps our body release energy from food."
+                ],
+                "sources": { "notes": true }
+              },
+              {
+                "question": "How does the circulatory system work in our body?",
+                "answer": [
+                  "The heart, blood and blood vessels together form the circulatory system.",
+                  "The heart pumps blood to big blood vessels.",
+                  "This blood is carried by blood vessels (thin tubes) to all parts of our body."
+                ],
+                "sources": { "notes": true }
+              },
+              {
+                "question": "If we had no muscles, would we be able to move our body with the help of bones only? Support your answer with a reason.",
+                "answer": [
+                  "No, if we had no muscles, we would not be able to move our body.",
+                  "Muscles are soft parts of our body that cover the skeleton. Some of them are attached to the bones.",
+                  "The skeleton works together with the muscles to make our body stand, move and work."
+                ],
+                "sources": { "notes": true }
               }
             ]
           }
@@ -819,10 +904,17 @@
               },
               {
                 "question": "Rohan asked his friends for suggestions for food to be added to his birthday party. He got these suggestions: Pizza, Fresh fruits, French fries, Roasted nuts, Chips, Milkshake, Cold drinks, Pasta, Juices, Sweetened curd. Identify and separate the foods as healthy and unhealthy.",
-                "answer": [
-                  "Healthy: Fresh fruits, Roasted nuts, Milkshake, Juices, Sweetened curd.",
-                  "Unhealthy: Pizza, French fries, Chips, Cold drinks, Pasta."
-                ],
+                "answer": "| Healthy | Unhealthy |\n|---|---|\n| Fresh fruits | Pizza |\n| Roasted nuts | French fries |\n| Milkshake | Chips |\n| Juices | Cold drinks |\n| Sweetened curd | Pasta |",
+                "sources": { "worksheet": true }
+              },
+              {
+                "question": "![The digestive system](science/digestive-system.jpg)\n\nWhich organ shown in the given picture does not take part in digestion of food?",
+                "answer": "A — Food pipe.",
+                "sources": { "worksheet": true }
+              },
+              {
+                "question": "![The digestive system](science/digestive-system.jpg)\n\nGive a difference between the function of organ C and D.",
+                "answer": "Most of the digestion takes place in D (small intestine), while the function of C (large intestine) is to absorb water.",
                 "sources": { "worksheet": true }
               }
             ]
@@ -833,9 +925,9 @@
               {
                 "question": "A bird has feathers all over its body. Answer the following according to your understanding: (i) Small fluffy feathers that cover a bird's body to keep it warm are — (ii) Long and sturdy feathers attached to the wings and tailbone are — (iii) Feathers that give shape and colour to the bird are —",
                 "answer": [
-                  "(i) Down feathers.",
-                  "(ii) Flight feathers.",
-                  "(iii) Body feathers."
+                  "(i) **Down feathers**.",
+                  "(ii) **Flight feathers**.",
+                  "(iii) **Body feathers**."
                 ],
                 "sources": { "worksheet": true }
               }
@@ -913,6 +1005,12 @@
                 "options": "(a) eggs    (b) meat    (c) both (a) and (b)",
                 "answer": "(c) both (a) and (b)",
                 "sources": { "worksheet": true }
+              },
+              {
+                "question": "The table given below contains the names of food items under three different categories: Body building foods — eggs, pulses; Energy giving foods — oil, rice; Protective foods — X, milk. Which of the following should be placed in the place X to complete the table?",
+                "options": "(a) meat    (b) fruits    (c) bread",
+                "answer": "(b) fruits",
+                "sources": { "textbook": true }
               }
             ]
           },
@@ -971,6 +1069,24 @@
                 "options": "(a) giving oxygen to the body    (b) digesting food    (c) getting fresh air inside the room",
                 "answer": "(a) giving oxygen to the body",
                 "sources": { "revisionSheet": true }
+              },
+              {
+                "question": "Blood goes to different parts of our body through",
+                "options": "(a) blood vessels    (b) spinal cord    (c) lungs",
+                "answer": "(a) blood vessels",
+                "sources": { "textbook": true }
+              },
+              {
+                "question": "Which one of the following organs is not a part of the nervous system?",
+                "options": "(a) brain    (b) spinal cord    (c) heart",
+                "answer": "(c) heart",
+                "sources": { "textbook": true }
+              },
+              {
+                "question": "A dancer swings, bends and swirls her body during a dance performance. Which one of the following organ systems helps her to perform these actions?",
+                "options": "(a) muscular system    (b) digestive system    (c) excretory system",
+                "answer": "(a) muscular system",
+                "sources": { "textbook": true }
               }
             ]
           }
