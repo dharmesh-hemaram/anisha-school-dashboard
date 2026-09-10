@@ -1,0 +1,600 @@
+{
+  "slug": "hindi-half-yearly",
+  "subjectBadge": "Hindi",
+  "title": "Revision Notebook",
+  "subtitle": "गेहूँ की बालियाँ · मधुर वाणी · ऐसे किया छुट्टियों का सदुपयोग · व्याकरण · चित्र वर्णन — हर प्रश्न उसकी अपनी नोटबुक, पाठ्यपुस्तक, स्कूल वर्कशीट या रिवीज़न शीट से लिया गया है। कुछ भी गढ़ा नहीं गया है।",
+  "examMeta": "Half Yearly Exam · Sat, 12 Sept · 60 marks",
+  "chapters": [
+    { "id": "gehun", "label": "गेहूँ की बालियाँ" },
+    { "id": "madhur", "label": "मधुर वाणी" },
+    { "id": "chuttiyan", "label": "ऐसे किया छुट्टियों का सदुपयोग" },
+    { "id": "vyakaran", "label": "व्याकरण" },
+    { "id": "chitra", "label": "चित्र वर्णन" },
+    { "id": "apathit", "label": "अपठित गद्यांश" }
+  ],
+  "categories": [
+    {
+      "num": 1,
+      "title": "शब्दार्थ (Word Meanings)",
+      "data": {
+        "type": "vocab",
+        "groups": [
+          {
+            "chapter": "madhur",
+            "items": [
+              {
+                "word": "आदर",
+                "meaning": "सम्मान",
+                "sources": { "notes": true }
+              },
+              {
+                "word": "तालाब",
+                "meaning": "पोखर",
+                "sources": { "notes": true }
+              },
+              {
+                "word": "झोंपड़ी",
+                "meaning": "कुटिया",
+                "sources": { "notes": true }
+              },
+              {
+                "word": "मधुर",
+                "meaning": "मीठा",
+                "sources": { "notes": true }
+              },
+              {
+                "word": "प्यास",
+                "meaning": "पानी की तेज़ इच्छा",
+                "sources": { "notes": true }
+              }
+            ]
+          },
+          {
+            "chapter": "chuttiyan",
+            "items": [
+              {
+                "word": "खुश",
+                "meaning": "प्रसन्न",
+                "sources": { "notes": true }
+              },
+              {
+                "word": "सदुपयोग",
+                "meaning": "सही उपयोग",
+                "sources": { "notes": true }
+              },
+              {
+                "word": "मज़दूर",
+                "meaning": "शारीरिक श्रम करने वाला",
+                "sources": { "notes": true }
+              },
+              {
+                "word": "राहगीर",
+                "meaning": "राह पर चलने वाला",
+                "sources": { "notes": true }
+              },
+              {
+                "word": "बेज़बान",
+                "meaning": "मूक, जो बोल नहीं सकते",
+                "sources": { "notes": true }
+              },
+              {
+                "word": "चिंता",
+                "meaning": "सोच",
+                "sources": { "notes": true }
+              },
+              {
+                "word": "शुरू",
+                "meaning": "आरंभ",
+                "sources": { "notes": true }
+              },
+              {
+                "word": "खप्पर",
+                "meaning": "खोपड़ी, खोल",
+                "sources": { "notes": true }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "num": 2,
+      "title": "व्याकरण टिप्पणी (Grammar Notes)",
+      "data": {
+        "type": "block",
+        "groups": [
+          {
+            "chapter": "vyakaran",
+            "items": [
+              {
+                "heading": "मात्रा",
+                "lines": [
+                  "स्वरों के निश्चित चिह्नों को मात्रा कहते हैं।",
+                  "अ — कोई मात्रा नहीं",
+                  "आ — ा",
+                  "इ — ि",
+                  "ई — ी",
+                  "उ — ु",
+                  "ऊ — ू",
+                  "ऋ — ृ",
+                  "ए — े",
+                  "ऐ — ै",
+                  "ओ — ो",
+                  "औ — ौ"
+                ],
+                "sources": { "notes": true }
+              },
+              {
+                "heading": "शब्द और वाक्य",
+                "lines": [
+                  "शब्द — वर्णों का निश्चित क्रम में जुड़ना, जिसका कोई अर्थ हो, शब्द कहलाता है। जैसे — राम, चित्र, सूरज आदि।",
+                  "वाक्य — शब्दों के सार्थक मेल को वाक्य कहते हैं। जैसे — (1) मोहन अच्छा लड़का है। (2) तुम कहाँ जा रहे हो?"
+                ],
+                "sources": { "notes": true }
+              },
+              {
+                "heading": "'र' का अन्य वर्णों से जुड़ना",
+                "lines": [
+                  "(1) वर्ण के ऊपर लगना — र् जब दूसरे वर्ण से जुड़ता है, तब वह अपने बाद वाले वर्ण के ऊपर लिखा जाता है। जैसे — बर्तन = ब + र् + त + न",
+                  "(2) वर्ण के नीचे लगना — जब दूसरा वर्ण 'र' के साथ जुड़ता है, तब 'र' अपने से पहले वाले वर्ण के नीचे लगता है। जैसे — ग्रह = ग् + र + ह"
+                ],
+                "sources": { "notes": true }
+              },
+              {
+                "heading": "संज्ञा",
+                "lines": [
+                  "किसी भी प्राणी, वस्तु, स्थान, भाव आदि के नाम को संज्ञा कहते हैं। संज्ञा के तीन भेद होते हैं —",
+                  "(1) व्यक्तिवाचक संज्ञा — किसी एक ही व्यक्ति, प्राणी, वस्तु, स्थान के नाम को व्यक्तिवाचक संज्ञा कहते हैं। जैसे — राजू, गांधीजी, कुतुबमीनार, ताजमहल, दिल्ली।",
+                  "(2) जातिवाचक संज्ञा — किसी संपूर्ण जाति के नाम को जातिवाचक संज्ञा कहते हैं। जैसे — लड़की, गाय, पहाड़, नदी, किताब आदि।",
+                  "(3) भाववाचक संज्ञा — जो शब्द किसी वस्तु या प्राणी की अवस्था, गुण, धर्म, भाव आदि का बोध कराते हैं, वे भाववाचक संज्ञा कहलाते हैं। जैसे — बुढ़ापा, बचपन, सुंदरता, मिठास, गरीबी, ईमानदारी आदि।"
+                ],
+                "sources": { "worksheet": true, "notes": true }
+              },
+              {
+                "heading": "गिनती (1 से 35)",
+                "lines": [
+                  "1 — एक", "2 — दो", "3 — तीन", "4 — चार", "5 — पाँच",
+                  "6 — छह", "7 — सात", "8 — आठ", "9 — नौ", "10 — दस",
+                  "11 — ग्यारह", "12 — बारह", "13 — तेरह", "14 — चौदह", "15 — पंद्रह",
+                  "16 — सोलह", "17 — सत्रह", "18 — अठारह", "19 — उन्नीस", "20 — बीस",
+                  "21 — इक्कीस", "22 — बाईस", "23 — तेईस", "24 — चौबीस", "25 — पच्चीस",
+                  "26 — छब्बीस", "27 — सत्ताईस", "28 — अट्ठाईस", "29 — उनतीस", "30 — तीस",
+                  "31 — इकतीस", "32 — बत्तीस", "33 — तैंतीस", "34 — चौंतीस", "35 — पैंतीस"
+                ],
+                "sources": { "notes": true }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "num": 3,
+      "title": "रिक्त स्थान भरिए (Fill in the Blanks)",
+      "data": {
+        "type": "fib",
+        "groups": [
+          {
+            "chapter": "madhur",
+            "sets": [
+              {
+                "items": [
+                  {
+                    "template": "राजा बहुत ___ था।",
+                    "answers": ["दयालु"],
+                    "sources": { "worksheet": true, "notes": true }
+                  },
+                  {
+                    "template": "आस-पास कोई ___ नहीं था।",
+                    "answers": ["तालाब"],
+                    "sources": { "worksheet": true, "notes": true }
+                  },
+                  {
+                    "template": "बूढ़ी महिला राजा के हाथ-मुँह धुलाकर ___ परोसती है।",
+                    "answers": ["भोजन"],
+                    "sources": { "textbook": true }
+                  },
+                  {
+                    "template": "मैंने तुम्हें पानी और भोजन तुम्हारी ___ सुनकर दिया।",
+                    "answers": ["मधुर वाणी"],
+                    "sources": { "textbook": true }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "chapter": "chuttiyan",
+            "sets": [
+              {
+                "items": [
+                  {
+                    "template": "ऐसी भीषण ___ में तो बाहर निकलना मुश्किल हो गया था। (गरमी/सरदी)",
+                    "answers": ["गरमी"],
+                    "sources": { "textbook": true }
+                  },
+                  {
+                    "template": "उन बेज़बान जानवरों और पक्षियों की क्या हालत होती होगी जो अपनी ___ किसी से कह भी नहीं सकते। (पीड़ा/इच्छा)",
+                    "answers": ["पीड़ा"],
+                    "sources": { "textbook": true }
+                  },
+                  {
+                    "template": "अंश ने सभी को अपनी ___ बताई। (योजना/कार्य)",
+                    "answers": ["योजना"],
+                    "sources": { "textbook": true, "worksheet": true }
+                  },
+                  {
+                    "template": "सीमेंट की टंकियाँ ___ के किनारे और चौराहों पर रखी गईं। (सड़क/घर)",
+                    "answers": ["सड़क"],
+                    "sources": { "textbook": true, "worksheet": true }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "chapter": "vyakaran",
+            "sets": [
+              {
+                "note": "संज्ञा",
+                "items": [
+                  {
+                    "template": "पहचान कराने वाले नामों को ___ कहते हैं। (भाव/संज्ञा)",
+                    "answers": ["संज्ञा"],
+                    "sources": { "worksheet": true }
+                  },
+                  {
+                    "template": "सभी प्राणियों में ___ या जीवन होता है। (प्राण/जाति)",
+                    "answers": ["प्राण"],
+                    "sources": { "worksheet": true }
+                  },
+                  {
+                    "template": "संज्ञा के ___ भेद होते हैं। (पाँच/तीन)",
+                    "answers": ["तीन"],
+                    "sources": { "worksheet": true }
+                  },
+                  {
+                    "template": "पशु, पक्षी, नदी — ये ___ संज्ञाएँ हैं। (जातिवाचक/व्यक्तिवाचक)",
+                    "answers": ["जातिवाचक"],
+                    "sources": { "worksheet": true }
+                  },
+                  {
+                    "template": "गरमी, बचपन, भूख — ये ___ संज्ञा के उदाहरण हैं। (भाववाचक/व्यक्तिवाचक)",
+                    "answers": ["भाववाचक"],
+                    "sources": { "worksheet": true }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "num": 4,
+      "title": "सुमेलन कीजिए (Match the Following)",
+      "data": {
+        "type": "match",
+        "groups": [
+          {
+            "chapter": "chuttiyan",
+            "sets": [
+              {
+                "sources": { "textbook": true },
+                "columns": ["Column A", "Column B"],
+                "pairs": [
+                  { "left": "बात तो तुम ठीक कह रहे हो।", "right": "प्रांजल ने अंश से" },
+                  { "left": "हम अपनी छुट्टियों को यादगार बनाते हुए कुछ अलग हटकर काम कर सकते हैं।", "right": "अंश ने मित्रों से" }
+                ],
+                "answerLine": "बात तो तुम ठीक कह रहे हो—प्रांजल ने अंश से, हम अपनी छुट्टियों...काम कर सकते हैं—अंश ने मित्रों से"
+              },
+              {
+                "sources": { "textbook": true },
+                "columns": ["Column A", "Column B"],
+                "pairs": [
+                  { "left": "चार रास्ते वाला", "right": "चौराहा" },
+                  { "left": "तीन रास्ते वाला", "right": "तिराहा" },
+                  { "left": "राह पर चलने वाला", "right": "राहगीर" },
+                  { "left": "मेहनत करने वाला", "right": "मेहनती" }
+                ],
+                "answerLine": "चार रास्ते वाला–चौराहा, तीन रास्ते वाला–तिराहा, राह पर चलने वाला–राहगीर, मेहनत करने वाला–मेहनती"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "num": 5,
+      "title": "विलोम एवं पर्यायवाची शब्द (Antonyms & Synonyms)",
+      "data": {
+        "type": "name",
+        "groups": [
+          {
+            "chapter": "gehun",
+            "items": [
+              { "prompt": "पक्का का विलोम", "answer": "कच्चा", "sources": { "textbook": true } },
+              { "prompt": "इधर का विलोम", "answer": "उधर", "sources": { "textbook": true } },
+              { "prompt": "अंदर का विलोम", "answer": "बाहर", "sources": { "textbook": true } },
+              { "prompt": "सुबह का विलोम", "answer": "शाम", "sources": { "textbook": true } },
+              { "prompt": "आना का विलोम", "answer": "जाना", "sources": { "textbook": true } },
+              { "prompt": "रुकना का विलोम", "answer": "चलना", "sources": { "textbook": true } },
+              { "prompt": "पंछी का पर्यायवाची नहीं है", "answer": "पतंग (पंछी, खग, विहग सही पर्यायवाची हैं)", "sources": { "textbook": true } },
+              { "prompt": "पेड़ का पर्यायवाची नहीं है", "answer": "शाखा (पेड़, वृक्ष, तरु सही पर्यायवाची हैं)", "sources": { "textbook": true } },
+              { "prompt": "नदी का पर्यायवाची नहीं है", "answer": "सरोवर (सरिता, नदी, तटिनी सही पर्यायवाची हैं)", "sources": { "textbook": true } }
+            ]
+          },
+          {
+            "chapter": "madhur",
+            "items": [
+              { "prompt": "राजा का विलोम", "answer": "रंक", "sources": { "notes": true } },
+              { "prompt": "दयालु का विलोम", "answer": "क्रूर", "sources": { "notes": true } }
+            ]
+          },
+          {
+            "chapter": "chuttiyan",
+            "items": [
+              { "prompt": "सदुपयोग का विलोम", "answer": "दुरुपयोग", "sources": { "textbook": true } },
+              { "prompt": "मुश्किल का विलोम", "answer": "आसान", "sources": { "textbook": true } },
+              { "prompt": "मित्र का विलोम", "answer": "शत्रु", "sources": { "textbook": true } },
+              { "prompt": "पक्षी का पर्यायवाची", "answer": "खग", "sources": { "textbook": true } },
+              { "prompt": "मित्र का पर्यायवाची", "answer": "दोस्त", "sources": { "textbook": true } },
+              { "prompt": "पानी का पर्यायवाची", "answer": "जल", "sources": { "textbook": true } },
+              { "prompt": "घर का पर्यायवाची", "answer": "गृह", "sources": { "textbook": true } },
+              { "prompt": "ठंडा का पर्यायवाची", "answer": "शीतल", "sources": { "textbook": true } },
+              { "prompt": "जानवर का पर्यायवाची", "answer": "पशु", "sources": { "textbook": true } }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "num": 6,
+      "title": "एक शब्द में उत्तर दीजिए (Name the Following)",
+      "data": {
+        "type": "name",
+        "groups": [
+          {
+            "chapter": "vyakaran",
+            "items": [
+              { "prompt": "सब्ज़ियों के नाम (कोई तीन)", "answer": "आलू, मटर, गाजर", "sources": { "worksheet": true } },
+              { "prompt": "मित्रों के नाम (कोई तीन)", "answer": "विनय, राम, रमा", "sources": { "worksheet": true } },
+              { "prompt": "शहरों के नाम (कोई तीन)", "answer": "दिल्ली, आगरा, पुणे", "sources": { "worksheet": true } },
+              { "prompt": "फ़र्नीचर के नाम (कोई तीन)", "answer": "सोफ़ा, कुर्सी, मेज़", "sources": { "worksheet": true } },
+              { "prompt": "खेलने के सामान (कोई तीन)", "answer": "बैट, बॉल, टेनिस", "sources": { "worksheet": true } },
+              { "prompt": "बिखरे अक्षरों से शब्द — छु आ क", "answer": "कछुआ", "sources": { "notes": true } },
+              { "prompt": "बिखरे अक्षरों से शब्द — न ऐ क", "answer": "ऐनक", "sources": { "notes": true } },
+              { "prompt": "बिखरे अक्षरों से शब्द — ड़ी क क", "answer": "ककड़ी", "sources": { "notes": true } },
+              { "prompt": "बिखरे अक्षरों से शब्द — री ब क", "answer": "बकरी", "sources": { "notes": true } }
+            ]
+          },
+          {
+            "chapter": "gehun",
+            "items": [
+              { "prompt": "बाली का बहुवचन", "answer": "बालियाँ", "sources": { "textbook": true } },
+              { "prompt": "लड़की का बहुवचन", "answer": "लड़कियाँ", "sources": { "textbook": true } },
+              { "prompt": "रोटी का बहुवचन", "answer": "रोटियाँ", "sources": { "textbook": true } },
+              { "prompt": "मिठाई का बहुवचन", "answer": "मिठाइयाँ", "sources": { "textbook": true } },
+              { "prompt": "खुशी का बहुवचन", "answer": "खुशियाँ", "sources": { "textbook": true } },
+              { "prompt": "दवाई का बहुवचन", "answer": "दवाइयाँ", "sources": { "textbook": true } }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "num": 7,
+      "title": "बहुविकल्पीय प्रश्न (MCQ Practice)",
+      "data": {
+        "type": "mcq",
+        "groups": [
+          {
+            "chapter": "gehun",
+            "items": [
+              {
+                "question": "सोने की-सी क्या लग रही हैं?",
+                "options": "(क) गेहूँ की बालियाँ    (ख) सूरज की किरणें    (ग) बालक की हँसी",
+                "answer": "(क) गेहूँ की बालियाँ",
+                "sources": { "worksheet": true, "revisionSheet": true }
+              },
+              {
+                "question": "झूम-झूमकर गीत कौन सुना रहा है?",
+                "options": "(क) पंछी    (ख) किसनू काका    (ग) पेड़-पौधे",
+                "answer": "(ख) किसनू काका",
+                "sources": { "worksheet": true, "revisionSheet": true }
+              },
+              {
+                "question": "कौन इतराते हैं?",
+                "options": "(क) लड़के    (ख) पंछी    (ग) किसनू काका",
+                "answer": "(ख) पंछी",
+                "sources": { "worksheet": true }
+              },
+              {
+                "question": "कवि किसकी तरह झूमना चाहते हैं?",
+                "options": "(क) तीतर और कबूतर की तरह    (ख) तोता और मैना की तरह    (ग) चिड़िया और गौरैया की तरह",
+                "answer": "(क) तीतर और कबूतर की तरह",
+                "sources": { "textbook": true }
+              }
+            ]
+          },
+          {
+            "chapter": "chuttiyan",
+            "items": [
+              {
+                "question": "गरमी में क्या बुझने का नाम नहीं ले रही थी?",
+                "options": "(क) भूख    (ख) प्यास    (ग) आग",
+                "answer": "(ख) प्यास",
+                "sources": { "textbook": true }
+              },
+              {
+                "question": "अंश ने अपनी योजना किसे बताई?",
+                "options": "(क) मम्मी-पापा को    (ख) मित्रों को    (ग) शिक्षकों को",
+                "answer": "(ख) मित्रों को",
+                "sources": { "textbook": true, "revisionSheet": true }
+              },
+              {
+                "question": "ठंडा रखने के लिए मिट्टी के घड़ों पर क्या लपेटा गया?",
+                "options": "(क) कपड़े    (ख) तिनके    (ग) टाट की पट्टियाँ",
+                "answer": "(ग) टाट की पट्टियाँ",
+                "sources": { "textbook": true }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "num": 8,
+      "title": "प्रश्न-उत्तर (Question Answers)",
+      "data": {
+        "type": "qa",
+        "groups": [
+          {
+            "chapter": "gehun",
+            "items": [
+              {
+                "question": "लहराते खेतों को देखकर कौन झूमते हैं?",
+                "answer": "लहराते खेतों को देखकर किसनू काका झूमते हैं।",
+                "sources": { "worksheet": true, "revisionSheet": true }
+              },
+              {
+                "question": "गेहूँ की बालियाँ कब और क्या रचती हैं?",
+                "answer": "हवा चलने पर गेहूँ की बालियाँ सोने का सागर रचती हैं।",
+                "sources": { "worksheet": true, "revisionSheet": true }
+              },
+              {
+                "question": "लहराते खेतों को देखकर कवि की क्या इच्छा हो रही है?",
+                "answer": "लहराते खेतों को देखकर कवि की तीतर और कबूतर के समान घूमने की इच्छा हो रही है।",
+                "sources": { "worksheet": true }
+              }
+            ]
+          },
+          {
+            "chapter": "madhur",
+            "items": [
+              {
+                "question": "राजा कहाँ गया था?",
+                "answer": "राजा शिकार करने गया था।",
+                "sources": { "notes": true, "textbook": true }
+              },
+              {
+                "question": "सिपाही ने बूढ़ी महिला से क्या कहा?",
+                "answer": "सिपाही ने बूढ़ी महिला से निरादरपूर्वक पानी लाने को कहा।",
+                "sources": { "notes": true }
+              },
+              {
+                "question": "मंत्री ने राजा को झोंपड़ी क्यों दिखाई?",
+                "answer": "राजा प्यास के कारण व्याकुल था, इसलिए उन्हें धीरज धरने को कहने के लिए मंत्री ने राजा को झोंपड़ी दिखाई।",
+                "sources": { "notes": true }
+              },
+              {
+                "question": "बूढ़ी महिला ने मंत्री और सिपाही को पानी न देने का क्या कारण बताया?",
+                "answer": "बूढ़ी महिला ने मंत्री को घमंडी और सिपाही को असभ्य होने के कारण पानी देने से इंकार कर दिया।",
+                "sources": { "notes": true }
+              },
+              {
+                "question": "बूढ़ी महिला राजा से प्रसन्न क्यों थी?",
+                "answer": "बूढ़ी महिला राजा की मधुर वाणी सुनकर उससे प्रसन्न थी।",
+                "sources": { "worksheet": true }
+              },
+              {
+                "question": "कैसे पता चलता है कि राजा नेक व दयालु था?",
+                "answer": "राजा बड़ों का आदर व अपने छोटों से प्रेमपूर्वक व्यवहार करता था। वह त्योहार व उत्सव पर सभी को उनके अनुसार उपहार देता था, जिससे उसके नेक व दयालु होने का पता चलता है।",
+                "sources": { "worksheet": true }
+              }
+            ]
+          },
+          {
+            "chapter": "chuttiyan",
+            "items": [
+              {
+                "question": "अंश क्यों खुश था?",
+                "answer": "अंश की गर्मियों की छुट्टियाँ पड़ी थीं, जिस कारण अंश खुश था।",
+                "sources": { "notes": true }
+              },
+              {
+                "question": "अंश की कितने दिनों की छुट्टियाँ हो गई थीं?",
+                "answer": "अंश की एक महीने की छुट्टियाँ हो गई थीं।",
+                "sources": { "notes": true }
+              },
+              {
+                "question": "पाठ में किस मौसम की बात हो रही है?",
+                "answer": "पाठ में गरमी के मौसम की बात हो रही है।",
+                "sources": { "notes": true, "textbook": true }
+              },
+              {
+                "question": "अंश किस-किसके बारे में बातें कर रहा था?",
+                "answer": "अंश मज़दूर, राहगीरों और बेज़बान जानवरों के बारे में बातें कर रहा था।",
+                "sources": { "worksheet": true }
+              },
+              {
+                "question": "अंश ने अपनी कौन-सी चिंता मित्रों के सामने रखी?",
+                "answer": "अंश गर्मी से बेहाल आदमियों और बेज़बान जानवरों के लिए चिंतित था, जो उसने अपने दोस्तों के साथ साझा की।",
+                "sources": { "worksheet": true }
+              },
+              {
+                "question": "अंश ने अपने मित्रों को क्या योजना बताई?",
+                "answer": "अंश ने गरमी से बेहाल मज़दूरों, राहगीरों और बेज़बान जानवरों की सहायता की योजना अपने मित्रों को बताई।",
+                "sources": { "notes": true }
+              },
+              {
+                "question": "अंश की योजना में बड़ों ने किस प्रकार सहयोग किया?",
+                "answer": "अंश की योजना में सभी बड़ों ने पाँच-पाँच सौ की राशि देकर अपना सहयोग सुनिश्चित किया।",
+                "sources": { "notes": true }
+              },
+              {
+                "question": "अंश और उसके मित्रों के कार्य का क्या परिणाम हुआ?",
+                "answer": "अंश और उसके मित्रों के कार्य से सभी राहगीर, मज़दूर व पशु-पक्षी खुशी से झूम उठे और अपने-अपने तरीकों से धन्यवाद कहने लगे।",
+                "sources": { "notes": true }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "num": 9,
+      "title": "चित्र वर्णन (Picture Description)",
+      "data": {
+        "type": "block",
+        "groups": [
+          {
+            "chapter": "chitra",
+            "items": [
+              {
+                "heading": "ध्यान रखने योग्य बातें",
+                "lines": [
+                  "कहानी मनोरंजक होनी चाहिए।",
+                  "वाक्य छोटे-छोटे होने चाहिए।",
+                  "भाषा सरल होनी चाहिए।",
+                  "आसान शब्दों का प्रयोग करना चाहिए।",
+                  "कहानी का शीर्षक छोटा और पूरी कहानी का संकेत देने वाला होना चाहिए।",
+                  "कहानी शिक्षाप्रद होनी चाहिए।",
+                  "सबसे पहले चित्र को ध्यान से देखो और समझो — उसमें क्या-क्या दिख रहा है, कौन-कौन से काम हो रहे हैं, चित्र का भाव क्या है, आदि।",
+                  "चित्रों के नीचे संकेत रूप में दिए गए सहायक शब्दों को पढ़ो।",
+                  "सहायक शब्दों के आधार पर कहानी का विस्तार करो।"
+                ],
+                "sources": { "notes": true }
+              },
+              {
+                "heading": "उदाहरण 1 — पहाड़, सूर्य, पेड़, नदी और घर का चित्र",
+                "lines": [
+                  "यह एक सुंदर चित्र है। इस चित्र में पहाड़, सूर्य, पेड़, नदी और एक घर है। पेड़ पर फल लगे हुए हैं। नदी बह रही है। आसमान में पक्षी उड़ रहे हैं। घर के पास से नदी बह रही है।"
+                ],
+                "sources": { "worksheet": true }
+              },
+              {
+                "heading": "उदाहरण 2 — गाँव का चित्र",
+                "lines": [
+                  "यह एक गाँव का चित्र है। इस चित्र में दो महिलाएँ सामान उठाकर जा रही हैं। वहाँ पर एक झोंपड़ी है। वहाँ पर एक पेड़ भी है। झोंपड़ी के पास एक गाय खड़ी है। वहाँ पर बच्चे खेल रहे हैं।"
+                ],
+                "sources": { "worksheet": true }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "footerNote": "End of notebook. Everything above is taken verbatim or near-verbatim from her own notebook pages, the printed textbook/workbook, school worksheets, and Revision homework sheets — nothing has been invented.\nGap found: no source page covers अपठित गद्यांश (unseen passage practice) for this term's portion — none of the reviewed material had one for this exam."
+}
