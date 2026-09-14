@@ -72,9 +72,15 @@ export interface HolidayEntry {
   name: string;
 }
 
+export interface VacationEntry {
+  name: string;
+  start_iso: string;
+  end_iso: string;
+}
+
 export interface Holidays {
   holidays: HolidayEntry[];
-  vacations: HolidayEntry[];
+  vacations: VacationEntry[];
 }
 
 export interface CalendarEventEntry {

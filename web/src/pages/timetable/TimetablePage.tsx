@@ -31,6 +31,7 @@ function LiveBadge() {
 
 export default function TimetablePage() {
   const timetable = useAppSelector((s) => s.data.timetable);
+  const holidays = useAppSelector((s) => s.data.holidays);
 
   // Re-render once a minute so the current-period highlight tracks the clock without a reload.
   const [now, setNow] = useState(() => new Date());
@@ -39,7 +40,7 @@ export default function TimetablePage() {
     return () => clearInterval(id);
   }, []);
 
-  const active = useMemo(() => (timetable ? getActiveDay(timetable.days, now) : null), [timetable, now]);
+  const active = useMemo(() => (timetable ? getActiveDay(timetable.days, now, holidays) : null), [timetable, now, holidays]);
   const liveRow = active?.isLiveToday && timetable ? currentRow(timetable.periods, now) : null;
 
   // Whichever Saturday is current or coming up this week -- the 2nd/4th-
@@ -78,7 +79,12 @@ export default function TimetablePage() {
   return (
     <>
       <div className="text-sm text-muted-foreground">
-        Weekly class schedule — Class III F <span className="text-muted-foreground/70">· Today, {fmtDate(now)}</span>
+        Weekly class schedule — Class III F{" "}
+        {active && (
+          <span className="text-muted-foreground/70">
+            · {active.isLiveToday ? "Today" : "Next"}, {fmtDate(active.date)}
+          </span>
+        )}
       </div>
 
       {/* Narrow viewport: horizontal space for six day-columns is scarce but
@@ -91,18 +97,20 @@ export default function TimetablePage() {
             Friday is what's coming up next. The dot stays on its pill
             regardless of which one is selected. */}
         <ToggleGroup size="sm" value={[mobileDay]} onValueChange={(v) => v[0] && setSelectedDay(v[0])}>
-          {orderedDays.map((d) => (
-            <ToggleGroupItem key={d} value={d} className="relative">
-              {d.slice(0, 3).toUpperCase()}
-              {d === active?.day && (
-                <span
-                  className="absolute top-0.5 right-0.5 size-1.5 rounded-full bg-primary"
-                  aria-hidden="true"
-                  title={active.isLiveToday ? "Today" : "Next school day"}
-                />
-              )}
-            </ToggleGroupItem>
-          ))}
+          {orderedDays.map((d) => {
+            const isActive = d === active?.day;
+            // An explicit aria-label replaces the accessible name entirely (an
+            // sr-only child alongside it wouldn't be announced), so the full
+            // weekday and the today/next status both have to live in this one
+            // string rather than split across the label and the dot below.
+            const label = isActive ? `${d}, ${active!.isLiveToday ? "today" : "next school day"}` : d;
+            return (
+              <ToggleGroupItem key={d} value={d} aria-label={label} className="relative">
+                {d.slice(0, 3).toUpperCase()}
+                {isActive && <span className="absolute top-0.5 right-0.5 size-1.5 rounded-full bg-primary" aria-hidden="true" />}
+              </ToggleGroupItem>
+            );
+          })}
         </ToggleGroup>
 
         {mobileDay === "Saturday" && saturdayIsHoliday ? (
