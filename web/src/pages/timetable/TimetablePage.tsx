@@ -8,7 +8,7 @@ import SubjectBadge from "../../components/subjects/SubjectBadge";
 import EmptyState from "../../components/ui/EmptyState";
 import { SUBJECT_META } from "../../lib/subjects";
 import { fmtDate } from "../../lib/date";
-import { DAY_ORDER, DRESS_CODE, currentRow, getActiveDay, isSchoolSaturday } from "../../lib/timetable";
+import { DAY_ORDER, DRESS_CODE, currentRow, getActiveDay, isSchoolDay } from "../../lib/timetable";
 
 const DRESS_CODE_ICON = { Uniform: Shirt, Sports: Volleyball } as const;
 
@@ -43,14 +43,17 @@ export default function TimetablePage() {
   const active = useMemo(() => (timetable ? getActiveDay(timetable.days, now, holidays) : null), [timetable, now, holidays]);
   const liveRow = active?.isLiveToday && timetable ? currentRow(timetable.periods, now) : null;
 
-  // Whichever Saturday is current or coming up this week -- the 2nd/4th-
-  // Saturday rule that decides whether it's a school day at all.
+  // Whichever Saturday is current or coming up this week -- reuses the same
+  // isSchoolDay check as `active` (2nd/4th-Saturday rule *and* any named
+  // holiday/vacation that happens to land on it, e.g. Ashadi Ekadashi on
+  // 2026-07-25, a 4th Saturday) so the Saturday column's own presentation
+  // never disagrees with what picked "Today"/"Next".
   const thisWeekSaturday = useMemo(() => {
     const d = new Date(now);
     d.setDate(d.getDate() + (6 - d.getDay()));
     return d;
   }, [now]);
-  const saturdayIsHoliday = !isSchoolSaturday(thisWeekSaturday);
+  const saturdayIsHoliday = timetable ? !isSchoolDay(timetable.days, thisWeekSaturday, holidays) : false;
 
   // Mobile's single-day view defaults to the active day but can be browsed
   // independently of it (tapping Friday to check Friday's dress code doesn't
@@ -116,7 +119,7 @@ export default function TimetablePage() {
         {mobileDay === "Saturday" && saturdayIsHoliday ? (
           <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
             <PartyPopper className="size-3.5" aria-hidden="true" />
-            Holiday — 1st/3rd/5th Saturday, no school
+            Holiday — no school this Saturday
           </div>
         ) : (
           <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
@@ -185,7 +188,7 @@ export default function TimetablePage() {
                       d === active?.day && "bg-primary/10 text-primary",
                       isOffSaturday && BREAK_DIMMED,
                     )}
-                    title={isOffSaturday ? "Holiday — 1st/3rd/5th Saturday, no school" : undefined}
+                    title={isOffSaturday ? "Holiday — no school this Saturday" : undefined}
                   >
                     <div className="flex items-center justify-center gap-1.5">
                       {isOffSaturday ? (
