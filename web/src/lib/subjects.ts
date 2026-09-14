@@ -8,6 +8,10 @@ export interface SubjectMeta {
 // (co-curricular, no exam) falls back to one shared neutral badge.
 export const SUBJECT_META: Record<string, SubjectMeta> = {
   Maths: { abbr: "MATH", bg: "var(--subj-maths-bg)", fg: "var(--subj-maths)" },
+  // The scraped timetable PDF spells this out in full ("Mathematics") where
+  // every other source (notices, portion sheets) already normalizes to
+  // "Maths" -- same subject, same color, just met by both spellings.
+  Mathematics: { abbr: "MATH", bg: "var(--subj-maths-bg)", fg: "var(--subj-maths)" },
   Science: { abbr: "SCI", bg: "var(--subj-science-bg)", fg: "var(--subj-science)" },
   English: { abbr: "ENG", bg: "var(--subj-english-bg)", fg: "var(--subj-english)" },
   Hindi: { abbr: "HIN", bg: "var(--subj-hindi-bg)", fg: "var(--subj-hindi)" },

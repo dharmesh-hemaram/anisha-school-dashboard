@@ -6,13 +6,23 @@ import { Badge } from "../ui/badge";
  * CSS-var lookup table rather than static Tailwind classes, so `style` is
  * the equivalent -- Tailwind can't generate a utility class for a value it
  * only sees at runtime). Every subject keeps its existing --subj-* color,
- * light and dark, unchanged. */
+ * light and dark, unchanged. A co-curricular subject with no exam (Dance,
+ * Leadership, ...) has no color of its own -- they used to share one flat
+ * "neutral" tint, but since every one of them looked identical anyway, that
+ * color was pure noise rather than a real signal, and its abbreviation
+ * ("LDR", "DNC") is unreadable without it. A plain outline badge admits
+ * there's no color to give it, rather than faking one. */
 export default function SubjectBadge({ subject }: { subject: string }) {
   const meta = SUBJECT_META[subject];
-  const bg = meta ? meta.bg : "var(--subj-neutral-bg)";
-  const fg = meta ? meta.fg : "var(--subj-neutral)";
+  if (!meta) {
+    return (
+      <Badge variant="outline" title={subject}>
+        {subjectAbbr(subject)}
+      </Badge>
+    );
+  }
   return (
-    <Badge style={{ background: bg, color: fg }} title={subject}>
+    <Badge style={{ background: meta.bg, color: meta.fg }} title={subject}>
       {subjectAbbr(subject)}
     </Badge>
   );

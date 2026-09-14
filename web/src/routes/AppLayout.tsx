@@ -20,6 +20,7 @@ import styles from "./AppLayout.module.css";
 
 const TABS = [
   { to: "/upcoming", label: "Upcoming" },
+  { to: "/timetable", label: "Timetable" },
   { to: "/hw", label: "Homework" },
   { to: "/notes", label: "Notes" },
   { to: "/feed", label: "Feed" },
