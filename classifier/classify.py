@@ -137,7 +137,14 @@ def extract_exam_cycle_label(text: str) -> Optional[str]:
     return None
 _SCHOOL_EVENT_RE = re.compile(
     r"\bptm\b|annual concert|school picnic|\btournament\b|selection trials|"
-    r"recruitment drive|enrichment activity|seek kit activity|robotics activity",
+    r"recruitment drive|enrichment activity|seek kit activity|robotics activity|"
+    # A named-day student competition ("On the occasion of Hindi Diwas, a
+    # competition is being organised...", "...Competition will be conducted
+    # for Class III on 15th April 2026") -- scoped to the organizing verb
+    # right after "competition" so it doesn't also catch a passing mention
+    # like "...Judge for RoboGenesis 2026: Robotics Competition" (an invite
+    # to volunteer, not a scheduled student event).
+    r"competition\s+(?:is\s+being|will\s+be|has\s+been)\s+(?:organi[sz]ed|conducted)",
     re.I,
 )
 
