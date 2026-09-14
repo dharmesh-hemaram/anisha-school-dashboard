@@ -1,4 +1,4 @@
-import type { TimetablePeriod } from "../types";
+import type { Holidays, TimetablePeriod } from "../types";
 
 export const DAY_ORDER = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
@@ -48,12 +48,29 @@ export function isSchoolSaturday(date: Date): boolean {
   return nth % 2 === 0;
 }
 
+function toISO(date: Date): string {
+  return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
+}
+
+/** Whether `date` falls on a named holiday or inside a vacation range from
+ * docs/holidays.json -- e.g. Ganesh Chaturthi, Diwali Vacation. Without
+ * this, a school-wide closure that happens to land on an otherwise-normal
+ * weekday (most of them do -- only 3 of 22 holidays this year are a
+ * Saturday) would be shown as a live school day. */
+export function isHoliday(holidays: Holidays, date: Date): boolean {
+  const iso = toISO(date);
+  if (holidays.holidays.some((h) => h.date_iso === iso)) return true;
+  return holidays.vacations.some((v) => iso >= v.start_iso && iso <= v.end_iso);
+}
+
 /** Same as `days.includes(dayName)`, except a Saturday also has to pass the
- * 2nd/4th-Saturday rule -- a holiday Saturday is treated exactly like a
- * Sunday, not a school day at all. */
-export function isSchoolDay(days: string[], date: Date): boolean {
+ * 2nd/4th-Saturday rule, and any day has to not be a scraped holiday/
+ * vacation date -- a closure is treated exactly like a Sunday, not a
+ * school day at all. */
+export function isSchoolDay(days: string[], date: Date, holidays: Holidays): boolean {
   const name = DAY_ORDER[date.getDay()];
   if (!days.includes(name)) return false;
+  if (isHoliday(holidays, date)) return false;
   return name !== "Saturday" || isSchoolSaturday(date);
 }
 
@@ -67,19 +84,24 @@ export interface ActiveDay {
   date: Date;
 }
 
+// Wide enough to search past the longest vacation on the books (Summer
+// Vacation runs ~36 days) plus a few days of margin, not just a single week.
+const MAX_LOOKAHEAD_DAYS = 60;
+
 /** Picks the day to show by default: today while school is still in session
  * (before 2:30 p.m.), otherwise the next school day -- rolling past Sundays,
- * holiday Saturdays, and any day missing from the timetable. */
-export function getActiveDay(days: string[], now: Date): ActiveDay {
+ * holiday Saturdays, scraped holidays/vacations, and any day missing from
+ * the timetable. */
+export function getActiveDay(days: string[], now: Date, holidays: Holidays): ActiveDay {
   const nowMinutes = now.getHours() * 60 + now.getMinutes();
   const todayName = DAY_ORDER[now.getDay()];
-  if (isSchoolDay(days, now) && nowMinutes < SCHOOL_END_MINUTES) {
+  if (isSchoolDay(days, now, holidays) && nowMinutes < SCHOOL_END_MINUTES) {
     return { day: todayName, isLiveToday: true, date: now };
   }
-  for (let i = 1; i <= 7; i++) {
+  for (let i = 1; i <= MAX_LOOKAHEAD_DAYS; i++) {
     const candidate = new Date(now);
     candidate.setDate(now.getDate() + i);
-    if (isSchoolDay(days, candidate)) return { day: DAY_ORDER[candidate.getDay()], isLiveToday: false, date: candidate };
+    if (isSchoolDay(days, candidate, holidays)) return { day: DAY_ORDER[candidate.getDay()], isLiveToday: false, date: candidate };
   }
   return { day: todayName, isLiveToday: false, date: now };
 }

@@ -8,7 +8,7 @@ import SubjectBadge from "../../components/subjects/SubjectBadge";
 import EmptyState from "../../components/ui/EmptyState";
 import { SUBJECT_META } from "../../lib/subjects";
 import { fmtDate } from "../../lib/date";
-import { DAY_ORDER, DRESS_CODE, currentRow, getActiveDay, isSchoolSaturday } from "../../lib/timetable";
+import { DAY_ORDER, DRESS_CODE, currentRow, getActiveDay, isSchoolDay } from "../../lib/timetable";
 
 const DRESS_CODE_ICON = { Uniform: Shirt, Sports: Volleyball } as const;
 
@@ -31,6 +31,7 @@ function LiveBadge() {
 
 export default function TimetablePage() {
   const timetable = useAppSelector((s) => s.data.timetable);
+  const holidays = useAppSelector((s) => s.data.holidays);
 
   // Re-render once a minute so the current-period highlight tracks the clock without a reload.
   const [now, setNow] = useState(() => new Date());
@@ -39,17 +40,20 @@ export default function TimetablePage() {
     return () => clearInterval(id);
   }, []);
 
-  const active = useMemo(() => (timetable ? getActiveDay(timetable.days, now) : null), [timetable, now]);
+  const active = useMemo(() => (timetable ? getActiveDay(timetable.days, now, holidays) : null), [timetable, now, holidays]);
   const liveRow = active?.isLiveToday && timetable ? currentRow(timetable.periods, now) : null;
 
-  // Whichever Saturday is current or coming up this week -- the 2nd/4th-
-  // Saturday rule that decides whether it's a school day at all.
+  // Whichever Saturday is current or coming up this week -- reuses the same
+  // isSchoolDay check as `active` (2nd/4th-Saturday rule *and* any named
+  // holiday/vacation that happens to land on it, e.g. Ashadi Ekadashi on
+  // 2026-07-25, a 4th Saturday) so the Saturday column's own presentation
+  // never disagrees with what picked "Today"/"Next".
   const thisWeekSaturday = useMemo(() => {
     const d = new Date(now);
     d.setDate(d.getDate() + (6 - d.getDay()));
     return d;
   }, [now]);
-  const saturdayIsHoliday = !isSchoolSaturday(thisWeekSaturday);
+  const saturdayIsHoliday = timetable ? !isSchoolDay(timetable.days, thisWeekSaturday, holidays) : false;
 
   // Mobile's single-day view defaults to the active day but can be browsed
   // independently of it (tapping Friday to check Friday's dress code doesn't
@@ -78,7 +82,12 @@ export default function TimetablePage() {
   return (
     <>
       <div className="text-sm text-muted-foreground">
-        Weekly class schedule — Class III F <span className="text-muted-foreground/70">· Today, {fmtDate(now)}</span>
+        Weekly class schedule — Class III F{" "}
+        {active && (
+          <span className="text-muted-foreground/70">
+            · {active.isLiveToday ? "Today" : "Next"}, {fmtDate(active.date)}
+          </span>
+        )}
       </div>
 
       {/* Narrow viewport: horizontal space for six day-columns is scarce but
@@ -91,24 +100,26 @@ export default function TimetablePage() {
             Friday is what's coming up next. The dot stays on its pill
             regardless of which one is selected. */}
         <ToggleGroup size="sm" value={[mobileDay]} onValueChange={(v) => v[0] && setSelectedDay(v[0])}>
-          {orderedDays.map((d) => (
-            <ToggleGroupItem key={d} value={d} className="relative">
-              {d.slice(0, 3).toUpperCase()}
-              {d === active?.day && (
-                <span
-                  className="absolute top-0.5 right-0.5 size-1.5 rounded-full bg-primary"
-                  aria-hidden="true"
-                  title={active.isLiveToday ? "Today" : "Next school day"}
-                />
-              )}
-            </ToggleGroupItem>
-          ))}
+          {orderedDays.map((d) => {
+            const isActive = d === active?.day;
+            // An explicit aria-label replaces the accessible name entirely (an
+            // sr-only child alongside it wouldn't be announced), so the full
+            // weekday and the today/next status both have to live in this one
+            // string rather than split across the label and the dot below.
+            const label = isActive ? `${d}, ${active!.isLiveToday ? "today" : "next school day"}` : d;
+            return (
+              <ToggleGroupItem key={d} value={d} aria-label={label} className="relative">
+                {d.slice(0, 3).toUpperCase()}
+                {isActive && <span className="absolute top-0.5 right-0.5 size-1.5 rounded-full bg-primary" aria-hidden="true" />}
+              </ToggleGroupItem>
+            );
+          })}
         </ToggleGroup>
 
         {mobileDay === "Saturday" && saturdayIsHoliday ? (
           <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
             <PartyPopper className="size-3.5" aria-hidden="true" />
-            Holiday — 1st/3rd/5th Saturday, no school
+            Holiday — no school this Saturday
           </div>
         ) : (
           <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
@@ -177,7 +188,7 @@ export default function TimetablePage() {
                       d === active?.day && "bg-primary/10 text-primary",
                       isOffSaturday && BREAK_DIMMED,
                     )}
-                    title={isOffSaturday ? "Holiday — 1st/3rd/5th Saturday, no school" : undefined}
+                    title={isOffSaturday ? "Holiday — no school this Saturday" : undefined}
                   >
                     <div className="flex items-center justify-center gap-1.5">
                       {isOffSaturday ? (
