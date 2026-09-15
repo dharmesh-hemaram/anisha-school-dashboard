@@ -1,5 +1,104 @@
 [
   {
+    "id": "35d4572261d47ff3",
+    "posted_date": "15-09-2026",
+    "posted_date_iso": "2026-09-15",
+    "event_date_iso": "2026-09-15",
+    "text": "Class III F\n\n*Today's Daily Class update*\n15/09/2026\n\nPeriod 1: Science -.proxy\n\nPeriod 2: science-proxy\n\nPeriod 3: SST-\nTerm II Textbook\nChapter No.1 Explained\nReading Practice\nHW - Page No.186\nEnrichment Activity\n\nPeriod 4 :Maths-\nCh 5- Measurement - Explanation of the topic - Measurement of Length was done.\nHW- Revise the same.\n\nPeriod 5: computer science - Robotics explanation of chapter 5:motors is done \n\nPeriod 6: Dance class is conducted \n\nPeriod 7: Seek/G.K - Science - Discuss topic ‘Sources of Water’\n\n\nPeriod 8: Reading program class is conducted \n\nPeriod 9: Hindi- जैसे को तैसा की व्याख्या की गई तथा मौखिक अभ्यास लिए गए",
+    "attachment_url": null,
+    "category": "Daily Class Update",
+    "method": "pattern",
+    "periods": [
+      {
+        "period": 1,
+        "subject": "Science",
+        "note": ".proxy",
+        "hw": null
+      },
+      {
+        "period": 2,
+        "subject": "Science",
+        "note": "proxy",
+        "hw": null
+      },
+      {
+        "period": 3,
+        "subject": "Social Studies",
+        "note": "Term II Textbook\nChapter No.1 Explained\nReading Practice",
+        "hw": "Page No.186\nEnrichment Activity"
+      },
+      {
+        "period": 4,
+        "subject": "Maths",
+        "note": "Ch 5- Measurement - Explanation of the topic - Measurement of Length was done",
+        "hw": "Revise the same"
+      },
+      {
+        "period": 5,
+        "subject": "Computer Science",
+        "note": "Robotics explanation of chapter 5:motors is done",
+        "hw": null
+      },
+      {
+        "period": 6,
+        "subject": "Dance",
+        "note": "class is conducted",
+        "hw": null
+      },
+      {
+        "period": 7,
+        "subject": null,
+        "note": "Seek/G.K - Science - Discuss topic ‘Sources of Water’",
+        "hw": null
+      },
+      {
+        "period": 8,
+        "subject": "Reading Program",
+        "note": "class is conducted",
+        "hw": null
+      },
+      {
+        "period": 9,
+        "subject": "Hindi",
+        "note": "जैसे को तैसा की व्याख्या की गई तथा मौखिक अभ्यास लिए गए",
+        "hw": null
+      }
+    ],
+    "is_timetable": false,
+    "confidence": 0.9,
+    "subject": null,
+    "chapter": null,
+    "chapter_number": null,
+    "material_type": null,
+    "worksheet_numbers": null,
+    "answer_key_url": null,
+    "paired": false,
+    "calendar_event_id": null,
+    "exam_cycle": null
+  },
+  {
+    "id": "99b3754b8b82483d",
+    "posted_date": "15-09-2026",
+    "posted_date_iso": "2026-09-15",
+    "event_date_iso": "2026-09-18",
+    "text": "Dear Parent,\n\nPlease note that Friday, 18th September 2026 will be a holiday on account of Gauri Pujan.\n\nA compensatory working day for  will be observed on Saturday, 31st October 2026. \n\nThank you for your cooperation understanding.",
+    "attachment_url": null,
+    "category": "Holiday",
+    "method": "pattern",
+    "periods": [],
+    "is_timetable": false,
+    "confidence": 0.85,
+    "subject": null,
+    "chapter": null,
+    "chapter_number": null,
+    "material_type": null,
+    "worksheet_numbers": null,
+    "answer_key_url": null,
+    "paired": false,
+    "calendar_event_id": "6k5cue5hd9r8c0cnh1heidd1lo",
+    "exam_cycle": null
+  },
+  {
     "id": "53d0e08b7c8eb6f9",
     "posted_date": "12-09-2026",
     "posted_date_iso": "2026-09-12",
@@ -62,7 +161,7 @@
     "worksheet_numbers": null,
     "answer_key_url": null,
     "paired": false,
-    "calendar_event_id": null,
+    "calendar_event_id": "n1opcku54umsb5pf0bo18siu74",
     "exam_cycle": null
   },
   {
@@ -3852,7 +3951,7 @@
     "material_type": null,
     "answer_key_url": null,
     "paired": false,
-    "calendar_event_id": null,
+    "calendar_event_id": "tih9gvoi4jhf7mjjj9mdohpl8o",
     "exam_cycle": null,
     "worksheet_numbers": null
   },
@@ -14753,7 +14852,7 @@
     "material_type": null,
     "answer_key_url": null,
     "paired": false,
-    "calendar_event_id": null,
+    "calendar_event_id": "vhr1fjopq4ei8tiidb8adtdh30",
     "exam_cycle": null,
     "worksheet_numbers": null
   },
