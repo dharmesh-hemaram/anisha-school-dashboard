@@ -4,7 +4,7 @@ import UpcomingPage from "./pages/upcoming/UpcomingPage";
 import TimetablePage from "./pages/timetable/TimetablePage";
 import HwPage from "./pages/hw/HwPage";
 import NotesPage from "./pages/notes/NotesPage";
-import FeedPage from "./pages/feed/FeedPage";
+import HistoryPage from "./pages/history/HistoryPage";
 import RevisionNotebookPage from "./pages/revision/RevisionNotebookPage";
 
 export default function App() {
@@ -18,7 +18,8 @@ export default function App() {
           <Route path="hw" element={<HwPage />} />
           <Route path="notes" element={<NotesPage />} />
           <Route path="notes/:subject" element={<NotesPage />} />
-          <Route path="feed" element={<FeedPage />} />
+          <Route path="history" element={<HistoryPage />} />
+          <Route path="feed" element={<Navigate to="/history" replace />} />
         </Route>
         <Route path="revision/:slug" element={<RevisionNotebookPage />} />
       </Routes>

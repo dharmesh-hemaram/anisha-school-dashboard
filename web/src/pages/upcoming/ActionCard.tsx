@@ -46,9 +46,9 @@ export default function ActionCard({ item }: { item: UpcomingItem }) {
     ...g,
     items: relatedMaterials.filter((m) => m.material_type === g.type),
   })).filter((g) => g.items.length > 0);
-  // exam_cycle is only ever a plain string on an Exam/Test record (the only
-  // category Upcoming's exam cards render) -- the array shape belongs to
-  // Subject Notes records, never these, but the union type still allows it.
+  // exam_cycle is only ever a plain string on an Exam/Test record -- the
+  // array shape belongs to Subject Notes records, which Upcoming now also
+  // renders alongside everything else, so this narrows rather than assumes.
   const cycle = typeof item.exam_cycle === "string" ? item.exam_cycle : undefined;
   const scheduleRow = findScheduleRow(portionSchedules, cycle, item.subject);
 

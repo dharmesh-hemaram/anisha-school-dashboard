@@ -13,7 +13,7 @@ import PeriodList from "./PeriodList";
  * title in the header, chevron toggling, attachment link in the body --
  * just without the day-countdown badge, which only makes sense for
  * upcoming (not already-posted) items. */
-export default function FeedItem({ notice: r }: { notice: Notice }) {
+export default function HistoryItem({ notice: r }: { notice: Notice }) {
   const categoryMeta = CATEGORY_META[r.category];
   const KindIcon = categoryMeta.icon;
   const isTodayTimetable = r.is_timetable && r.event_date_iso === todayISO();

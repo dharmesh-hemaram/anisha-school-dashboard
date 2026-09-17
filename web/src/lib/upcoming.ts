@@ -1,7 +1,6 @@
 import type { EventsCalendar, Holidays, Notice, PortionSchedules, SyntheticNotice, UpcomingItem } from "../types";
 import { daysUntil, parseISO } from "./date";
 import { cyclesOf, latestExamCycle } from "./notices";
-import { UPCOMING_CATEGORIES } from "./constants";
 
 /** One dated entry in the "This week" strip -- a holiday/event with no
  * notice of its own. */
@@ -96,14 +95,15 @@ function buildSyntheticExamEntries(notices: Notice[], portionSchedules: PortionS
     }));
 }
 
+// Every category shows up here now -- Upcoming is just "what's dated today
+// or later", not a curated subset of categories. The portion sheet itself
+// is still excluded since buildSyntheticExamEntries expands it into its
+// real per-day entries instead.
 export function buildUpcomingItems(notices: Notice[], portionSchedules: PortionSchedules): UpcomingItem[] {
   const currentCycle = latestExamCycle(notices);
   const synthetic = buildSyntheticExamEntries(notices, portionSchedules, currentCycle);
 
-  return [
-    ...notices.filter((r) => UPCOMING_CATEGORIES.includes(r.category) && r.material_type !== "Portion"),
-    ...synthetic,
-  ]
+  return [...notices.filter((r) => r.material_type !== "Portion"), ...synthetic]
     .map((r) => ({ ...r, _days: daysUntil(parseISO(r.event_date_iso)) }))
     .filter((r) => r._days >= 0)
     .sort((a, b) => a._days - b._days) as UpcomingItem[];

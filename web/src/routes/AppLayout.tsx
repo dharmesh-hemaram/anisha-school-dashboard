@@ -23,7 +23,7 @@ const TABS = [
   { to: "/timetable", label: "Timetable" },
   { to: "/hw", label: "Homework" },
   { to: "/notes", label: "Notes" },
-  { to: "/feed", label: "Feed" },
+  { to: "/history", label: "History" },
 ];
 
 export default function AppLayout() {

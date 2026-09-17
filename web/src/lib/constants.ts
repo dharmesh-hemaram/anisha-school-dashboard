@@ -17,14 +17,11 @@ export const CATEGORY_META: Record<Category, CategoryMeta> = {
   "General/Other": { dot: "var(--dot-general)", label: "General", icon: Info },
 };
 
-export const UPCOMING_CATEGORIES: Category[] = ["Exam/Test", "School Event", "Holiday"];
-
-// Exam/Test and Subject Notes have their own dedicated tabs (Exam, Notes)
-// with much better treatment (portion table, grouped-by-cycle materials) --
-// showing them in Feed too is just noise duplicating those tabs.
-export const FEED_CATEGORIES: Category[] = (Object.keys(CATEGORY_META) as Category[]).filter(
-  (c) => c !== "Exam/Test" && c !== "Subject Notes",
-);
+// Every category, in CATEGORY_META's declared order -- used to drive the
+// History tab's category filter row now that History shows everything
+// (Exam/Test and Subject Notes included) rather than excluding the
+// categories that also have their own dedicated tabs.
+export const ALL_CATEGORIES: Category[] = Object.keys(CATEGORY_META) as Category[];
 
 export interface MaterialTagMeta {
   cls: string;

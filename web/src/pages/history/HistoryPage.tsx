@@ -1,23 +1,22 @@
 import { useMemo } from "react";
 import { useSearchParams } from "react-router-dom";
 import { useAppSelector } from "../../app/hooks";
-import { CATEGORY_META, FEED_CATEGORIES } from "../../lib/constants";
+import { ALL_CATEGORIES, CATEGORY_META } from "../../lib/constants";
 import { SUBJECT_META, subjectAbbr } from "../../lib/subjects";
 import { noticeSubjects } from "../../lib/notices";
 import { ToggleGroup, ToggleGroupItem } from "../../components/ui/toggle-group";
 import EmptyState from "../../components/ui/EmptyState";
 import Timeline from "../../components/ui/Timeline";
-import FeedItem from "./FeedItem";
+import HistoryItem from "./HistoryItem";
 
-export default function FeedPage() {
+export default function HistoryPage() {
   const [searchParams, setSearchParams] = useSearchParams();
   const notices = useAppSelector((s) => s.data.notices);
 
   const activeCategory = searchParams.get("category") || "All";
   const requestedSubject = searchParams.get("subject") || "All";
 
-  const feedItems = useMemo(() => notices.filter((r) => FEED_CATEGORIES.includes(r.category)), [notices]);
-  const byCategory = activeCategory === "All" ? feedItems : feedItems.filter((r) => r.category === activeCategory);
+  const byCategory = activeCategory === "All" ? notices : notices.filter((r) => r.category === activeCategory);
 
   // Only the exam-track subjects (SUBJECT_META) are worth filtering by --
   // co-curricular subjects would clutter the row, and categories like
@@ -52,7 +51,7 @@ export default function FeedPage() {
     <>
       <ToggleGroup size="sm" value={[activeCategory]} onValueChange={(v) => setCategory(v[0] ?? "All")}>
         <ToggleGroupItem value="All">All</ToggleGroupItem>
-        {FEED_CATEGORIES.map((c) => {
+        {ALL_CATEGORIES.map((c) => {
           const Icon = CATEGORY_META[c].icon;
           return (
             <ToggleGroupItem key={c} value={c}>
@@ -78,7 +77,7 @@ export default function FeedPage() {
         <EmptyState>No notices match this filter.</EmptyState>
       ) : (
         <Timeline items={filtered} dateIso={(r) => r.posted_date_iso}>
-          {(r) => <FeedItem key={r.id} notice={r} />}
+          {(r) => <HistoryItem key={r.id} notice={r} />}
         </Timeline>
       )}
     </>
