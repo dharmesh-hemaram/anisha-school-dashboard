@@ -1,5 +1,126 @@
 [
   {
+    "id": "b1727f94397af6bc",
+    "posted_date": "17-09-2026",
+    "posted_date_iso": "2026-09-17",
+    "event_date_iso": "2026-09-17",
+    "text": "Class III F \n\n*Today's Daily Class update*\n17/09/2026\n\nPeriod 1: Assembly- Ganesh Aarathi was done\n\nPeriod 2: Dance is conducted \n \nPeriod 3: Marathi - मुंगीताई या कवितेचा स्वाध्याय लिहिला.\nH. W. पान नं 42 पाठयपुस्तकात सोडवणे.\n\nPeriod 4 : Maths\nCh - 5, Exercise 1- Q3 (a,d,e) of page number 118 were discussed and completed.\nComplete Exercise 1- Q3 (b,c,f) of page number 118.\n\nPeriod 5: SST\nTerm II Ch.No.1\nNotebook Writing\n\nPeriod 6: Hindi- सर्वनाम की व्याख्या की गई तथा लिखित कार्य पाठ्यपुस्तक में करवाए गए\n\nPeriod 7: Skating class is conducted \n\nPeriod 8: Skating class is conducted \n\nPeriod 9: Marathi - प्राणी - जंगली प्राणी स्पष्टीकरण.",
+    "attachment_url": null,
+    "category": "Daily Class Update",
+    "method": "pattern",
+    "periods": [
+      {
+        "period": 1,
+        "subject": "Assembly",
+        "note": "Ganesh Aarathi was done",
+        "hw": null
+      },
+      {
+        "period": 2,
+        "subject": "Dance",
+        "note": "is conducted",
+        "hw": null
+      },
+      {
+        "period": 3,
+        "subject": "Marathi",
+        "note": "मुंगीताई या कवितेचा स्वाध्याय लिहिला",
+        "hw": "पान नं 42 पाठयपुस्तकात सोडवणे"
+      },
+      {
+        "period": 4,
+        "subject": "Maths",
+        "note": "Ch - 5, Exercise 1- Q3 (a,d,e) of page number 118 were discussed and completed.\nComplete Exercise 1- Q3 (b,c,f) of page number 118.",
+        "hw": null
+      },
+      {
+        "period": 5,
+        "subject": "Social Studies",
+        "note": "Term II Ch.No.1\nNotebook Writing",
+        "hw": null
+      },
+      {
+        "period": 6,
+        "subject": "Hindi",
+        "note": "सर्वनाम की व्याख्या की गई तथा लिखित कार्य पाठ्यपुस्तक में करवाए गए",
+        "hw": null
+      },
+      {
+        "period": 7,
+        "subject": "Skating",
+        "note": "class is conducted",
+        "hw": null
+      },
+      {
+        "period": 8,
+        "subject": "Skating",
+        "note": "class is conducted",
+        "hw": null
+      },
+      {
+        "period": 9,
+        "subject": "Marathi",
+        "note": "प्राणी - जंगली प्राणी स्पष्टीकरण.",
+        "hw": null
+      }
+    ],
+    "is_timetable": false,
+    "confidence": 0.9,
+    "subject": null,
+    "chapter": null,
+    "chapter_number": null,
+    "material_type": null,
+    "worksheet_numbers": null,
+    "answer_key_url": null,
+    "paired": false,
+    "calendar_event_id": null,
+    "exam_cycle": null
+  },
+  {
+    "id": "c0a69806d94c5b5f",
+    "posted_date": "17-09-2026",
+    "posted_date_iso": "2026-09-17",
+    "event_date_iso": "2026-09-17",
+    "text": "Dear Parent,\n\nWe are pleased to share the Facebook post featuring photographs from Ganesh chaturthi celebration.\n\n\nhttps://www.facebook.com/share/p/1DiPeYJECZ/\n\n We invite you to like, share, and follow our Facebook page to stay updated with the latest events, celebrations, and achievements at SNBP International School, Wagholi.",
+    "attachment_url": null,
+    "category": "Event/Celebration",
+    "method": "pattern",
+    "periods": [],
+    "is_timetable": false,
+    "confidence": 0.85,
+    "subject": null,
+    "chapter": null,
+    "chapter_number": null,
+    "material_type": null,
+    "worksheet_numbers": null,
+    "answer_key_url": null,
+    "paired": false,
+    "calendar_event_id": null,
+    "exam_cycle": null
+  },
+  {
+    "id": "c57b79c22c57aaf7",
+    "posted_date": "17-09-2026",
+    "posted_date_iso": "2026-09-17",
+    "event_date_iso": "2026-09-17",
+    "text": "Dear Parent,\n\nPlease find the details of the Robotics activity to be conducted:\n\nDate:21 -09-2026\nDay: Monday \nClass : III F,G\n\nActivity- Generate the Electricity \n\nPlease send the below mentioned materials and textbook along with your ward\n1. MDF cut out \n2. BO motor\n3. LED",
+    "attachment_url": "http://wagholierp.snbpinstitutes.in/NEWPHP/Teacher/Notice_photos/1792026114233.jpg",
+    "category": "School Event",
+    "method": "pattern",
+    "periods": [],
+    "is_timetable": false,
+    "confidence": 0.8,
+    "subject": null,
+    "chapter": null,
+    "chapter_number": null,
+    "material_type": null,
+    "worksheet_numbers": null,
+    "answer_key_url": null,
+    "paired": false,
+    "calendar_event_id": "1ngp7aaoas7mtcmhhhj0gm6mu8",
+    "exam_cycle": null
+  },
+  {
     "id": "7e92470420f7086f",
     "posted_date": "16-09-2026",
     "posted_date_iso": "2026-09-16",
