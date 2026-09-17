@@ -1,5 +1,5 @@
 import type { Period } from "../../types";
-import SubjectBadge from "../../components/subjects/SubjectBadge";
+import SubjectBadge from "../subjects/SubjectBadge";
 import styles from "./PeriodList.module.css";
 
 export default function PeriodList({ periods }: { periods: Period[] }) {

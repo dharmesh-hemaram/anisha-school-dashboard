@@ -7,7 +7,7 @@ import { Card, CardAction, CardContent, CardHeader, CardTitle } from "../../comp
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "../../components/ui/collapsible";
 import { Badge } from "../../components/ui/badge";
 import AttachmentLink from "../../components/ui/AttachmentLink";
-import PeriodList from "./PeriodList";
+import PeriodList from "../../components/notices/PeriodList";
 
 /** Same collapsible-card shell as the Upcoming tab's ActionCard -- icon +
  * title in the header, chevron toggling, attachment link in the body --

@@ -23,6 +23,7 @@ const TABS = [
   { to: "/timetable", label: "Timetable" },
   { to: "/hw", label: "Homework" },
   { to: "/notes", label: "Notes" },
+  { to: "/tables", label: "Tables" },
   { to: "/history", label: "History" },
 ];
 
@@ -97,7 +98,12 @@ export default function AppLayout() {
             instead of sticking to the old mobile-only 640px column. */}
         <div className="flex flex-1 flex-col">
           <div className="@container/main flex flex-1 flex-col gap-2">
-            <div className="flex flex-col gap-4 px-4 py-4 md:gap-6 md:px-6 md:py-6">
+            {/* flex-1 so a short page (e.g. the Tables quiz) can vertically
+                center itself against the real remaining space above the
+                footer, instead of a page-specific vh guess. Taller pages are
+                unaffected -- their own content still pushes this box past
+                one viewport, same as before. */}
+            <div className="flex flex-1 flex-col gap-4 px-4 py-4 md:gap-6 md:px-6 md:py-6">
               <Outlet />
             </div>
           </div>

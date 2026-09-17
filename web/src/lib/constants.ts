@@ -53,6 +53,11 @@ export const HW_SEEDED_KEY = "hwSeeded_v1";
 export const HW_WINDOW_DAYS = 14; // how far back the HW tab looks
 export const HW_SEED_DAYS = 7; // backlog older than this is auto-marked done on first-ever load
 
+// Per-fact miss counts for the Tables quiz -- how many more times a fact
+// needs to come up (and be answered right) before it stops being weighted
+// as a weak spot. Keyed "N-M", e.g. "7-8".
+export const TABLES_QUIZ_MISSES_KEY = "tablesQuizMisses_v1";
+
 // A photo attachment (a seek-kit materials list, a Facebook-recap photo) is
 // more useful shown inline than as a bare "View attachment" link -- a PDF
 // (worksheet, portion sheet) still needs the link since it can't render

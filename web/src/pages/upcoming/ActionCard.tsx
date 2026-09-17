@@ -11,6 +11,7 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from "../../components/ui/ta
 import { Separator } from "../../components/ui/separator";
 import { Badge } from "../../components/ui/badge";
 import AttachmentLink from "../../components/ui/AttachmentLink";
+import PeriodList from "../../components/notices/PeriodList";
 import MaterialItem from "../../components/materials/MaterialItem";
 import RevisionNotebookLink from "../../components/materials/RevisionNotebookLink";
 import styles from "./ActionCard.module.css";
@@ -70,7 +71,7 @@ export default function ActionCard({ item }: { item: UpcomingItem }) {
         </CollapsibleTrigger>
         <CollapsibleContent>
           <CardContent className="flex flex-col gap-2 pb-4">
-            <div className={styles.full}>{item.text}</div>
+            {item.periods?.length ? <PeriodList periods={item.periods} /> : <div className={styles.full}>{item.text}</div>}
             <RevisionNotebookLink url={isExamEntry && isYearlyCycle(cycle) ? scheduleRow?.revision_notebook_url : undefined} />
             <AttachmentLink url={item.attachment_url} />
             {relatedMaterials.length > 0 && <Separator />}
