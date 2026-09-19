@@ -12,12 +12,24 @@ const MULTIPLIERS = Array.from({ length: 10 }, (_, i) => i + 1);
 // back around sooner than the ones already known -- getting it right pays
 // that weight back down rather than clearing it outright, so one lucky
 // guess doesn't erase a genuine weak spot.
+const DEFAULT_RANGE: Range = { min: 2, max: 15 };
+
 const MISS_WEIGHT = 3;
 const WEAK_SPOT_THRESHOLD = 2;
 
 interface Fact {
   n: number;
   m: number;
+}
+
+interface Range {
+  min: number;
+  max: number;
+}
+
+interface Wrong {
+  fact: Fact;
+  picked: number;
 }
 
 interface Question {
@@ -46,8 +58,8 @@ function saveMisses(misses: Record<string, number>) {
   }
 }
 
-function pickFact(misses: Record<string, number>, exclude?: string): Fact {
-  const pool = TABLE_NUMBERS.flatMap((n) => MULTIPLIERS.map((m) => ({ n, m })));
+function pickFact(misses: Record<string, number>, range: Range, exclude?: string): Fact {
+  const pool = TABLE_NUMBERS.filter((n) => n >= range.min && n <= range.max).flatMap((n) => MULTIPLIERS.map((m) => ({ n, m })));
   const candidates = pool.length > 1 ? pool.filter((f) => factKey(f) !== exclude) : pool;
   const weighted = candidates.map((f) => ({ fact: f, weight: 1 + (misses[factKey(f)] ?? 0) * MISS_WEIGHT }));
   const totalWeight = weighted.reduce((sum, c) => sum + c.weight, 0);
@@ -90,14 +102,17 @@ function generateChoices(fact: Fact): number[] {
   return shuffled([correct, ...distractors]);
 }
 
-function makeQuestion(misses: Record<string, number>, exclude?: string): Question {
-  const fact = pickFact(misses, exclude);
+function makeQuestion(misses: Record<string, number>, range: Range, exclude?: string): Question {
+  const fact = pickFact(misses, range, exclude);
   return { fact, choices: generateChoices(fact) };
 }
 
 export default function QuizPanel() {
   const [misses, setMisses] = useState<Record<string, number>>(loadMisses);
-  const [question, setQuestion] = useState<Question>(() => makeQuestion(loadMisses()));
+  const [range, setRange] = useState<Range>(DEFAULT_RANGE);
+  const rangeRef = useRef(range);
+  const [question, setQuestion] = useState<Question>(() => makeQuestion(loadMisses(), DEFAULT_RANGE));
+  const [wrongs, setWrongs] = useState<Wrong[]>([]);
   const [feedback, setFeedback] = useState<{ picked: number; correct: boolean } | null>(null);
   const [score, setScore] = useState({ correct: 0, total: 0 });
   const advanceTimer = useRef<ReturnType<typeof setTimeout>>(undefined);
@@ -115,7 +130,7 @@ export default function QuizPanel() {
   );
 
   function advance() {
-    setQuestion((prev) => makeQuestion(misses, factKey(prev.fact)));
+    setQuestion((prev) => makeQuestion(misses, rangeRef.current, factKey(prev.fact)));
     setFeedback(null);
   }
 
@@ -132,6 +147,7 @@ export default function QuizPanel() {
       else nextMisses[key] = reduced;
     } else {
       nextMisses[key] = (nextMisses[key] ?? 0) + 1;
+      setWrongs((w) => [...w, { fact: question.fact, picked }]);
     }
     setMisses(nextMisses);
     saveMisses(nextMisses);
@@ -144,6 +160,18 @@ export default function QuizPanel() {
 
   function resetScore() {
     setScore({ correct: 0, total: 0 });
+    setWrongs([]);
+  }
+
+  // Changing the range starts a fresh round: the score and the wrong-answer
+  // list belong to the range they were earned in.
+  function changeRange(next: Range) {
+    clearTimeout(advanceTimer.current);
+    rangeRef.current = next;
+    setRange(next);
+    setQuestion(makeQuestion(misses, next));
+    setFeedback(null);
+    resetScore();
   }
 
   function resetWeakSpots() {
@@ -155,6 +183,41 @@ export default function QuizPanel() {
 
   return (
     <div className="flex h-full flex-col items-center justify-center gap-3">
+      <div className="flex items-center gap-2 text-sm text-muted-foreground">
+        Tables
+        <select
+          aria-label="First table"
+          className="rounded-md border bg-background px-2 py-1 text-foreground"
+          value={range.min}
+          onChange={(e) => {
+            const min = Number(e.target.value);
+            changeRange({ min, max: Math.max(min, range.max) });
+          }}
+        >
+          {TABLE_NUMBERS.map((n) => (
+            <option key={n} value={n}>
+              {n}
+            </option>
+          ))}
+        </select>
+        to
+        <select
+          aria-label="Last table"
+          className="rounded-md border bg-background px-2 py-1 text-foreground"
+          value={range.max}
+          onChange={(e) => {
+            const max = Number(e.target.value);
+            changeRange({ min: Math.min(max, range.min), max });
+          }}
+        >
+          {TABLE_NUMBERS.map((n) => (
+            <option key={n} value={n}>
+              {n}
+            </option>
+          ))}
+        </select>
+      </div>
+
       <Card size="sm" className="w-full gap-3 sm:max-w-sm">
         <CardContent className="flex flex-col items-center justify-center gap-6 py-10">
           <div className="flex items-center gap-2">
@@ -209,6 +272,22 @@ export default function QuizPanel() {
           )}
         </CardContent>
       </Card>
+
+      {wrongs.length > 0 && (
+        <div className="w-full sm:max-w-sm">
+          <div className="mb-1 text-xs font-medium text-muted-foreground">Missed ({wrongs.length})</div>
+          <ul className="flex flex-col gap-1 text-sm tabular-nums">
+            {wrongs.map((w, i) => (
+              <li key={i} className="flex items-center justify-between rounded-md bg-destructive/10 px-3 py-1.5">
+                <span>
+                  {w.fact.n} × {w.fact.m} = {w.fact.n * w.fact.m}
+                </span>
+                <span className="text-xs text-muted-foreground">you said {w.picked}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
 
       {weakSpots.length > 0 && (
         <div className="flex flex-wrap items-center gap-1.5 text-xs text-muted-foreground">
