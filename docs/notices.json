@@ -1,5 +1,82 @@
 [
   {
+    "id": "e1fc31b4e2d19ddb",
+    "posted_date": "22-09-2026",
+    "posted_date_iso": "2026-09-22",
+    "event_date_iso": "2026-09-22",
+    "text": "Class III F\n\n*Today's Daily Class update*\n22/09/2026\n\nPeriod 1: Science- Skill fest Preparation \n\nPeriod 2: Science- Skill fest Preparation \n\nPeriod 3: SST\nTerm II Ch-1\nNotebook Writing\n\nPeriod 4 : Maths- \nCh - 5, Exercise 1- Q4 (a,c,e) of page number 118 were discussed and completed.\nHW- Complete Exercise 1- Q4 (b,d,f) of page number 118 in the notebook.\n\nPeriod 5: Computer Science : writting work of robotics chapter 5 \n\nPeriod 6: Dance - class is conducted \n\nPeriod 7: Seek/ Gk - Science- Explanation of topic ‘states of water’ and ‘sink and float’ \n\nPeriod 8: Reading program  class is conducted \n\nPeriod 9: Hindi :proxy- Reading was done",
+    "attachment_url": null,
+    "category": "Daily Class Update",
+    "method": "pattern",
+    "periods": [
+      {
+        "period": 1,
+        "subject": "Science",
+        "note": "Skill fest Preparation",
+        "hw": null
+      },
+      {
+        "period": 2,
+        "subject": "Science",
+        "note": "Skill fest Preparation",
+        "hw": null
+      },
+      {
+        "period": 3,
+        "subject": "Social Studies",
+        "note": "Term II Ch-1\nNotebook Writing",
+        "hw": null
+      },
+      {
+        "period": 4,
+        "subject": "Maths",
+        "note": "Ch - 5, Exercise 1- Q4 (a,c,e) of page number 118 were discussed and completed",
+        "hw": "Complete Exercise 1- Q4 (b,d,f) of page number 118 in the notebook"
+      },
+      {
+        "period": 5,
+        "subject": "Computer Science",
+        "note": "writting work of robotics chapter 5",
+        "hw": null
+      },
+      {
+        "period": 6,
+        "subject": "Dance",
+        "note": "class is conducted",
+        "hw": null
+      },
+      {
+        "period": 7,
+        "subject": null,
+        "note": "Seek/ Gk - Science- Explanation of topic ‘states of water’ and ‘sink and float’",
+        "hw": null
+      },
+      {
+        "period": 8,
+        "subject": "Reading Program",
+        "note": "class is conducted",
+        "hw": null
+      },
+      {
+        "period": 9,
+        "subject": "Hindi",
+        "note": "proxy- Reading was done",
+        "hw": null
+      }
+    ],
+    "is_timetable": false,
+    "confidence": 0.9,
+    "subject": null,
+    "chapter": null,
+    "chapter_number": null,
+    "material_type": null,
+    "worksheet_numbers": null,
+    "answer_key_url": null,
+    "paired": false,
+    "calendar_event_id": null,
+    "exam_cycle": null
+  },
+  {
     "id": "89bdaa7dacbc5e32",
     "posted_date": "21-09-2026",
     "posted_date_iso": "2026-09-21",
@@ -63,6 +140,28 @@
     "answer_key_url": null,
     "paired": false,
     "calendar_event_id": "epc4l1bd6kip5iurm8tf6i3iho",
+    "exam_cycle": null
+  },
+  {
+    "id": "fa11b3cfcc21fdc0",
+    "posted_date": "21-09-2026",
+    "posted_date_iso": "2026-09-21",
+    "event_date_iso": "2026-09-21",
+    "text": "Karate Kata & Kumite Competition\n\nDear Parents,\n\nThis is to inform you that the Shotokan Karate Do-Sports Association is organising the Golden Belt Karate Kata & Kumite Competition on Saturday, 3rd October 2026, at Mahalaxmi Lawns, near Kharadi Bypass.\n\nRegistration Charges:\n• ₹700/- – One Event (Kata or Kumite)\n• ₹1,400/- – Two Events (Kata & Kumite)\n\nInterested students may contact Mr. Akshay More – 9922926672 for registration and further details.\n\nThe school is only facilitating the communication of this information to interested students. Registration, payment, and all arrangements related to the competition are to be made directly with the organiser.",
+    "attachment_url": null,
+    "category": "General/Other",
+    "method": "default",
+    "periods": [],
+    "is_timetable": false,
+    "confidence": 0.5,
+    "subject": null,
+    "chapter": null,
+    "chapter_number": null,
+    "material_type": null,
+    "worksheet_numbers": null,
+    "answer_key_url": null,
+    "paired": false,
+    "calendar_event_id": null,
     "exam_cycle": null
   },
   {
