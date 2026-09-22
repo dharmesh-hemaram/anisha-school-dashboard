@@ -363,7 +363,7 @@ def classify_pattern(text: str) -> Optional[Classification]:
         return Classification("Holiday", "pattern", 0.85, event_date_iso=_extract_event_date(text))
 
     if "facebook post" in t or "celebration" in t:
-        return Classification("Event/Celebration", "pattern", 0.85)
+        return Classification("Event/Celebration", "pattern", 0.85, event_date_iso=_extract_event_date(text))
 
     return None
 
@@ -382,4 +382,9 @@ def classify(text: str) -> Classification:
     # class-test branch above already call this deliberately, in contexts
     # that confirm the notice is genuinely about a subject -- General/Other
     # never does.
-    return Classification("General/Other", "default", 0.5)
+    #
+    # The event date is a different story -- a General/Other notice (e.g.
+    # an outside organiser's competition flyer) still often names a plain
+    # future date in its body, and defaulting to the posting date there
+    # would bury a genuinely upcoming event under today instead.
+    return Classification("General/Other", "default", 0.5, event_date_iso=_extract_event_date(text))
