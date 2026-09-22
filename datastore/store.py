@@ -22,6 +22,22 @@ EXAM_CYCLE_WINDOW_DAYS = 21
 # Half Yearly's portion sheet goes out). See tag_exam_cycles().
 EXAM_CYCLE_FUTURE_WINDOW_DAYS = 45
 
+# A notice occasionally shares a personal mobile number or inbox ("contact
+# Mr. X -- 98765xxxxx") meant for one interested parent to call, not for
+# the public GitHub Pages site this data ends up on -- redact both before
+# they're ever written to notices.json. Indian mobile numbers only
+# (10 digits starting 6-9, optionally with a +91/91 prefix): scoped that
+# way, with a \b on each side, so it never eats into an unrelated longer
+# digit run (a UDISE/admission code) or a DD-MM-YYYY date.
+_PHONE_RE = re.compile(r"\b(?:\+?91[-\s]?)?[6-9]\d{9}\b")
+_EMAIL_RE = re.compile(r"\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b")
+
+
+def redact_contact_info(text: str) -> str:
+    text = _PHONE_RE.sub("[phone number removed]", text)
+    text = _EMAIL_RE.sub("[email removed]", text)
+    return text
+
 
 def notice_id(posted_date: str, text: str) -> str:
     return hashlib.sha256(f"{posted_date}|{text}".encode("utf-8")).hexdigest()[:16]
@@ -55,7 +71,11 @@ def build_record(notice, classification) -> dict:
         # often different from posted_date_iso -- falls back to posted_date_iso
         # when the body text has no extractable date.
         "event_date_iso": classification.event_date_iso or posted_date_iso,
-        "text": notice.text,
+        # id above is hashed from the raw text -- deliberately computed
+        # before redaction, so a rerun with a broadened redaction pattern
+        # still lands on the same id as before instead of dedup treating it
+        # as a brand-new notice.
+        "text": redact_contact_info(notice.text),
         "attachment_url": notice.attachment_url,
         "category": classification.category,
         "method": classification.method,
