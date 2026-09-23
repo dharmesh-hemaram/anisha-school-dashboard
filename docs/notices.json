@@ -1,5 +1,82 @@
 [
   {
+    "id": "31b04da408bb9d04",
+    "posted_date": "23-09-2026",
+    "posted_date_iso": "2026-09-23",
+    "event_date_iso": "2026-09-23",
+    "text": "Class III F\n\nToday's Daily Class Update \n23/09/2026\nPeriod 1: Assembly -\nSkill Fest Preparation \n\nPeriod 2: Science -\nSkill Fest Preparation \n\nPeriod 3: Marathi- माझी आगगाडीतील सफर या पाठाचे स्पष्टीकरण केले.\n\nPeriod 4: Maths -\nCh - 5, Exercise 2 - Q1 (a,c,e) of page number 120 were discussed and completed.\nHW- Complete Exercise 2 - Q1 (b,d,f) of page number 120  in the notebook.\n\nPeriod 5: Computer Science-/ Robotics chapter 5 written work is done \n\nPeriod 6: English-Written work of chapter 1 was done in the notebook.\n\nPeriod 7: Hindi- चुंबक का पहाड़ के कठिन शब्द,शब्दार्थ और प्रश्न उत्तर नोटबुक में लिखवाए गए \n\nPeriod 8: Maths-\nHindi Diwas Competition was conducted.\n\nPeriod 9: English-\nHindi Diwas Competition was conducted.",
+    "attachment_url": null,
+    "category": "Daily Class Update",
+    "method": "pattern",
+    "periods": [
+      {
+        "period": 1,
+        "subject": "Assembly",
+        "note": "Skill Fest Preparation",
+        "hw": null
+      },
+      {
+        "period": 2,
+        "subject": "Science",
+        "note": "Skill Fest Preparation",
+        "hw": null
+      },
+      {
+        "period": 3,
+        "subject": "Marathi",
+        "note": "माझी आगगाडीतील सफर या पाठाचे स्पष्टीकरण केले.",
+        "hw": null
+      },
+      {
+        "period": 4,
+        "subject": "Maths",
+        "note": "Ch - 5, Exercise 2 - Q1 (a,c,e) of page number 120 were discussed and completed",
+        "hw": "Complete Exercise 2 - Q1 (b,d,f) of page number 120  in the notebook"
+      },
+      {
+        "period": 5,
+        "subject": "Computer Science",
+        "note": "/ Robotics chapter 5 written work is done",
+        "hw": null
+      },
+      {
+        "period": 6,
+        "subject": "English",
+        "note": "Written work of chapter 1 was done in the notebook.",
+        "hw": null
+      },
+      {
+        "period": 7,
+        "subject": "Hindi",
+        "note": "चुंबक का पहाड़ के कठिन शब्द,शब्दार्थ और प्रश्न उत्तर नोटबुक में लिखवाए गए",
+        "hw": null
+      },
+      {
+        "period": 8,
+        "subject": "Maths",
+        "note": "Hindi Diwas Competition was conducted.",
+        "hw": null
+      },
+      {
+        "period": 9,
+        "subject": "English",
+        "note": "Hindi Diwas Competition was conducted.",
+        "hw": null
+      }
+    ],
+    "is_timetable": false,
+    "confidence": 0.9,
+    "subject": null,
+    "chapter": null,
+    "chapter_number": null,
+    "material_type": null,
+    "worksheet_numbers": null,
+    "answer_key_url": null,
+    "paired": false,
+    "calendar_event_id": null,
+    "exam_cycle": null
+  },
+  {
     "id": "e1fc31b4e2d19ddb",
     "posted_date": "22-09-2026",
     "posted_date_iso": "2026-09-22",
