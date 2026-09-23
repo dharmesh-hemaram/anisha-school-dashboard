@@ -1,10 +1,12 @@
 import { useMemo } from "react";
 import { useSearchParams } from "react-router-dom";
 import { useAppSelector } from "../../app/hooks";
+import type { Category } from "../../types";
 import { ALL_CATEGORIES, CATEGORY_META } from "../../lib/constants";
 import { SUBJECT_META, subjectAbbr } from "../../lib/subjects";
 import { noticeSubjects } from "../../lib/notices";
 import { ToggleGroup, ToggleGroupItem } from "../../components/ui/toggle-group";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../../components/ui/select";
 import EmptyState from "../../components/ui/EmptyState";
 import Timeline from "../../components/ui/Timeline";
 import HistoryItem from "./HistoryItem";
@@ -47,30 +49,55 @@ export default function HistoryPage() {
       return next;
     });
 
+  const ActiveCategoryIcon = activeCategory === "All" ? null : CATEGORY_META[activeCategory as Category].icon;
+
   return (
     <>
-      <ToggleGroup size="sm" value={[activeCategory]} onValueChange={(v) => setCategory(v[0] ?? "All")}>
-        <ToggleGroupItem value="All">All</ToggleGroupItem>
-        {ALL_CATEGORIES.map((c) => {
-          const Icon = CATEGORY_META[c].icon;
-          return (
-            <ToggleGroupItem key={c} value={c}>
-              <Icon />
-              {CATEGORY_META[c].label}
-            </ToggleGroupItem>
-          );
-        })}
-      </ToggleGroup>
+      {/* A row of toggle buttons -- one per category plus "All" -- doesn't
+          fit a phone-width screen; a dropdown always fits regardless of how
+          many categories there are. */}
+      <Select value={activeCategory} onValueChange={(v) => setCategory((v as string) ?? "All")}>
+        <SelectTrigger size="sm" className="w-full sm:w-auto">
+          <SelectValue>
+            {() => (
+              <span className="flex items-center gap-1.5">
+                {ActiveCategoryIcon && <ActiveCategoryIcon className="size-3.5" />}
+                {activeCategory === "All" ? "All" : CATEGORY_META[activeCategory as Category].label}
+              </span>
+            )}
+          </SelectValue>
+        </SelectTrigger>
+        <SelectContent>
+          <SelectItem value="All">All</SelectItem>
+          {ALL_CATEGORIES.map((c) => {
+            const Icon = CATEGORY_META[c].icon;
+            return (
+              <SelectItem key={c} value={c}>
+                <Icon className="size-4" />
+                {CATEGORY_META[c].label}
+              </SelectItem>
+            );
+          })}
+        </SelectContent>
+      </Select>
 
       {allSubjects.length > 0 && (
-        <ToggleGroup size="sm" value={[activeSubject]} onValueChange={(v) => setSubject(v[0] ?? "All")}>
-          <ToggleGroupItem value="All">All</ToggleGroupItem>
-          {allSubjects.map((s) => (
-            <ToggleGroupItem key={s} value={s} title={s}>
-              {subjectAbbr(s)}
-            </ToggleGroupItem>
-          ))}
-        </ToggleGroup>
+        // Same row of toggle buttons, but the subject list is open-ended
+        // (any exam-track subject that shows up in this category) rather
+        // than a short fixed set -- a dropdown would hide how many there
+        // are, so this stays a toggle row and instead scrolls horizontally,
+        // bleeding out to the screen edges the same way the page's own
+        // padding does, instead of overflowing off it.
+        <div className="-mx-4 overflow-x-auto px-4 md:-mx-6 md:px-6">
+          <ToggleGroup size="sm" value={[activeSubject]} onValueChange={(v) => setSubject(v[0] ?? "All")} className="w-max">
+            <ToggleGroupItem value="All">All</ToggleGroupItem>
+            {allSubjects.map((s) => (
+              <ToggleGroupItem key={s} value={s} title={s}>
+                {subjectAbbr(s)}
+              </ToggleGroupItem>
+            ))}
+          </ToggleGroup>
+        </div>
       )}
 
       {filtered.length === 0 ? (
