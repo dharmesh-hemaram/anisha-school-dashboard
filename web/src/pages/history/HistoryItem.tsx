@@ -3,6 +3,7 @@ import type { Notice } from "../../types";
 import { CATEGORY_META } from "../../lib/constants";
 import { noticeTitle } from "../../lib/notices";
 import { todayISO } from "../../lib/date";
+import { highlightDates } from "../../lib/highlightDates";
 import { Card, CardAction, CardContent, CardHeader, CardTitle } from "../../components/ui/card";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "../../components/ui/collapsible";
 import { Badge } from "../../components/ui/badge";
@@ -36,7 +37,7 @@ export default function HistoryItem({ notice: r }: { notice: Notice }) {
         </CollapsibleTrigger>
         <CollapsibleContent>
           <CardContent className="flex flex-col gap-2 pb-4">
-            {r.periods?.length ? <PeriodList periods={r.periods} /> : <div className="text-[13.5px] whitespace-pre-line">{r.text}</div>}
+            {r.periods?.length ? <PeriodList periods={r.periods} /> : <div className="text-[13.5px] whitespace-pre-line">{highlightDates(r.text)}</div>}
             <AttachmentLink url={r.attachment_url} />
           </CardContent>
         </CollapsibleContent>

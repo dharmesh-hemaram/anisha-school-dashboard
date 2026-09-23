@@ -4,6 +4,7 @@ import { useAppSelector } from "../../app/hooks";
 import { CATEGORY_META, MATERIAL_GROUPS } from "../../lib/constants";
 import { isYearlyCycle, noticeTitle } from "../../lib/notices";
 import { relatedMaterialsFor } from "../../lib/upcoming";
+import { highlightDates } from "../../lib/highlightDates";
 import { findScheduleRow, sortMaterialsByTypeThenDate } from "../../lib/materials";
 import { Card, CardAction, CardContent, CardHeader, CardTitle } from "../../components/ui/card";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "../../components/ui/collapsible";
@@ -71,7 +72,7 @@ export default function ActionCard({ item }: { item: UpcomingItem }) {
         </CollapsibleTrigger>
         <CollapsibleContent>
           <CardContent className="flex flex-col gap-2 pb-4">
-            {item.periods?.length ? <PeriodList periods={item.periods} /> : <div className={styles.full}>{item.text}</div>}
+            {item.periods?.length ? <PeriodList periods={item.periods} /> : <div className={styles.full}>{highlightDates(item.text)}</div>}
             <RevisionNotebookLink url={isExamEntry && isYearlyCycle(cycle) ? scheduleRow?.revision_notebook_url : undefined} />
             <AttachmentLink url={item.attachment_url} />
             {relatedMaterials.length > 0 && <Separator />}

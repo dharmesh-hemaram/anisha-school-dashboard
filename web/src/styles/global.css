@@ -72,6 +72,15 @@
   --src-notes-ink: #7a3f6b;
   --src-textbook-ink: #2f6b46;
 
+  /* A notice's body text often names two different kinds of date in the
+     same paragraph -- the event/activity date itself, and an unrelated
+     registration/submission deadline before it. Distinct colors so the one
+     that actually matters doesn't have to be found by reading the whole
+     thing. Red for the deadline reuses --destructive (already this app's
+     "pay attention" color, e.g. the focus-day badge); green is its own
+     token since no existing color means "the actual date" specifically. */
+  --date-event-ink: #2f6b46;
+
   /* shadcn/ui's own stock ("neutral") theme -- kept fully independent from
      the app palette above, on purpose: shadcn components stay vanilla/as
      shipped, with only spacing and --radius adjusted, no color remapping.
@@ -170,6 +179,8 @@
 
     --src-notes-ink: #d69fc0;
     --src-textbook-ink: #86c79a;
+
+    --date-event-ink: #86c79a;
 
     /* shadcn/ui's own stock dark theme -- see the light-mode block above
        for why this lives here instead of a `.dark {}` class. */
