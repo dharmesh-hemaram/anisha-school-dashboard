@@ -13,11 +13,15 @@ export default function UpcomingPage() {
   const eventsCalendar = useAppSelector((s) => s.data.eventsCalendar);
 
   const weekStripItems = useMemo(() => buildWeekStripItems(notices, holidays, eventsCalendar), [notices, holidays, eventsCalendar]);
+  const nextWeekStripItems = useMemo(
+    () => buildWeekStripItems(notices, holidays, eventsCalendar, 8, 14),
+    [notices, holidays, eventsCalendar],
+  );
   const items = useMemo(() => buildUpcomingItems(notices, portionSchedules), [notices, portionSchedules]);
 
   return (
     <>
-      <WeekStrip items={weekStripItems} />
+      <WeekStrip title="This week" items={weekStripItems} />
       {items.length === 0 ? (
         <EmptyState>Nothing upcoming right now.</EmptyState>
       ) : (
@@ -25,6 +29,7 @@ export default function UpcomingPage() {
           {(item) => <ActionCard key={item.id} item={item} />}
         </Timeline>
       )}
+      <WeekStrip title="Next week" items={nextWeekStripItems} />
     </>
   );
 }

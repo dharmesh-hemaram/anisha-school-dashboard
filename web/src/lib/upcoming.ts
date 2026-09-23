@@ -11,12 +11,19 @@ export interface WeekStripItem {
   _days: number;
 }
 
-// A compact 7-day lookahead built from the yearly master lists, separate
-// from the full Upcoming list -- the master lists cover the whole academic
-// year (holidays, events, PTMs), and turning every one of those into its
-// own Upcoming card would bury the things that actually need a decision or
-// a book to pack. This only ever shows what's happening in the next week.
-export function buildWeekStripItems(notices: Notice[], holidays: Holidays, eventsCalendar: EventsCalendar): WeekStripItem[] {
+// A compact 7-day-wide lookahead built from the yearly master lists,
+// separate from the full Upcoming list -- the master lists cover the whole
+// academic year (holidays, events, PTMs), and turning every one of those
+// into its own Upcoming card would bury the things that actually need a
+// decision or a book to pack. `minDays`/`maxDays` pick which 7-day window
+// to show -- [0, 7] for "This week", [8, 14] for "Next week".
+export function buildWeekStripItems(
+  notices: Notice[],
+  holidays: Holidays,
+  eventsCalendar: EventsCalendar,
+  minDays = 0,
+  maxDays = 7,
+): WeekStripItem[] {
   // A holiday/event that already has its own real notice shows as a full
   // card in the main Upcoming list -- skip it here so it doesn't also show
   // as a duplicate row in the strip.
@@ -36,7 +43,7 @@ export function buildWeekStripItems(notices: Notice[], holidays: Holidays, event
 
   return items
     .map((x) => ({ ...x, _days: daysUntil(parseISO(x.date_iso)) }))
-    .filter((x) => x._days >= 0 && x._days <= 7)
+    .filter((x) => x._days >= minDays && x._days <= maxDays)
     .sort((a, b) => a._days - b._days);
 }
 
