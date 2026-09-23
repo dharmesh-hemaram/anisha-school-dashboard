@@ -34,7 +34,7 @@ _EMAIL_RE = re.compile(r"\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b")
 
 
 def redact_contact_info(text: str) -> str:
-    text = _PHONE_RE.sub("[phone number removed]", text)
+    text = _PHONE_RE.sub("(check phone number on school app)", text)
     text = _EMAIL_RE.sub("[email removed]", text)
     return text
 
