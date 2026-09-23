@@ -77,7 +77,13 @@ export default function AppLayout() {
             nativeButton={false}
             render={
               <a
-                href="https://calendar.google.com/calendar/u/0?cid=YzAzN2Y0ZDc0ODkyZjU1N2VkNzQwYjFkMjQxMGU2YmIxZWZjYWIyMjRkZGQ5NWFkNDVkMWU0ODZiYzhhODVlNUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t"
+                // webcal:// (rather than a calendar.google.com/...?cid= web
+                // link) is what hands off to the OS's own calendar app --
+                // Calendar.app on a Mac/iPhone, Outlook if that's the
+                // default -- instead of always forcing Google Calendar's
+                // own site/app regardless of what the visitor actually
+                // uses. Same calendar, just its public ICS feed.
+                href="webcal://calendar.google.com/calendar/ical/c037f4d74892f557ed740b1d2410e6bb1efcab224ddd95ad45d1e486bc8a85e5%40group.calendar.google.com/public/basic.ics"
                 target="_blank"
                 rel="noopener noreferrer"
               />
