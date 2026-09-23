@@ -127,11 +127,66 @@
     "event_date_iso": "2026-09-21",
     "text": "Class III F\n\n*Today's Daily Clas update*\n21/09/2026\n\nPeriod 1: Science-Skillfest preperation \n\nPeriod 2: Science - Skillfest preparation \n \nPeriod 3: Marathi - कोण कुठे राहतो स्पष्टीकरण व लेखन.\nH. W. कोण कुठे राहतो या घटकाचे वाचन करणे.\n\nPeriod 4 : Maths - proxy\n\nPeriod 5: Computer science- Activity 2 Generate the electricity is done \nH.w Do the activity 01 bamboo copter at home ( robotics)\n\nPeriod 6: Art and craft -Composition Art- Balganesh, Pg.No.39(H.W)\n\nPeriod 7: Leadership- Discussed and learned about Emotional Bank Account \n\nPeriod 8: Lifeskill - Science - Subject Enrichment activity (Keeping Safe) was conducted \n\nPeriod 9: English -Written work of chapter 1 was done in the notebook.",
     "attachment_url": null,
-    "category": "School Event",
+    "category": "Daily Class Update",
     "method": "pattern",
-    "periods": [],
+    "periods": [
+      {
+        "period": 1,
+        "subject": "Science",
+        "note": "Skillfest preperation",
+        "hw": null
+      },
+      {
+        "period": 2,
+        "subject": "Science",
+        "note": "Skillfest preparation",
+        "hw": null
+      },
+      {
+        "period": 3,
+        "subject": "Marathi",
+        "note": "कोण कुठे राहतो स्पष्टीकरण व लेखन",
+        "hw": "कोण कुठे राहतो या घटकाचे वाचन करणे"
+      },
+      {
+        "period": 4,
+        "subject": "Maths",
+        "note": "proxy",
+        "hw": null
+      },
+      {
+        "period": 5,
+        "subject": "Computer Science",
+        "note": "Activity 2 Generate the electricity is done",
+        "hw": "Do the activity 01 bamboo copter at home ( robotics)"
+      },
+      {
+        "period": 6,
+        "subject": "Art & Craft",
+        "note": "Composition Art- Balganesh, Pg.No.39",
+        "hw": null
+      },
+      {
+        "period": 7,
+        "subject": "Leadership",
+        "note": "Discussed and learned about Emotional Bank Account",
+        "hw": null
+      },
+      {
+        "period": 8,
+        "subject": "Life Skills",
+        "note": "Science - Subject Enrichment activity (Keeping Safe) was conducted",
+        "hw": null
+      },
+      {
+        "period": 9,
+        "subject": "English",
+        "note": "Written work of chapter 1 was done in the notebook.",
+        "hw": null
+      }
+    ],
     "is_timetable": false,
-    "confidence": 0.8,
+    "confidence": 0.9,
     "subject": null,
     "chapter": null,
     "chapter_number": null,

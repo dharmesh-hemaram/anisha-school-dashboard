@@ -316,7 +316,10 @@ def _extract_worksheet_numbers(text: str) -> Optional[list]:
 def classify_pattern(text: str) -> Optional[Classification]:
     t = text.lower()
 
-    if re.search(r"daily class up\w*|\bdcu\b|sharing the time\s*table for", t):
+    # "clas+" (not a literal "class") tolerates the "Daily Clas update"
+    # single-s typo seen on real notices, the same way "up\w*" already
+    # tolerates "Upadte".
+    if re.search(r"daily\s+clas+\s+up\w*|\bdcu\b|sharing the time\s*table for", t):
         # A timetable notice names the day it's *for* ("...for 7th April
         # 2026, Tuesday") which is usually tomorrow, not today -- extract it
         # so the dashboard can tell whether that timetable is for today.
