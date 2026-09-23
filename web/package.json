@@ -9,7 +9,8 @@
     "build": "tsc -b && vite build",
     "lint": "oxlint",
     "preview": "vite preview",
-    "parse-revision-notebook": "node scripts/parse-revision-notebook.mjs"
+    "parse-revision-notebook": "node scripts/parse-revision-notebook.mjs",
+    "pwa-assets": "pwa-assets-generator --override"
   },
   "dependencies": {
     "@base-ui/react": "^1.8.0",
@@ -33,10 +34,13 @@
     "@types/node": "^24.13.3",
     "@types/react": "^19.2.18",
     "@types/react-dom": "^19.2.4",
+    "@vite-pwa/assets-generator": "^1.0.4",
     "@vitejs/plugin-react": "^6.1.0",
     "cheerio": "^1.2.0",
     "oxlint": "^1.79.0",
+    "sharp": "^0.35.4",
     "typescript": "~6.0.2",
-    "vite": "^8.2.2"
+    "vite": "^8.2.2",
+    "vite-plugin-pwa": "^1.3.0"
   }
 }
