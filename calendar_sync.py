@@ -34,6 +34,7 @@ import hashlib
 import json
 import logging
 import os
+import time
 from datetime import date, timedelta
 from pathlib import Path
 
@@ -228,6 +229,22 @@ def _master_list_events(records: list) -> list:
     return out
 
 
+def _execute(request):
+    """request.execute(), retrying Calendar's per-second quota errors
+    (403 rateLimitExceeded / 429) with exponential backoff -- every run
+    re-updates every synced event, a few hundred calls back to back, which
+    trips the quota partway through and used to abort the whole sync."""
+    for delay in (1, 2, 4, 8, 16, 32):
+        try:
+            return request.execute()
+        except HttpError as e:
+            if e.resp.status not in (403, 429) or b"ateLimitExceeded" not in e.content:
+                raise
+            logger.info("Calendar rate limit hit -- retrying in %ds", delay)
+            time.sleep(delay)
+    return request.execute()
+
+
 def _upsert_event(service, calendar_id: str, body: dict, event_id: str = None) -> tuple[str, bool]:
     """Update by event_id if given, falling back to insert if that id was
     never created (or was deleted) -- covers both a real record's
@@ -235,13 +252,13 @@ def _upsert_event(service, calendar_id: str, body: dict, event_id: str = None) -
     row's deterministic one. Returns (event_id, was_update)."""
     if event_id:
         try:
-            service.events().update(calendarId=calendar_id, eventId=event_id, body=body).execute()
+            _execute(service.events().update(calendarId=calendar_id, eventId=event_id, body=body))
             return event_id, True
         except HttpError as e:
             if e.resp.status not in (404, 410):
                 raise
             body = {**body, "id": event_id}
-    event = service.events().insert(calendarId=calendar_id, body=body).execute()
+    event = _execute(service.events().insert(calendarId=calendar_id, body=body))
     return event["id"], False
 
 
