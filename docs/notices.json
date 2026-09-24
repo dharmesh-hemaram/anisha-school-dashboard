@@ -22,6 +22,105 @@
     "exam_cycle": null
   },
   {
+    "id": "c242b36f99f21147",
+    "posted_date": "24-09-2026",
+    "posted_date_iso": "2026-09-24",
+    "event_date_iso": "2026-09-24",
+    "text": "Dear Parent,\n\nWe are pleased to share the Facebook post featuring photographs from Our Students and Parent Lighthouse Team Induction \n\nhttps://www.facebook.com/share/p/1DCd9QhUbq/\n\n We invite you to like, share, and follow our Facebook page to stay updated with the latest events, celebrations, and achievements at SNBP International School, Wagholi.",
+    "attachment_url": null,
+    "category": "Event/Celebration",
+    "method": "pattern",
+    "periods": [],
+    "is_timetable": false,
+    "confidence": 0.85,
+    "subject": null,
+    "chapter": null,
+    "chapter_number": null,
+    "material_type": null,
+    "worksheet_numbers": null,
+    "answer_key_url": null,
+    "paired": false,
+    "calendar_event_id": null,
+    "exam_cycle": null
+  },
+  {
+    "id": "19372653e20b7bf0",
+    "posted_date": "24-09-2026",
+    "posted_date_iso": "2026-09-24",
+    "event_date_iso": "2026-09-24",
+    "text": "Class III F\nToday's Daily Class Update \n24/09/2026\n\nPeriod 1:  Assembly -Skill Fest Preparation \nPeriod 2: Dance-\nSkill Fest Preparation \nPeriod 3: Marathi - मझी\nआगगाडीतून सफर या पाठाचे स्पष्टीकरण केले.\nPeriod 4: Maths\nCh - 5, Exercise 2 - Q2 (b,d,f) of page number 120 were discussed and completed.\nHW- Complete Exercise 2 - Q2 (a,c,e) of page number 120  in the notebook.\nPeriod 5: SST- Proxy \nPeriod 6: Hindi- चुंबक का पहाड़ के लिखित कार्य नोटबुक में करवाए गए\nPeriod 7: skating proxy\nPeriod 8: skating proxy\nPeriod 9: Marathi-  माझी आगगाडीतून सफर या पाठाचा स्वाध्याय लिहिला.\nH. W. माझी आगगाडीतून सफर या पाठाचे वाचन करणे.",
+    "attachment_url": null,
+    "category": "Daily Class Update",
+    "method": "pattern",
+    "periods": [
+      {
+        "period": 1,
+        "subject": "Assembly",
+        "note": "Skill Fest Preparation",
+        "hw": null
+      },
+      {
+        "period": 2,
+        "subject": "Dance",
+        "note": "Skill Fest Preparation",
+        "hw": null
+      },
+      {
+        "period": 3,
+        "subject": "Marathi",
+        "note": "मझी\nआगगाडीतून सफर या पाठाचे स्पष्टीकरण केले.",
+        "hw": null
+      },
+      {
+        "period": 4,
+        "subject": "Maths",
+        "note": "Ch - 5, Exercise 2 - Q2 (b,d,f) of page number 120 were discussed and completed",
+        "hw": "Complete Exercise 2 - Q2 (a,c,e) of page number 120  in the notebook"
+      },
+      {
+        "period": 5,
+        "subject": "Social Studies",
+        "note": "Proxy",
+        "hw": null
+      },
+      {
+        "period": 6,
+        "subject": "Hindi",
+        "note": "चुंबक का पहाड़ के लिखित कार्य नोटबुक में करवाए गए",
+        "hw": null
+      },
+      {
+        "period": 7,
+        "subject": "Skating",
+        "note": "proxy",
+        "hw": null
+      },
+      {
+        "period": 8,
+        "subject": "Skating",
+        "note": "proxy",
+        "hw": null
+      },
+      {
+        "period": 9,
+        "subject": "Marathi",
+        "note": "माझी आगगाडीतून सफर या पाठाचा स्वाध्याय लिहिला",
+        "hw": "माझी आगगाडीतून सफर या पाठाचे वाचन करणे"
+      }
+    ],
+    "is_timetable": false,
+    "confidence": 0.9,
+    "subject": null,
+    "chapter": null,
+    "chapter_number": null,
+    "material_type": null,
+    "worksheet_numbers": null,
+    "answer_key_url": null,
+    "paired": false,
+    "calendar_event_id": null,
+    "exam_cycle": null
+  },
+  {
     "id": "31b04da408bb9d04",
     "posted_date": "23-09-2026",
     "posted_date_iso": "2026-09-23",
