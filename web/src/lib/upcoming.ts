@@ -16,7 +16,8 @@ export interface WeekStripItem {
 // academic year (holidays, events, PTMs), and turning every one of those
 // into its own Upcoming card would bury the things that actually need a
 // decision or a book to pack. `minDays`/`maxDays` pick which 7-day window
-// to show -- [0, 7] for "This week", [8, 14] for "Next week".
+// to show -- [0, 7] feeds buildMasterListEntries() below (shown as full
+// Upcoming cards), [8, 14] the "Next week" strip.
 export function buildWeekStripItems(
   notices: Notice[],
   holidays: Holidays,
@@ -102,15 +103,52 @@ function buildSyntheticExamEntries(notices: Notice[], portionSchedules: PortionS
     }));
 }
 
+// The school rarely posts its own notice for a master-list holiday, event
+// or PTM, so one sitting in the coming week only ever showed as a small row
+// in the "This week" strip -- easy to miss for something like "no school
+// tomorrow". Promote those into full Upcoming cards instead; anything
+// further out stays in the "Next week" strip.
+function buildMasterListEntries(notices: Notice[], holidays: Holidays, eventsCalendar: EventsCalendar): SyntheticNotice[] {
+  return buildWeekStripItems(notices, holidays, eventsCalendar, 0, 7).map((x) => ({
+    id: `master-${x.kind}-${x.date_iso}-${x.name}`.replace(/\s+/g, "-"),
+    category: x.kind === "holiday" ? "Holiday" : "School Event",
+    method: "synthetic",
+    periods: [],
+    is_timetable: false,
+    confidence: 1,
+    subject: null,
+    chapter: null,
+    chapter_number: null,
+    material_type: null,
+    worksheet_numbers: null,
+    answer_key_url: null,
+    paired: false,
+    calendar_event_id: null,
+    isSynthetic: true,
+    exam_cycle: null,
+    event_date_iso: x.date_iso,
+    posted_date_iso: x.date_iso,
+    posted_date: x.date_iso.split("-").reverse().join("-"),
+    text: `${x.name}\n\nFrom the school's yearly ${x.kind === "holiday" ? "holiday list" : "events calendar"}.`,
+    attachment_url: null,
+  }));
+}
+
 // Every category shows up here now -- Upcoming is just "what's dated today
 // or later", not a curated subset of categories. The portion sheet itself
 // is still excluded since buildSyntheticExamEntries expands it into its
 // real per-day entries instead.
-export function buildUpcomingItems(notices: Notice[], portionSchedules: PortionSchedules): UpcomingItem[] {
+export function buildUpcomingItems(
+  notices: Notice[],
+  portionSchedules: PortionSchedules,
+  holidays: Holidays,
+  eventsCalendar: EventsCalendar,
+): UpcomingItem[] {
   const currentCycle = latestExamCycle(notices);
   const synthetic = buildSyntheticExamEntries(notices, portionSchedules, currentCycle);
+  const masterList = buildMasterListEntries(notices, holidays, eventsCalendar);
 
-  return [...notices.filter((r) => r.material_type !== "Portion"), ...synthetic]
+  return [...notices.filter((r) => r.material_type !== "Portion"), ...synthetic, ...masterList]
     .map((r) => ({ ...r, _days: daysUntil(parseISO(r.event_date_iso)) }))
     .filter((r) => r._days >= 0)
     .sort((a, b) => a._days - b._days) as UpcomingItem[];

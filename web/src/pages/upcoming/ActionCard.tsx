@@ -40,7 +40,7 @@ export default function ActionCard({ item }: { item: UpcomingItem }) {
   // named-cycle anchor in time) used to pull in the right prep material, not
   // something that should read as "this test IS that exam". Only the
   // portion-table-derived entries genuinely are that exam.
-  const isExamEntry = "isSynthetic" in item && item.isSynthetic;
+  const isExamEntry = "isSynthetic" in item && item.isSynthetic && item.category === "Exam/Test";
   const cycleSuffix = isExamEntry && item.exam_cycle ? ` · ${item.exam_cycle}` : "";
 
   const relatedMaterials = sortMaterialsByTypeThenDate(relatedMaterialsFor(notices, item));

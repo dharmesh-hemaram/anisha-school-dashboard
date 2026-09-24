@@ -44,6 +44,8 @@ from googleapiclient.errors import HttpError
 SCOPES = ["https://www.googleapis.com/auth/calendar.events"]
 SYNCED_CATEGORIES = {"Exam/Test", "Holiday", "School Event"}
 PORTION_SCHEDULES_PATH = Path("docs/portion_schedules.json")
+HOLIDAYS_PATH = Path("docs/holidays.json")
+EVENTS_CALENDAR_PATH = Path("docs/events_calendar.json")
 
 # Google Calendar's fixed 11-color event palette, referenced by these
 # string IDs. Picked from the paler half of the palette on purpose --
@@ -185,6 +187,47 @@ def _synthetic_event_id(cycle: str, subject: str) -> str:
     return hashlib.sha1(key.encode()).hexdigest()
 
 
+def _master_list_events(records: list) -> list:
+    """(sync_id, event body) for every entry in the school's yearly master
+    lists -- holidays, vacations, events and PTMs. The school rarely posts a
+    separate notice for these, so syncing notices alone left most holidays
+    off the calendar entirely. A date that already has its own Holiday /
+    School Event notice is skipped, since that notice is synced itself --
+    same rule as buildMasterListItems() in web/src/lib/upcoming.ts."""
+    holidays = json.loads(HOLIDAYS_PATH.read_text()) if HOLIDAYS_PATH.exists() else {}
+    events_calendar = json.loads(EVENTS_CALENDAR_PATH.read_text()) if EVENTS_CALENDAR_PATH.exists() else {}
+    already_synced = {
+        r["event_date_iso"] for r in records if r["category"] in ("Holiday", "School Event")
+    }
+
+    entries = []  # (category, name, start_iso, end_iso inclusive, source)
+    for h in holidays.get("holidays", []):
+        entries.append(("Holiday", h["name"], h["date_iso"], h["date_iso"], "holiday list"))
+    for v in holidays.get("vacations", []):
+        entries.append(("Holiday", v["name"], v["start_iso"], v["end_iso"], "holiday list"))
+    for e in events_calendar.get("events", []):
+        entries.append(("School Event", e["name"], e["date_iso"], e["date_iso"], "events calendar"))
+    for p in events_calendar.get("ptm", []):
+        name = f"{p['label']} — {p['scope']}" if p.get("scope") else p["label"]
+        entries.append(("School Event", name, p["date_iso"], p["date_iso"], "events calendar"))
+
+    out = []
+    for category, name, start_iso, end_iso, source in entries:
+        if start_iso in already_synced:
+            continue
+        body = {
+            "summary": f"{_TITLE_PREFIX[category]}: {name}",
+            "description": f"From the school's yearly {source}.",
+            "start": {"date": start_iso},
+            # Google Calendar all-day events use an exclusive end date.
+            "end": {"date": (date.fromisoformat(end_iso) + timedelta(days=1)).isoformat()},
+            "colorId": _COLOR_ID[category],
+        }
+        key = f"master|{category}|{start_iso}|{name}"
+        out.append((hashlib.sha1(key.encode()).hexdigest(), body))
+    return out
+
+
 def _upsert_event(service, calendar_id: str, body: dict, event_id: str = None) -> tuple[str, bool]:
     """Update by event_id if given, falling back to insert if that id was
     never created (or was deleted) -- covers both a real record's
@@ -204,8 +247,9 @@ def _upsert_event(service, calendar_id: str, body: dict, event_id: str = None) -
 
 def sync_events(records: list) -> tuple[int, int]:
     """Create/update a calendar event for every eligible record (mutating
-    calendar_event_id on each in place) plus every synthetic current-cycle
-    entry not yet covered by a real notice. Returns (created, updated)."""
+    calendar_event_id on each in place), every synthetic current-cycle
+    entry not yet covered by a real notice, and every master-list holiday,
+    vacation, event and PTM. Returns (created, updated)."""
     calendar_id = os.environ["GOOGLE_CALENDAR_ID"]
     service = _service()
 
@@ -225,6 +269,13 @@ def sync_events(records: list) -> tuple[int, int]:
 
     for r in _synthetic_events(records):
         _, was_update = _upsert_event(service, calendar_id, _event_body(r), r["_sync_id"])
+        if was_update:
+            updated += 1
+        else:
+            created += 1
+
+    for sync_id, body in _master_list_events(records):
+        _, was_update = _upsert_event(service, calendar_id, body, sync_id)
         if was_update:
             updated += 1
         else:

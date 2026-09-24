@@ -12,16 +12,17 @@ export default function UpcomingPage() {
   const holidays = useAppSelector((s) => s.data.holidays);
   const eventsCalendar = useAppSelector((s) => s.data.eventsCalendar);
 
-  const weekStripItems = useMemo(() => buildWeekStripItems(notices, holidays, eventsCalendar), [notices, holidays, eventsCalendar]);
   const nextWeekStripItems = useMemo(
     () => buildWeekStripItems(notices, holidays, eventsCalendar, 8, 14),
     [notices, holidays, eventsCalendar],
   );
-  const items = useMemo(() => buildUpcomingItems(notices, portionSchedules), [notices, portionSchedules]);
+  const items = useMemo(
+    () => buildUpcomingItems(notices, portionSchedules, holidays, eventsCalendar),
+    [notices, portionSchedules, holidays, eventsCalendar],
+  );
 
   return (
     <>
-      <WeekStrip title="This week" items={weekStripItems} />
       {items.length === 0 ? (
         <EmptyState>Nothing upcoming right now.</EmptyState>
       ) : (
