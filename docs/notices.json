@@ -44,6 +44,83 @@
     "exam_cycle": null
   },
   {
+    "id": "8e814d80a43e748d",
+    "posted_date": "26-09-2026",
+    "posted_date_iso": "2026-09-26",
+    "event_date_iso": "2026-09-26",
+    "text": "Class III D and III F\n\nToday's Daily Class Update \n26/09/2026\nPeriod 1: Assembly \nSkill Fest Preparation \n\nPeriod 2: English \nSkill Fest Preparation \n\nPeriod 3: Math Chapter- Measurement Exercise 2 Q.2 a to f discussed and completed in the Notebook.\n\nPeriod 4: English - Chapter pronoun was explained in the class.\n\nPeriod 5: Math- Chapter Measurement Exercise 3 Q.1 Q.a to d  discussed and completed in the Notebook.\nH.W : Solve Q.e to Q.i of Q.1 of Exercise 3.\n\nPeriod 6: SST\nCompleted Pending Work\nReading Practice of Chapter No.2\n\nPeriod 7: Marathi -८. माझी आगगाडीतून सफर -पाठाचे वाचन व स्पष्टीकरण .\n\nPeriod 8: Computer Science  Robotics activity is conducted \n\nPeriod 9: Art and craft composing a picture \nPage no 27",
+    "attachment_url": null,
+    "category": "Daily Class Update",
+    "method": "pattern",
+    "periods": [
+      {
+        "period": 1,
+        "subject": "Assembly",
+        "note": "Skill Fest Preparation",
+        "hw": null
+      },
+      {
+        "period": 2,
+        "subject": "English",
+        "note": "Skill Fest Preparation",
+        "hw": null
+      },
+      {
+        "period": 3,
+        "subject": "Maths",
+        "note": "Chapter- Measurement Exercise 2 Q.2 a to f discussed and completed in the Notebook.",
+        "hw": null
+      },
+      {
+        "period": 4,
+        "subject": "English",
+        "note": "Chapter pronoun was explained in the class.",
+        "hw": null
+      },
+      {
+        "period": 5,
+        "subject": "Maths",
+        "note": "Chapter Measurement Exercise 3 Q.1 Q.a to d  discussed and completed in the Notebook",
+        "hw": "Solve Q.e to Q.i of Q.1 of Exercise 3"
+      },
+      {
+        "period": 6,
+        "subject": "Social Studies",
+        "note": "Completed Pending Work\nReading Practice of Chapter No.2",
+        "hw": null
+      },
+      {
+        "period": 7,
+        "subject": "Marathi",
+        "note": "८. माझी आगगाडीतून सफर -पाठाचे वाचन व स्पष्टीकरण .",
+        "hw": null
+      },
+      {
+        "period": 8,
+        "subject": "Computer Science",
+        "note": "Robotics activity is conducted",
+        "hw": null
+      },
+      {
+        "period": 9,
+        "subject": "Art & Craft",
+        "note": "composing a picture \nPage no 27",
+        "hw": null
+      }
+    ],
+    "is_timetable": false,
+    "confidence": 0.9,
+    "subject": null,
+    "chapter": null,
+    "chapter_number": null,
+    "material_type": null,
+    "worksheet_numbers": null,
+    "answer_key_url": null,
+    "paired": false,
+    "calendar_event_id": null,
+    "exam_cycle": null
+  },
+  {
     "id": "048a9db002b56139",
     "posted_date": "24-09-2026",
     "posted_date_iso": "2026-09-24",
